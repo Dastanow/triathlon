@@ -1,14 +1,12 @@
 import { Routes } from 'react-router-dom'
-import './App.css'
-import Block from './Block'
+import './App.scss'
 
 function App() {
    return (
       <>
          <Routes>
-      
+            
          </Routes>
-         <Block/>
       </>
    )
 }

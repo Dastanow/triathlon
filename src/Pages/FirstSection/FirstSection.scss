@@ -1,0 +1,64 @@
+
+
+.block__draft{
+    margin-top: 100px;
+    margin-left: 200px;
+    width: 1920px;
+    height: 1000px;
+    background-image: url("../assets/background.png") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    
+}
+
+.banner{
+    margin-top: 200px;
+    margin-left: 100px;
+  
+
+    &_title{
+        font-weight: 800;
+        font-size: 80px;
+        line-height: 97.52px;
+        height: 196px;
+        color: #FAA831;
+        width: 505px;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        font-family: 'Montserrat', sans-serif;
+
+        -webkit-text-stroke: 1px white;
+    }
+
+    &_text{
+        width: 670px;
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 52.8px;
+        font-size: 45px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    &_btn{
+        width: 255px;
+        height: 70px;
+        border-radius: 10px;
+        background-color: #0082C5;
+        border: transparent;
+        color: white;
+        font-size: 16px;
+        
+    }
+
+    &_btn:hover{
+        color: gold;
+    }
+
+    &_chat{
+        margin-left: 1400px;
+        margin-top: 175px;
+        position: absolute;
+
+    }
+}

@@ -1,8 +1,7 @@
  .head__draft{
     background-color:  #0082C580; ;
-    width: 1920px;
     height: 95px;
-    gap: 373px;
+    
     
    
 }
@@ -19,13 +18,16 @@
     &_img{
         width: 135px;
         height: 60px;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 }
 
 .list__link{
     width: 920px;
-    margin-top: 25px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    
    
 
     &-all{
@@ -42,10 +44,12 @@
 
     li{
         color: #FFFFFF;
+        @import url('https://fonts.cdnfonts.com/css/montserrat');
         font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
+        font-weight: 100;
         font-size: 17px;
         line-height: 19.2px;
+        margin-right: 35px;
         
     }
 }
@@ -63,9 +67,15 @@
     font-size: 17px;
     margin-top: 25px;
     line-height: 19.2px;
+
+    
+}
+.personal__cabinet:hover{
+    cursor: pointer;
 }
 
 .link{
     text-decoration: none;
     color: #FFFFFF;
 }
+

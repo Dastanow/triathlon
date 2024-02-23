@@ -1,15 +1,15 @@
 import React from 'react'
 import './FirstSection.scss'
 import Header from '../Header/Header'
-import chat from '../assets/Frame.svg'
+import chat from '../../Assets/Frame.svg'
 
-const Layout = () => {
+const FirstSection = () => {
   return (
-    <div className='block__draft'>
+    <div className="block__draft">
 
-        <Header/>
+        {/* <Header/> */}
 
-        <div className='banner'>
+        <div className="banner">
 
                
             <h1 className='banner_title'>
@@ -17,13 +17,13 @@ const Layout = () => {
             </h1>
                
 
-            <h2 className='banner_text'>
+            <h2 className="banner_text">
                   Преодолевай границы, превосходи себя вместе с нами!
             </h2>
 
-            <button className='banner_btn'>Оставить заявку</button>
+            <button className="banner_btn">Оставить заявку</button>
 
-            <img className='banner_chat' src={chat} alt="" />
+            <img className="banner_chat" src={chat} alt="" />
 
         </div>
         
@@ -31,4 +31,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default FirstSection

@@ -1,0 +1,60 @@
+.lein {
+    width: 1920px;
+    height: 120px;
+    flex-shrink: 0;
+    background: #002550;
+    font-family:'Montserrat';
+
+}
+
+.logo {
+    margin-top: 34px;
+    margin-right: 1650px;
+    margin-bottom:33.1px;
+    margin-left: 100px;
+}
+
+.navigation {
+    margin-top: -77px;
+    margin-right: 266px;
+    margin-bottom: 47px;
+    margin-left: 381px;
+
+}
+
+.all-links {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.links {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    list-style-type:none;
+}
+
+.links:hover {
+    cursor: pointer;
+}
+
+.lein-acc {
+    margin-top: -82px;
+    margin-right: 110px;
+    margin-bottom: 38px;
+    margin-left: 1766px;
+}
+
+.acc {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.acc:hover{
+    cursor: pointer;
+}

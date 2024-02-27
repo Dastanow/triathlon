@@ -1,0 +1,59 @@
+#section{
+    margin-top: 112px;
+    .section{
+        h1{
+            color: var(--Color-Secondary, #F7B512);
+font-family: Montserrat;
+font-size: 80px;
+font-style: normal;
+font-weight: 600;
+line-height: 120%; /* 96px */
+text-align: center;
+
+        }
+        &--blocks{
+            margin-top: 80px;
+            display: flex;
+            border-radius: 16px;
+border: 1px solid #FFF;
+            &__block1{
+                    border: 1px solid #FFF;
+                 display: flex;
+                flex-direction: column;
+                align-items: center;
+                &--zgolok{
+                    display: flex;
+                    padding: 21px 154px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                   
+                    border: 1px solid #FFF;
+                    h2{
+                        color: #FFF;
+                        font-family: Montserrat;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                                            }
+                }
+                h4{
+                    border: 1px solid;
+                    display: flex;
+height: 110px;
+padding: 26px 59px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+                }
+            }
+        }
+    }
+}

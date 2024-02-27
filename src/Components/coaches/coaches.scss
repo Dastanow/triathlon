@@ -1,0 +1,166 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+button {
+    cursor: pointer;
+}
+
+$dark: #013d83;
+$white: #fff;
+$orange: #f7b512;
+$grey: #606062;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 150%;
+    color: $white;
+}
+
+// ----coaches-------------------
+.coaches {
+    background: $dark;
+}
+.container {
+    width: 1720px;
+    margin: 0 auto;
+}
+.coaches__wrapper {
+    height: 995px;
+    padding: 112px 0;
+}
+.coaches__title {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 120%;
+    color: $orange;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.coaches__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-bottom: 80px;
+}
+
+.coaches__button {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    color: $white;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    height: 55px;
+    padding: 8px 15px;
+    border: 1px solid $white;
+    border-radius: 16px;
+    background: $orange;
+    &:active {
+        background: transparent;
+    }
+}
+.coaches__button_pool {
+    margin-right: 35px;
+}
+// ------swiper----------
+.carousel-inner {
+    max-width: 1720x;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.swiper {
+    padding: 0 0 55px 0;
+    box-sizing: content-box;
+    max-width: 1568px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    box-sizing: content-box;
+}
+
+.slide__card {
+    width: 350px;
+    height: 470px;
+}
+
+.slide__card img {
+    max-width: 100%;
+    width: auto;
+    max-height: 470px;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $grey;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    width: 45px;
+    height: 15px;
+    border-radius: 7.5px;
+    background-color: $orange;
+}
+
+.btn-prev,
+.btn-next {
+    position: absolute;
+    top: 44%;
+    z-index: 10;
+    display: flex;
+    width: 34px;
+    height: 34px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: $orange;
+    border: 1px solid $white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-prev {
+    left: 0;
+}
+.btn-next {
+    right: 0;
+}

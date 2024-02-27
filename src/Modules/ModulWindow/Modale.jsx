@@ -24,7 +24,7 @@ const Modale = () => {
                         </div>
                         <div className="module--blockk__content--phone">
                             <h3>Номер телефона*</h3>
-                            <input type="phone" />
+                            <input type="phone" placeholder="+996" />
                         </div>
                         <button onClick={() => {
                             setCheck(true)

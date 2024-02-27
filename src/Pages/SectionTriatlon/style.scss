@@ -9,7 +9,6 @@ font-style: normal;
 font-weight: 600;
 line-height: 120%; /* 96px */
 text-align: center;
-
         }
         &--blocks{
             margin-top: 80px;
@@ -32,14 +31,17 @@ border: 1px solid #FFF;
                     h2{
                         color: #FFF;
                         font-family: Montserrat;
-                        font-size: 32px;
+                        font-size: 29px;
                         font-style: normal;
                         font-weight: 700;
                         line-height: normal;
                                             }
                 }
-                h4{
-                    border: 1px solid;
+                div{
+                    border-top:1px solid white ;
+                    border-bottom: 1px solid white;
+                    width: 100%;
+                      h4{
                     display: flex;
 height: 110px;
 padding: 26px 59px;
@@ -53,7 +55,138 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;    
                 }
+                }
+              
             }
+            &__block2{
+                border: 1px solid #FFF;
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            &--zgolok{
+                display: flex;
+                padding: 21px 103px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+               
+                border: 1px solid #FFF;
+                h2{
+                    color: #FFF;
+                    font-family: Montserrat;
+                    font-size: 29px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                                        }
+            }
+            div{
+                border-top:1px solid white ;
+                border-bottom: 1px solid white;
+                width: 100%;
+                  h4{
+                display: flex;
+                padding: 26px 0px;
+                height: 110px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+            }
+            }
+          
+           }
+           &__block3{
+            border: 1px solid #FFF;
+         display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--zgolok{
+            display: flex;
+            padding: 21px 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+           
+            border: 1px solid #FFF;
+            h2{
+                color: #FFF;
+                font-family: Montserrat;
+                font-size: 29px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                                    }
+        }
+        div{
+            border-top:1px solid white ;
+            border-bottom: 1px solid white;
+            width: 100%;
+              h4{
+            display: flex;
+height: 110px;
+padding: 40px 72px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+        }
+        }
+      
+           }
+            &__block4{
+        border: 1px solid #FFF;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--zgolok{
+        display: flex;
+        padding: 21px 122px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+       
+        border: 1px solid #FFF;
+        h2{
+            color: #FFF;
+            font-family: Montserrat;
+            font-size: 29px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+                                }
+    }
+    div{
+        border-top:1px solid white ;
+        border-bottom: 1px solid white;
+        width: 100%;
+          h4{
+        display: flex;
+height: 110px;
+padding: 40px 54px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: #FFF;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+    }
+    }
+  
+           }
         }
     }
 }

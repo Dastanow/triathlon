@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+.faq {
+    width: 1920px;
+    height: 894px;
+    background: #013D83;
+}
+.faq_container {
+    width: 1720px;
+    height: 894px;
+    margin-right: 118px;
+    margin-left: 82px;
+}
+.chief_block {
+    display: flex;
+}
+.faq_title {
+    color: var(--Color-Secondary, #F7B512);
+    font-family: Montserrat;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; 
+    margin-left: 230px;
+}
+.all_questions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    height: 713px;
+    width: 995px;
+    margin-top: 80px;
+}
+.boks_questions {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 16px;
+    background: #002550;
+}
+
+.title_questions {
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; 
+    width: 935px;
+    display: flex;
+    color: #FFF;
+
+}
+.arrow {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 1000px;
+    margin-top: -40px;
+    color: white;
+    gap: 9px;
+
+}
+.arrow:hover{
+    cursor: pointer;
+}
+.answer {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    width: 935px;
+    margin-left: 10px;
+}
+
+
+
+.additional_questions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    width: 577px;
+    height: 718px;
+    margin-left: 148px;
+    margin-top: 80px;
+}
+.title_additional {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; 
+}
+.min_text {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    width: 484px;
+    margin-top: 24px;
+}
+.all_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+}
+// .border_inp {
+//     display: flex;
+//     width: 577px;
+//     height: 70px;
+//     padding: 20px;
+//     align-items: center;
+//     gap: 10px;
+//     border-radius: 16px;
+//     border: 1px solid #FFF;
+// }
+// .border3_inp {
+    // display: flex;
+    // width: 577px;
+    // height: 212px;
+    // padding: 20px;
+    // align-items: center;
+    // gap: 10px;
+    // border-radius: 16px;
+    // border: 1px solid #FFF;
+// }/
+
+.inputp {
+    color: #FFF;
+    background-color: transparent;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 22px;
+    flex-shrink: 0;
+    display: flex;
+    width: 577px;
+    height: 70px;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid #FFF;
+}
+.inputp3 {
+    color: #FFF;
+    background-color: transparent;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 22px;
+    display: flex;
+    align-items: flex-start;    
+    width: 577px;
+    height: 212px;
+    padding: 20px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid #FFF;
+}
+
+.btn_additional {
+    margin-top: 50px;
+    display: flex;
+    width: 577px;
+    height: 70px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 16px;
+    background: var(--Color-Secondary, #F7B512);
+    color: #FFFFFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.439px; 
+}
+.btn_additional:hover{
+    cursor: pointer;
+}

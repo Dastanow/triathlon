@@ -1,5 +1,4 @@
 #trainingZones{
-    margin-top: 118px;
     .trainingZones{
         position: relative;
         &--zgolok{
@@ -15,8 +14,8 @@
             margin-top: 80px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 52px;
+            overflow-x: scroll;
         }
         .blockk{
             display: flex;
@@ -79,9 +78,9 @@ outline: none;
         .modalWindow{
             position: fixed;
             top: 160px;
-            left: 75vh;
+            // left: 75vh;
             transition: 2s;
-            
+            z-index: 99;
         }
     }
 }

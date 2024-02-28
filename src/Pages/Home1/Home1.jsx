@@ -1,8 +1,11 @@
 // import React from 'react';
 import './Home1.scss';
 import wp from '../../Assets/wp1.png';
+import Modale from '../../Modules/ModulWindow/Modale';
+import { useState } from 'react';
 
 const Home1 = () => {
+    const [modal,setModal] = useState(false)
     return (
         <div className="block">
             <div className="menu">
@@ -13,7 +16,7 @@ const Home1 = () => {
                 </p>
 
                 <div className="menu_btn">
-                    <button className="btn">Оставить заявку</button>
+                    <button onClick={() => setModal(true) } className="btn">Оставить заявку</button>
                 </div>
 
                 <div className="whatapp">
@@ -21,6 +24,9 @@ const Home1 = () => {
                         <img src={wp} alt="" />
                     </a>
                 </div>
+            </div>
+            <div className="modaleWindow">
+                {modal ? <Modale/> : null}
             </div>
         </div>
     );

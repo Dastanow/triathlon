@@ -16,6 +16,7 @@ const FisrtPage = () => {
             <Aboniment/>
             <Section/>
             <Coaches/>
+            <TrainingZones/>
             <FAQ/>
         </div>
     )

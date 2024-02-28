@@ -6,6 +6,7 @@
     box-sizing: border-box;
   }
 .faq {
+    margin-top: 112px;
     width: 1920px;
     height: 894px;
     background: #013D83;
@@ -38,6 +39,7 @@
     margin-top: 80px;
 }
 .boks_questions {
+    cursor: pointer;
     display: flex;
     padding: 10px;
     flex-direction: column;

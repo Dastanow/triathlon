@@ -16,6 +16,9 @@
             align-items: center;
             gap: 52px;
             overflow-x: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
         .blockk{
             display: flex;

@@ -4,7 +4,7 @@ import advanImg2 from '../../Assets/solar_dumbbell-large-linear.png';
 import advanImg3 from '../../Assets/solar_verified-check-linear.png'
 import advanImg4 from '../../Assets/solar_map-point-wave-outline.svg';
 import advanImg5 from '../../Assets/solar_hand-heart-linear.png';
-import advanImg6 from '../../Assets/iconoir_swimming.svg';
+import advanImg6 from '../../Assets/iconoir_swimming (1).svg';
 
 
 const Advantages = () => {

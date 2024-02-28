@@ -21,6 +21,18 @@ const TrainingZones = () => {
             bassein:'Бассейн',
             location:'Тренировочные зоны 17 000 с в месяц'
         },
+        {
+            id:2,
+            image: imageTrainingZones2,
+            bassein:'Бассейн',
+            location:'Тренировочные зоны 17 000 с в месяц'
+        },
+        {
+            id:2,
+            image: imageTrainingZones2,
+            bassein:'Бассейн',
+            location:'Тренировочные зоны 17 000 с в месяц'
+        },
     ]
     return(
         <div id="trainingZones">

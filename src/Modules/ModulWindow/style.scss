@@ -1,6 +1,14 @@
 #module{
-    position: absolute;
+     display: flex;
+        align-items: center;
+        justify-content: center;
+        // width: 100vw;
+        // height: 100vh;
+        position: fixed;
+        left: 0;
+        right: 0;
     .module{
+       
         &--blockk{
             position: relative;
             display: inline-flex;
@@ -177,6 +185,7 @@ background: #F7B512;
         
     }
     .moduletrue{
+        position: relative;
         display: flex;
         width: 580px;
         height: 524px;
@@ -188,6 +197,21 @@ background: #F7B512;
         flex-shrink: 0;
         border-radius: 20px;
         background: var(--Primary, #002550);
+        &--cross{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 20px;
+            right: 34px;
+            color: white;
+            font-size: 21px;
+            border: 3px solid white;
+            border-radius: 50%;
+            width: 41px;
+            height: 42px;
+            cursor: pointer;
+        }
         &--check{
             width: 80px;
 height: 80px;

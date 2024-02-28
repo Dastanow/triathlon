@@ -47,7 +47,13 @@ const Modale = () => {
                     </div>
                 </div>
             </div>
-            <div style={{display: check ? 'flex' : 'none'}} className="moduletrue">
+            <div id="modaltrue">
+                
+            </div>
+            <div style={{display: check ? 'flex' : 'none',}} className="moduletrue">
+                <div onClick={() => setCheck(false)} className="moduletrue--cross">
+                    <RxCross1/>
+                </div>
                 <div className="moduletrue--check">
                     <IoMdCheckmark/>
                 </div>

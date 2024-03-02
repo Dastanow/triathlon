@@ -1,0 +1,54 @@
+#advantages{
+    margin-top: 120px;
+    .advantages{
+        &--zgolovok{
+            color: var(--Color-Secondary, #F7B512);
+             text-align: center;
+             font-family: Montserrat;
+             font-size: 80px;
+             font-style: normal;
+             font-weight: 700;
+             line-height: 120%; /* 96px */
+        }
+        &--blocks{
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            .blockk{
+              display: flex;
+              width: 553px;
+              padding: 36px 122px;
+              justify-content: center;
+              flex-shrink: 0;
+              flex-direction: column;
+              align-items: center;
+              gap: 24px;
+              border-radius: 24px;
+              border: 1px solid #FFF;
+              background: linear-gradient(119deg, #013D83 -10.14%, rgba(255, 255, 255, 0.00) 100%);
+              cursor: pointer;
+            h1{
+                color: var(--Color-Secondary, #F7B512);
+                text-align: center;
+                font-family: Montserrat;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 32px; /* 133.333% */
+            }
+        p{
+            color: #FFF;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px; /* 133.333% */
+        }    
+        }
+
+        }
+    }
+}

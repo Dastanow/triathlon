@@ -1,4 +1,4 @@
-import Carousel from './carousel';
+// import Carousel from './carousel';
 import './coaches.scss';
 
 const Coaches = () => {
@@ -15,7 +15,7 @@ const Coaches = () => {
                             Тренировочный зал
                         </button>
                     </div>
-                    <Carousel />
+                    {/* <Carousel /> */}
                 </div>
             </div>
         </section>

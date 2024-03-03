@@ -1,6 +1,6 @@
 import React from 'react'
 import './Feedback.scss'
-import {SwiperSlide, Swiper, useSwiper} from "swiper/react";
+import {SwiperSlide, Swiper, useSwiper} from 'swiper/react';
 import client from '../../Assets/client.svg'
 
 import right from '../../Assets/btnright.svg'
@@ -19,21 +19,21 @@ const Feedback = () => {
     const data =[
         {
             id:0,
-            title:"James Pattinson",
+            title:'James Pattinson',
             info:`“Lobortis leo pretium facilisis amet nisl at nec.
             Scelerisque risus tortor donec ipsum consequat semper consequat adipiscing ultrices.”`,
             img: client
         },
         {
             id:1,
-            title:"James Pattinson",
+            title:'James Pattinson',
             info:`“Lobortis leo pretium facilisis amet nisl at nec.
             Scelerisque risus tortor donec ipsum consequat semper consequat adipiscing ultrices.”`,
             img: client
         },
         {
             id:2,
-            title:"James Pattinson",
+            title:'James Pattinson',
             info:`“Lobortis leo pretium facilisis amet nisl at nec.
             Scelerisque risus tortor donec ipsum consequat semper consequat adipiscing ultrices.”`,
             img: client
@@ -45,25 +45,25 @@ const Feedback = () => {
  
 
 
-  return (
-    <div className="general">
-        <div>
-            <h1 className="comments">Отзывы наших клиентов</h1>
-            <p className="reading">Прочтите, что говорят о нас наши клиенты</p>
+    return (
+        <div className="general">
+            <div>
+                <h1 className="comments">Отзывы наших клиентов</h1>
+                <p className="reading">Прочтите, что говорят о нас наши клиенты</p>
 
            
 
 
-            <section className="r-wrapper h-container">
-                <div className="paddings innerWidth r-container">
+                <section className="r-wrapper h-container">
+                    <div className="paddings innerWidth r-container">
                     
                         <div className="all-card">
                     
                        
-                       <div className="left"><img src={left} alt="" /></div>
+                            <div className="left"><img src={left} alt="" /></div>
                       
                             
-                      {data.map((card) => (
+                            {data.map((card) => (
                        
 
                                 <div className="r-card ">
@@ -71,24 +71,24 @@ const Feedback = () => {
 
                                    
                                             
-                                            <h3 className="card-text">{card.title}</h3>
+                                    <h3 className="card-text">{card.title}</h3>
                                         
 
                                     <h4 className="card-tet">{card.title}</h4>
                                     <p className="card-info">{card.info}</p>
                                 </div>
                                 
-                      ))}
+                            ))}
                             
                             <div className="right"><img src={right} alt="" /></div>
 
 
                     
+                        </div>
+                        <img className="custom" src={custom} alt="" />
+
                     </div>
-                            <img className="custom" src={custom} alt="" />
-
-                </div>
-            </section>
+                </section>
 
 
 
@@ -104,11 +104,11 @@ const Feedback = () => {
 
 
 
+
+            </div>
 
         </div>
-
-    </div>
-  )
+    )
 }
 
 export default Feedback

@@ -1,0 +1,38 @@
+.footer__container {
+    width: 1920px;
+    height: auto;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    background: var(--Primary, #002550);
+    color: #fff;
+    gap: 156px;
+    padding: 30px 80px;
+    margin-top: 100px;
+    padding-right: 250px;
+    h2 {
+      margin-bottom: 20px;
+      color: var(--Blue-Blue-70, #3a86ff);
+    }
+    .logo__container {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      a {
+        color: #fff;
+      }
+      h3 {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    .Geeks {
+      margin-top: 207px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+  

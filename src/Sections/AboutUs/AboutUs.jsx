@@ -13,6 +13,8 @@ const AboutUs = () => {
         <div className="about__us">
             <div className="about__us_container">
                 <h1>О нас</h1>
+
+
                 <div className="about__us__platfor">
                     <div className="about__us__img">
                         <img src={School} alt="school" />
@@ -40,6 +42,7 @@ const AboutUs = () => {
                           
                         )}
                         <button  onClick={moreВetails}>{school ? 'Закрыть' : 'Подробнее'}</button>
+                        
 
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React,  { useState }  from 'react'
 import './FAQ.scss'
+import Input from '../../UI/CustomInput/CustomInput';
 
 
 
@@ -62,15 +63,20 @@ const FAQ = () => {
                             <h1 className="title_additional">Остались вопросы?</h1>
                             <p className="min_text">Мы рады ответить на любой Ваш вопрос, выслушать Ваше предложение.</p>
                             <div className="all_inputs">
-                                <div className="border_inp">
-                                    <input className="inputp" type="" placeholder="Ваше имя*"/>
-                                </div>
-                                <div className="border_inp">
-                                    <input className="inputp" type="" placeholder="+996(___) ___-___"/>
-                                </div>
-                                <div className="border3_inp">
-                                    <input className="inputp3" type="" placeholder="Напишите Ваш вопрос"/>
-                                </div>
+                                <Input 
+                                    placeholder="Ваше имя*" 
+                                    className={'inp'}
+                                />
+                               
+                                <Input
+                                    placeholder="+996(___)___-___"
+                                    className={'inp'}
+                                />
+                                
+                                <Input 
+                                    placeholder="Напишите Ваш вопрос"
+                                    className={'secondI'}
+                                />
                             </div>
                             <button className="btn_additional">Отправить</button>
                         </div>

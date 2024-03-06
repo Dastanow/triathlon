@@ -2,6 +2,7 @@ import './style.scss'
 import { RxCross1 } from 'react-icons/rx';
 import { IoMdCheckmark } from 'react-icons/io';
 import { useState } from 'react';
+import Input from '../../UI/CustomInput/CustomInput';
 
 const Modale = () => {
     const [check,setCheck] = useState(false)
@@ -16,15 +17,25 @@ const Modale = () => {
                     <div className="module--blockk__content">
                         <div className="module--blockk__content--name">
                             <h3>Имя*</h3>
-                            <input type="name" />        
+
+                            <Input 
+                            className={"name"}
+                            />
+
                         </div>
                         <div className="module--blockk__content--lastName">
                             <h3>Фамилия*</h3>
-                            <input type="lastName" />
+                            <Input 
+                            
+                            className={"lastName"}
+                            />
                         </div>
                         <div className="module--blockk__content--phone">
                             <h3>Номер телефона*</h3>
-                            <input type="phone" placeholder="+996" />
+                            <Input 
+                            placeholder="+996"
+                            className={"phone"}
+                            />
                         </div>
                         <button onClick={() => {
                             setCheck(true)

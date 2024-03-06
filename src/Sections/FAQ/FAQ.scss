@@ -122,65 +122,7 @@
     gap: 30px;
     margin-top: 30px;
 }
-// .border_inp {
-//     display: flex;
-//     width: 577px;
-//     height: 70px;
-//     padding: 20px;
-//     align-items: center;
-//     gap: 10px;
-//     border-radius: 16px;
-//     border: 1px solid #FFF;
-// }
-// .border3_inp {
-    // display: flex;
-    // width: 577px;
-    // height: 212px;
-    // padding: 20px;
-    // align-items: center;
-    // gap: 10px;
-    // border-radius: 16px;
-    // border: 1px solid #FFF;
-// }/
 
-.inputp {
-    color: #FFF;
-    background-color: transparent;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 22px;
-    flex-shrink: 0;
-    display: flex;
-    width: 577px;
-    height: 70px;
-    padding: 20px;
-    align-items: center;
-    gap: 10px;
-    border-radius: 16px;
-    outline: none;
-    border: 1px solid #FFF;
-}
-.inputp3 {
-    color: #FFF;
-    background-color: transparent;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 22px;
-    display: flex;
-    align-items: flex-start;    
-    width: 577px;
-    height: 212px;
-    padding: 20px;
-    border-radius: 16px;
-    outline: none;
-    border: 1px solid #FFF;
-}
 
 .btn_additional {
     margin-top: 50px;
@@ -204,4 +146,118 @@
 }
 .btn_additional:hover{
     cursor: pointer;
+}
+
+
+
+.inp{
+    color: white;
+    background-color: transparent;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 22px;
+    width: 577px;
+    gap: 10px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid white;
+    margin-left: -2px;
+    height: 70px;
+}
+
+
+.inp::placeholder{
+    color: wheat;
+    padding-left: 10px;
+}
+
+.inp:hover{
+    border: 1px solid darkgray;
+    color: white;
+    transition: 2s;
+    
+}
+
+.inp:hover::placeholder{
+    
+    color: white;
+    transition: 2s;
+    
+}
+    
+.inp:not(:hover){
+    
+    transition: 2s;
+}
+
+.inp:focus{
+      outline: 0;
+      border: 1px solid #ccc;
+      background: #266798;
+}
+
+.inp:focus::placeholder{
+    color: white;
+}
+
+
+.secondI{
+    color: white;
+    background-color: transparent;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 22px;
+    width: 577px;
+    gap: 10px;
+    height: 212px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid white;
+    margin-left: -2px;
+}
+
+.secondI::placeholder{
+    color: wheat;
+    padding-left: 10px;
+
+}
+
+.secondI::placeholder{
+    color: wheat;
+    padding-left: 10px;
+}
+
+.secondI:hover{
+    border: 1px solid darkgray;
+    color: white;
+    transition: 2s;
+    
+}
+
+.secondI:hover::placeholder{
+    
+    color: white;
+    transition: 2s;
+    
+}
+    
+.secondI:not(:hover){
+    
+    transition: 2s;
+}
+
+.secondI:focus{
+      outline: 0;
+      border: 1px solid #ccc;
+      background: #266798;
+}
+
+.secondI:focus::placeholder{
+    color: white;
 }

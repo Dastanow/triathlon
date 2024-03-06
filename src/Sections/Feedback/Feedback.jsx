@@ -1,6 +1,6 @@
 import React from 'react'
 import './Feedback.scss'
-import {SwiperSlide, Swiper, useSwiper} from 'swiper/react';
+
 import client from '../../Assets/client.svg'
 
 import right from '../../Assets/btnright.svg'

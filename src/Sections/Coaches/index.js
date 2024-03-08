@@ -1,2 +1,2 @@
-import Coaches from './Coaches';
-export {Coaches};
+import Coaches from './coaches';
+export default Coaches;

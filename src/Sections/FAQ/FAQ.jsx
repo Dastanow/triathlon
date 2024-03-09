@@ -65,17 +65,17 @@ const FAQ = () => {
                             <div className="all_inputs">
                                 <Input 
                                     placeholder="Ваше имя*" 
-                                    className={'inp'}
+                                    className={"inp"}
                                 />
                                
                                 <Input
                                     placeholder="+996(___)___-___"
-                                    className={'inp'}
+                                    className={"inp"}
                                 />
                                 
                                 <Input 
                                     placeholder="Напишите Ваш вопрос"
-                                    className={'secondI'}
+                                    className={"secondI"}
                                 />
                             </div>
                             <button className="btn_additional">Отправить</button>

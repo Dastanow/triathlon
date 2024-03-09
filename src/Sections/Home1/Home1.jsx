@@ -6,8 +6,11 @@ import { useState } from 'react';
 
 const Home1 = () => {
     const [modal,setModal] = useState(false)
+
+    
     return (
         <div className="block">
+           
             <div className="menu">
                 <h2 className="title">TRIATHLON CENTER</h2>
 
@@ -26,6 +29,8 @@ const Home1 = () => {
                     </a>
                 </div>
             </div>
+
+            
             <div className="modaleWindow">
                 {modal ? <Modale/> : null}
             </div>

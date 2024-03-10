@@ -16,13 +16,10 @@ const OurServices = () => {
 
     return (
         <div className="service">
-
             <div className="service__block">
                 <h1 className="cust_title">Наши услуги</h1>
 
                 <div className="all__cards">
-
-
                     <div className="all__cards_card">
                         <h2 className="all__cards-text">Персональные тренировки</h2>
                         <span onClick={() => setModal(true) }
@@ -87,10 +84,8 @@ const OurServices = () => {
 
                 </div>
             </div>
-
-           
         </div>
-    )
-}
+    );
+};
 
-export default OurServices
+export default OurServices;

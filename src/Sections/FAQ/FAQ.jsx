@@ -70,33 +70,20 @@ const Faq = () => {
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <div className="border_inp">
-                                    <input
-                                        className="inputp"
-                                        type="text"
-                                        name="name"
-                                        placeholder="Ваше имя*"
-                                        autoComplete="off"
-                                    />
-                                </div>
-                                <div className="border_inp">
-                                    <input
-                                        className="inputp"
-                                        type="text"
-                                        name="phone"
-                                        placeholder="+996(___) ___-___"
-                                        autoComplete="off"
-                                    />
-                                </div>
-                                <div className="border3_inp">
-                                    <input
-                                        className="inputp3"
-                                        type="text"
-                                        name="textarea"
-                                        placeholder="Напишите Ваш вопрос"
-                                        autoComplete="off"
-                                    />
-                                </div>
+                                <Input 
+                                    placeholder="Ваше имя*" 
+                                    className={"inp"}
+                                />
+                               
+                                <Input
+                                    placeholder="+996(___)___-___"
+                                    className={"inp"}
+                                />
+                                
+                                <Input 
+                                    placeholder="Напишите Ваш вопрос"
+                                    className={"secondI"}
+                                />
                             </div>
                             <button className="btn_additional">
                                 Отправить

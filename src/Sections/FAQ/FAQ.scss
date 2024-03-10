@@ -9,7 +9,7 @@
     margin-top: 112px;
     width: 1920px;
     height: 894px;
-    background: #013D83;
+    background: #FFFFFF;
 }
 .faq_container {
     width: 1720px;
@@ -21,7 +21,7 @@
     display: flex;
 }
 .faq_title {
-    color: var(--Color-Secondary, #F7B512);
+    color: #013D83;
     font-family: Montserrat;
     font-size: 80px;
     font-style: normal;
@@ -46,7 +46,7 @@
     align-items: flex-start;
     gap: 20px;
     border-radius: 16px;
-    background: #002550;
+    background: #013D83;
 }
 
 .title_questions {
@@ -98,7 +98,7 @@
     margin-top: 80px;
 }
 .title_additional {
-    color: #FFF;
+    color: #000000;
     font-family: Montserrat;
     font-size: 44px;
     font-style: normal;
@@ -106,7 +106,7 @@
     line-height: 150%; 
 }
 .min_text {
-    color: #FFF;
+    color: #000000;
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
@@ -134,7 +134,7 @@
     align-items: center;
     gap: 4px;
     border-radius: 16px;
-    background: var(--Color-Secondary, #F7B512);
+    background: #013D83;
     color: #FFFFFF;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -170,7 +170,7 @@
 
 
 .inp::placeholder{
-    color: wheat;
+    color: #000000;
     padding-left: 10px;
 }
 
@@ -220,16 +220,12 @@
     outline: none;
     border: 1px solid white;
     margin-left: -2px;
+    padding-bottom: 119px;
 }
 
-.secondI::placeholder{
-    color: wheat;
-    padding-left: 10px;
-
-}
 
 .secondI::placeholder{
-    color: wheat;
+    color: #000000;
     padding-left: 10px;
 }
 

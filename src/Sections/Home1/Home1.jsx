@@ -15,7 +15,7 @@ const Home1 = () => {
                 <h2 className="title">TRIATHLON CENTER</h2>
 
                 <p className="text">
-                    Преодолевай границы, превосходи себя вместе с нами!
+                    Первая инклюзивная спортивная база в Кыргызской Республике
                 </p>
 
                 <div className="menu_btn">

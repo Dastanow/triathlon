@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './FAQ.scss';
-import Input from '../../UI/CustomInput/CustomInput';
 
 const Faq = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -70,20 +69,21 @@ const Faq = () => {
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <Input 
+                                <input type="text"
                                     placeholder="Ваше имя*" 
                                     className={'inp'}
                                 />
                                
-                                <Input
+                               <input type="text"
                                     placeholder="+996(___)___-___"
                                     className={'inp'}
                                 />
                                 
-                                <Input 
+                                <input type="text" 
                                     placeholder="Напишите Ваш вопрос"
                                     className={'secondI'}
                                 />
+                                
                             </div>
                             <button className="btn_additional">
                                 Отправить

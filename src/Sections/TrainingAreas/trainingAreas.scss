@@ -47,50 +47,18 @@ body {
     margin: 0 auto;
 }
 
-// -------------coaches-------------
-.coaches {
+//-----------training-areas------------
+.train-areas {
     background: $white;
-    padding: 112px 0 100px 0;
+    padding: 35px 0 60px 0;
 }
 
-.coaches__title {
+.train-areas__title {
     font-size: 80px;
     font-weight: 700;
     font-style: normal;
     line-height: 120%;
     color: $dark;
     text-align: center;
-    margin-bottom: 30px;
-}
-//---------coaches-buttons---------------
-.coaches__buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 80px;
-    > button {
-        margin: 0 35px;
-    }
-    > button:last-child {
-        margin: 0;
-    }
-}
-
-.coaches__button {
-    height: 55px;
-    font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    font-size: 26px;
-    font-weight: 500;
-    font-style: normal;
-    color: $white;
-    padding: 8px 22px;
-    border-radius: 16px;
-    border: 2px solid $dark;
-    background: $dark;
-    &:active {
-        color: $black;
-        border: 2px solid $black;
-        background: transparent;
-    }
 }

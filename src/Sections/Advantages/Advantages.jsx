@@ -51,6 +51,7 @@ const Advantages = () => {
         <div id="advantages">
             <div className="advantages">
                 <h1 className="advantages--zgolovok">Наши преимущества</h1>
+                
                 <div className="advantages--blocks">
                     {block.map((el) => {
                         return (

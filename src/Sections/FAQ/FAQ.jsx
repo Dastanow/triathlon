@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './FAQ.scss';
+import Input from '../../UI/CustomInput/CustomInput';
 
 const Faq = () => {
     const [openIndex, setOpenIndex] = useState(null);

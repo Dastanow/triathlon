@@ -1,0 +1,33 @@
+[
+    {
+        "id":"1",
+        "image":"../../Assets/solar_bicycling-round-outline.svg",
+        "discription":"Инклюзивная инфраструктура для занятия триатлоном"
+    },
+    {
+        "id":"2",
+        "image":"../../Assets/solar_treadmill-round-linear.svg",
+        "discription":"Высококлассное оборудование по фильтрации воды в бассейне, подходит аллергикам"
+    },
+    {
+        "id":"3",
+        "image":"../../Assets/iconoir_swimming (1).svg",
+        "discription":"Одно из лучших оборудований для тренажерного зала Foreman"
+    },
+    {
+        "id":"4",
+        "image":"../../Assets/solar_hand-heart-linear.svg",
+        "discription":"Станки для занятий велоспортом TACX NEO 2T от GARMIN"
+    },
+    {
+        "id":"5",
+        "image":"../../Assets/Frame 1000006256.svg",
+        "discription":"Тренерский состав"
+    },
+    {
+        "id":"6",
+        "image":"../../Assets/Vector.svg",
+        "discription":"Сауна для всех клиентов клуба"
+    }
+
+]

@@ -1,24 +1,23 @@
-.footer__container {
-    width: 1920px;
-    height: auto;
-  }
-  .footer {
+.footer {
+  width: 1920px;
+
+  .footer__container {
     display: flex;
     justify-content: center;
     background: var(--Primary, #002550);
     color: #fff;
-    gap: 156px;
-    padding: 30px 80px;
+    gap: 100px;
     margin-top: 100px;
-    padding-right: 250px;
+    padding: 30px 80px;
+    padding-right: 450px;
     h2 {
-      margin-bottom: 20px;
-      color: var(--Blue-Blue-70, #3a86ff);
+      margin-bottom: 18px;
     }
     .logo__container {
       display: flex;
       flex-direction: column;
       gap: 34px;
+      margin-top: 40px;
       a {
         color: #fff;
       }
@@ -26,13 +25,28 @@
         font-size: 16px;
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 34px;
       }
     }
-    .Geeks {
-      margin-top: 207px;
+  }
+  .footer__form {
+    display: flex;
+    background: var(--Primary, #002550);
+    justify-content: center;
+    h3 {
       font-size: 24px;
       font-weight: 500;
+      line-height: 150%;
     }
   }
-  
+  .footer__blok {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  h2, h3 {
+    cursor: pointer;
+  }
+}

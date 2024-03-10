@@ -11,7 +11,7 @@
 .menu {
     position: absolute;
     margin-top: 341px;
-    margin-left: 100px;
+    margin-left: 118px;
 }
 
 .title {
@@ -19,31 +19,31 @@
     color: #FAA831;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     -webkit-text-stroke-width: 1;
-    -webkit-text-stroke-color: #FFF;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.70);
     font-family: Montserrat;
     font-size: 80px;
     font-style: normal;
     font-weight: 800;
-    line-height: 120%;
+    line-height: 120%; 
     letter-spacing: -0.8px;
     text-shadow: 0px 0 0px #000, 
     0 1px 0px white, 
     -1px 0 0px white, 
     0 -1px 0px white;
+    margin-top: 10px;
 }
 
 .text {
-    width: 816px;
-    letter-spacing: 0.88px;
-    color: #FFF;
+    width: 838px;
+    color: rgba(255, 255, 255, 0.90);
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Montserrat;
     font-size: 44px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 120%; 
     letter-spacing: 0.88px;
-    margin: 40px 0 40px;
+    margin-top: 37px;
 }
 
 .menu_btn {
@@ -55,15 +55,17 @@
     height: 70px;
     border-radius: 16px;
     background: #FAA831;
-    color: white;
+    color: #171717;
     box-shadow: 0px 1.122px 4.488px 0px rgba(25, 33, 61, 0.08);
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Montserrat;
     font-size: 24px;
     font-style: normal;
+    font-weight: 600;
     letter-spacing: -0.48px;
     margin-left: -18px;
+    margin-top: 12px;
 }
 
 .btn:hover{

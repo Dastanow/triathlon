@@ -74,7 +74,7 @@ const Faq = () => {
                                     className={'inp'}
                                 />
                                
-                               <input type="text"
+                                <input type="text"
                                     placeholder="+996(___)___-___"
                                     className={'inp'}
                                 />

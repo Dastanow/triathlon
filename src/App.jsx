@@ -3,7 +3,9 @@ import './App.scss'
 import Header1 from './Sections/Header1/Header1'
 // import Home1 from './Pages/Home1/Home1'
 import FirstPage from './Pages/FisrtPage/FirstPage'
-import Footer from  './Sections/Footer/Footer'
+// import NoVacancies from './Sections/Vacancies/NoVacancies/NoVacancies'
+import YesVacancies from './Sections/Vacancies/YesVacancies/YesVacancies'
+import Footer from './Sections/Footer/Footer'
 
 function App() {
     return (
@@ -11,6 +13,7 @@ function App() {
             <Header1/>
             <Routes>
                 <Route path="/" element={<FirstPage/>} />
+                <Route path="/Vacancies" element={<YesVacancies/>} />
             </Routes>
             <Footer/>
         </div>

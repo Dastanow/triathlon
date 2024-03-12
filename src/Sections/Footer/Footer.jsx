@@ -4,6 +4,7 @@ import email from '../../Assets/email.svg';
 import phone from '../../Assets/phone.svg';
 import instagram from '../../Assets/instagram.svg';
 import Logotip from '../../Assets/logo1.png';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -48,7 +49,9 @@ const Footer = () => {
                         <h3>Новости</h3>
                     </div>
                     <div className="footer__blok">
-                        <h2>Вакансии</h2>
+                        <NavLink to={'/Vacancies'}>
+                            <h2>Вакансии</h2>
+                        </NavLink>
                         <h3>Тренеры</h3>
                         <h3>Отдел продаж</h3>
                     </div>

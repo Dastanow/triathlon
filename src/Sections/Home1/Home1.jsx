@@ -1,11 +1,11 @@
 // import React from 'react';
 import './Home1.scss';
 import wp from '../../Assets/wp1.png';
-import Modale from '../../Modules/ModulWindow/Modale';
+import ModaleWindow from '../../Modules/ModulWindow/ModaleWindow';
 import { useState } from 'react';
 
 const Home1 = () => {
-    const [modal,setModal] = useState(false)
+    const [modalActive, setModalActive] = useState(false)
 
     
     return (
@@ -19,9 +19,10 @@ const Home1 = () => {
                 </p>
 
                 <div className="menu_btn">
-                    <button onClick={() => setModal(true) } className="btn">Оставить заявку</button>
+                    <button  onClick={() => setModalActive(true)} className="btn">Оставить заявку</button>
                 </div>
 
+                <ModaleWindow active={modalActive} setActive={setModalActive}/>  
 
                 <div className="whatapp">
                     <a href="https://api.whatsapp.com/send/?phone=996227000180&type=phone_number&app_absent=0&fbclid=PAAaY_5bq244tz8NBMZByR5gZH5QOPPnwqjB2n58ehJl3PUjGfA57gTD3vBKw_aem_AT59MfZLMHLdpFec1QkPFlU_LqH-cBOTMTSLfwbadUyszfb7PcECLptkeZoEOPpWcHE">
@@ -31,9 +32,7 @@ const Home1 = () => {
             </div>
 
             
-            <div className="modaleWindow">
-                {modal ? <Modale/> : null}
-            </div>
+            
         </div>
     );
 };

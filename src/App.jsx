@@ -5,6 +5,7 @@ import Header1 from './Sections/Header1/Header1'
 import FirstPage from './Pages/FisrtPage/FirstPage'
 // import NoVacancies from './Sections/Vacancies/NoVacancies/NoVacancies'
 import YesVacancies from './Sections/Vacancies/YesVacancies/YesVacancies'
+import Footer from './Sections/Footer/Footer'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/" element={<FirstPage/>} />
                 <Route path="/Vacancies" element={<YesVacancies/>} />
             </Routes>
+            <Footer/>
         </div>
     )
 }

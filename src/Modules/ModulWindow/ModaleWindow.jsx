@@ -136,7 +136,7 @@ const ModaleWindow = ({active, setActive}) => {
                 className="moduletrue--cross">
                 
             </div>
-            <img src={modalSvg} onClick={()=> setActive(false) } className="module--blockk__crosser" alt="" />
+            <img src={modalSvg} onClick={()=> setCheck(true) } className="module--blockk__crosser" alt="" />
             <div className="moduletrue--check">
                     <IoMdCheckmark/>
             </div>

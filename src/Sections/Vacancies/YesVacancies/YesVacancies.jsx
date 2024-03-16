@@ -18,8 +18,10 @@ const YesVacancies = () => {
                     <div className="blockk" key={index}>
                         <h4 className="blockk--vacancies" onClick={() => handleToggle(index)} > 
                             {el.zgolovok}
-                            <span>
-                                <IoIosArrowForward/>
+                            <span >
+                                <IoIosArrowForward className={
+                                    openIndex === index ? 'rotate' : ''
+                                } />
                             </span>
                         </h4>
                         {openIndex === index && (

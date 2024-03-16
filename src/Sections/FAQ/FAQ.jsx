@@ -72,17 +72,17 @@ const Faq = () => {
                             <div className="all_inputs">
                                 <InputCustom
                                     placeholder="Ваше имя*" 
-                                    className={"inp"}
+                                    className={'inp'}
                                 />
                                
-                               <InputCustom
+                                <InputCustom
                                     placeholder="+996(___)___-___"
-                                    className={"inp"}
+                                    className={'inp'}
                                 />
                                 
                                 <InputCustom
                                     placeholder="Напишите Ваш вопрос"
-                                    className={"secondI"}
+                                    className={'secondI'}
                                 />
                                 
                             </div>

@@ -1,36 +1,45 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
+import { carouselInitState } from '../../common/constants';
+import { TrainingAreasCard } from '../../Sections/TrainingAreas';
 import CustomSlideCard from '../CustomSlideCard';
+import Modal from '../Modal/Modal';
+import ModalCoachCard from '../../Sections/Coaches/modalCoachCard';
 // Import Swiper styles
 import 'swiper/scss';
-import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import './customCarousel.scss';
 
-import arrowLeft from '../../Assets/arrow-left.png';
-import arrowPrev from '../../Assets/arrow-prev.png';
-import arrowNext from '../../Assets/arrow-next.png';
-import arrowRight from '../../Assets/arrow-right.png';
-
 const CustomCarousel = ({ gap, number, dataArray, classes }) => {
-    const btnPrevClass = 'btn-prev';
-    const btnNextClass = 'btn-next';
-    const disableClass = 'btn-disable';
+    const {
+        btnPrevClass,
+        btnNextClass,
+        disableClass,
+        btnPrevActive,
+        btnPrevtDisable,
+        btnNextActive,
+        btnNextDisable,
+    } = carouselInitState;
 
-    const swiperRef = useRef(null);
+    const [modalActive, setModalActive] = useState(false);
+    const [clickedSlide, setClickedSlide] = useState(null);
     const [data, setData] = useState({
         btnPrev: `${btnPrevClass} ${disableClass}`,
         btnNext: `${btnNextClass}`,
     });
 
+    const swiperRef = useRef(null);
+
+    const isTrainingAreaSection = dataArray[0]?.section === 'train';
+
     const getNavButtonsClasses = (swiper) => {
-        const slidesQuantity = swiper.slides.length;
+        const slidesCount = swiper.slides.length;
         const activeSlideIndex = swiper.activeIndex;
 
         const isFirstSlide = activeSlideIndex === 0;
-        const isLastSlide = activeSlideIndex === slidesQuantity - number;
+        const isLastSlide = activeSlideIndex === slidesCount - number;
 
         if (isFirstSlide) {
             setData((prevState) => ({
@@ -54,11 +63,14 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     };
 
     const getIconBtnPrev = () => {
-        return data.btnPrev.includes(disableClass) ? arrowPrev : arrowLeft;
+        return data.btnPrev.includes(disableClass)
+            ? btnPrevtDisable
+            : btnPrevActive;
     };
-
     const getIconBtnNext = () => {
-        return data.btnNext.includes(disableClass) ? arrowNext : arrowRight;
+        return data.btnNext.includes(disableClass)
+            ? btnNextDisable
+            : btnNextActive;
     };
 
     const handleSwitchPrevSlide = () => {
@@ -68,6 +80,14 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
         swiperRef.current?.slideNext();
     };
 
+    const handleClickOnSlide = (swiper) => {
+        if (dataArray[0]?.section !== 'coach') return;
+        const slideIndex = swiper.clickedIndex;
+        const clickedSlide = dataArray[slideIndex];
+        setClickedSlide(clickedSlide);
+        setModalActive(true);
+    };
+
     return (
         <div className="carousel-inner">
             <button className={data.btnPrev} onClick={handleSwitchPrevSlide}>
@@ -75,40 +95,39 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
             </button>
             <div className={classes.class0}>
                 <Swiper
-                    modules={[Navigation, Pagination]}
+                    modules={[Pagination]}
                     spaceBetween={gap}
                     slidesPerView={number}
-                    navigation={false}
                     pagination={{ clickable: true }}
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
                     onSlideChange={(swiper) => getNavButtonsClasses(swiper)}
+                    onClick={(swiper) => handleClickOnSlide(swiper)}
                 >
-                    {dataArray.map((item) => {
-                        return (
-                            <SwiperSlide key={item.id}>
-                                <CustomSlideCard
-                                    class1={classes.class1}
-                                    class2={classes.class2}
-                                    class3={classes.class3}
-                                    class4={classes.class4}
-                                    class5={classes.class5}
-                                    image={item.image}
-                                    alt={item.alt}
-                                    title={item.title}
-                                    text1={item.text1}
-                                    text2={item.text2}
-                                    text3={item.text3}
-                                />
-                            </SwiperSlide>
-                        );
-                    })}
+                    {(isTrainingAreaSection &&
+                        dataArray.map((item) => {
+                            return (
+                                <SwiperSlide key={item.id}>
+                                    <TrainingAreasCard {...item} {...classes} />
+                                </SwiperSlide>
+                            );
+                        })) ||
+                        dataArray.map((item) => {
+                            return (
+                                <SwiperSlide key={item.id}>
+                                    <CustomSlideCard {...item} {...classes} />
+                                </SwiperSlide>
+                            );
+                        })}
                 </Swiper>
             </div>
             <button className={data.btnNext} onClick={handleSwitchNextSlide}>
                 <img src={getIconBtnNext()} alt="arrow-next" />
             </button>
+            <Modal active={modalActive} setActive={setModalActive}>
+                <ModalCoachCard coach={clickedSlide} />
+            </Modal>
         </div>
     );
 };

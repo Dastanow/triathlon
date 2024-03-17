@@ -23,7 +23,7 @@ const FirstPage = () => {
             <OurServices />
             <Feedback />
             <FAQ />
-            <Location/>
+            <Location />
         </div>
     );
 };

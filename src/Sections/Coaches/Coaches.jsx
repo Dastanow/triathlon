@@ -1,61 +1,46 @@
+import { useEffect, useState } from 'react';
 import './coaches.scss';
 import api from '../../api';
 import CustomCarousel from '../../UI/CustomCarousel';
-import { useEffect, useState } from 'react';
+import { coachesInitState } from '../../common/constants';
+import ButtonsBlock from './buttonsBlock';
 
 const Coaches = () => {
-    const gap = 36;
-    const slidesPerView = 4;
-    const [coaches, setCoaches] = useState([]);
-    const [gymCoaches, setGymCoaches] = useState([]);
-    const [poolCoaches, setPoolCoaches] = useState([]);
-    const [coachClasses, setCoachClasses] = useState({});
+    const { gap, slidesPerView, coachClasses } = coachesInitState;
+    const [data, setData] = useState({});
+    const [curGroup, setCurGroup] = useState([]);
+    const [activeBtn, setActiveBtn] = useState(null);
 
     useEffect(() => {
-        const { coaches, coachClasses } = api.data.fetchAll();
-        setCoaches(coaches);
-        setCoachClasses(coachClasses);
-        const gymCoaches = coaches.filter((coach) => coach.area === 'gym');
-        const poolCoaches = coaches.filter((coach) => coach.area === 'pool');
-        setGymCoaches(gymCoaches);
-        setPoolCoaches(poolCoaches);
+        const data = api.data.fetchAll();
+        setData(data);
+        setCurGroup(data.coaches);
     }, []);
 
-    const handleChooseCoaches = ({ target }) => {
-        if (target.name === 'gym') {
-            setCoaches(gymCoaches);
-        } else if (target.name === 'pool') {
-            setCoaches(poolCoaches);
-        }
+    const handleChangeCoaches = ({ target }) => {
+        setActiveBtn(target.name);
+        const newGroup = data.coaches.filter(
+            (coach) => coach.area === target.name
+        );
+        setCurGroup(newGroup);
     };
 
-    if (!coaches && !coachClasses) return 'Loader...';
+    if (!data.coaches && !data.buttons) return 'Loader...';
 
     return (
         <section className="coaches">
             <div className="container">
                 <div className="coaches__wrapper">
                     <h2 className="coaches__title">Наши тренеры</h2>
-                    <div className="coaches__buttons">
-                        <button
-                            className="coaches__button"
-                            name="pool"
-                            onClick={handleChooseCoaches}
-                        >
-                            Бассейн
-                        </button>
-                        <button
-                            className="coaches__button"
-                            name="gym"
-                            onClick={handleChooseCoaches}
-                        >
-                            Тренировочный зал
-                        </button>
-                    </div>
+                    <ButtonsBlock
+                        buttons={data.buttons}
+                        onChangeCoaches={handleChangeCoaches}
+                        activeBtn={activeBtn}
+                    />
                     <CustomCarousel
                         gap={gap}
                         number={slidesPerView}
-                        dataArray={coaches}
+                        dataArray={curGroup}
                         classes={coachClasses}
                     />
                 </div>

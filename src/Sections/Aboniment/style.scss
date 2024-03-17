@@ -29,6 +29,7 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 31px;
+            height: 29.75rem;
             border-radius: 24px;
             border: 1px solid #000;
             // width: 30vh;
@@ -77,11 +78,11 @@ font-weight: 500;
 line-height: 150%; /* 36px */
 cursor: pointer;
             }
-            // &--linear{
-            //     background: #FFF;
-            //     height: 1px;
-            //     width: 100%;
-            // }
+            &--linear{
+                background: #FFF;
+                height: 1px;
+                width: 100%;
+            }
             &--possibilities{
                 display: flex;
                 flex-direction: column;
@@ -107,9 +108,11 @@ line-height: 150%; /* 24px */
             flex-direction: column;
             align-items: flex-start;
             gap: 31px;
-                        border-radius: 24px;
-            border: 2px solid #FAA831;
-            box-shadow: 4px 4px 4px 0px rgba(247, 181, 18, 0.35), -4px -4px 4px 0px rgba(247, 181, 18, 0.35);
+            height: 29.75rem;
+            border-radius: 1.05956rem;
+border: 0.706px solid #FFF;
+background: #013D83;
+box-shadow: 0px 0px 0.42px 0px #013D83, 0px 0px 0.841px 0px #013D83, 0px 0px 2.943px 0px #013D83, 0px 0px 5.886px 0px #013D83, 0px 0px 10.091px 0px #013D83, 0px 0px 17.659px 0px #013D83;
             &--term{
                 width: 100%;
                 display: flex;
@@ -117,7 +120,7 @@ line-height: 150%; /* 24px */
                 justify-content: space-between;
                 &__time{
                     h4{
-                        color: #000;
+                        color: #fff;
                         font-family: Montserrat;
                         font-size: 20px;
                         font-style: normal;
@@ -125,7 +128,7 @@ line-height: 150%; /* 24px */
                         line-height: 140%; /* 28px */   
                     }
                     p{
-                        color: #000;
+                        color: #fff;
                         /* Text/Regular/Normal */
                         font-family: Montserrat;
                         font-size: 16px;
@@ -150,7 +153,7 @@ line-height: 150%; /* 24px */
                 }
             }
             h1{
-                color: #000;
+                color: #fff;
 text-align: center;
 font-family: Montserrat;
 font-size: 40px;
@@ -167,7 +170,7 @@ padding: 12px 24px;
 justify-content: center;
 align-items: center;
 gap: 8px;
-color: #171717;
+color: #FFF;
 font-family: Montserrat;
 font-size: 24px;
 font-style: normal;
@@ -176,7 +179,7 @@ line-height: 150%; /* 36px */
 cursor: pointer;
             }
             &--linear{
-                background: #FAA831;
+                background: #fff;
                 height: 1px;
                 width: 100%;
             }
@@ -187,7 +190,7 @@ cursor: pointer;
                 p{
                     display: flex;
                     align-items: center;
-                    color: #000;
+                    color: #fff;
                     gap: 16px;
 
 /* Text/Regular/Normal */

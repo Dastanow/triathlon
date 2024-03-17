@@ -70,19 +70,18 @@ const Faq = () => {
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <InputCustom
-                                    placeholder="Ваше имя*"
-                                    className={'inp'}
-                                    name="name"
+                                <input
+                                    placeholder="Ваше имя*" 
+                                    className={"inp"}
                                 />
-
-                                <InputCustom
+                               
+                               <input
                                     placeholder="+996(___)___-___"
                                     className={'inp'}
                                     name="phone"
                                 />
-
-                                <InputCustom
+                                
+                                <input
                                     placeholder="Напишите Ваш вопрос"
                                     className={'secondI'}
                                     name="textarea"

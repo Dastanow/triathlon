@@ -70,17 +70,17 @@ const Faq = () => {
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <InputCustom
+                                <input
                                     placeholder="Ваше имя*" 
                                     className={"inp"}
                                 />
                                
-                               <InputCustom
+                               <input
                                     placeholder="+996(___)___-___"
                                     className={"inp"}
                                 />
                                 
-                                <InputCustom
+                                <input
                                     placeholder="Напишите Ваш вопрос"
                                     className={"secondI"}
                                 />

@@ -2,13 +2,16 @@ import { useState } from 'react';
 import './style.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
+import VacancyModule from '../../../Modules/VacancyModule/VacancyModule.jsx';
 
 const YesVacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+        setOpenIndex(openIndex === index ? null : index); };
+
+    const [modalActive, setModalActive] = useState(false)
+
     return(
         <div id="YesVacancies">
             <div className="blocks">
@@ -37,7 +40,9 @@ const YesVacancies = () => {
                                     <h3>Условия: </h3>
                                     <p>{el.conditions}</p>
                                 </div>
-                                <button>Отправить резюме</button>
+                                <button className="btn" onClick={() => setModalActive(true)}>Отправить резюме</button>
+
+                                <VacancyModule active={modalActive} setActive={setModalActive}/> 
                             </div>
                         )}
                     </div>

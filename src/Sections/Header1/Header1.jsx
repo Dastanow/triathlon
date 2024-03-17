@@ -3,7 +3,7 @@ import './Header1.scss'
 import logot from '../../Assets/logo1.png'
 import acc from '../../Assets/acc1.png'
 import rus from '../../Assets/language_rus.png'
-import svg_landuage from '../../Assets/svgServices/language.svg'
+import svg_landuage from '../../Assets/language.svg'
 
 
 const Header1 = () => {

@@ -1,8 +1,7 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 
 
-const InputComponent = ({
+const InputCustom = ({
     className,
     name,
     onChange,
@@ -14,35 +13,30 @@ const InputComponent = ({
 
     return (
         <div className={className} >
-            <div>
+            
         
-                <input
-                    ref={inputRef}
-                    aria-label={name}
-                    data-testid={name}
-                    tabIndex={0}
-                    type={type}
-                    name={name}
-                    onChange={onChange}
-                    placeholder={placeholder}
-                    value={value}
-                    className={className}
-                />
+            <input
+                ref={inputRef}
+                tabIndex={0}
+                type={type}
+                name={name}
+                onChange={onChange}
+                placeholder={placeholder}
+                value={value}
+                className={className}
+            />
 
 
 
-            </div>
+            
       
         </div>
     );
 };
 
-const Input = styled(InputComponent)`
-  
-  margin-right:1px
-                    `;
 
 
 
 
-export default Input;
+
+export default InputCustom;

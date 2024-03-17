@@ -9,7 +9,7 @@
     margin-top: 112px;
     width: 1920px;
     height: 894px;
-    background: #013D83;
+    background: #FFFFFF;
 }
 .faq_container {
     width: 1720px;
@@ -21,7 +21,7 @@
     display: flex;
 }
 .faq_title {
-    color: var(--Color-Secondary, #F7B512);
+    color: #013D83;
     font-family: Montserrat;
     font-size: 80px;
     font-style: normal;
@@ -46,7 +46,7 @@
     align-items: flex-start;
     gap: 20px;
     border-radius: 16px;
-    background: #002550;
+    background: #013D83;
 }
 
 .title_questions {
@@ -95,10 +95,10 @@
     width: 577px;
     height: 718px;
     margin-left: 148px;
-    margin-top: 80px;
+    margin-top: 57px;
 }
 .title_additional {
-    color: #FFF;
+    color: #000000;
     font-family: Montserrat;
     font-size: 44px;
     font-style: normal;
@@ -106,7 +106,7 @@
     line-height: 150%; 
 }
 .min_text {
-    color: #FFF;
+    color: #000000;
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
@@ -134,7 +134,7 @@
     align-items: center;
     gap: 4px;
     border-radius: 16px;
-    background: var(--Color-Secondary, #F7B512);
+    background: #013D83;
     color: #FFFFFF;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -163,46 +163,66 @@
     gap: 10px;
     border-radius: 16px;
     outline: none;
-    border: 1px solid white;
-    margin-left: -2px;
+    border: 1px solid var(--Color-Brand-black, #000000);
+    margin-left: -3px;
+    margin-top: -4px;
     height: 70px;
 }
 
 
 .inp::placeholder{
-    color: wheat;
+    color: gray;
     padding-left: 10px;
 }
 
 .inp:hover{
     border: 1px solid darkgray;
     color: white;
-    transition: 2s;
+    transition: 1s;
     
 }
 
 .inp:hover::placeholder{
     
-    color: white;
-    transition: 2s;
+    color: #013D83;
+    transition: 1s;
+    font-weight: 400;
     
 }
     
 .inp:not(:hover){
     
-    transition: 2s;
+    transition: 1s;
 }
 
 .inp:focus{
       outline: 0;
       border: 1px solid #ccc;
       background: #266798;
+      padding-left: 10px;
+      
+      
 }
 
 .inp:focus::placeholder{
     color: white;
+   
 }
 
+.inp:not(:focus){
+    color: gray;
+    
+
+    ::placeholder{
+        padding-left: 10px;
+    }
+}
+
+.inp:not(:focus::placeholder){
+    color: gray;
+    padding-left: 10px;
+    
+}
 
 .secondI{
     color: white;
@@ -218,44 +238,47 @@
     height: 212px;
     border-radius: 16px;
     outline: none;
-    border: 1px solid white;
-    margin-left: -2px;
+    border: 1px solid var(--Color-Brand-black, #000000);
+    margin-left: -3px;
+    margin-top: -4px;
+    padding-bottom: 119px;
 }
 
-.secondI::placeholder{
-    color: wheat;
-    padding-left: 10px;
-
-}
 
 .secondI::placeholder{
-    color: wheat;
+    color: gray;
     padding-left: 10px;
+    
+
 }
 
 .secondI:hover{
     border: 1px solid darkgray;
-    color: white;
-    transition: 2s;
+    transition: 1s;
     
 }
 
 .secondI:hover::placeholder{
     
-    color: white;
-    transition: 2s;
-    
+    color: #013D83;
+    transition: 1s;
+    font-weight: 300;
 }
     
 .secondI:not(:hover){
     
-    transition: 2s;
+    transition: 1s;
 }
 
 .secondI:focus{
       outline: 0;
       border: 1px solid #ccc;
       background: #266798;
+      
+}
+
+.secondI:not(:focus){
+    color: gray;
 }
 
 .secondI:focus::placeholder{

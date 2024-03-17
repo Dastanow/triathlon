@@ -4,8 +4,8 @@ import Advantages from '../../Sections/Advantages/Advantages';
 import Coaches from '../../Sections/Coaches';
 import FAQ from '../../Sections/FAQ/FAQ';
 import Feedback from '../../Sections/Feedback';
-import Footer from '../../Sections/Footer/Footer';
 import Home1 from '../../Sections/Home1/Home1';
+import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
 import Section from '../../Sections/SectionTriatlon/Section';
 import TrainingAreas from '../../Sections/TrainingAreas';
@@ -23,7 +23,7 @@ const FirstPage = () => {
             <OurServices />
             <Feedback />
             <FAQ />
-            <Footer />
+            <Location />
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './FAQ.scss';
-import Input from '../../UI/CustomInput/CustomInput';
+import InputCustom from '../../UI/CustomInput/CustomInput';
 
 const Faq = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -70,19 +70,19 @@ const Faq = () => {
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <Input
+                                <InputCustom
                                     placeholder="Ваше имя*"
                                     className={'inp'}
                                     name="name"
                                 />
 
-                                <Input
+                                <InputCustom
                                     placeholder="+996(___)___-___"
                                     className={'inp'}
                                     name="phone"
                                 />
 
-                                <Input
+                                <InputCustom
                                     placeholder="Напишите Ваш вопрос"
                                     className={'secondI'}
                                     name="textarea"

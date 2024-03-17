@@ -1,16 +1,16 @@
-import db from './db.json';
 import './style.scss';
 import Map from '../../Assets/map.svg';
 import email from '../../Assets/email.svg';
 import phone from '../../Assets/phone.svg';
 import instagram from '../../Assets/instagram.svg';
 import Logotip from '../../Assets/logo1.png';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <footer>
-            <div className="footer__container">
-                <div className="footer">
+            <div className="footer">
+                <div className="footer__container">
                     <div className="logo__container">
                         <div>
                             <img src={Logotip} alt="img" />
@@ -31,38 +31,41 @@ const Footer = () => {
                                 @triathloncenter.kg
                             </h3>
                         </a>
-                        <h3>
+                        <h3 className="footer__contacts__tel">
                             <img src={phone} alt="img" />
                             +996 997 000 180
+                            <br /> +996 227 000 180
                         </h3>
-                        <h3>+996 227 000 180</h3>
                     </div>
 
-                    <div>
-                        {db?.first?.map((item) => (
-                            <div key={item.id}>
-                                <h2>{item.title1}</h2>
-                                <h3> {item.title}</h3>
-                            </div>
-                        ))}
+                    <div className="footer__blok">
+                        <h2>Главная</h2>
+                        <h3>Тренеры</h3>
+                        <h3>Абонементы</h3>
+                        <h3>Секции</h3>
+                        <h3>Расписание</h3>
+                        <h3>Услуги</h3>
+                        <h3>Контакты</h3>
+                        <h3>Новости</h3>
                     </div>
-                    <div>
-                        {db?.second?.map((item) => (
-                            <div key={item.id}>
-                                <h2>{item.title1}</h2>
-                                <h3> {item.title}</h3>
-                            </div>
-                        ))}
+                    <div className="footer__blok">
+                        <NavLink to={'/Vacancies'}>
+                            <h2>Вакансии</h2>
+                        </NavLink>
+                        <h3>Тренеры</h3>
+                        <h3>Отдел продаж</h3>
                     </div>
-                    <div>
-                        {db?.third?.map((item) => (
-                            <div key={item.id}>
-                                <h2>{item.title1}</h2>
-                                <h3>{item.title}</h3>
-                            </div>
-                        ))}
-                        <h3 className="Geeks">Made by GEEKS PRO</h3>
+                    <div className="footer__blok">
+                        <h2>График работы</h2>
+                        <h3>В будние дни с 7:00 до 23:00</h3>
+                        <h3>
+                            В выходные и праздничные
+                            <p>дни с 8:00 до 22:00</p>
+                        </h3>
                     </div>
+                </div>
+                <div className="footer__form">
+                    <h3>Made by GEEKS PRO</h3>
                 </div>
             </div>
         </footer>

@@ -1,2 +1,2 @@
-import CustomSlideCard from './CustomSlideCard';
+import CustomSlideCard from './customSlideCard';
 export default CustomSlideCard;

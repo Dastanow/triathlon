@@ -48,7 +48,7 @@ const Aboniment = () => {
                                     </div>
                                     <h1>{el.price}</h1>
                                     <button className="blockk--btn">Купить</button>
-                                    {/* <div className="blockk--linear"></div> */}
+                                    <div className="blockk--linear"></div>
                                     <div className="blockk--possibilities">
                                         <p>
                                             <FaCheck /> <span>{el.frost}</span>

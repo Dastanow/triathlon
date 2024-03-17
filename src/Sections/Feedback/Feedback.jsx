@@ -1,13 +1,13 @@
 import './Feedback.scss';
 import api from '../../api';
+import { feedbackInitState } from '../../common/constants';
 import CustomCarousel from '../../UI/CustomCarousel';
 
 const Feedback = () => {
-    const gap = 35;
-    const slidesPerView = 3;
-    const { comments, commentClasses } = api.data.fetchAll();
+    const { gap, slidesPerView, commentClasses } = feedbackInitState;
+    const { comments } = api.comments.fetchAll();
 
-    if (!comments && !commentClasses) return 'Loading...';
+    if (!comments) return 'Loading...';
 
     return (
         <section className="comments">

@@ -15,16 +15,16 @@ const InputCustom = ({
         <div className={className} >
             
         
-                <input
-                    ref={inputRef}
-                    tabIndex={0}
-                    type={type}
-                    name={name}
-                    onChange={onChange}
-                    placeholder={placeholder}
-                    value={value}
-                    className={className}
-                />
+            <input
+                ref={inputRef}
+                tabIndex={0}
+                type={type}
+                name={name}
+                onChange={onChange}
+                placeholder={placeholder}
+                value={value}
+                className={className}
+            />
 
 
 

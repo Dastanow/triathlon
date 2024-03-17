@@ -77,14 +77,15 @@ const Faq = () => {
                                
                                <input
                                     placeholder="+996(___)___-___"
-                                    className={"inp"}
+                                    className={'inp'}
+                                    name="phone"
                                 />
                                 
                                 <input
                                     placeholder="Напишите Ваш вопрос"
-                                    className={"secondI"}
+                                    className={'secondI'}
+                                    name="textarea"
                                 />
-                                
                             </div>
                             <button className="btn_additional">
                                 Отправить

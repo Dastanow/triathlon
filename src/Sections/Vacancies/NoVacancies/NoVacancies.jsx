@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import './style.scss'
 
 const NoVacancies = () => {
@@ -12,9 +13,11 @@ const NoVacancies = () => {
                 К сожалению, вакансий на данный момент нет, но не расстраивайтесь!
 Мы постоянно развиваемся и скоро будем искать новых талантов.
                     </p>
-                    <button>
-                На главную
-                    </button>
+                    <NavLink to={'/'} > 
+                        <button>
+                            На главную
+                        </button>
+                    </NavLink>
                 </div>
             </div>
 

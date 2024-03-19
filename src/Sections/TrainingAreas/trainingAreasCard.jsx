@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './style.scss';
-import InnerCarousel from './InnerCarousel';
+import InnerCarousel from './innerCarousel';
 
 const TrainingAreasCard = ({ title, text1, text2, text3, slide }) => {
     return (

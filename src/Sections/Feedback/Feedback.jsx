@@ -1,4 +1,4 @@
-import './Feedback.scss';
+import './style.scss';
 import api from '../../api';
 import { feedbackInitState } from '../../common/constants';
 import CustomCarousel from '../../UI/CustomCarousel';

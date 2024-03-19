@@ -12,7 +12,7 @@ import TrainingAreas from '../../Sections/TrainingAreas';
 
 const FirstPage = () => {
     return (
-        <div>
+        <>
             <Home1 />
             <AboutUs />
             <Advantages />
@@ -24,7 +24,7 @@ const FirstPage = () => {
             <Feedback />
             <FAQ />
             <Location />
-        </div>
+        </>
     );
 };
 

@@ -2,7 +2,6 @@ $dark: #013d83;
 $grey: #606062;
 $black: #000;
 
-// ------swiper----------
 .carousel-inner {
     max-width: 100%;
     width: 100%;
@@ -35,7 +34,7 @@ $black: #000;
 .swiper-wrapper {
     box-sizing: content-box;
 }
-//----swiper-pagination----------
+
 .swiper-pagination-bullet {
     width: 15px;
     height: 15px;
@@ -50,7 +49,7 @@ $black: #000;
     border-radius: 7.5px;
     background-color: $dark;
 }
-//-------navigation-buttons------
+
 .btn-prev,
 .btn-next {
     width: 46px;

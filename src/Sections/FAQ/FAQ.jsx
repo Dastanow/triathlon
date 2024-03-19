@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './FAQ.scss';
-import InputCustom from '../../UI/CustomInput/CustomInput';
+import './style.scss';
 
 const Faq = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -8,7 +7,6 @@ const Faq = () => {
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
-
     const questions = [
         {
             title: 'Каковы варианты членства?',
@@ -62,9 +60,9 @@ const Faq = () => {
                     </div>
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <h1 className="title_additional">
+                            <h2 className="title_additional">
                                 Остались вопросы?
-                            </h1>
+                            </h2>
                             <p className="min_text">
                                 Мы рады ответить на любой Ваш вопрос, выслушать
                                 Ваше предложение.
@@ -72,10 +70,10 @@ const Faq = () => {
                             <div className="all_inputs">
                                 <input
                                     placeholder="Ваше имя*" 
-                                    className={"inp"}
+                                    className={'inp'}
                                 />
                                
-                               <input
+                                <input
                                     placeholder="+996(___)___-___"
                                     className={'inp'}
                                     name="phone"

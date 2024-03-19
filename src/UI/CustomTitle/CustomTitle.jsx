@@ -1,4 +1,4 @@
-import './CustomTitle.scss';
+import './style.scss';
 
 const CustomTitle = () => {
     return (

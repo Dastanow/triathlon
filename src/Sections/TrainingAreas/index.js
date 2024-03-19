@@ -1,4 +1,4 @@
-import TrainingAreas from './trainingAreas';
-import TrainingAreasCard from './trainingAreasCard';
+import TrainingAreas from './TrainingAreas';
+import TrainingAreasCard from './TrainingAreasCard';
 export { TrainingAreasCard };
 export default TrainingAreas;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './modal.scss';
+import './style.scss';
 import { modalInitState } from '../../common/constants';
 
 const Modal = ({ active, setActive, children }) => {

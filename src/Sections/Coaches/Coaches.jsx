@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './coaches.scss';
+import './style.scss';
 import api from '../../api';
 import CustomCarousel from '../../UI/CustomCarousel';
 import { coachesInitState } from '../../common/constants';

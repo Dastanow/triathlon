@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './coaches.scss';
+import './style.scss';
 
 const ModalCoachCard = ({ coach }) => {
     if (!coach) return 'Loader...';

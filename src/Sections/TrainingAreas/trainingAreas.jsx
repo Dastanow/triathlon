@@ -1,4 +1,4 @@
-import './trainingAreas.scss';
+import './style.scss';
 import api from '../../api';
 import CustomCarousel from '../../UI/CustomCarousel';
 import { trainAreasInitState } from '../../common/constants';
@@ -6,7 +6,6 @@ import { trainAreasInitState } from '../../common/constants';
 const TrainingAreas = () => {
     const { gap, slidesPerView, trainClass } = trainAreasInitState;
     const { trainAreas } = api.trainAreas.fetchAll();
-
     if (!trainAreas) return 'Loader...';
 
     return (

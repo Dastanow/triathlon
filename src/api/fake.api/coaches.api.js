@@ -3,7 +3,6 @@ import coach2 from '../../Assets/coach2.jpg';
 import coach3 from '../../Assets/coach3.jpg';
 import coach4 from '../../Assets/coach4.jpg';
 
-//--------------------------------coaches-----------------------------------------
 const buttons = [
     {
         id: 1,

@@ -14,7 +14,7 @@ import function1 from '../../Assets/function1.jpg';
 import function2 from '../../Assets/function2.jpg';
 import function3 from '../../Assets/function3.jpg';
 import function4 from '../../Assets/function4.jpg';
-//--------------------------------train-areas----------------------------------------
+
 const trainAreas = [
     {
         id: 1,

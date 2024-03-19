@@ -1,7 +1,7 @@
 import client1 from '../../Assets/client1.svg';
 import client2 from '../../Assets/client2.svg';
 import client3 from '../../Assets/client3.svg';
-//---------------------------------comments-----------------------------------------
+
 const comments = [
     {
         id: 1,

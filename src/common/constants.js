@@ -4,7 +4,6 @@ import arrowNext from '../Assets/arrow-next.png';
 import arrowRight from '../Assets/arrow-right.png';
 import close from '../Assets/close-button.png';
 
-//--=--carousel-component-constants----
 export const carouselInitState = {
     btnPrevClass: 'btn-prev',
     btnNextClass: 'btn-next',
@@ -15,7 +14,6 @@ export const carouselInitState = {
     btnNextDisable: arrowNext,
 };
 
-//------coache's-component=constants----
 export const coachesInitState = {
     gap: 36,
     slidesPerView: 4,
@@ -29,7 +27,6 @@ export const coachesInitState = {
     },
 };
 
-//------train-areas-component=constants---
 export const trainAreasInitState = {
     gap: 0,
     slidesPerView: 1,
@@ -38,7 +35,6 @@ export const trainAreasInitState = {
     },
 };
 
-//------feedback-component=constants-----
 export const feedbackInitState = {
     gap: 35,
     slidesPerView: 3,
@@ -51,7 +47,6 @@ export const feedbackInitState = {
         class5: 'comment-text',
     },
 };
-//-------modal-component-constants-------
 export const modalInitState = {
     image0: close,
     alt0: 'close button',

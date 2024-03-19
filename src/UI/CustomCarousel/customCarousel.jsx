@@ -7,10 +7,9 @@ import { TrainingAreasCard } from '../../Sections/TrainingAreas';
 import CustomSlideCard from '../CustomSlideCard';
 import Modal from '../Modal/Modal';
 import ModalCoachCard from '../../Sections/Coaches/modalCoachCard';
-// Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/pagination';
-import './customCarousel.scss';
+import './style.scss';
 
 const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     const {
@@ -33,7 +32,6 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     const swiperRef = useRef(null);
 
     const isTrainingAreaSection = dataArray[0]?.section === 'train';
-
     const getNavButtonsClasses = (swiper) => {
         const slidesCount = swiper.slides.length;
         const activeSlideIndex = swiper.activeIndex;
@@ -91,7 +89,7 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     return (
         <div className="carousel-inner">
             <button className={data.btnPrev} onClick={handleSwitchPrevSlide}>
-                <img src={getIconBtnPrev()} alt="arrow-prev" />
+                <img src={getIconBtnPrev()} alt="img" />
             </button>
             <div className={classes.class0}>
                 <Swiper
@@ -123,7 +121,7 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
                 </Swiper>
             </div>
             <button className={data.btnNext} onClick={handleSwitchNextSlide}>
-                <img src={getIconBtnNext()} alt="arrow-next" />
+                <img src={getIconBtnNext()} alt="img" />
             </button>
             <Modal active={modalActive} setActive={setModalActive}>
                 <ModalCoachCard coach={clickedSlide} />

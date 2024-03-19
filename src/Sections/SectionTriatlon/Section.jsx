@@ -2,8 +2,7 @@ import './style.scss'
 
 const Section = () => {
     return(
-        <div id="section">
-            <div className="section">
+            <div className="section"  id="section">
                 <h1>Секции Триатлон</h1>
                 <div className="section--blocks">
                     <div className="section--blocks__block1">
@@ -150,7 +149,6 @@ const Section = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

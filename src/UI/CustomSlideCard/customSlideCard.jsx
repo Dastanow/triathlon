@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './customSlideCard.scss';
+import './style.scss';
 
 const CustomSlideCard = ({
     image,

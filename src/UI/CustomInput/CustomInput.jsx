@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-
 const InputCustom = ({
     className,
     name,
@@ -13,8 +12,6 @@ const InputCustom = ({
 
     return (
         <div className={className} >
-            
-        
             <input
                 ref={inputRef}
                 tabIndex={0}
@@ -25,18 +22,8 @@ const InputCustom = ({
                 value={value}
                 className={className}
             />
-
-
-
-            
-      
         </div>
     );
 };
-
-
-
-
-
 
 export default InputCustom;

@@ -1,16 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .aboutUs {
   font-family: "Montserrat";
-
   .aboutUs__container {
-    width: 1920px;
-    height: 894px;
+    width: 1440px;
+    margin: 0 auto;
     h2 {
       display: flex;
       justify-content: center;
@@ -19,6 +13,14 @@
       margin-top: 59px;
       color: #013d83;
     }
+    h3 {
+      color: #000;
+font-family: Montserrat;
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%;
+    }
   }
   .aboutUs__platfor {
     display: flex;
@@ -26,25 +28,26 @@
     margin-top: 80px;
     gap: 60px;
     .aboutUs__img img {
-      width: 982px;
-      height: 555px;
+      width: 686px;
+      height: 523px;
       border-radius: 24px;
     }
   }
   .aboutUs__content {
-    max-width: 702px;
+    max-width: 510px;
     color: #000;
     h3 {
       font-size: 40px;
       font-weight: 500;
     }
     p {
-      line-height: 120%;
-      font-size: 26px;
+      font-family: Montserrat;
+      font-size: 21px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
+      line-height: 120%;
 
-      margin-top: 28px;
+      margin-top: 6px;
     }
     button {
       width: 256px;
@@ -53,8 +56,8 @@
       border: none;
       color: #fff;
       background-color: #013d83;
-      margin-top: 30px;
-      font-size: 24px;
+      margin-top: 28px;
+      font-size: 16.744px;
       font-weight: 500;
       cursor: pointer;
     }

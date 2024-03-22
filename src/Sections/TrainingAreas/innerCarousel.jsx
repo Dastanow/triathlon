@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import './style.scss';
 
 const InnerCarousel = ({ slide }) => {
     return (

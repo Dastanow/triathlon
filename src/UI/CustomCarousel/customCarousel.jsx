@@ -32,6 +32,7 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     const swiperRef = useRef(null);
 
     const isTrainingAreaSection = dataArray[0]?.section === 'train';
+
     const getNavButtonsClasses = (swiper) => {
         const slidesCount = swiper.slides.length;
         const activeSlideIndex = swiper.activeIndex;

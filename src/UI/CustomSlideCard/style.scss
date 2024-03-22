@@ -5,9 +5,10 @@ $grey: #606062;
 $black: #000;
 $lightblack: #002550;
 
+//------------coach-card-styles------
 .coach-card {
-    width: 350px;
-    height: 470px;
+    max-width: 350px;
+    height: 497px;
     position: relative;
     > img {
         width: 100%;
@@ -16,34 +17,39 @@ $lightblack: #002550;
         object-fit: cover;
     }
 }
-.coach-card__overlay {
+.coach-info {
     width: 100%;
-    min-height: 79px;
+    height: 124px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    flex-shrink: 0;
     position: absolute;
     bottom: 0;
-    padding-left: 11px;
-    border-radius: 0px 0px 17px 17px;
+    padding: 0 10px;
+    border-radius: 0px 0px 16px 16px;
     background: $dark;
     > p {
-        padding-left: 14px;
+        width: 330px;
         font-style: normal;
         line-height: 150%;
     }
 }
-.coach-name {
+.coach-info__name {
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
-.coach-info {
+.coach-info__sertification {
     font-size: 17px;
     font-weight: 400;
 }
 
+.coach-info__description {
+    display: none;
+}
+
+//----------------comment-card-styles-------------
 .comment-card {
     width: 482px;
     height: 418px;
@@ -62,7 +68,7 @@ $lightblack: #002550;
         overflow: hidden;
     }
 }
-.comment-card__info {
+.comment-info {
     text-align: center;
     > p {
         color: $lightblack;
@@ -74,15 +80,15 @@ $lightblack: #002550;
         margin-bottom: 0;
     }
 }
-.comment-author {
+.comment-info__name {
     font-size: 24px;
     font-weight: 700;
 }
-.comment-title {
+.comment-info__specialization {
     font-size: 18px;
     font-weight: 600;
 }
-.comment-text {
+.comment-info__text {
     width: 404px;
     font-size: 16px;
     font-weight: 400;

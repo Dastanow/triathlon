@@ -4,17 +4,19 @@ import './style.scss';
 const ModalCoachCard = ({ coach }) => {
     if (!coach) return 'Loader...';
 
-    const { image, alt, title, text1, text4, text5, text6 } = coach;
+    const { image, title, subtitle, text } = coach;
 
     return (
         <div className="coach-modal">
-            <img src={image} alt={alt} className="coach-modal__image" />
+            <img src={image} alt={title} className="coach-modal__image" />
             <div className="coach-modal__info-block info-block">
-                <p className="info-block__name">{title}</p>
-                <p className="info-block__sertification">{text1}</p>
-                <p className="info-block__experience">{text4}</p>
-                <p className="info-block__description">{text5}</p>
-                <p className="info-block__description">{text6}</p>
+                <div className="info-block__top">
+                    <p className="info-block__top-name">{title}</p>
+                    <p className="info-block__top-sertification">{subtitle}</p>
+                </div>
+                <div className="info-block__bottom">
+                    <p className="info-block__bottom-description">{text}</p>
+                </div>
             </div>
         </div>
     );

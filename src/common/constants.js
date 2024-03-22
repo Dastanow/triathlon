@@ -20,10 +20,23 @@ export const coachesInitState = {
     coachClasses: {
         class0: 'coach-inner__wrapper',
         class1: 'coach-card',
-        class2: 'coach-card__overlay',
-        class3: 'coach-name',
-        class4: 'coach-info',
-        class5: 'coach-description',
+        class2: 'coach-card__info coach-info',
+        class3: 'coach-info__name',
+        class4: 'coach-info__sertification',
+        class5: 'coach-info__description',
+    },
+};
+
+export const feedbackInitState = {
+    gap: 35,
+    slidesPerView: 3,
+    commentClasses: {
+        class0: 'comment-inner__wrapper',
+        class1: 'comment-card',
+        class2: 'comment-card__info comment-info',
+        class3: 'comment-info__name',
+        class4: 'comment-info__specialization',
+        class5: 'comment-info__text',
     },
 };
 
@@ -35,18 +48,6 @@ export const trainAreasInitState = {
     },
 };
 
-export const feedbackInitState = {
-    gap: 35,
-    slidesPerView: 3,
-    commentClasses: {
-        class0: 'comment-inner__wrapper',
-        class1: 'comment-card',
-        class2: 'comment-card__info',
-        class3: 'comment-author',
-        class4: 'comment-title',
-        class5: 'comment-text',
-    },
-};
 export const modalInitState = {
     image0: close,
     alt0: 'close button',

@@ -16,21 +16,21 @@ const Footer = () => {
                     </div>
                     <p>
                         <img src={Map} alt="img" />
-                            Бишкек, ул.Фатьянова 10
+                        Бишкек, ул.Фатьянова 10
                     </p>
                     <p>
                         <img src={email} alt="img" />
-                            triathloncenter.kg@gmail.com
+                        triathloncenter.kg@gmail.com
                     </p>
                     <a href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D">
                         <p>
                             <img src={instagram} alt="img" />
-                                @triathloncenter.kg
+                            @triathloncenter.kg
                         </p>
                     </a>
                     <p className="footer__contacts__tel">
                         <img src={phone} alt="img" />
-                            +996 997 000 180
+                        +996 997 000 180
                         <br /> +996 227 000 180
                     </p>
                 </div>
@@ -54,10 +54,10 @@ const Footer = () => {
                 <div className="footer__blok">
                     <p>График работы</p>
                     <p>В будние дни с 7:00 до 23:00</p>
-                    <p>
-                            В выходные и праздничные
+                    <div>
+                        В выходные и праздничные
                         <p>дни с 8:00 до 22:00</p>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="footer__form">

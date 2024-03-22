@@ -3,11 +3,9 @@ import './style.scss';
 
 const CustomSlideCard = ({
     image,
-    alt,
     title,
-    text1,
-    text2,
-    text3,
+    subtitle,
+    text,
     class1,
     class2,
     class3,
@@ -16,12 +14,11 @@ const CustomSlideCard = ({
 }) => {
     return (
         <div className={class1}>
-            <img src={image} alt={alt} />
+            <img src={image} alt={title} />
             <div className={class2}>
                 <p className={class3}>{title}</p>
-                <p className={class4}>{text1}</p>
-                <p className={class5}>{text2}</p>
-                <p className={class5}>{text3}</p>
+                <p className={class4}>{subtitle}</p>
+                <p className={class5}>{text}</p>
             </div>
         </div>
     );
@@ -29,11 +26,9 @@ const CustomSlideCard = ({
 
 CustomSlideCard.propTypes = {
     image: PropTypes.string,
-    alt: PropTypes.string,
     title: PropTypes.string,
-    text1: PropTypes.string,
-    text2: PropTypes.string,
-    text3: PropTypes.string,
+    subtitle: PropTypes.string,
+    text: PropTypes.string,
     class1: PropTypes.string,
     class2: PropTypes.string,
     class3: PropTypes.string,

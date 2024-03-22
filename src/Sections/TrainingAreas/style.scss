@@ -1,8 +1,8 @@
 @import '../../common/style.scss';
 
-.train__areas {
-    background: $white;
+.train-areas {
     padding: 35px 0 60px 0;
+    margin-bottom: 40px;
 }
 
 .train-areas__title {
@@ -33,7 +33,7 @@
     flex-direction: column;
     font-style: normal;
     width: auto;
-    height: 611px;
+    height: 610px;
     background: $dark;
     margin-top: 40px;
     padding: 36px 40px;
@@ -58,6 +58,7 @@
 .inner-carousel-image {
     width: 1090px;
     height: 610px;
+    color: $dark;
     border-radius: 24px 0 0 24px;
     overflow: hidden;
 }

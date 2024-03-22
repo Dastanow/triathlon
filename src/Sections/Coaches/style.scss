@@ -1,95 +1,96 @@
-@import "../../common/style.scss";
+@import '../../common/style.scss';
 
 .coaches {
-  background: $white;
-  padding: 112px 0 100px 0;
+    background: $white;
+    padding: 112px 0 60px 0;
 }
 
 .coaches__title {
-  font-size: 80px;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 120%;
-  color: $dark;
-  text-align: center;
-  margin-bottom: 30px;
+    font-size: 80px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
+    color: $dark;
+    text-align: center;
+    margin-bottom: 30px;
 }
 .coaches__buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 80px;
-  > button {
-    margin-right: 35px;
-  }
-  > button:last-child {
-    margin-right: 0;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    > button {
+        margin-right: 35px;
+    }
+    > button:last-child {
+        margin-right: 0;
+    }
 }
 
 .coaches__button {
-  height: 55px;
-  font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  font-size: 26px;
-  font-weight: 500;
-  font-style: normal;
-  color: $white;
-  padding: 8px 22px;
-  border-radius: 16px;
-  border: 2px solid $dark;
-  background: $dark;
+    height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 500;
+    font-style: normal;
+    color: $white;
+    padding: 8px 22px;
+    border-radius: 16px;
+    border: 2px solid $dark;
+    background: $dark;
 }
 .active {
-  color: $black;
-  border: 2px solid $black;
-  background: transparent;
+    color: $black;
+    border: 2px solid $black;
+    background: transparent;
 }
-
+//--------coaches-modal-classes---------
 .coach-modal {
-  width: 1000px;
-  height: 550px;
-  display: flex;
-  border-radius: 24px;
-  overflow: hidden;
+    max-width: 1186px;
+    height: 497px;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .coach-modal__image {
-  width: 350px;
-  height: 100%;
-  object-fit: cover;
+    width: 350px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .info-block {
-  width: auto;
-  height: 100%;
-  padding: 25px 60px;
-  background-color: $dark;
-  > p {
-    color: $white;
-    font-style: normal;
-    line-height: normal;
-  }
-  .info-block__description {
-    line-height: 130%;
-  }
+    width: auto;
+    height: 100%;
+    padding: 25px 60px;
+    background-color: $dark;
+    > div {
+        max-width: 100%;
+        color: $white;
+        font-style: normal;
+        line-height: normal;
+    }
 }
-.info-block__name {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 5px;
+.info-block__top {
+    padding-bottom: 36px;
+    .info-block__top-name {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 28px;
+    }
+    .info-block__top-sertification {
+        font-size: 22px;
+        font-weight: 400;
+    }
 }
-.info-block__sertification {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-.info-block__experience {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.info-block__description {
-  font-size: 22px;
-  font-weight: 500;
+
+.info-block__bottom {
+    height: 310px;
+    overflow: auto;
+    .info-block__bottom-description {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 150%;
+    }
 }

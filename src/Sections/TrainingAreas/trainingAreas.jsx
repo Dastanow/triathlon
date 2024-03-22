@@ -6,6 +6,7 @@ import { trainAreasInitState } from '../../common/constants';
 const TrainingAreas = () => {
     const { gap, slidesPerView, trainClass } = trainAreasInitState;
     const { trainAreas } = api.trainAreas.fetchAll();
+
     if (!trainAreas) return 'Loader...';
 
     return (

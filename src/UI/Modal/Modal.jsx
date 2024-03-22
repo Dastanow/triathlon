@@ -6,10 +6,12 @@ const Modal = ({ active, setActive, children }) => {
     const { image0, alt0 } = modalInitState;
 
     const getExternalFieldClass = () => {
-        return active ? 'modal active' : 'modal';
+        return active ? 'custom-modal active' : 'custom-modal';
     };
     const getInnerFieldClass = () => {
-        return active ? 'modal__content active' : 'modal__content';
+        return active
+            ? 'custom-modal__content active'
+            : 'custom-modal__content';
     };
 
     return (
@@ -24,7 +26,7 @@ const Modal = ({ active, setActive, children }) => {
                 <img
                     src={image0}
                     alt={alt0}
-                    className="modal__content-close"
+                    className="custom-modal__content-close"
                     onClick={() => setActive(false)}
                 />
                 {children}

@@ -7,7 +7,7 @@ import svg_landuage from '../../Assets/language.svg'
 
 const Header1 = () => {
     return (
-        <div className="header"> 
+        <div className="header" id="header"> 
             <div className="lein">
                 <div className="lein-ing">
                     <img className="logo" src={logot} alt="img" />

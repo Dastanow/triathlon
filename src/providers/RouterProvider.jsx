@@ -11,8 +11,8 @@ const Routing = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<FirstPage/>}/>
                     <Route path="/Vacancies" element={<IndexJSX />} />
+                    <Route path="*" element={<PageNotFound/>} />
                 </Route>
-                <Route path="*" element={<PageNotFound/>} />
             </Routes>
         </div>
     )

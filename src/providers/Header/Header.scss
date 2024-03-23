@@ -1,0 +1,90 @@
+.mein{
+    margin-top: 50px;
+    width: 1920px;
+    margin: 0 auto;
+    
+}
+
+.lein {
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.70);
+    font-family:'Montserrat';
+    position: fixed;
+    z-index: 100;
+    width: 1920px;
+
+}
+
+.logo {
+    margin-top: 34px;
+    margin-right: 1650px;
+    margin-bottom:33.1px;
+    margin-left: 100px;
+    display: flex;
+}
+
+.navigation {
+    margin-top: -77px;
+    margin-right: 266px;
+    margin-bottom: 47px;
+    margin-left: 443px;
+    
+
+}
+
+.all-links {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.links {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    list-style-type:none;
+}
+
+.links:hover {
+    cursor: pointer;
+}
+.lein-language {
+    margin: -79px 253px 43px 1640px;
+}
+.languages {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.other-image-container {
+    display: inline-flex;
+    padding: 24px 26px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    border-radius: 16px;
+    background: rgba(13, 13, 13, 0.70);
+    position: absolute;
+    top: 120%;
+    left: 85%;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+.lein-acc {
+    margin: -89px 110px 38px 1820px;
+}
+
+.acc {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    
+}
+
+.acc:hover{
+    cursor: pointer;
+}

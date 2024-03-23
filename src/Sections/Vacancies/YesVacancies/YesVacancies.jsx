@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './style.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
-import VacancyModule from '../../../Modules/VacancyModule/VacancyModule.jsx';
+import ModaleWindow from '../../../Modules/ModaleWindow';
+import VacancyForm from '../../../Modules/VacancyForm/VacancyForm';
 
 const YesVacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -41,7 +42,9 @@ const YesVacancies = () => {
                                 <p>{el.conditions}</p>
                             </div>
                             <button className="btn" onClick={() => setModalActive(true)}>Отправить резюме</button>
-                            <VacancyModule active={modalActive} setActive={setModalActive}/> 
+                            <ModaleWindow active={modalActive} setActive={setModalActive}>
+                                 <VacancyForm/>
+                             </ModaleWindow> 
                         </div>
                     )}
                 </div>

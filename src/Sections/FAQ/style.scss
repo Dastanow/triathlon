@@ -6,17 +6,16 @@
   box-sizing: border-box;
 }
 .faq {
-  margin-top: 112px;
-  width: 1920px;
-  height: 894px;
-  background: #ffffff;
-}
-.faq_container {
+  margin: 0 auto;
   width: 1720px;
   height: 894px;
-  margin-right: 118px;
-  margin-left: 82px;
+  background: #ffffff;
+
+   &_container{
+    margin-top: 110px;
+  }
 }
+
 .chief_block {
   display: flex;
 }

@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import './style.scss';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const Faq = () => {
-    const [openIndex, setOpenIndex] = useState(null);
 
-    const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
     const questions = [
         {
             title: 'Каковы варианты членства?',
@@ -38,10 +35,17 @@ const Faq = () => {
         },
     ];
 
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const handleToggle = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
+   
+
     return (
-        <div className="faq">
+        <section className="faq">
             <div className="faq_container">
-                <h3 className="faq_title">Часто задаваемые вопросы:</h3>
+                <CustomTitle title={"Часто задаваемые вопросы:"}/>
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
@@ -92,7 +96,7 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

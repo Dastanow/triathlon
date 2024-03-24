@@ -5,12 +5,13 @@ import dumbbells from '../../Assets/svgServices/dumbbells.svg';
 import group from '../../Assets/svgServices/group.svg';
 import tick from '../../Assets/svgServices/tick.svg';
 import double from '../../Assets/svgServices/double.svg';
-import whiteSnow from '../../Assets/svgServices/whiteSnow.svg';
-import flakeSnow from '../../Assets/svgServices/flakeSnow.svg';
+// import whiteSnow from '../../Assets/svgServices/whiteSnow.svg';
+// import flakeSnow from '../../Assets/svgServices/flakeSnow.svg';
 import '../../UI/CustomTitle/style.scss';
 import ModaleWindow from '../../Modules/ModaleWindow';
 import ApplicationForm from '../../Modules/ApplicationForm/ApplicationForm';
 import { useState } from 'react';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
@@ -18,7 +19,7 @@ const OurServices = () => {
     return (
         <div className="service">
             <div className="service__block">
-                <h1 className="cust_title">Наши услуги</h1>
+                <CustomTitle title={"Наши услуги"}/>
                 <div className="all__cards">
                     <div className="all--card-one">
                         <div className="all__cards_card">

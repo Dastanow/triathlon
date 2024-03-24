@@ -43,8 +43,8 @@ const YesVacancies = () => {
                             </div>
                             <button className="btn" onClick={() => setModalActive(true)}>Отправить резюме</button>
                             <ModaleWindow active={modalActive} setActive={setModalActive}>
-                                 <VacancyForm/>
-                             </ModaleWindow> 
+                                <VacancyForm/>
+                            </ModaleWindow> 
                         </div>
                     )}
                 </div>

@@ -1,6 +1,7 @@
 .error__container {
 display: flex;
 justify-content: center;
+padding-top: 140px;
 }
 .error__content {
     width: 485px;
@@ -31,7 +32,4 @@ justify-content: center;
         margin-top: 80px;
     }
 }
-#error404 {
-    margin-top: 153px;
-    background-color: #fff; 
-}
+

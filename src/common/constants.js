@@ -52,3 +52,9 @@ export const modalInitState = {
     image0: close,
     alt0: 'close button',
 };
+export const HeaderItem = [
+    {
+        elment: 'Главная', 
+       
+    }
+]

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Header.scss'
 import logot from '../../Assets/logo1.png'
 import acc from '../../Assets/acc1.png'
@@ -24,7 +24,7 @@ const Header = () => {
 
                 <div className="lein-ing">
 
-                <Link to='/' >
+                <Link to="/">
                     <img className="logo" src={logot} alt="" />
                 </Link>
 

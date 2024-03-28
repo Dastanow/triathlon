@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
-import FirstPage from '../Pages/FisrtPage/FirstPage'
+import FirstPage from '../Pages/MainPage/FirstPage'
 import IndexJSX from '../Sections/Vacancies'
-import PageNotFound from '../Sections/Error404/PageNotFound'
+import PageNotFound from '../Pages/PageNotFound/PageNotFound'
 
 const Routing = () => {
     return (
@@ -10,9 +10,9 @@ const Routing = () => {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<FirstPage/>}/>
-                    <Route path="/Vacancies" element={<IndexJSX />} />
+                    <Route path="/vacancies" element={<IndexJSX />} />
+                    <Route path="*" element={<PageNotFound/>} />
                 </Route>
-                <Route path="*" element={<PageNotFound/>} />
             </Routes>
         </div>
     )

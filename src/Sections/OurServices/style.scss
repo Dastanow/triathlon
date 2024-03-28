@@ -41,7 +41,7 @@
         line-height: normal;
         font-style: normal;
         margin-left: 10px;
-        padding-bottom: 23px;
+        padding-bottom: 26px;
     }
 
     &-zero{
@@ -54,7 +54,7 @@
         font-weight: 600;
         line-height: normal;
         font-style: normal;
-        padding-bottom: 45px;
+        padding-bottom: 46px;
     }
 
     &-one{
@@ -67,7 +67,7 @@
         font-weight: 600;
         line-height: normal;
         font-style: normal;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
        
     }
 
@@ -81,7 +81,7 @@
         line-height: normal;
         font-style: normal;
         width: 177px;
-        padding-bottom: 5px;
+        padding-bottom: 12px;
     }
 
     &-three{
@@ -94,7 +94,7 @@
         line-height: normal;
         font-style: normal;
         width: 177px;
-        padding-bottom: 28px;
+        padding-bottom: 32px;
         
     }
 
@@ -300,6 +300,17 @@
         margin-top: -100px;
         margin-left: 200px;
     }
+
+    &__alt{
+         position: absolute;
+        margin-top: -120px;
+        margin-left: 170px;
+    }
+    &__alt2{
+        position: absolute;
+       margin-top: -100px;
+       margin-left: 200px;
+   }
 }
 
 

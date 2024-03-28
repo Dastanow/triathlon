@@ -1,43 +1,53 @@
 import { useState } from 'react';
-import './style.scss';
+import './FAQ.scss';
+import down from '../../Assets/down_svg.png';
+import InputCustom from '../../UI/CustomInput/CustomInput';
 
 const Faq = () => {
-    const [openIndex, setOpenIndex] = useState(null);
 
-    const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
     const questions = [
         {
-            title: 'Каковы варианты членства?',
-            answer: 'Мы предлагаем различные варианты членства в соответствии с вашими потребностями. От ежемесячных до годовых планов, вы можете выбрать тот, который лучше всего подходит именно вам. Наш дружелюбный персонал будет рад помочь вам в выборе правильного членства.',
+            title: 'Есть ли у вас детские секции/группы для детей?',
+            answer: 'Для детей с 5 лет у нас доступны секции по триатлону, плаванию и акватлону.',
         },
         {
-            title: 'Какими удобствами вы располагаете?',
-            answer: 'Мы предлагаем различные удобства...',
+            title: 'Способы оплаты',
+            answer: 'Оплатить за абонемент можно в офисе продаж Триатлон-Центра или онлайн.',
         },
         {
-            title: 'Доступны ли персональные тренеры?',
-            answer: 'Да, у нас есть персональные тренеры...',
+            title: 'График работы',
+            answer: 'ПН-ПТ 07.00-23.00 / СБ-ВС 08.00-22.00',
         },
         {
-            title: 'Какие занятия вы предлагаете?',
-            answer: 'lorem lorem loremloremloremloremloremloremloremloremloremloremloremlorem ',
+            title: 'Есть ли у Вас отдельные абонементы в зал или бассейн?',
+            answer: ' К продаже доступны только комплексные абонементы на 6/12 месяцев. Также доступны секции по интересам.',
         },
         {
-            title: 'Какие занятия вы предлагаете?',
-            answer: 'lorem lorem loremloremloremloremloremloremloremloremloremloremloremlorem ',
+            title: 'Что входит в годовой абонемент?',
+            answer: 'В абонемент на год входит безлимитное посещение бассейна, финской сауны и тренажерного зала с 7:00 до 23:00. 30 дней заморозки, 2 индивидуальные тренировки с тренером, 3 гостевых посещения',
         },
         {
-            title: 'Какие занятия вы предлагаете?',
-            answer: 'lorem lorem loremloremloremloremloremloremloremloremloremloremloremlorem ',
-        },
-        {
-            title: 'Какие занятия вы предлагаете?',
-            answer: 'lorem lorem loremloremloremloremloremloremloremloremloremloremloremlorem ',
-        },
+            title: 'Есть ли у вас индивидуальные тренировки?',
+            answer: 'У нас имеются индивидуальные тренировки у всех тренеров. Стоимость тренировки составляет 1500/2000/2500 сом в зависимости от категории тренера. Более подробную информацию о каждом тренере Вы можете найти во вкладке “Тренеры”.',
+        }
     ];
 
+    const [openIndexes, setOpenIndexes ] = useState(Array.from({ length: questions.length }, () => false));
+
+
+    const handleToggle = (index) => {
+        const updatedIndexes = openIndexes.map((item, ind) => { 
+            if (ind === index) { 
+                return !item; 
+            } else { 
+                return false; 
+            } 
+        }); 
+        setOpenIndexes(updatedIndexes);
+
+    };
+
+    
     return (
         <div className="faq">
             <div className="faq_container">
@@ -45,44 +55,45 @@ const Faq = () => {
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
-                            <div className="boks_questions" key={index}>
-                                <h4
-                                    className="title_questions"
-                                    onClick={() => handleToggle(index)}
-                                >
-                                    {question.title}
-                                </h4>
-                                {openIndex === index && (
-                                    <p className="answer">{question.answer}</p>
-                                )}
+                            <div onClick={() => handleToggle(index)} className="boks_questions" key={index}>
+                                <div className="inside_box">
+                                    <h4 className="title_questions">
+                                        {question.title}
+                                    </h4>
+                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? "rotate(180deg)" :"" , transition:"0.5s" }} />
+                                </div>
+                               
+                                    {openIndexes[index] && (
+                                        <p className="answer opened">{question.answer}</p>
+                                    )}
+                                
+                                
                             </div>
                         ))}
                     </div>
+
+
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <h2 className="title_additional">
+                            <h1 className="title_additional">
                                 Остались вопросы?
-                            </h2>
+                            </h1>
                             <p className="min_text">
                                 Мы рады ответить на любой Ваш вопрос, выслушать
                                 Ваше предложение.
                             </p>
                             <div className="all_inputs">
-                                <input
+                                <InputCustom
                                     placeholder="Ваше имя*" 
-                                    className={'inp'}
+                                    className={"inp"}
                                 />
-                               
-                                <input
+                                <InputCustom
                                     placeholder="+996(___)___-___"
-                                    className={'inp'}
-                                    name="phone"
+                                    className={"inp"}
                                 />
-                                
-                                <input
+                                <InputCustom
                                     placeholder="Напишите Ваш вопрос"
-                                    className={'secondI'}
-                                    name="textarea"
+                                    className={"secondI"}
                                 />
                             </div>
                             <button className="btn_additional">

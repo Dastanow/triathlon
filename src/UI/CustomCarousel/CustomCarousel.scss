@@ -28,11 +28,7 @@ $black: #000;
 .swiper {
     box-sizing: content-box;
     max-width: 100%;
-    padding: 40px 0 55px 0;
-}
-
-.swiper-wrapper {
-    box-sizing: content-box;
+    padding: 0 0 55px 0;
 }
 
 .swiper-pagination-bullet {
@@ -55,7 +51,7 @@ $black: #000;
     width: 46px;
     height: 46px;
     position: absolute;
-    top: 48%;
+    top: 44%;
     z-index: 10;
     display: flex;
     padding: 10px;

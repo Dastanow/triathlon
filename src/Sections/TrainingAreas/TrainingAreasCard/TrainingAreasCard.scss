@@ -1,21 +1,8 @@
-@import '../../common/style.scss';
+$dark: #013d83;
 
-.train-areas {
-    padding: 35px 0 60px 0;
-    margin-bottom: 40px;
-}
-
-.train-areas__title {
-    font-size: 80px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 120%;
-    color: $dark;
-    text-align: center;
-}
 .train-areas__card {
     width: 100%;
-    height: 650px;
+    height: 610px;
     display: flex;
     > img {
         max-width: 1090px;
@@ -25,17 +12,16 @@
         object-fit: cover;
     }
 }
-.train__carousel-wrapper {
+.train-areas__carousel-wrapper {
     max-width: 1090px;
 }
-.train-areas__overlay {
+.train-areas__info {
     display: flex;
     flex-direction: column;
     font-style: normal;
     width: auto;
     height: 610px;
     background: $dark;
-    margin-top: 40px;
     padding: 36px 40px;
     border-radius: 0 24px 24px 0;
     > p {
@@ -45,20 +31,13 @@
         margin-bottom: 0;
     }
 }
-.card__title {
+.train-areas__info-title {
     font-size: 40px;
     font-weight: 500;
     line-height: 120%;
 }
-.card__text {
+.train-areas__info-text {
     font-size: 24px;
     font-weight: 400;
     line-height: normal;
-}
-.inner-carousel-image {
-    width: 1090px;
-    height: 610px;
-    color: $dark;
-    border-radius: 24px 0 0 24px;
-    overflow: hidden;
 }

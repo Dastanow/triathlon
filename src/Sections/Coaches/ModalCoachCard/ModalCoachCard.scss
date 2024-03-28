@@ -1,0 +1,51 @@
+$dark: #013d83;
+$white: #fff;
+
+.coach-modal-card {
+    max-width: 1186px;
+    height: 497px;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.coach-modal-card__image {
+    width: 350px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coach-modal-card__info-block {
+    width: auto;
+    height: 100%;
+    padding: 25px 60px;
+    background-color: $dark;
+    > div {
+        max-width: 100%;
+        color: $white;
+        font-style: normal;
+        line-height: normal;
+    }
+}
+.block-info__top {
+    padding-bottom: 36px;
+    .block-info__top-name {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 28px;
+    }
+    .block-info__top-sertification {
+        font-size: 22px;
+        font-weight: 400;
+    }
+}
+
+.block-info__bottom {
+    height: 310px;
+    overflow: auto;
+    .block-info__bottom-description {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 150%;
+    }
+}

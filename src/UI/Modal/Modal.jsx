@@ -6,11 +6,11 @@ const Modal = ({ active, setActive, children }) => {
     const { image0, alt0 } = modalInitState;
 
     const getExternalFieldClass = () => {
-        return active ? 'custom-modal active' : 'custom-modal';
+        return active ? 'custom-modal modal-active' : 'custom-modal';
     };
     const getInnerFieldClass = () => {
         return active
-            ? 'custom-modal__content active'
+            ? 'custom-modal__content modal-active'
             : 'custom-modal__content';
     };
 

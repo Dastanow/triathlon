@@ -1,10 +1,10 @@
-import './style.scss';
-import api from '../../api';
-import { feedbackInitState } from '../../common/constants';
-import CustomCarousel from '../../UI/CustomCarousel';
+import './Feedback.scss';
+import api from '../../../api';
+import { feedbackInitState } from '../../../common/constants';
+import CustomCarousel from '../../../UI/CustomCarousel';
 
 const Feedback = () => {
-    const { gap, slidesPerView, commentClasses } = feedbackInitState;
+    const { gap, slidesPerView, commentClass } = feedbackInitState;
     const { comments } = api.comments.fetchAll();
 
     if (!comments) return 'Loading...';
@@ -21,7 +21,7 @@ const Feedback = () => {
                         gap={gap}
                         number={slidesPerView}
                         dataArray={comments}
-                        classes={commentClasses}
+                        classes={commentClass}
                     />
                 </div>
             </div>

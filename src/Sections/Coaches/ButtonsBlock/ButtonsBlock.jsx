@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import './ButtonsBlock.scss';
 
-const ButtonsBlock = ({ buttons, onChangeCoaches, activeBtn }) => {
+const ButtonsBlock = (props) => {
+    const { buttons, onChangeCoaches, activeBtn } = props;
+
     const getBtnClass = (name) => {
         return 'coaches__button' + (activeBtn === name ? ' active' : '');
     };

@@ -1,2 +1,2 @@
-import CustomCarousel from './CustomCarousel';
-export default CustomCarousel;
+import customCarousel from './customCarousel';
+export default customCarousel;

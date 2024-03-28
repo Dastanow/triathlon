@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import './style.scss'
 
-const NoVacancies = () => {
+const EmptyBlock = () => {
     return(
-        <div className="NoVacancies" id="NoVacancies">
-            <div className="NoVacancies--text">
+        <div className="EmptyBlock" id="EmptyBlock">
+            <div className="EmptyBlock--text">
                 <h2>
                 Вакансии закрыты. Следите за новыми возможностями!
                 </h2>
@@ -22,4 +22,4 @@ const NoVacancies = () => {
     )
 }
 
-export default NoVacancies
+export default EmptyBlock

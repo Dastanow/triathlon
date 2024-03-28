@@ -1,7 +1,8 @@
 import  { useEffect, useState } from 'react';
-import YesVacancies from './YesVacancies/YesVacancies';
-import NoVacancies from './NoVacancies/NoVacancies'
-import vacanciesData from './YesVacancies/VacanciesFakeData.json'; 
+import vacanciesData from './Vacancies/VacanciesFakeData.json'; 
+import Vacancies from './Vacancies/Vacancies';
+import EmptyBlock from './EmptyBlock/EmptyBlock';
+
 
 const IndexJSX = () => {
     const [hasVacancies, setHasVacancies] = useState(false);
@@ -17,7 +18,7 @@ const IndexJSX = () => {
 
     return (
         <div>
-            {hasVacancies ? <YesVacancies vacanciesData={vacanciesData} /> : <NoVacancies/>}
+            {hasVacancies ? <Vacancies vacanciesData={vacanciesData} /> : <EmptyBlock/>}
         </div>
     );
 };

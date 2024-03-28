@@ -20,7 +20,7 @@ const ModaleWindow = ({ active, setActive, children }) => {
                         alt=""
                     />
 
-                        {children}
+                    {children}
                     
                 </div>
             </div>

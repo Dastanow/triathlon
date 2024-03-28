@@ -19,7 +19,7 @@ const ApplicationForm = () => {
     });
 
     const { user, number, userApprov, numberApprov, userError,
-         numberError, showDangerIcon, showDangerIcon2 } = formInfo;
+        numberError, showDangerIcon, showDangerIcon2 } = formInfo;
 
     const blurHandler = (e) => {
         const fieldTitle = e.target.name;
@@ -55,61 +55,61 @@ const ApplicationForm = () => {
             >
                 
                 <h3 className="formApp--title">Оставить заявку </h3>
-                    <div className="all-input">
-                        <input
-                            name="user"
-                            value={user}
-                            placeholder="Ваше имя*"
-                            className={"formApp--input"}
-                            type="text"
-                            onBlur={(e) => blurHandler(e)}
-                            onChange={inputChangeHandler}/>
-                        {showDangerIcon && (
-                            <div className="danger">
-                                <img className="svg" src={dangerous} alt="" />
-                            </div>
-                        )}
+                <div className="all-input">
+                    <input
+                        name="user"
+                        value={user}
+                        placeholder="Ваше имя*"
+                        className={'formApp--input'}
+                        type="text"
+                        onBlur={(e) => blurHandler(e)}
+                        onChange={inputChangeHandler}/>
+                    {showDangerIcon && (
+                        <div className="danger">
+                            <img className="svg" src={dangerous} alt="" />
+                        </div>
+                    )}
 
-                        {userApprov && userError && (
-                            <div className="error">{userError}</div>
-                        )}
+                    {userApprov && userError && (
+                        <div className="error">{userError}</div>
+                    )}
 
-                        <input
-                            name="number"
-                            value={number}
-                            placeholder="+996(___)___-___"
-                            type="text"
-                            className={'formApp--input'}
-                            onBlur={(e) => blurHandler(e)}
-                            onChange={inputChangeHandler}/>
-                        {showDangerIcon2 && (
-                            <div className="danger">
-                                <img className="svg-two" src={dangerous} alt="" />
-                            </div>
-                        )}
-                        {numberApprov && numberError && (
-                            <div className="error-two">{numberError}</div>
-                        )}
-                             <input
-                                placeholder="Напишите Ваш вопрос"
-                                className={'formApp--secondInput'}/>
-                    </div>
-                        <button
+                    <input
+                        name="number"
+                        value={number}
+                        placeholder="+996(___)___-___"
+                        type="text"
+                        className={'formApp--input'}
+                        onBlur={(e) => blurHandler(e)}
+                        onChange={inputChangeHandler}/>
+                    {showDangerIcon2 && (
+                        <div className="danger">
+                            <img className="svg-two" src={dangerous} alt="" />
+                        </div>
+                    )}
+                    {numberApprov && numberError && (
+                        <div className="error-two">{numberError}</div>
+                    )}
+                    <input
+                        placeholder="Напишите Ваш вопрос"
+                        className={'formApp--secondInput'}/>
+                </div>
+                <button
                            
-                            className="formApp--btn">
+                    className="formApp--btn">
                                  Отправить
-                        </button>
-                        <div className="module--blockk__content--checkboxs">
-                            <label className="box">
-                                <input type="checkbox" className="box--in" />
-                                <h4 className="check">Получить консультацию</h4>
-                            </label>
-                            <label className="box">
-                                <input type="checkbox" className="box--in" />
-                                <h4 className="check">Узнать прайс</h4>
-                            </label>
-                    </div>
-                </form>
+                </button>
+                <div className="module--blockk__content--checkboxs">
+                    <label className="box">
+                        <input type="checkbox" className="box--in" />
+                        <h4 className="check">Получить консультацию</h4>
+                    </label>
+                    <label className="box">
+                        <input type="checkbox" className="box--in" />
+                        <h4 className="check">Узнать прайс</h4>
+                    </label>
+                </div>
+            </form>
             {/* <div
              className={checkState ? 'modal active' : 'modale'}
              onClick={() => {

@@ -19,7 +19,7 @@ const Home1 = () => {
                 </div>
                 <ModaleWindow active={modalActive} setActive={setModalActive}>
                     <ApplicationForm/>
-                 </ModaleWindow>  
+                </ModaleWindow>  
                 <div className="whatapp">
                     <a href="https://api.whatsapp.com/send/?phone=996227000180&type=phone_number&app_absent=0&fbclid=PAAaY_5bq244tz8NBMZByR5gZH5QOPPnwqjB2n58ehJl3PUjGfA57gTD3vBKw_aem_AT59MfZLMHLdpFec1QkPFlU_LqH-cBOTMTSLfwbadUyszfb7PcECLptkeZoEOPpWcHE">
                         <img src={wp} alt="img" />

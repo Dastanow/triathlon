@@ -1,4 +1,4 @@
-import './style.scss';
+import './Advantages.scss';
 import AdvanData from './AdvanFakeData.json';
 
 const Advantages = () => {

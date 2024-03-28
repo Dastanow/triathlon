@@ -7,7 +7,7 @@ import Feedback from '../../Sections/Feedback';
 import Home1 from '../../Sections/Home1/Home1';
 import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
-import Section from '../../Sections/SectionTriatlon/Section';
+import SectionTriatlon from '../../Sections/SectionTriatlon/SectionTriatlon';
 import TrainingAreas from '../../Sections/TrainingAreas';
 
 const FirstPage = () => {
@@ -17,7 +17,7 @@ const FirstPage = () => {
             <AboutUs />
             <Advantages />
             <Aboniment />
-            <Section />
+            <SectionTriatlon />
             <Coaches />
             <TrainingAreas />
             <OurServices />

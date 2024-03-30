@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+button {
+    cursor: pointer;
+}
+
+$dark: #013d83;
+$white: #fff;
+$orange: #f7b512;
+$grey: #606062;
+$black: #000;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 150%;
+    color: $white;
+}
+.container {
+    width: 1720px;
+    margin: 0 auto;
+}

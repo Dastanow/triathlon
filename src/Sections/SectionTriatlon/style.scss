@@ -1,12 +1,16 @@
 #section {
   margin-top: 112px;
+  width: 1720px;
+  margin: 0 auto;
   .section {
+   
     &--blocks {
       margin-top: 80px;
       display: flex;
       border-radius: 16px;
-      border: 1px solid #000;
+      // border: 1px solid #000;
       &__block1 {
+        border-top-left-radius: 16px;
         border: 1px solid #000;
         display: flex;
         flex-direction: column;
@@ -134,6 +138,7 @@
         }
       }
       &__block4 {
+        border-top-right-radius: 16px;
         border: 1px solid #000;
         display: flex;
         flex-direction: column;

@@ -4,14 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { carouselInitState } from '../../common/constants';
 import { TrainingAreasCard } from '../../Sections/TrainingAreas';
-import CustomSlideCard from '../CustomSlideCard';
 import Modal from '../Modal/Modal';
-import ModalCoachCard from '../../Sections/Coaches/modalCoachCard';
+import { CoachCard, ModalCoachCard } from '../../Sections/Coaches';
+import { CommentCard } from '../../Sections/CustomerReviews';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
-import './style.scss';
+import './CustomCarousel.scss';
 
-const CustomCarousel = ({ gap, number, dataArray, classes }) => {
+const CustomCarousel = (props) => {
+    const { gap, number, dataArray, classes } = props;
     const {
         btnPrevClass,
         btnNextClass,
@@ -31,7 +32,8 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
 
     const swiperRef = useRef(null);
 
-    const isTrainingAreaSection = dataArray[0]?.section === 'train';
+    const currentSection = dataArray[0]?.section;
+
     const getNavButtonsClasses = (swiper) => {
         const slidesCount = swiper.slides.length;
         const activeSlideIndex = swiper.activeIndex;
@@ -89,7 +91,7 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
     return (
         <div className="carousel-inner">
             <button className={data.btnPrev} onClick={handleSwitchPrevSlide}>
-                <img src={getIconBtnPrev()} alt="img" />
+                <img src={getIconBtnPrev()} alt="btn prev icon" />
             </button>
             <div className={classes.class0}>
                 <Swiper
@@ -103,25 +105,33 @@ const CustomCarousel = ({ gap, number, dataArray, classes }) => {
                     onSlideChange={(swiper) => getNavButtonsClasses(swiper)}
                     onClick={(swiper) => handleClickOnSlide(swiper)}
                 >
-                    {(isTrainingAreaSection &&
+                    {(currentSection === 'train' &&
                         dataArray.map((item) => {
                             return (
                                 <SwiperSlide key={item.id}>
-                                    <TrainingAreasCard {...item} {...classes} />
+                                    <TrainingAreasCard {...item} />
                                 </SwiperSlide>
                             );
                         })) ||
+                        (currentSection === 'coach' &&
+                            dataArray.map((item) => {
+                                return (
+                                    <SwiperSlide key={item.id}>
+                                        <CoachCard {...item} />
+                                    </SwiperSlide>
+                                );
+                            })) ||
                         dataArray.map((item) => {
                             return (
                                 <SwiperSlide key={item.id}>
-                                    <CustomSlideCard {...item} {...classes} />
+                                    <CommentCard {...item} />
                                 </SwiperSlide>
                             );
                         })}
                 </Swiper>
             </div>
             <button className={data.btnNext} onClick={handleSwitchNextSlide}>
-                <img src={getIconBtnNext()} alt="img" />
+                <img src={getIconBtnNext()} alt="btn next icon" />
             </button>
             <Modal active={modalActive} setActive={setModalActive}>
                 <ModalCoachCard coach={clickedSlide} />

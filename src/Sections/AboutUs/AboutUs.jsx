@@ -1,11 +1,13 @@
 import './style.scss';
 import School from '../../Assets/Placeholder Image.png';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const AboutUs = () => {
     return (
         <div className="aboutUs">
             <div className="aboutUs__container">
-                <h2>О нас</h2>
+                
+                <CustomTitle title={"O нас"}/>
                 <div className="aboutUs__platfor">
                     <div className="aboutUs__img">
                         <img src={School} alt="img" />

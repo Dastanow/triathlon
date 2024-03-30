@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
 import InputCustom from '../../UI/CustomInput/CustomInput';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const Faq = () => {
 
@@ -47,11 +48,12 @@ const Faq = () => {
 
     };
 
+
     
     return (
-        <div className="faq">
+        <section className="faq">
             <div className="faq_container">
-                <h3 className="faq_title">Часто задаваемые вопросы:</h3>
+                <CustomTitle title={"Часто задаваемые вопросы:"}/>
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
@@ -103,7 +105,7 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

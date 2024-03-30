@@ -2,11 +2,12 @@ import './style.scss';
 import { FaCheck } from 'react-icons/fa6';
 import AbonimentData from './AbonimentFakeData.json';
 import imageKing from '../../Assets/mdi_crown.svg';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const Aboniment = () => {
     return (
         <div className="abonement" id="#abonement">
-            <h2 className="abonement--title">Абонементы</h2>
+            <CustomTitle title={"Абонимент"}/>
             <div className="abonement--blocks">
                 {AbonimentData.map((el) => {
                     if (el.id == 2) {

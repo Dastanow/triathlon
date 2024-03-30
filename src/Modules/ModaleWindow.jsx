@@ -1,5 +1,6 @@
 import './style.scss';
 import modalSvg from '../Assets/modalka.svg';
+import PropTypes from 'prop-types'
 
 const ModaleWindow = ({ active, setActive, children }) => {
 
@@ -20,7 +21,7 @@ const ModaleWindow = ({ active, setActive, children }) => {
                         alt=""
                     />
 
-                        {children}
+                    {children}
                     
                 </div>
             </div>
@@ -29,4 +30,11 @@ const ModaleWindow = ({ active, setActive, children }) => {
     );
 };
 
+ModaleWindow.propTypes = {
+    active: PropTypes.bool,
+    setActive: PropTypes.func,
+    children: PropTypes.object,
+};
+
 export default ModaleWindow;
+

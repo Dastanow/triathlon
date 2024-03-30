@@ -10,7 +10,7 @@ import OurServices from '../../Sections/OurServices/OurServices';
 import Section from '../../Sections/SectionTriatlon/Section';
 import TrainingAreas from '../../Sections/TrainingAreas';
 
-const FirstPage = () => {
+const MainPage = () => {
     return (
         <>
             <Home />
@@ -28,4 +28,4 @@ const FirstPage = () => {
     );
 };
 
-export default FirstPage;
+export default MainPage;

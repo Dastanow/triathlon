@@ -1,9 +1,10 @@
+import CustomTitle from '../../UI/CustomTitle/CustomTitle'
 import './style.scss'
 
 const Section = () => {
     return(
         <div className="section"  id="section">
-            <h1>Секции Триатлон</h1>
+            <CustomTitle title={"Секции Триатлон"}/>
             <div className="section--blocks">
                 <div className="section--blocks__block1">
                     <div className="section--blocks__block1--zgolok">

@@ -1,10 +1,11 @@
 import './style.scss';
 import AdvanData from './AdvanFakeData.json';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const Advantages = () => {
     return (
         <div className="advantages" id="advantages">
-            <h2 className="advantages--title">Наши преимущества</h2>
+            <CustomTitle title={"Наши преимущества"}/>
             <div className="advantages--blocks">
                 {AdvanData.map((el) => {
                     return (

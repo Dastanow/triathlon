@@ -2,6 +2,7 @@ import './TrainingAreasGroup.scss';
 import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import { trainAreasInitState } from '../../../common/constants';
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
 
 const TrainingAreasGroup = () => {
     const { gap, slidesPerView, trainClass } = trainAreasInitState;
@@ -13,7 +14,9 @@ const TrainingAreasGroup = () => {
         <section className="train-areas">
             <div className="container">
                 <div className="train-areas__wrapper">
-                    <h2 className="train-areas__title">Тренировочные зоны</h2>
+                    <div className="train-areas__title">
+                        <CustomTitle title={'Тренировочные зоны'}/>
+                    </div>
                     <CustomCarousel
                         gap={gap}
                         number={slidesPerView}

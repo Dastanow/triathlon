@@ -60,27 +60,30 @@ const SectionTriatlon = () => {
     ];
 
     return (
-        <table className="section" id="section">
-            <h2>Секции Триатлон</h2>
-            <thead>
-                <tr className="section__trhead">
-                    <th className="section__header">Группа</th>
-                    <th className="section__header">Примечание</th>
-                    <th className="section__header">Кол-во часов в нед.</th>
-                    <th className="section__header">Стоимость</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows.map((row, index) => (
-                    <tr className="section__row" key={index}>
-                        <td className="section__column">{row.group}</td>
-                        <td className="section__column">{row.note}</td>
-                        <td className="section__column">{row.hours}</td>
-                        <td className="section__column">{row.cost}</td>
+        <>
+            <h2 className="h2">Секции Триатлон</h2>
+            <table className="section" id="section">
+                <thead>
+                    <tr className="section__trhead">
+                        <th className="section__header">Группа</th>
+                        <th className="section__header">Примечание</th>
+                        <th className="section__header">Кол-во часов в нед.</th>
+                        <th className="section__header">Стоимость</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {rows.map((row, index) => (
+                        <tr className="section__row" key={index}>
+                            <td className="section__column">{row.group}</td>
+                            <td className="section__column">{row.note}</td>
+                            <td className="section__column">{row.hours}</td>
+                            <td className="section__column">{row.cost}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </>
+
     );
 };
 

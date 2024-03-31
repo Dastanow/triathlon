@@ -1,35 +1,40 @@
-#section{
-  width: 1720px;
-  margin: 0 auto;
-  .section__trhead{
-    display: flex;
-width: 18.75rem;
-padding: 0.88038rem 4.31806rem;
-justify-content: center;
-align-items: center;
-gap: 0.41925rem;
+.section {
+  margin: 6rem auto;
+  width: 1720px; 
+  border-collapse: collapse; 
+  border-radius: 0px 16.157px 0px 0px;
+  overflow: hidden; 
+
+  .h2 {
+    text-align: center; // Центрируем заголовок
+    margin-bottom: 20px; // Отступ снизу
+    color: black;
   }
-  .section__header{
-    border: 1px solid #000;
+  .section__header {
+    padding: 10px; 
+    text-align: center; 
+    border: 1px solid #ccc;
     color: #000;
 font-family: Montserrat;
-font-size: 2rem;
+font-size: 32.315px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-
   }
-  .section__row{
-   .section__column{
-    border: 1px solid #000;
-    width: 13.0625rem;
-    flex-shrink: 0;
+
+  .section__row {
+    text-align: center;
+
+  .section__column {
+    width: 25%; 
+    padding: 13px; 
+    border: 1px solid #ccc; 
     color: #000;
 font-family: Montserrat;
-font-size: 1.5rem;
+font-size: 24.236px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-   }
   }
+}
 }

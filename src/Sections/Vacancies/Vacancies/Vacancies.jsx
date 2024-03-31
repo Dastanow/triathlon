@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './style.scss'
+import './Vacancies.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
 import ModaleWindow from '../../../Modules/ModaleWindow';

@@ -2,12 +2,13 @@ import './style.scss';
 import email from '../../Assets/emailSVG.svg';
 import phone from '../../Assets/phoneSVG.svg';
 import map from '../../Assets/mapSVG.svg';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
 const Location = () => {
     return (
         <>
             <div className="Location">
-                <h2>Как нас найти</h2>
+                <CustomTitle title={"Как нас найти"}/>
                 <div className="Location__container">
                     <div className="Location__contact">
                         <h3>Наши контакты</h3>

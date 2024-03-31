@@ -1,4 +1,4 @@
-import TrainingAreas from './trainingAreas';
-import TrainingAreasCard from './trainingAreasCard';
+import TrainingAreasGroup from './TrainingAreasGroup/TrainingAreasGroup.jsx';
+import TrainingAreasCard from './TrainingAreasCard/TrainingAreasCard.jsx';
 export { TrainingAreasCard };
-export default TrainingAreas;
+export default TrainingAreasGroup; 

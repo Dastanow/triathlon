@@ -4,9 +4,14 @@ import email from '../../Assets/email.svg';
 import phone from '../../Assets/phone.svg';
 import instagram from '../../Assets/instagram.svg';
 import Logotip from '../../Assets/logo1.png';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const nav = useNavigate();
+    const VacanciesClick = () => {
+        nav('vacancies')
+        window.scrollTo(0, 0);
+    }
     return (
         <footer>
             <div className="footer__container">
@@ -45,9 +50,7 @@ const Footer = () => {
                     <p>Новости</p>
                 </div>
                 <div className="footer__blok">
-                    <Link to="/Vacancies" className="Link">
-                        <p>Вакансии</p>
-                    </Link>
+                        <p onClick={VacanciesClick}>Вакансии</p>
                     <p>Тренеры</p>
                     <p>Отдел продаж</p>
                 </div>

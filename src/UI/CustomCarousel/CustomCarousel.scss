@@ -1,0 +1,76 @@
+$dark: #013d83;
+$grey: #606062;
+$black: #000;
+
+.carousel-inner {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.coach-inner__wrapper {
+    width: 1508px;
+    margin: 0 auto;
+}
+
+.train-areas-inner__wrapper {
+    width: 1566px;
+    margin: 0 auto;
+}
+.comment-inner__wrapper {
+    width: 1516px;
+    border-radius: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+//---------swiper-classes-----------
+.swiper {
+    box-sizing: content-box;
+    max-width: 100%;
+    padding: 0 0 55px 0;
+}
+
+.swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $grey;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    width: 45px;
+    height: 15px;
+    border-radius: 7.5px;
+    background-color: $dark;
+}
+
+.btn-prev,
+.btn-next {
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    top: 44%;
+    z-index: 10;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: $dark;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-prev {
+    left: 0;
+}
+.btn-next {
+    right: 0;
+}
+
+.btn-disable {
+    border: 1px solid $black;
+    background: transparent;
+}

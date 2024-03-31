@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './style.scss';
-import modalSvg from '../../Assets/modalka.svg';
-import { IoMdCheckmark } from 'react-icons/io';
+// import modalSvg from '../../Assets/modalka.svg';
+// import { IoMdCheckmark } from 'react-icons/io';
 import dangerous from '../../Assets/dangerous.svg';
 
 const ApplicationForm = () => {
@@ -39,12 +39,15 @@ const ApplicationForm = () => {
     const inputChangeHandler = (e) => {
         const fieldTitle = e.target.name;
         const value = e.target.value;
+        
 
         setFormInfo({
             ...formInfo,
             [fieldTitle]: value,
             [`${fieldTitle}Error`]: value.trim() ? '' : `Введите ${fieldTitle === 'user' ? 'ваше имя' : 'телефон полностью'}`,
             [fieldTitle === 'user' ? 'showDangerIcon' : 'showDangerIcon2']: false,
+            
+            
         });
     };
 

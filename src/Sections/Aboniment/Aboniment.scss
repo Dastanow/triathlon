@@ -1,6 +1,7 @@
 .abonement {
     margin-top: 112px;
     &--blocks {
+      padding: 0 10px;
       margin-top: 86px;
       margin-left: 9vh;
       display: flex;
@@ -8,6 +9,7 @@
       gap: 36px;
       overflow-x: scroll;
       width: 1728px;
+      height: 50vh;
       &::-webkit-scrollbar {
         display: none;
       }
@@ -96,11 +98,9 @@
       gap: 31px;
       height: 29.75rem;
       border-radius: 1.05956rem;
-      border: 0.706px solid #fff;
-      background: #013d83;
-      box-shadow: 0px 0px 0.42px 0px #013d83, 0px 0px 0.841px 0px #013d83,
-        0px 0px 2.943px 0px #013d83, 0px 0px 5.886px 0px #013d83,
-        0px 0px 10.091px 0px #013d83, 0px 0px 17.659px 0px #013d83;
+border: 0.706px solid #FFF;
+background: #013D83;
+box-shadow: 0px 0px 17.659px 0px #013D83, 0px 0px 10.091px 0px #013D83, 0px 0px 5.886px 0px #013D83, 0px 0px 2.943px 0px #013D83, 0px 0px 0.841px 0px #013D83, 0px 0px 0.42px 0px #013D83;
       &--term {
         width: 100%;
         display: flex;

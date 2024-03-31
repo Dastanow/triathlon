@@ -1,4 +1,4 @@
-import './style.scss';
+import './Advantages.scss';
 import AdvanData from './AdvanFakeData.json';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
@@ -9,7 +9,7 @@ const Advantages = () => {
             <div className="advantages--blocks">
                 {AdvanData.map((el) => {
                     return (
-                        <div className="block__Two" key={el.id}>
+                        <div className="block--Two" key={el.id}>
                             <img src={el.image} alt="img" />
                             <p>{el.discription}</p>
                         </div>

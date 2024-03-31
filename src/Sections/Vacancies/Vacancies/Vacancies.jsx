@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './style.scss'
+import './Vacancies.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
 import ModaleWindow from '../../../Modules/ModaleWindow';
 import VacancyForm from '../../../Modules/VacancyForm/VacancyForm';
 
-const YesVacancies = () => {
+const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const handleToggle = (index) => {
@@ -17,8 +17,8 @@ const YesVacancies = () => {
         <div className="blocks" id="YesVacancies">
             <h2>Вакансии</h2>
             {VacanciesData.map((el, index) => (
-                <div className="blockk" key={index}>
-                    <h4 className="blockk--vacancies" onClick={() => handleToggle(index)} > 
+                <div className="blockk" key={index} onClick={() => handleToggle(index)}>
+                    <h4 className="blockk--vacancies" > 
                         {el.zgolovok}
                         <span >
                             <IoIosArrowForward className={
@@ -53,4 +53,4 @@ const YesVacancies = () => {
     )
 }
 
-export default YesVacancies
+export default Vacancies

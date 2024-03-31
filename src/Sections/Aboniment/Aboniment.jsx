@@ -1,4 +1,4 @@
-import './style.scss';
+import './Aboniment.scss';
 import { FaCheck } from 'react-icons/fa6';
 import AbonimentData from './AbonimentFakeData.json';
 import imageKing from '../../Assets/mdi_crown.svg';

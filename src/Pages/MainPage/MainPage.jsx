@@ -7,7 +7,7 @@ import FAQ from '../../Sections/FAQ/FAQ';
 import Home from '../../Sections/Home/Home';
 import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
-import Section from '../../Sections/SectionTriatlon/Section';
+import SectionTriatlon from '../../Sections/SectionTriatlon/SectionTriatlon';
 import TrainingAreas from '../../Sections/TrainingAreas';
 
 const MainPage = () => {
@@ -17,7 +17,7 @@ const MainPage = () => {
             <AboutUs />
             <Advantages />
             <Aboniment />
-            <Section />
+            <SectionTriatlon />
             <Coaches />
             <TrainingAreas />
             <OurServices />

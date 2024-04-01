@@ -4,7 +4,7 @@ import Advantages from '../../Sections/Advantages/Advantages';
 import Coaches from '../../Sections/Coaches';
 import FAQ from '../../Sections/FAQ/FAQ';
 import Feedback from '../../Sections/Feedback';
-import Home from '../../Sections/Home/Home';
+import Home from '../../Sections/HeroBlock/HeroBlock';
 import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
 import Section from '../../Sections/SectionTriatlon/Section';

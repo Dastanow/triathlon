@@ -1,21 +1,30 @@
-.mein{
+.main{
     margin-top: 50px;
-    width: 1920px;
+    max-width: 1920px;
+    width: 100%;
     margin: 0 auto;
     
+    &__lein{
+        flex-shrink: 0;
+        background: rgba(0, 0, 0, 0.70);
+        font-family:'Montserrat';
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        max-width: 1920px;
+    }
 }
+@media (max-width: 600px) {
+    .mein {
+      width: 100%; /* Полная ширина на мобильных устройствах */
+    }
+    .lein {
+      width: 100%; /* Полная ширина на мобильных устройствах */
+      left: 0; /* Полная ширина на мобильных устройствах */
+    }
+  }
 
-.lein {
-    flex-shrink: 0;
-    background: rgba(0, 0, 0, 0.70);
-    font-family:'Montserrat';
-    position: fixed;
-    z-index: 100;
-    width: 1920px;
-
-}
-
-.logo {
+.main__logotype-icon {
     margin-top: 34px;
     margin-right: 1650px;
     margin-bottom:33.1px;
@@ -36,16 +45,16 @@
     display: inline-flex;
     align-items: flex-start;
     gap: 40px;
-}
 
-.links {
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 27px;
-    list-style-type:none;
+    &__link{
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 27px;
+        list-style-type:none;
+    }
 }
 
 .links:hover {
@@ -69,7 +78,7 @@
     border-radius: 16px;
     background: rgba(13, 13, 13, 0.70);
     position: absolute;
-    top: 120%;
+    top: 103%;
     left: 85%;
     padding: 20px;
     transition: all 0.3s ease;

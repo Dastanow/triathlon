@@ -8,6 +8,7 @@ import svg_landuage from '../../Assets/language.svg'
 import { Link } from 'react-router-dom'
 
 
+
 const Header = () => {
 
     const [showOtherImage, setShowOtherImage] = useState(false);
@@ -19,13 +20,13 @@ const Header = () => {
       }
 
     return (
-        <div className="mein">
-            <div className="lein">
+        <div className="main">
+            <div className="main__lein">
 
-                <div className="lein-ing">
+                <div className="main__logotype">
 
                 <Link to="/">
-                    <img className="logo" src={logot} alt="" />
+                    <img className="main__logotype-icon" src={logot} alt="" />
                 </Link>
 
                 </div>
@@ -34,13 +35,13 @@ const Header = () => {
 
                     <ul className="all-links">
 
-                        <li className="links" >Главная</li>
-                        <li className="links">Тренеры</li>
-                        <li className="links">Абонементы</li>
-                        <li className="links">Секции</li>
-                        <li className="links">Расписание</li>
-                        <li className="links">Услуги</li>
-                        <li className="links">Контакты</li>
+                        <li className="all-links__link" >Главная</li>
+                        <li className="all-links__link">Тренеры</li>
+                        <li className="all-links__link">Абонементы</li>
+                        <li className="all-links__link">Секции</li>
+                        <li className="all-links__link">Расписание</li>
+                        <li className="all-links__link">Услуги</li>
+                        <li className="all-links__link">Контакты</li>
 
                     </ul>
 

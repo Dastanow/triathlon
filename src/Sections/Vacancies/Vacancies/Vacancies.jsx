@@ -17,8 +17,8 @@ const Vacancies = () => {
         <div className="blocks" id="YesVacancies">
             <h2>Вакансии</h2>
             {VacanciesData.map((el, index) => (
-                <div className="blockk" key={index} onClick={() => handleToggle(index)}>
-                    <h4 className="blockk--vacancies" > 
+                <div className="blockk" key={index}>
+                    <h4 className="blockk--vacancies" onClick={() => handleToggle(index)} > 
                         {el.zgolovok}
                         <span >
                             <IoIosArrowForward className={
@@ -41,7 +41,7 @@ const Vacancies = () => {
                                 <h3>Условия: </h3>
                                 <p>{el.conditions}</p>
                             </div>
-                            <button className="btn" onClick={() => setModalActive(true)}>Отправить резюме</button>
+                            <button onClick={() => setModalActive(true)}>Отправить резюме</button>
                             <ModaleWindow active={modalActive} setActive={setModalActive}>
                                 <VacancyForm/>
                             </ModaleWindow> 

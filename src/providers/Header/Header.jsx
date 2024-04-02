@@ -14,9 +14,9 @@ const Header = () => {
     
     const handleSvgClick = (event) => {
         if (!event.target.closest('.lein-acc')) {
-          setShowOtherImage(prevState => !prevState);
+            setShowOtherImage(prevState => !prevState);
         }
-      }
+    }
 
     return (
         <div className="mein">
@@ -24,9 +24,9 @@ const Header = () => {
 
                 <div className="lein-ing">
 
-                <Link to="/">
-                    <img className="logo" src={logot} alt="" />
-                </Link>
+                    <Link to="/">
+                        <img className="logo" src={logot} alt="" />
+                    </Link>
 
                 </div>
 
@@ -51,11 +51,11 @@ const Header = () => {
                         <img className="languages_svg" src={svg_landuage} alt="" onClick={handleSvgClick} />
                     </div>
                     {showOtherImage && (
-                    <div className="other-image-container">
-                        <img src={kyr} alt="Other Image" />
-                        <img className="language" src={rus} alt="" />
-                    </div>
-                )}
+                        <div className="other-image-container">
+                            <img src={kyr} alt="Other Image" />
+                            <img className="language" src={rus} alt="" />
+                        </div>
+                    )}
 
                 </div>
 

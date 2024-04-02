@@ -10,9 +10,9 @@ const CustomTitle = ({title}) => {
     );
 };
 
-    CustomTitle.propTypes={
-        title:PropTypes.string,
-    }
+CustomTitle.propTypes={
+    title:PropTypes.string,
+}
 
 export default CustomTitle;
 

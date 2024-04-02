@@ -50,7 +50,7 @@ const Footer = () => {
                     <p>Новости</p>
                 </div>
                 <div className="footer__blok">
-                        <p onClick={VacanciesClick}>Вакансии</p>
+                    <p onClick={VacanciesClick}>Вакансии</p>
                     <p>Тренеры</p>
                     <p>Отдел продаж</p>
                 </div>

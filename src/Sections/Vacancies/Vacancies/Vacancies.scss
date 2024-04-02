@@ -64,27 +64,24 @@
         line-height: 28.8px;
         letter-spacing: 0.72px;
       }
+      button {
+        margin: 32px 0rem 0 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: #013d83;
+        color: #fff;
+  
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; 
+        letter-spacing: -0.48px;
+        cursor: pointer;
+      }
     }
-    .btn {
-      margin-top: 32px;
-      margin-left: 43rem;
-      display: flex;
-      // padding: 16px 32px;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      background: #013d83;
-      color: #fff;
-      text-align: center;
-      font-feature-settings: "clig" off, "liga" off;
-
-      font-family: Montserrat;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 120%; 
-      letter-spacing: -0.48px;
-      cursor: pointer;
-    }
+    
   }
 }

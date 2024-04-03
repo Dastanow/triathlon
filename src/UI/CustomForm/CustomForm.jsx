@@ -109,9 +109,9 @@ const CustomForm = (props) => {
                              <ul className="file__list">
                                  {files.map(({name}, id) => (
                                      <>
-                                         <img className="correct__tick" src={good} alt="" />
+                                         <img className="correct__tick" src={good} alt="icon" />
                                          <li className="correct__title" key={id}>{name}</li>
-                                         <img className="correct__delete" onClick={handleReset} src={deleted} alt="" />
+                                         <img className="correct__delete" onClick={handleReset} src={deleted} alt="icon" />
                                      </>
                                  ))}
                              </ul>
@@ -119,7 +119,7 @@ const CustomForm = (props) => {
                          </>
                      ) : (
                          <form
-                             className={`form ${dragActive ? "drag" : ''}`}
+                             className={`form ${dragActive ? 'drag' : ''}`}
                              onSubmit={()=>handleSubmit}
                              onDragEnter={handleDrag}
                              onDragOver={handleDrag}

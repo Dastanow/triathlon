@@ -17,8 +17,8 @@ const ModalWindow = ({ active, setActive, children }) => {
                     <img
                         src={modalSvg}
                         onClick={() => setActive(false)}
-                        className="modal--blockk__cross"
-                        alt=""
+                        className="modal-blockk__cross"
+                        alt="reset"
                     />
 
                     {children}

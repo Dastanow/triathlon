@@ -32,17 +32,15 @@
     pointer-events: all;
     left: 0;
     top: 0;
-  }
-  .modal.activee {
-    opacity: 1;
-    pointer-events: all;
-    transition: 1s;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    
   }
   .modal__content.active {
     transform: scale(1);
+    background: #fff;
   }
-  .modal--blockk__cross {
-    
+  .modal-blockk__cross {
     margin-left: 680px;
     margin-top: 10px;
     cursor: pointer;

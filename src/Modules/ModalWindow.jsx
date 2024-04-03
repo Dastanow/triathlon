@@ -1,8 +1,8 @@
-import './style.scss';
+import './ModalWindow.scss';
 import modalSvg from '../Assets/modalka.svg';
 import PropTypes from 'prop-types'
 
-const ModaleWindow = ({ active, setActive, children }) => {
+const ModalWindow = ({ active, setActive, children }) => {
 
     return (
         <div>
@@ -30,11 +30,11 @@ const ModaleWindow = ({ active, setActive, children }) => {
     );
 };
 
-ModaleWindow.propTypes = {
+ModalWindow.propTypes = {
     active: PropTypes.bool,
     setActive: PropTypes.func,
     children: PropTypes.object,
 };
 
-export default ModaleWindow;
+export default ModalWindow;
 

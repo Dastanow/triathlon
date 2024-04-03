@@ -4,6 +4,7 @@ import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import { coachesInitState } from '../../../common/constants';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
 
 const CoachesBlock = () => {
     const { gap, slidesPerView, coachClass } = coachesInitState;
@@ -30,7 +31,7 @@ const CoachesBlock = () => {
     return (
         <section className="coaches">
             <div className="container">
-                <h2 className="coaches__title">Наши тренеры</h2>
+                <CustomTitle title={'Наши тренеры'}/>
                 <ButtonsBlock
                     buttons={data.buttons}
                     onChangeCoaches={handleChangeCoaches}

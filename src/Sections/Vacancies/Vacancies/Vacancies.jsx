@@ -2,8 +2,9 @@ import { useState } from 'react';
 import './Vacancies.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
-import ModaleWindow from '../../../Modules/ModaleWindow';
-import VacancyForm from '../../../Modules/VacancyForm/VacancyForm';
+import ModalWindow from '../../../Modules/ModalWindow';
+import CustomForm from '../../../UI/CustomForm/CustomForm';
+import { initStateVacancyForm } from '../../../common/constants';
 
 const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -12,7 +13,7 @@ const Vacancies = () => {
         setOpenIndex(openIndex === index ? null : index); };
 
     const [modalActive, setModalActive] = useState(false)
-
+    const {vacancyClass} = initStateVacancyForm
     return(
         <div className="blocks" id="YesVacancies">
             <h2>Вакансии</h2>
@@ -41,10 +42,13 @@ const Vacancies = () => {
                                 <h3>Условия: </h3>
                                 <p>{el.conditions}</p>
                             </div>
-                            <button onClick={() => setModalActive(true)}>Отправить резюме</button>
-                            <ModaleWindow active={modalActive} setActive={setModalActive}>
-                                <VacancyForm/>
-                            </ModaleWindow> 
+                            <button className="blockk--content__button-vacancy" onClick={() => setModalActive(true)}>Отправить резюме</button>
+                            <ModalWindow active={modalActive} setActive={setModalActive}>
+                                <CustomForm 
+                                    classes={vacancyClass}
+                                    {... initStateVacancyForm}
+                                />
+                            </ModalWindow> 
                         </div>
                     )}
                 </div>

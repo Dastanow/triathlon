@@ -5,7 +5,7 @@ import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 const Advantages = () => {
     return (
         <div className="advantages" id="advantages">
-            <CustomTitle title={"Наши преимущества"}/>
+            <CustomTitle title={'Наши преимущества'}/>
             <div className="advantages--blocks">
                 {AdvanData.map((el) => {
                     return (

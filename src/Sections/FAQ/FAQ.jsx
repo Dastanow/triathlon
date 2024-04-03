@@ -53,7 +53,7 @@ const Faq = () => {
     return (
         <section className="faq">
             <div className="faq_container">
-                <CustomTitle title={"Часто задаваемые вопросы:"}/>
+                <CustomTitle title={'Часто задаваемые вопросы:'}/>
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
@@ -62,12 +62,12 @@ const Faq = () => {
                                     <h4 className="title_questions">
                                         {question.title}
                                     </h4>
-                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? "rotate(180deg)" :"" , transition:"0.5s" }} />
+                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? 'rotate(180deg)' :'' , transition:'0.5s' }} />
                                 </div>
                                
-                                    {openIndexes[index] && (
-                                        <p className="answer opened">{question.answer}</p>
-                                    )}
+                                {openIndexes[index] && (
+                                    <p className="answer opened">{question.answer}</p>
+                                )}
                                 
                                 
                             </div>
@@ -87,15 +87,15 @@ const Faq = () => {
                             <div className="all_inputs">
                                 <InputCustom
                                     placeholder="Ваше имя*" 
-                                    className={"inp"}
+                                    className={'inp'}
                                 />
                                 <InputCustom
                                     placeholder="+996(___)___-___"
-                                    className={"inp"}
+                                    className={'inp'}
                                 />
                                 <InputCustom
                                     placeholder="Напишите Ваш вопрос"
-                                    className={"secondI"}
+                                    className={'secondI'}
                                 />
                             </div>
                             <button className="btn_additional">

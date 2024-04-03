@@ -7,7 +7,7 @@ const AboutUs = () => {
         <div className="aboutUs">
             <div className="aboutUs__container">
                 
-                <CustomTitle title={"O нас"}/>
+                <CustomTitle title={'O нас'}/>
                 <div className="aboutUs__platfor">
                     <div className="aboutUs__img">
                         <img src={School} alt="img" />

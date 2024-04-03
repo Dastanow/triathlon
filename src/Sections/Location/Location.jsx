@@ -8,7 +8,7 @@ const Location = () => {
     return (
         <>
             <div className="Location">
-                <CustomTitle title={"Как нас найти"}/>
+                <CustomTitle title={'Как нас найти'}/>
                 <div className="Location__container">
                     <div className="Location__contact">
                         <h3>Наши контакты</h3>

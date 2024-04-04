@@ -29,7 +29,7 @@ const CoachesBlock = () => {
     if (!data.coaches && !data.buttons) return 'Loader...';
 
     return (
-        <section className="coaches">
+        <section className="coaches" id="coaches">
             <div className="container">
                 <CustomTitle title={'Наши тренеры'}/>
                 <ButtonsBlock

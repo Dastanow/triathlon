@@ -16,7 +16,7 @@ const OurServices = () => {
     
 
     return (
-        <div className="service">
+        <div className="service" id="services">
             <div className="service__block">
                 <CustomTitle title={'Наши услуги'}/>
                 <div className="all__cards">

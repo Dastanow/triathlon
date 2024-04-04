@@ -10,7 +10,7 @@ const Home = () => {
     const { appClass } = initStateAppForm
     
     return (
-        <div className="main_unit_home">
+        <div className="main_unit_home" id="main">
             <div className="block">
                 <div className="menu">
                     <h2 className="title">TRIATHLON CENTER</h2>

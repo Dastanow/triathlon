@@ -8,7 +8,7 @@ import Map from '../../UI/Map/Map';
 const Location = () => {
     return (
         <>
-            <div className="Location">
+            <div className="Location" id="location">
                 <CustomTitle title={'Как нас найти'}/>
                 <div className="Location__container">
                     <div className="Location__contact">

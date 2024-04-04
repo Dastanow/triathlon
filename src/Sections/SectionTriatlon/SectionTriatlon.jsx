@@ -61,7 +61,7 @@ const SectionTriatlon = () => {
     ];
 
     return (
-        <>
+        <div id="section">
             <CustomTitle title={'Секции Триатлон'} />
             <table className="section" id="section">
                 <thead>
@@ -83,7 +83,7 @@ const SectionTriatlon = () => {
                     ))}
                 </tbody>
             </table>
-        </>
+        </div>
 
     );
 };

@@ -5,45 +5,39 @@ import acc from '../../Assets/acc1.png'
 import rus from '../../Assets/language_rus.png'
 import kyr from '../../Assets/language_kyr.png'
 import svg_landuage from '../../Assets/language.svg'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
-
-    const [showOtherImage, setShowOtherImage] = useState(false);
-    
+    const nav = useNavigate();
+    const [showOtherImage, setShowOtherImage] = useState(false);    
     const handleSvgClick = (event) => {
         if (!event.target.closest('.lein-acc')) {
             setShowOtherImage(prevState => !prevState);
         }
     }
+    const  goToMainPage = () =>{
+        nav('/')
+        window.scrollTo(2000, 2000)
+    }
 
     return (
         <div className="mein">
             <div className="lein">
-
                 <div className="lein-ing">
-
                     <Link to="/">
                         <img className="logo" src={logot} alt="" />
                     </Link>
-
                 </div>
-
                 <div className="navigation">
-
                     <ul className="all-links">
-
-                        <li className="links" >Главная</li>
-                        <li className="links">Тренеры</li>
-                        <li className="links">Абонементы</li>
-                        <li className="links">Секции</li>
+                        <a href="#main"><li className="links" onClick={goToMainPage}>Главная</li></a>
+                        <a href="#coaches"><li className="links"onClick={goToMainPage}>Тренеры</li></a>
+                        <a href="#abonement"><li className="links" onClick={goToMainPage}>Абонементы</li></a> 
+                        <a href="#section"> <li className="links" onClick={goToMainPage}>Секции</li></a>
                         <li className="links">Расписание</li>
-                        <li className="links">Услуги</li>
-                        <li className="links">Контакты</li>
-
+                        <a href="#services"><li className="links" onClick={goToMainPage}>Услуги</li></a>
+                        <a href="#location"><li className="links" onClick={goToMainPage}>Контакты</li></a>
                     </ul>
-
                 </div>
                 <div className="lein-language">
                     <div className="languages">
@@ -56,13 +50,9 @@ const Header = () => {
                             <img className="language" src={rus} alt="" />
                         </div>
                     )}
-
                 </div>
-
                 <div className="lein-acc">
-
                     <img className="acc" src={acc} alt="" />
-
                 </div>
             </div>
         </div>

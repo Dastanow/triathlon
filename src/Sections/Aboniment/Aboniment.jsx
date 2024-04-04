@@ -10,7 +10,7 @@ import { useState } from 'react';
 const Aboniment = () => {
     const [modalActive, setModalActive] = useState(false)
     return (
-        <div className="abonement" id="#abonement">
+        <div className="abonement" id="abonement">
             <CustomTitle title={'Абонимент'}/>
             <div className="abonement--blocks">
                 {AbonimentData.map((el) => {

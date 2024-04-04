@@ -1,103 +1,103 @@
 .abonement {
-  margin-top: 112px;
-  &--blocks {
-    padding: 0 10px;
-    margin-top: 86px;
-    margin-left: 9vh;
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    overflow-x: scroll;
-    width: 1720px;
-    height: 50vh;
-    &::-webkit-scrollbar {
-      display: none;
+    margin-top: 112px;
+    &--blocks {
+      padding: 0 10px;
+      margin-top: 86px;
+      margin-left: 9vh;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      overflow-x: scroll;
+      width: 89%;
+      height: 78vh;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
-  }
-
-  .blockTwo {
-    display: flex;
-    padding: 32px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 31px;
-    height: 29.75rem;
-    border-radius: 24px;
-    border: 1px solid #000;
-    &--term {
-      h4 {
+  
+    .blockTwo {
+      display: flex;
+      padding: 32px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 31px;
+      height: 29.75rem;
+      border-radius: 24px;
+      border: 1px solid #000;
+      &--term {
+        h4 {
+          color: #000;
+          font-family: Montserrat;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%;
+        }
+        p {
+          color: #000;
+          font-family: Montserrat;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+      }
+      h2 {
         color: #000;
+        text-align: center;
         font-family: Montserrat;
-        font-size: 20px;
+        font-size: 40px;
         font-style: normal;
         font-weight: 700;
-        line-height: 140%;
+        line-height: 120%;
       }
-      p {
-        color: #000;
-        font-family: Montserrat;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-    h2 {
-      color: #000;
-      text-align: center;
-      font-family: Montserrat;
-      font-size: 40px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 120%;
-    }
-    &--btn {
-      display: flex;
-      width: 432px;
-      padding: 12px 24px;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 16px;
-      border: 1px solid var(--Color-Black-1, #000);
-      background: #013d83;
-      color: var(--Text-alternate, #fff);
-      font-family: Montserrat;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 150%;
-      cursor: pointer;
-    }
-    &--linear {
-      background: #fff;
-      height: 1px;
-      width: 100%;
-    }
-    &--possibilities {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      p {
+      &--btn {
         display: flex;
-        align-items: center;
-        color: #000;
-        gap: 16px;
+        width: 432px;
+        padding: 12px 24px;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 16px;
+        border: 1px solid var(--Color-Black-1, #000);
+        background: #013d83;
+        color: var(--Text-alternate, #fff);
         font-family: Montserrat;
-        font-size: 16px;
+        font-size: 24px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 150%;
+        cursor: pointer;
+      }
+      &--linear {
+        background: #fff;
+        height: 1px;
+        width: 100%;
+      }
+      &--possibilities {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        p {
+          display: flex;
+          align-items: center;
+          color: #000;
+          gap: 16px;
+          font-family: Montserrat;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
       }
     }
-  }
-  .blockXits {
-    display: flex;
-    padding: 32px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 31px;
-    height: 29.75rem;
-    border-radius: 1.05956rem;
+    .blockXits {
+      display: flex;
+      padding: 32px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 31px;
+      height: 29.75rem;
+      border-radius: 1.05956rem;
 border: 0.706px solid #FFF;
 background: #013D83;
 box-shadow: 0px 0px 17.659px 0px #013D83, 0px 0px 10.091px 0px #013D83, 0px 0px 5.886px 0px #013D83, 0px 0px 2.943px 0px #013D83, 0px 0px 0.841px 0px #013D83, 0px 0px 0.42px 0px #013D83;

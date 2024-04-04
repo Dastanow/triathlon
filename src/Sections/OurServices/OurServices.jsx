@@ -6,18 +6,19 @@ import group from '../../Assets/svgServices/group.svg';
 import tick from '../../Assets/svgServices/tick.svg';
 import double from '../../Assets/svgServices/double.svg';
 import '../../UI/CustomTitle/style.scss';
-import ModaleWindow from '../../Modules/ModaleWindow';
-import ApplicationForm from '../../Modules/ApplicationForm/ApplicationForm';
+import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 
+
 const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
+    
 
     return (
         <div className="service">
             <div className="service__block">
-                <CustomTitle title={"Наши услуги"}/>
+                <CustomTitle title={'Наши услуги'}/>
                 <div className="all__cards">
                     <div className="all--card-one">
                         <div className="all__cards_card">
@@ -111,9 +112,9 @@ const OurServices = () => {
                             <img className="img__six" src={tick} alt="img" />
                         </div>
                     </div>
-                    <ModaleWindow active={modalActive} setActive={setModalActive} >
-                        <ApplicationForm/>
-                    </ModaleWindow>
+                    <ModalWindow active={modalActive} setActive={setModalActive} >
+                        {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
+                    </ModalWindow>
                 </div>
             </div>
         </div>

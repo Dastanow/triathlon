@@ -8,20 +8,22 @@ const CustomButton = ({
     type,
     value,
     form,
+    title,
 }) => {
     const inputRef = React.useRef(null);
 
     return (
         <div>
-            <input
+            <button
                 ref={inputRef}
                 type={type}
                 name={name}
-                onCclick={onClick}
+                onClick={onClick}
                 value={value}
                 className={className}
                 form={form}
-            />
+                >{title}</button>
+               
         </div>
     );
 };
@@ -37,6 +39,7 @@ CustomButton.propTypes={
     placeholder:PropTypes.string,
     type:PropTypes.string,
     value:PropTypes.string,
+    title:PropTypes.string,
 }
 
 export default CustomButton;

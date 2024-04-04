@@ -1,4 +1,4 @@
-import './style.scss';
+import './OurServices.scss';
 import bicycle from '../../Assets/svgServices/bicycle.svg';
 import book from '../../Assets/svgServices/book.svg';
 import dumbbells from '../../Assets/svgServices/dumbbells.svg';

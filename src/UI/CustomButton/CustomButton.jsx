@@ -7,6 +7,7 @@ const CustomButton = ({
     type,
     value,
     form,
+    title,
 }) => {
 
     return (
@@ -18,7 +19,7 @@ const CustomButton = ({
                 value={value}
                 className={className}
                 form={form}
-            />
+            >{title}</button>
         </div>
     );
 };
@@ -34,6 +35,7 @@ CustomButton.propTypes={
     form:PropTypes.func,
     type:PropTypes.string,
     value:PropTypes.string,
+    title:PropTypes.string,
 }
 
 export default CustomButton;

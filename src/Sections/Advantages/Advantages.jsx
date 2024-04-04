@@ -10,7 +10,7 @@ const Advantages = () => {
                 {AdvanData.map((el) => {
                     return (
                         <div className="block--Two" key={el.id}>
-                            <img src={el.image} alt="img" />
+                           <img src={el.image} alt="img" />
                             <p>{el.discription}</p>
                         </div>
                     );

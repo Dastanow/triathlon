@@ -3,8 +3,12 @@ import { FaCheck } from 'react-icons/fa6';
 import AbonimentData from './AbonimentFakeData.json';
 import imageKing from '../../Assets/mdi_crown.svg';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import ModalWindow from '../../Modules/ModalWindow';
+import Requisites from './Requisites/Requisites';
+import { useState } from 'react';
 
 const Aboniment = () => {
+    const [modalActive, setModalActive] = useState(false)
     return (
         <div className="abonement" id="#abonement">
             <CustomTitle title={'Абонимент'}/>
@@ -24,7 +28,7 @@ const Aboniment = () => {
                                     </div>
                                 </div>
                                 <h2>{el.price}</h2>
-                                <button className="blockXits--btn">Купить</button>
+                                <button  onClick={() => setModalActive(true)} className="blockXits--btn">Купить</button>
                                 <div className="blockXits--linear"></div>
                                 <div className="blockXits--possibilities">
                                     <p>
@@ -47,7 +51,7 @@ const Aboniment = () => {
                                     <p>{el.visits}</p>
                                 </div>
                                 <h2>{el.price}</h2>
-                                <button className="blockTwo--btn">Купить</button>
+                                <button  onClick={() => setModalActive(true)} className="blockTwo--btn">Купить</button>
                                 <div className="blockTwo--linear"></div>
                                 <div className="blockTwo--possibilities">
                                     <p>
@@ -64,6 +68,11 @@ const Aboniment = () => {
                         );
                     }
                 })}
+                <ModalWindow active={modalActive} setActive={setModalActive} >
+                    <Requisites/>
+                </ModalWindow>
+                    
+                
             </div>
         </div>
     );

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import InputCustom from '../../UI/CustomInput/CustomInput';
+import { initStateFaqForm } from '../../common/constants';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import CustomForm from '../../UI/CustomForm/CustomForm';
 
 const Faq = () => {
 
@@ -77,30 +78,9 @@ const Faq = () => {
 
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <h1 className="title_additional">
-                                Остались вопросы?
-                            </h1>
-                            <p className="min_text">
-                                Мы рады ответить на любой Ваш вопрос, выслушать
-                                Ваше предложение.
-                            </p>
-                            <div className="all_inputs">
-                                <InputCustom
-                                    placeholder="Ваше имя*" 
-                                    className={'inp'}
-                                />
-                                <InputCustom
-                                    placeholder="+996(___)___-___"
-                                    className={'inp'}
-                                />
-                                <InputCustom
-                                    placeholder="Напишите Ваш вопрос"
-                                    className={'secondI'}
-                                />
-                            </div>
-                            <button className="btn_additional">
-                                Отправить
-                            </button>
+                            <CustomForm 
+                                { ... initStateFaqForm}
+                            />
                         </div>
                     </div>
                 </div>

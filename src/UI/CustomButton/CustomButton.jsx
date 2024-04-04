@@ -1,4 +1,3 @@
-import * as React from 'react';
 import PropTypes from 'prop-types'
 
 const CustomButton = ({
@@ -9,15 +8,13 @@ const CustomButton = ({
     value,
     form,
 }) => {
-    const inputRef = React.useRef(null);
 
     return (
         <div>
-            <input
-                ref={inputRef}
+            <button
                 type={type}
                 name={name}
-                onCclick={onClick}
+                onClick={onClick}
                 value={value}
                 className={className}
                 form={form}
@@ -33,8 +30,8 @@ CustomButton.defaultProps={
 CustomButton.propTypes={
     className:PropTypes.string,
     name:PropTypes.string,
-    onChange:PropTypes.func,
-    placeholder:PropTypes.string,
+    onClick:PropTypes.func,
+    form:PropTypes.func,
     type:PropTypes.string,
     value:PropTypes.string,
 }

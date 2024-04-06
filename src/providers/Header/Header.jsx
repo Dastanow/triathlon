@@ -47,9 +47,9 @@ const Header = () => {
 
                 </div>
                 <div className="lein-language">
-                    <div className="languages">
+                    <div className="languages" onClick={handleSvgClick}>
                         <img className="language" src={rus} alt="" />
-                        <img className="languages_svg" src={svg_landuage} alt="" onClick={handleSvgClick} />
+                        <img className="languages_svg" src={svg_landuage} alt="" />
                     </div>
                     {showOtherImage && (
                     <div className="other-image-container">

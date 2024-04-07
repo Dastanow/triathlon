@@ -11,7 +11,7 @@ const Aboniment = () => {
     const [modalActive, setModalActive] = useState(false)
     return (
         <div className="abonement" id="abonement">
-            <CustomTitle title={'Абонимент'}/>
+            <CustomTitle title={'Абонементы'}/>
             <div className="abonement--blocks">
                 {AbonimentData.map((el) => {
                     if (el.id == 2) {

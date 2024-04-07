@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import InputCustom from '../../UI/CustomInput/CustomInput';
+import { initStateFaqForm } from '../../common/constants';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import CustomForm from '../../UI/CustomForm/CustomForm';
 
 const Faq = () => {
 
@@ -47,11 +49,12 @@ const Faq = () => {
 
     };
 
+
     
     return (
-        <div className="faq">
+        <section className="faq">
             <div className="faq_container">
-                <h3 className="faq_title">Часто задаваемые вопросы:</h3>
+                <CustomTitle title={'Часто задаваемые вопросы:'}/>
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
@@ -60,12 +63,12 @@ const Faq = () => {
                                     <h4 className="title_questions">
                                         {question.title}
                                     </h4>
-                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? "rotate(180deg)" :"" , transition:"0.5s" }} />
+                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? 'rotate(180deg)' :'' , transition:'0.5s' }} />
                                 </div>
                                
-                                    {openIndexes[index] && (
-                                        <p className="answer opened">{question.answer}</p>
-                                    )}
+                                {openIndexes[index] && (
+                                    <p className="answer opened">{question.answer}</p>
+                                )}
                                 
                                 
                             </div>
@@ -75,35 +78,14 @@ const Faq = () => {
 
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <h1 className="title_additional">
-                                Остались вопросы?
-                            </h1>
-                            <p className="min_text">
-                                Мы рады ответить на любой Ваш вопрос, выслушать
-                                Ваше предложение.
-                            </p>
-                            <div className="all_inputs">
-                                <InputCustom
-                                    placeholder="Ваше имя*" 
-                                    className={"inp"}
-                                />
-                                <InputCustom
-                                    placeholder="+996(___)___-___"
-                                    className={"inp"}
-                                />
-                                <InputCustom
-                                    placeholder="Напишите Ваш вопрос"
-                                    className={"secondI"}
-                                />
-                            </div>
-                            <button className="btn_additional">
-                                Отправить
-                            </button>
+                            <CustomForm 
+                                { ... initStateFaqForm}
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

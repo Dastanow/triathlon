@@ -1,6 +1,7 @@
 import * as React from 'react';
+import PropTypes from 'prop-types'
 
-const InputCustom = ({
+const CustomInput = ({
     className,
     name,
     onChange,
@@ -11,10 +12,9 @@ const InputCustom = ({
     const inputRef = React.useRef(null);
 
     return (
-        <div className={className} >
+        <div>
             <input
                 ref={inputRef}
-                tabIndex={0}
                 type={type}
                 name={name}
                 onChange={onChange}
@@ -26,4 +26,17 @@ const InputCustom = ({
     );
 };
 
-export default InputCustom;
+CustomInput.defaultProps={
+    type:'text'
+}
+
+CustomInput.propTypes={
+    className:PropTypes.string,
+    name:PropTypes.string,
+    onChange:PropTypes.func,
+    placeholder:PropTypes.string,
+    type:PropTypes.string,
+    value:PropTypes.string,
+}
+
+export default CustomInput;

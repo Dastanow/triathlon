@@ -1,0 +1,45 @@
+$dark: #013d83;
+// $white: #fff;
+// $orange: #f7b512;
+// $grey: #606062;
+// $black: #000;
+// $lightblack: #002550;
+
+//------------coach-card-styles------
+.coach-card {
+    max-width: 350px;
+    height: 497px;
+    position: relative;
+    > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+}
+.coach-info {
+    width: 100%;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    padding: 0 10px;
+    border-radius: 0px 0px 16px 16px;
+    background: $dark;
+    > p {
+        font-style: normal;
+        line-height: 150%;
+    }
+}
+.coach-info__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.coach-info__sertification {
+    font-size: 17px;
+    font-weight: 400;
+}

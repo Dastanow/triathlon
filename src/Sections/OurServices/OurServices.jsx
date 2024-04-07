@@ -1,24 +1,24 @@
-import './style.scss';
+import './OurServices.scss';
 import bicycle from '../../Assets/svgServices/bicycle.svg';
 import book from '../../Assets/svgServices/book.svg';
 import dumbbells from '../../Assets/svgServices/dumbbells.svg';
 import group from '../../Assets/svgServices/group.svg';
 import tick from '../../Assets/svgServices/tick.svg';
 import double from '../../Assets/svgServices/double.svg';
-import whiteSnow from '../../Assets/svgServices/whiteSnow.svg';
-import flakeSnow from '../../Assets/svgServices/flakeSnow.svg';
 import '../../UI/CustomTitle/style.scss';
-import ModaleWindow from '../../Modules/ModaleWindow';
-import ApplicationForm from '../../Modules/ApplicationForm/ApplicationForm';
+import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+
 
 const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
+    
 
     return (
-        <div className="service">
+        <div className="service" id="services">
             <div className="service__block">
-                <h1 className="cust_title">Наши услуги</h1>
+                <CustomTitle title={'Наши услуги'}/>
                 <div className="all__cards">
                     <div className="all--card-one">
                         <div className="all__cards_card">
@@ -57,21 +57,6 @@ const OurServices = () => {
                             </div>
                             <img className="img__two" src={group} alt="img" />
                         </div>
-                        {/* <div className="all__cards_card">
-                            <h2 className="all__cards-text">
-                30 дней заморозки
-                            </h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__alt" src={whiteSnow} alt="img" />
-                            <img className="img__alt2" src={flakeSnow} alt="img" />
-                        </div> */}
                     </div>
                     <div className="all--card-two">
                         <div className="all__cards_card">
@@ -127,9 +112,9 @@ const OurServices = () => {
                             <img className="img__six" src={tick} alt="img" />
                         </div>
                     </div>
-                    <ModaleWindow active={modalActive} setActive={setModalActive} >
-                        <ApplicationForm/>
-                    </ModaleWindow>
+                    <ModalWindow active={modalActive} setActive={setModalActive} >
+                        {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
+                    </ModalWindow>
                 </div>
             </div>
         </div>

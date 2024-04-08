@@ -45,17 +45,17 @@ const Footer = () => {
                         <br /> +996 227 000 180
                     </p>
                 </div>
-               {blocks.map((block, index) => (
-                 <div className="footer__blok" key={index}>
-                    {block.map((item, i) => {
-                        if(typeof item === "object") {
-                            return <p key={i} onClick={item.onClick}>{item.text}</p>
-                        }else{
-                            return <p key={i}>{item}</p>
-                        }
-                    })}
-                 </div>
-               ))}
+                {blocks.map((block, index) => (
+                    <div className="footer__blok" key={index}>
+                        {block.map((item, i) => {
+                            if(typeof item === 'object') {
+                                return <p key={i} onClick={item.onClick}>{item.text}</p>
+                            }else{
+                                return <p key={i}>{item}</p>
+                            }
+                        })}
+                    </div>
+                ))}
             </div>
             <div className="footer__form">
                 <h3>Made by GEEKS PRO</h3>

@@ -21,12 +21,15 @@ const Header = () => {
     }
 
     return (
-        <div className="mein">
-            <div className="lein">
-                <div className="lein-ing">
-                    <Link to="/">
-                        <img className="logo" src={logot} alt="" />
-                    </Link>
+        <div className="main">
+            <div className="main__lein">
+
+                <div className="main__logotype">
+
+                <Link to="/">
+                    <img className="main__logotype-icon" src={logot} alt="" />
+                </Link>
+
                 </div>
                 <div className="navigation">
                     <ul className="all-links">
@@ -40,9 +43,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="lein-language">
-                    <div className="languages">
+                    <div className="languages" onClick={handleSvgClick}>
                         <img className="language" src={rus} alt="" />
-                        <img className="languages_svg" src={svg_landuage} alt="" onClick={handleSvgClick} />
+                        <img className="languages_svg" src={svg_landuage} alt="" />
                     </div>
                     {showOtherImage && (
                         <div className="other-image-container">

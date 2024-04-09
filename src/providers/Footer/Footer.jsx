@@ -16,7 +16,7 @@ const Footer = () => {
         ['Главная', 'Тренеры', 'Абонементы', 'Секции', 'Расписание', 'Услуги', 'Контакты', 'Новости'],
         ['Документы', 'Правила возврата и оплаты', 'Политика конфиденциальности', 'Договор возмездного оказания услуг'],
         [{onClick: VacanciesClick, text: 'Вакансии'},'Тренеры', 'Отдел продаж'],
-        ['График работы', 'В будние дни с 7:00 до 23:00', {div: ' В выходные и праздничные', p: 'дни с 8:00 до 22:00'}]
+        ['График работы', 'В будние дни с 7:00 до 23:00', ' В выходные и праздничные  дни с 8:00 до 22:00']
     ]
     return (
         <footer>
@@ -33,7 +33,7 @@ const Footer = () => {
                         <img src={email} alt="img" />
                         triathloncenter.kg@gmail.com
                     </p>
-                    <a href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D">
+                    <a href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank">
                         <p>
                             <img src={instagram} alt="img" />
                             @triathloncenter.kg
@@ -42,20 +42,21 @@ const Footer = () => {
                     <p className="footer__contacts__tel">
                         <img src={phone} alt="img" />
                         +996 997 000 180
-                        <br /> +996 227 000 180
+                        <br />
+                        +996 227 000 180
                     </p>
                 </div>
-               {blocks.map((block, index) => (
-                 <div className="footer__blok" key={index}>
-                    {block.map((item, i) => {
-                        if(typeof item === "object") {
-                            return <p key={i} onClick={item.onClick}>{item.text}</p>
-                        }else{
-                            return <p key={i}>{item}</p>
-                        }
-                    })}
-                 </div>
-               ))}
+                {blocks.map((block, index) => (
+                    <div className="footer__blok" key={index}>
+                        {block.map((item, i) => {
+                            if(typeof item === 'object') {
+                                return <p key={i} onClick={item.onClick}>{item.text}</p>
+                            }else{
+                                return <p key={i}>{item}</p> 
+                            }
+                        })}
+                    </div>
+                ))}
             </div>
             <div className="footer__form">
                 <h3>Made by GEEKS PRO</h3>

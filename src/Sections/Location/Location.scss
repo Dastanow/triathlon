@@ -2,7 +2,7 @@
   scroll-margin-top: 120px;
 }
 .Location {
-  width: 1720px;
+  max-width: 1920px;
   margin: 0 auto;
   
   .Location__container {
@@ -17,15 +17,14 @@
   .Location__contact {
     background-color: #013d83;
     padding: 236.101px 90.607px 236.402px 90.311px;
-    width: 612px;
+    max-width: 612px;
     height: 752px;
     border-radius: 24px 0px 0px 24px;
     margin-bottom: 7px;
-    h3 {
-      width: 300px;
-      font-size: 32px;
+    h3 {  
+      font-size: 44px;
       font-weight: 700;
-      margin-bottom: 24px;
+      line-height: 120%; 
     }
     p {
       font-size: 16px;
@@ -43,4 +42,25 @@
       border-radius: 0px 24px 24px 0;
     }
   }
+}
+@media only screen and (max-width: 1440px) {
+.Location {
+ .Location__contact {
+    width: 426px;
+    height: 524px;
+    padding: 164.915px 62.997px 164.526px 63px;;
+       h3 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 120%;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 36px;
+      display: flex;
+      gap: 7px;
+    }
+  }
+}
 }

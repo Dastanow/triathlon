@@ -32,7 +32,7 @@ const Coaches = () => {
         <section className="coaches">
             <div className="container">
                 <div className="coaches__wrapper">
-                    <CustomTitle title={'Наши тренеры'}/>
+                    <CustomTitle title={'Наши тренеры'}/>   
                     <ButtonsBlock
                         buttons={data.buttons}
                         onChangeCoaches={handleChangeCoaches}

@@ -37,7 +37,7 @@
     margin-left: 85px;
 }
 
-.all-links__link {
+.all-links {
     color: #fff;
     font-size: 24px;
     font-weight: 500;
@@ -86,3 +86,7 @@
 .acc:hover{
     cursor: pointer;
 }
+a:visited {
+    color: inherit;
+  }
+  

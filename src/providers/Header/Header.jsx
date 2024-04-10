@@ -17,7 +17,7 @@ const Header = () => {
     }
     const  goToMainPage = () =>{
         nav('/')
-        window.scrollTo(2000, 2000)
+        window.scrollTo(0, 0)
     }
 
     return (
@@ -26,9 +26,9 @@ const Header = () => {
 
                 <div className="main__logotype">
 
-                <Link to="/">
-                    <img className="main__logotype-icon" src={logot} alt="" />
-                </Link>
+                    <Link to="/">
+                        <img className="main__logotype-icon" src={logot} alt="" />
+                    </Link>
 
                 </div>
                 <div className="navigation">

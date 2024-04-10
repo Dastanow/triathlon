@@ -1,8 +1,5 @@
 import './Requisites.scss'
 import subscription from '../../../Assets/subscription.svg'
-import call from '../../../Assets/call.svg'
-import card from '../../../Assets/card.svg'
-import geolocation from '../../../Assets/geolocation.svg'
 
 const Requisites = () => {
     return (
@@ -12,20 +9,20 @@ const Requisites = () => {
             </div>
             <div className="requisites">
                 <label className="requisites__title">TRIATHLON CENTER</label>
-                <p className="requisites__info">Для оплаты онлайн -  связаться с отделом продаж </p>
+                <p className="requisites__info">
+            Для оплаты онлайн, пожалуйста, свяжитесь с отделом продаж для
+            получения дополнительной информации о процессе онлайн-оплаты. </p>
                 <div className="phone">
-                    <img className="phone__call" src={call} alt="call" />
                     <div className="phone__reference">
                         <a className="phone__number-one" href="https://wa.me/996227000180" target="_blank">0(227) 00 01 80</a>
                         <a className="phone__number" href="https://wa.me/996997000180" target="_blank">0(997) 00 01 80</a>
                     </div>
                 
                 </div>
-                <img className="card" src={card} alt="card" />
-                <p className="payment">Оплата наличными и картой - подойти в Триатлон-Центр.</p>
+                <p className="payment">Если вы предпочитаете оплату наличными или картой,
+                    вы можете подойти в Триатлон-Центр для совершения покупки.</p>
                 <div className="location">
-                    <img className="location__icon" src={geolocation} alt="location" />
-                    <span className="location__reference">Бишкек, ул.Фатьянова 10</span>
+                    <span className="location__reference">Ул. Фатьянова 10, Школа №69 им. Т. Сатылганова</span>
                 </div>
             </div>
         </div>

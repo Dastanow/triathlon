@@ -1,0 +1,15 @@
+.error{
+    position: relative;
+    &__text{
+        color: red;
+        text-align: left;
+        margin-left: 80px;
+       
+    }
+    &__icon{
+        position: absolute;
+        right: 95px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

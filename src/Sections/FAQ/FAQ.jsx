@@ -6,7 +6,6 @@ import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import CustomForm from '../../UI/CustomForm/CustomForm';
 
 const Faq = () => {
-
     const questions = [
         {
             title: 'Есть ли у вас детские секции/группы для детей?',
@@ -34,23 +33,12 @@ const Faq = () => {
         }
     ];
 
-    const [openIndexes, setOpenIndexes ] = useState(Array.from({ length: questions.length }, () => false));
-
+    const [openIndex, setOpenIndex] = useState(-1);
 
     const handleToggle = (index) => {
-        const updatedIndexes = openIndexes.map((item, ind) => { 
-            if (ind === index) { 
-                return !item; 
-            } else { 
-                return false; 
-            } 
-        }); 
-        setOpenIndexes(updatedIndexes);
-
+        setOpenIndex(index === openIndex ? -1 : index);
     };
 
-
-    
     return (
         <section className="faq">
             <div className="faq_container">
@@ -63,24 +51,17 @@ const Faq = () => {
                                     <h4 className="title_questions">
                                         {question.title}
                                     </h4>
-                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? 'rotate(180deg)' :'' , transition:'0.5s' }} />
+                                    <img src={down} alt="img" style={{transform: openIndex === index ? 'rotate(180deg)' : '' , transition: '0.5s' }} />
                                 </div>
-                               
-                                {openIndexes[index] && (
+                                {openIndex === index && (
                                     <p className="answer opened">{question.answer}</p>
                                 )}
-                                
-                                
                             </div>
                         ))}
                     </div>
-
-
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <CustomForm 
-                                { ... initStateFaqForm}
-                            />
+                            <CustomForm {...initStateFaqForm} />
                         </div>
                     </div>
                 </div>

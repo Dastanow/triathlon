@@ -36,7 +36,6 @@
     align-items: flex-start;
     gap: 24px;
     height: 713px;
-    width: 995px;
     margin-top: 80px;
 }
 .boks_questions {
@@ -47,6 +46,7 @@
     gap: 20px;
     border-radius: 16px;
     background: #013D83;
+    width: 47vw;
     
 }
 .inside_box {
@@ -61,7 +61,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 150%; 
-    width: 927px;
+    width: 47vw;
 }
 
 
@@ -87,7 +87,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 150%; 
-    width: 935px;
+    // width: 935px;
     margin: 10px;
 }
 

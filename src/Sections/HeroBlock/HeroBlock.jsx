@@ -1,8 +1,7 @@
-// import React from 'react';
 import './HeroBlock.scss';
 import arrow from '../../Assets/ToTheTop.png'
 import wp from '../../Assets/wp1.png';
-import ModaleWindow from '../../Modules/ModaleWindow';
+import ModaleWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 

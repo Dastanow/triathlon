@@ -17,11 +17,10 @@ $black: #000;
 
 .coaches__button {
     height: 55px;
-    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
     display: inline-block;
     font-size: 26px;
     font-weight: 500;
-    font-style: normal;
     color: $black;
     padding: 8px 22px;
     border-radius: 16px;
@@ -32,4 +31,28 @@ $black: #000;
     color: $white;
     border: 2px solid $dark;
     background: $dark;
+}
+//-----media-query----------------
+@media (max-width: 1800px) {
+    .coaches__buttons > button {
+        margin-right: 32px;
+    }
+}
+//-------------------------------
+@media (max-width: 1680px) {
+    .coaches__buttons > button {
+        margin-right: 29px;
+    }
+}
+//-------------------------------
+@media (max-width: 1560px) {
+    .coaches__buttons > button {
+        margin-right: 26px;
+    }
+}
+//-------------------------------
+@media (max-width: 1440px) {
+    .coaches__buttons > button {
+        margin-right: 24px;
+    }
 }

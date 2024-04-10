@@ -9,30 +9,30 @@ const Location = () => {
     return (
         <>
             <div className="Location" id="location">
-                <CustomTitle title={'Как нас найти'}/>
+                <CustomTitle title={'Как нас найти'} />
                 <div className="Location__container">
                     <div className="Location__contact">
                         <h3>Наши контакты</h3>
                         <p>
                             <img src={email} alt="img" />
-              triathloncenter.kg@gmail.com
+                            triathloncenter.kg@gmail.com
                         </p>
                         <p>
                             <img src={phone} alt="img" />
-              +996 997 000 180
+                            +996 997 000 180
                         </p>
                         <p>
                             <img src={phone} alt="img" />
-              +996 227 000 180
+                            +996 227 000 180
                         </p>
                         <p>
                             <img src={map} alt="img" />
-              Бишкек,
+                            Бишкек,
                         </p>
                         <div>ул.Фатьянова 10</div>
                     </div>
                     <div className="Location__map">
-                        <Map/>
+                        <Map />
                     </div>
                 </div>
             </div>

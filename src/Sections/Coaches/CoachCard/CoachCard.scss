@@ -1,19 +1,16 @@
 $dark: #013d83;
-// $white: #fff;
-// $orange: #f7b512;
-// $grey: #606062;
-// $black: #000;
-// $lightblack: #002550;
 
-//------------coach-card-styles------
 .coach-card {
-    max-width: 350px;
+    width: 350px;
     height: 497px;
+    border: 1px solid $dark;
+    border-radius: 16px;
+    overflow: hidden;
     position: relative;
+    pointer-events: none;
     > img {
         width: 100%;
         height: 100%;
-        border-radius: 16px;
         object-fit: cover;
     }
 }
@@ -22,12 +19,11 @@ $dark: #013d83;
     height: 124px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: flex-start;
     position: absolute;
     bottom: 0;
-    padding: 0 10px;
-    border-radius: 0px 0px 16px 16px;
+    padding: 10px;
     background: $dark;
     > p {
         font-style: normal;
@@ -40,6 +36,68 @@ $dark: #013d83;
     margin-bottom: 20px;
 }
 .coach-info__sertification {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
+}
+//-----media-query---------------
+@media (max-width: 1800px) {
+    .coach-card {
+        width: 324px;
+        height: 460px;
+    }
+    .coach-info {
+        height: 122px;
+    }
+    .coach-info__name {
+        margin-bottom: 18px;
+    }
+    .coach-info__sertification {
+        font-size: 17px;
+    }
+}
+//-------------------------------
+@media (max-width: 1680px) {
+    .coach-card {
+        width: 298px;
+        height: 423px;
+    }
+    .coach-info {
+        height: 120px;
+    }
+    .coach-info__name {
+        margin-bottom: 16px;
+    }
+    .coach-info__sertification {
+        font-size: 16px;
+    }
+}
+//-------------------------------
+@media (max-width: 1560px) {
+    .coach-card {
+        width: 271px;
+        height: 385px;
+    }
+    .coach-info {
+        height: 118px;
+        padding: 8px;
+        > p {
+            line-height: 140%;
+        }
+    }
+    .coach-info__name {
+        margin-bottom: 14px;
+    }
+}
+//-------------------------------
+@media (max-width: 1440px) {
+    .coach-card {
+        width: 244px;
+        height: 346px;
+    }
+    .coach-info__name {
+        margin-bottom: 14px;
+    }
+    .coach-info__sertification {
+        font-size: 16px;
+    }
 }

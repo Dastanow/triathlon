@@ -4,16 +4,17 @@ import Advantages from '../../Sections/Advantages/Advantages';
 import Coaches from '../../Sections/Coaches';
 import Feedback from '../../Sections/CustomerReviews';
 import FAQ from '../../Sections/FAQ/FAQ';
-import Home from '../../Sections/Home/Home';
+import HeroBlock from '../../Sections/HeroBlock/HeroBlock';
 import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
 import SectionTriatlon from '../../Sections/SectionTriatlon/SectionTriatlon';
 import TrainingAreas from '../../Sections/TrainingAreas';
+import ScrollToTopIcon from '../../Sections/ScrollToTopIcon/ScrollToTopIcon';
 
 const MainPage = () => {
     return (
         <>
-            <Home />
+            <HeroBlock />
             <AboutUs />
             <Advantages />
             <Aboniment />
@@ -24,6 +25,7 @@ const MainPage = () => {
             <Feedback />
             <FAQ />
             <Location />
+            <ScrollToTopIcon/>
         </>
     );
 };

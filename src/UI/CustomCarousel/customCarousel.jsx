@@ -1,18 +1,16 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 import { carouselInitState } from '../../common/constants';
-import { TrainingAreasCard } from '../../Sections/TrainingAreas';
+import { TrainingAreasCarousel } from '../../Sections/TrainingAreas';
 import Modal from '../Modal/Modal';
-import { CoachCard, ModalCoachCard } from '../../Sections/Coaches';
-import { CommentCard } from '../../Sections/CustomerReviews';
+import { CoachesCarousel, ModalCoachCard } from '../../Sections/Coaches';
+import { CommentsCarousel } from '../../Sections/CustomerReviews';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
 import './CustomCarousel.scss';
 
 const CustomCarousel = (props) => {
-    const { gap, number, dataArray, classes } = props;
+    const { slidesPerView, dataArray } = props;
     const {
         btnPrevClass,
         btnNextClass,
@@ -39,7 +37,7 @@ const CustomCarousel = (props) => {
         const activeSlideIndex = swiper.activeIndex;
 
         const isFirstSlide = activeSlideIndex === 0;
-        const isLastSlide = activeSlideIndex === slidesCount - number;
+        const isLastSlide = activeSlideIndex === slidesCount - slidesPerView;
 
         if (isFirstSlide) {
             setData((prevState) => ({
@@ -93,43 +91,28 @@ const CustomCarousel = (props) => {
             <button className={data.btnPrev} onClick={handleSwitchPrevSlide}>
                 <img src={getIconBtnPrev()} alt="btn prev icon" />
             </button>
-            <div className={classes.class0}>
-                <Swiper
-                    modules={[Pagination]}
-                    spaceBetween={gap}
-                    slidesPerView={number}
-                    pagination={{ clickable: true }}
-                    onBeforeInit={(swiper) => {
-                        swiperRef.current = swiper;
-                    }}
-                    onSlideChange={(swiper) => getNavButtonsClasses(swiper)}
-                    onClick={(swiper) => handleClickOnSlide(swiper)}
-                >
-                    {(currentSection === 'train' &&
-                        dataArray.map((item) => {
-                            return (
-                                <SwiperSlide key={item.id}>
-                                    <TrainingAreasCard {...item} />
-                                </SwiperSlide>
-                            );
-                        })) ||
-                        (currentSection === 'coach' &&
-                            dataArray.map((item) => {
-                                return (
-                                    <SwiperSlide key={item.id}>
-                                        <CoachCard {...item} />
-                                    </SwiperSlide>
-                                );
-                            })) ||
-                        dataArray.map((item) => {
-                            return (
-                                <SwiperSlide key={item.id}>
-                                    <CommentCard {...item} />
-                                </SwiperSlide>
-                            );
-                        })}
-                </Swiper>
-            </div>
+            {(currentSection === 'coach' && (
+                <CoachesCarousel
+                    {...props}
+                    onNavButton={getNavButtonsClasses}
+                    onClickSlide={handleClickOnSlide}
+                    swiperRef={swiperRef}
+                />
+            )) ||
+                (currentSection === 'train' && (
+                    <TrainingAreasCarousel
+                        {...props}
+                        onNavButton={getNavButtonsClasses}
+                        swiperRef={swiperRef}
+                    />
+                )) ||
+                (currentSection !== 'train' && (
+                    <CommentsCarousel
+                        {...props}
+                        onNavButton={getNavButtonsClasses}
+                        swiperRef={swiperRef}
+                    />
+                ))}
             <button className={data.btnNext} onClick={handleSwitchNextSlide}>
                 <img src={getIconBtnNext()} alt="btn next icon" />
             </button>
@@ -141,10 +124,8 @@ const CustomCarousel = (props) => {
 };
 
 CustomCarousel.propTypes = {
-    gap: PropTypes.number.isRequired,
-    number: PropTypes.number.isRequired,
+    slidesPerView: PropTypes.number.isRequired,
     dataArray: PropTypes.arrayOf(PropTypes.object),
-    classes: PropTypes.objectOf(PropTypes.string),
 };
 
 export default CustomCarousel;

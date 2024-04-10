@@ -1,48 +1,81 @@
 import { useState } from 'react';
-import './Header.scss'
-import logot from '../../Assets/logo1.png'
-import acc from '../../Assets/acc1.png'
-import rus from '../../Assets/language_rus.png'
-import kyr from '../../Assets/language_kyr.png'
-import svg_landuage from '../../Assets/language.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import './Header.scss';
+import logot from '../../Assets/logo1.png';
+import acc from '../../Assets/acc1.png';
+import rus from '../../Assets/language_rus.png';
+import kyr from '../../Assets/language_kyr.png';
+import svg_landuage from '../../Assets/language.svg';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const nav = useNavigate();
-    const [showOtherImage, setShowOtherImage] = useState(false);    
+    const [showOtherImage, setShowOtherImage] = useState(false);
     const handleSvgClick = (event) => {
         if (!event.target.closest('.lein-acc')) {
-            setShowOtherImage(prevState => !prevState);
+            setShowOtherImage((prevState) => !prevState);
         }
-    }
-    const  goToMainPage = () =>{
-        nav('/')
-        window.scrollTo(2000, 2000)
-    }
+    };
+    const goToMainPage = () => {
+        nav('/');
+        window.scrollTo(0, 0);
+    };
 
     return (
-        <div className="mein">
-            <div className="lein">
-                <div className="lein-ing">
+        <div className="main">
+            <div className="main__lein">
+                <div className="main__logotype">
                     <Link to="/">
-                        <img className="logo" src={logot} alt="" />
+                        <img
+                            className="main__logotype-icon"
+                            src={logot}
+                            alt=""
+                        />
                     </Link>
                 </div>
                 <div className="navigation">
                     <ul className="all-links">
-                        <a href="#main"><li className="links" onClick={goToMainPage}>Главная</li></a>
-                        <a href="#coaches"><li className="links"onClick={goToMainPage}>Тренеры</li></a>
-                        <a href="#abonement"><li className="links" onClick={goToMainPage}>Абонементы</li></a> 
-                        <a href="#section"> <li className="links" onClick={goToMainPage}>Секции</li></a>
+                        <a href="#main">
+                            <li className="links" onClick={goToMainPage}>
+                                Главная
+                            </li>
+                        </a>
+                        <a href="#coaches">
+                            <li className="links" onClick={goToMainPage}>
+                                Тренеры
+                            </li>
+                        </a>
+                        <a href="#abonement">
+                            <li className="links" onClick={goToMainPage}>
+                                Абонементы
+                            </li>
+                        </a>
+                        <a href="#section">
+                            {' '}
+                            <li className="links" onClick={goToMainPage}>
+                                Секции
+                            </li>
+                        </a>
                         <li className="links">Расписание</li>
-                        <a href="#services"><li className="links" onClick={goToMainPage}>Услуги</li></a>
-                        <a href="#location"><li className="links" onClick={goToMainPage}>Контакты</li></a>
+                        <a href="#services">
+                            <li className="links" onClick={goToMainPage}>
+                                Услуги
+                            </li>
+                        </a>
+                        <a href="#location">
+                            <li className="links" onClick={goToMainPage}>
+                                Контакты
+                            </li>
+                        </a>
                     </ul>
                 </div>
                 <div className="lein-language">
-                    <div className="languages">
+                    <div className="languages" onClick={handleSvgClick}>
                         <img className="language" src={rus} alt="" />
-                        <img className="languages_svg" src={svg_landuage} alt="" onClick={handleSvgClick} />
+                        <img
+                            className="languages_svg"
+                            src={svg_landuage}
+                            alt=""
+                        />
                     </div>
                     {showOtherImage && (
                         <div className="other-image-container">
@@ -56,7 +89,7 @@ const Header = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

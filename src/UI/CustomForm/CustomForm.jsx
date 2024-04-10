@@ -2,10 +2,14 @@ import CustomInput from '../CustomInput/CustomInput'
 import { initStateFaqForm } from '../../common/constants'
 import { initStateVacancyForm } from '../../common/constants'
 import './CustomForm.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import good from '../../Assets/good.svg'
 import deleted from '../../Assets/delete.svg'
 import PropTypes from 'prop-types'
+import TextField from '../../Components/TextField/TextField'
+import { validate } from '../../utils/validate'
+import { validationConfig } from '../../utils/validationConfig'
+import CheckBoxes from '../../Components/CheckBoxes/CheckBoxes'
 
 const CustomForm = (props) => {
     const {
@@ -19,18 +23,42 @@ const CustomForm = (props) => {
         classUser,
         classPhone,
         classButton,
-    } = props 
+    } = props
+    const [ data, setData] = useState({
+        name:'',
+        phoneNumber:'',
+        email:'',
+        price: false,
+        get: false,
+    })
+    const [ errors, setErrors ] = useState({})
+
+    const handleChange = (target) =>{
+        setData((prevState) =>({
+            ...prevState,
+            [target.name]: target.value,
+        }))
+    }
+
+    useEffect(() => {
+        const errors = validate(data, validationConfig);
+        setErrors(errors)
+    }, [data])
+
+    const isValid = Object.keys(errors).length ===0;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (!isValid) return
+    }
     const isFaq = section === 'faq' 
     const isApp = section === 'app'
-    const isVacancy = section === 'vacancy'
+    const isVacancy = section === 'vacancy' 
     const { faqTitle, text } = initStateFaqForm
     const { vacancyTitle } = initStateVacancyForm
-    const handleSubmit = (event) => {
-        event.preventDefault()
-    }
     const [ files, setFiles ] = useState([])
     const [dragActive, setDragActive] = useState(false);
     const [showFiles, setShowFiles] = useState(false);
+
     const handleChangeFiles = (event) => {
         event.preventDefault();
         setShowFiles(true)
@@ -38,6 +66,7 @@ const CustomForm = (props) => {
             setFiles([... event.target.files])
         }
     }
+
     const handleDrag =  (event) =>{
         event.preventDefault();
         setDragActive(true);
@@ -47,6 +76,7 @@ const CustomForm = (props) => {
         event.preventDefault();
         setDragActive(false);
     };
+
     const handleDrop =  (event) =>{
         event.preventDefault();
         setDragActive(false);
@@ -55,6 +85,7 @@ const CustomForm = (props) => {
             setFiles([...event.dataTransfer.files]);
         }
     };
+
     const handleReset = () => {
         setFiles([]);
         setShowFiles(false);
@@ -62,38 +93,48 @@ const CustomForm = (props) => {
 
     return (
         <div>
+            {isFaq && <label className="form-faq__title">{faqTitle}</label> ||
+                isVacancy && <label className="form-vacancy__title">{vacancyTitle}</label> ||
+                isApp && <label className={formTitle}>{title}</label>
+            }
             <form 
                 className={isClass}
                 onSubmit={handleSubmit}  
             >
-                <h3 className={formTitle}>{title}</h3>
-                {isFaq && <label className="form-faq__title">{faqTitle}</label> ||
-                isVacancy && <label className="form-vacancy__title">{vacancyTitle}</label>
-                }
                 {isFaq &&  <p className="form-faq__text">{text}</p>}
                 <div className={formContent}>
                     <div className="form__input-user">
-                        <CustomInput
+                        <TextField
                             name="name"
+                            value={data.name}
+                            onChange={handleChange}
                             placeholder={fieldName}
                             className={classUser}
+                            error={errors.name}
                         />
                     </div>
                     {isVacancy && <div className="form-double">
-                        <CustomInput 
+                        <TextField 
                             name="email"
+                            value={data.email}
+                            onChange={handleChange}
                             placeholder="Email*"
                             className="form-vacancy__email"
                         />
-                        <CustomInput
+                        <TextField
                             name="phoneNumber"
+                            value={data.phoneNumber}
+                            onChange={handleChange}
                             placeholder="+996(___)___-___"
                             className="form-vacancy__phone-number"
                         />
-                    </div> || <CustomInput
+                    </div> || <TextField
                         name="phoneNumber"
+                        value={data.phoneNumber}
+                        onChange={handleChange}
                         placeholder="+996(___)___-___"
                         className={classPhone}
+                        
                     />} 
                     {isFaq | isApp  && 
                         <CustomInput
@@ -150,24 +191,44 @@ const CustomForm = (props) => {
                  </div>
                 }
                 <button
-                    className={classButton}>
-                                 Отправить
+                    className={classButton}
+                    type="submit"
+                    disabled={!isValid}
+                >
+                             Отправить
                 </button>
                 {isApp &&
                  <div className="module-block__content-checkboxs">
                      <label className="box">
-                         <input type="checkbox" className="box-in" />
+                         <CheckBoxes
+                             name="get"
+                             className="box-in"
+                             value={data.get}
+                             id="get"
+                             onChange={handleChange}
+                         />
+
                          <h4 className="check">Получить консультацию</h4>
                      </label>
                      <label className="box">
-                         <input type="checkbox" className="box-in" />
+                         <CheckBoxes
+                             name="price"
+                             className="box-in"
+                             value={data.price}
+                             id="price"
+                             onChange={handleChange}
+                         />
                          <h4 className="check">Узнать прайс</h4>
                      </label>
                  </div>
                 }
                 {isVacancy && 
                 <div className="politic">
-                    <input className="politic__check" type="checkbox" />
+                    <CheckBoxes
+                        className="politic__check"
+                        value={data.price} 
+                        onChange={handleChange}
+                    />
                     <span className="politic__text">Я согласен с <a className="politic__reference"
                         href="">политикой обработки персональных данных</a></span>
                 </div>

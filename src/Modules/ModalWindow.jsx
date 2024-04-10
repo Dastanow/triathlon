@@ -3,7 +3,6 @@ import modalSvg from '../Assets/modalka.svg';
 import PropTypes from 'prop-types'
 
 const ModalWindow = ({ active, setActive, children }) => {
-
     return (
         <div>
             <div
@@ -20,9 +19,7 @@ const ModalWindow = ({ active, setActive, children }) => {
                         className="modal-blockk__cross"
                         alt="reset"
                     />
-
-                    {children}
-                    
+                    {children} 
                 </div>
             </div>
             

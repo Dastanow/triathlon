@@ -1,309 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-#services {
-    scroll-margin-top: 130px;
-}
-.service {
-    height: 500px;
-    margin-top: 50px;
-    width: 1720px;
-    margin: 0 auto;
-    &__block {
-        width: 1730px;
+.service{
+    margin-bottom: 112px;
+    &__container{
+        max-width: 1720px;
+        margin: 0 auto;
     }
 }
 
-.all__cards {
+.all-cards{
     display: flex;
     align-items: center;
-    gap: 30px;
-    justify-content: space-evenly;
+    gap: 20px;
+    justify-content: center;
     flex-wrap: wrap;
-    padding-top: 80px;
-    &_card {
-        width: 282px;
-        height: 156px;
-        border-radius: 20px;
-        border: 1px solid #fff;
+    padding-top: 50px;
+    &__card{
+        width: 400px;
+        height: 222px;
+        border-radius: 16px;
+        border: 1px solid #FFF;
         background: #013d83;
+        position: relative;
     }
-
-    &-text {
-        width: 157px;
-        color: #fff;
+    &__text{
+        width: 252px;
+        color: #FFF;
         font-family: Montserrat;
-        font-size: 22px;
+        font-size: 32px;
         padding-top: 15px;
         font-weight: 600;
         line-height: normal;
         font-style: normal;
         margin-left: 10px;
-        padding-bottom: 26px;
-    }
-
-    &-zero {
-        width: 117px;
-        color: #fff;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 22px;
-        padding-top: 20px;
-        padding-left: 10px;
-        font-weight: 600;
-        line-height: normal;
-        font-style: normal;
-        padding-bottom: 46px;
-    }
-
-    &-one {
-        color: #fff;
-        width: 240px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 22px;
-        margin-top: 5px;
-        margin-left: 10px;
-        font-weight: 600;
-        line-height: normal;
-        font-style: normal;
-        padding-bottom: 10px;
-    }
-
-    &-two {
-        color: #fff;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 22px;
-        font-weight: 600;
-        padding-top: 5px;
-        padding-left: 10px;
-        line-height: normal;
-        font-style: normal;
-        width: 177px;
-        padding-bottom: 12px;
-    }
-
-    &-three {
-        color: #fff;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 22px;
-        font-weight: 600;
-        padding-top: 10px;
-        padding-left: 10px;
-        line-height: normal;
-        font-style: normal;
-        width: 177px;
-        padding-bottom: 32px;
-    }
-
-    &-four {
-        color: #fff;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 600;
-        width: 177px;
-        line-height: normal;
-        font-style: normal;
-        line-height: 30px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        padding-top: 23px;
-    }
-
-    &-five {
-        color: #fff;
-        font-family: Montserrat;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 600;
-        padding-top: 10px;
-        padding-left: 10px;
-        line-height: normal;
-        font-style: normal;
-        line-height: 30px;
-        width: 177px;
-        padding-bottom: 23px;
+       
     }
 }
-
-.all--card-one {
-    display: flex;
-    gap: 18px;
-}
-
-.all--card-two {
-    display: flex;
-    gap: 24px;
-    margin-left: 150px;
-}
-
-.all__info {
-    color: rgba(255, 255, 255, 0.6);
+.all-cards__info{
+    width: 218px;
+    height: 85px;
+    bottom: 0px;
+    color: rgba(255, 255, 255, 0.60);
     font-family: Montserrat;
     font-size: 21.551px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    border-radius: 10px;
-    width: 153px;
-    height: 60px;
-    background-color: #002550;
-    border-radius: 0px, 10px, 0px, 10px;
-    cursor: pointer;
-
-    &-one {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-
-    &-two {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-
-    &-three {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-
-    &-four {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-
-    &-five {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-
-    &-six {
-        color: rgba(255, 255, 255, 0.6);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-        cursor: pointer;
-    }
-}
-
-.img {
-    &__zero {
-        position: absolute;
-        margin-top: -110px;
-        margin-left: 190px;
-    }
-
-    &__one {
-        position: absolute;
-        margin-top: -110px;
-        margin-left: 190px;
-    }
-
-    &__two {
-        position: absolute;
-        margin-top: -115px;
-        margin-left: 200px;
-    }
-
-    &__three {
-        position: absolute;
-        margin-top: -120px;
-        margin-left: 200px;
-    }
-
-    &__four {
-        position: absolute;
-        margin-top: -100px;
-        margin-left: 190px;
-    }
-
-    &__five {
-        position: absolute;
-        margin-top: -100px;
-        margin-left: 190px;
-    }
-
-    &__six {
-        position: absolute;
-        margin-top: -100px;
-        margin-left: 200px;
-    }
-
-    &__alt {
-        position: absolute;
-        margin-top: -120px;
-        margin-left: 170px;
-    }
-    &__alt2 {
-        position: absolute;
-        margin-top: -100px;
-        margin-left: 200px;
-    }
-}
-
-.modal-Title {
     position: absolute;
-    font-family: Montserrat;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: -0.05em;
-    text-align: center;
-    padding-top: 20px;
-    padding-left: 20px;
+    background-color: #002550;
+    border-radius: 12px;
     cursor: pointer;
+}
+.all-cards__image{
+    position: absolute;
+    right: 25px;
+    top: 70px;
+    &-alt{
+        position: absolute;
+        right: 10px;
+        top: 95px;
+    }
+}
+.modal-title{
+    position: absolute;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 23px;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Montserrat;
+    color: #FFF;
 }

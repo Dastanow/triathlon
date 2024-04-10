@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0, 
+        "name": "Персональные тренировки",
+        "icon": "/src/Assets/svgServices/dumbbells.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 1, 
+        "name": "Массаж",
+        "icon": "/src/Assets/svgServices/book.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    { 
+        "id": 2, 
+        "name": "Составления индивидуальных программ",
+        "icon": "/src/Assets/svgServices/group.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 3, 
+        "name": "30 дней заморозки",
+        "icon": "/src/Assets/svgServices/whiteSnow.svg", 
+        "doubleIcon": "/src/Assets/svgServices/flakeSnow.svg"
+    },
+    {
+        "id": 4, 
+        "name": "Ячейки для хранения велосипеда",
+        "icon": "/src/Assets/svgServices/double.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 5, 
+        "name": "Аренда велосипеда",
+        "icon": "src/Assets/svgServices/bicycle.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 6, 
+        "name": "Услуги вело-мастера",
+        "icon": "/src/Assets/svgServices/bicycle.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 7, 
+        "name": "Лицензия триатлета",
+        "icon": "/src/Assets/svgServices/tick.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 8,
+        "name": "Аренда шкавчиков",
+        "icon": "/src/Assets/svgServices/locker.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    },
+    {
+        "id": 9,
+        "name": "Парковка",
+        "icon": "/src/Assets/svgServices/parking.svg",
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
+    }
+]

@@ -1,121 +1,33 @@
 import './OurServices.scss';
-import bicycle from '../../Assets/svgServices/bicycle.svg';
-import book from '../../Assets/svgServices/book.svg';
-import dumbbells from '../../Assets/svgServices/dumbbells.svg';
-import group from '../../Assets/svgServices/group.svg';
-import tick from '../../Assets/svgServices/tick.svg';
-import double from '../../Assets/svgServices/double.svg';
-import '../../UI/CustomTitle/CustomTitle.scss';
 import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-
+import data from './fakeApiService.json'
 
 const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
-    
-
     return (
-        <div className="service" id="services">
-            <div className="service__block">
+        <div className="service">
+            <div className="service__container">
                 <CustomTitle title={'Наши услуги'}/>
-                <div className="all__cards">
-                    <div className="all--card-one">
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-text">Персональные тренировки</h2>
-                            <div onClick={() => setModalActive(true)} className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title">
-                  Узнать больше
-                                </span>
+                <div className="all-cards">
+                    {data.map((el)=> {
+                        return (
+                            <div key={el.id} className="all-cards__card">
+                                <h3 className="all-cards__text">{el.name}</h3>
+                                <img src={el.icon} alt="img" className="all-cards__image" />
+                                <img src={el.doubleIcon} alt="img" className="all-cards__image-alt" />
+                                <div className="all-cards__info" onClick={() => setModalActive(true)}>
+                                    <span className="modal-title">
+                            Узнать больше
+                                    </span>
+                                </div>
                             </div>
-                            <img className="img__zero" src={dumbbells} alt="img" srcSet="" />
-                        </div>
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-zero">Массаж </h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title">
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__one" src={book} alt="" />
-                        </div>
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-one">
-                Составления индивидуальных программ
-                            </h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__two" src={group} alt="img" />
-                        </div>
-                    </div>
-                    <div className="all--card-two">
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-two">
-                Ячейки для хранения велосипеда{' '}
-                            </h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__three" src={double} alt="img" />
-                        </div>
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-three">Аренда велосипеда</h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__four" src={bicycle} alt="img" />
-                        </div>
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-four">
-                Услуги <div>вело-мастера</div>
-                            </h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__five" src={bicycle} alt="img" />
-                        </div>
-                        <div className="all__cards_card">
-                            <h2 className="all__cards-five">Лицензия триатлета</h2>
-                            <div className="all__info">
-                                <span
-                                    onClick={() => setModalActive(true)}
-                                    className="modal-Title"
-                                >
-                  Узнать больше
-                                </span>
-                            </div>
-                            <img className="img__six" src={tick} alt="img" />
-                        </div>
-                    </div>
-                    <ModalWindow active={modalActive} setActive={setModalActive} >
-                        {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
-                    </ModalWindow>
+                        )})}
                 </div>
+                <ModalWindow active={modalActive} setActive={setModalActive} >
+                    {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
+                </ModalWindow>
             </div>
         </div>
     );

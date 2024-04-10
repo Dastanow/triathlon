@@ -2,6 +2,8 @@ import './HeroBlock.scss';
 import wp from '../../Assets/wp1.png';
 import ModaleWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
+import CustomForm from '../../UI/CustomForm/CustomForm';
+import { initStateAppForm } from '../../common/constants';
 
 
 
@@ -23,15 +25,17 @@ const HeroBlock = () => {
 
                     <p className="text">
                     Первая инклюзивная спортивная база в Кыргызской Республике
-                </p>
+                    </p>
 
                     <div className="menu_btn">
                         <button  onClick={() => setModalActive(true)} className="btn">Оставить заявку</button>
                     </div>
 
-                    <ModaleWindow active={modalActive} setActive={setModalActive}/> 
-
-               
+                    <ModaleWindow active={modalActive} setActive={setModalActive}>
+                        <CustomForm
+                            {... initStateAppForm}
+                        />
+                    </ModaleWindow> 
 
                 </div>
 

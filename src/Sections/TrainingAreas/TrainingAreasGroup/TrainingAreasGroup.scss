@@ -1,7 +1,42 @@
 .train-areas {
-    padding: 35px 0 60px 0;
-    margin-bottom: 40px;
+    margin-bottom: 110px;
 }
 .train-areas__title {
     margin-bottom: 80px;
+}
+//------media-query---------
+@media (max-width: 1800px) {
+    .train-areas {
+        margin-bottom: 105px;
+    }
+    .train-areas__title {
+        margin-bottom: 71px;
+    }
+}
+//--------------------------
+@media (max-width: 1680px) {
+    .train-areas {
+        margin-bottom: 100px;
+    }
+    .train-areas__title {
+        margin-bottom: 62px;
+    }
+}
+//--------------------------
+@media (max-width: 1560px) {
+    .train-areas {
+        margin-bottom: 95px;
+    }
+    .train-areas__title {
+        margin-bottom: 53px;
+    }
+}
+//--------------------------
+@media (max-width: 1440px) {
+    .train-areas {
+        margin-bottom: 90px;
+    }
+    .train-areas__title {
+        margin-bottom: 45px;
+    }
 }

@@ -3,32 +3,34 @@ $grey: #606062;
 $black: #000;
 
 .carousel-inner {
-    max-width: 100%;
     width: 100%;
-    height: auto;
     position: relative;
 }
 
 .coach-inner__wrapper {
-    width: 1508px;
+    max-width: 1508px;
     margin: 0 auto;
 }
 
 .train-areas-inner__wrapper {
-    width: 1566px;
+    max-width: 1566px;
     margin: 0 auto;
 }
+
 .comment-inner__wrapper {
-    width: 1516px;
-    border-radius: 30px;
+    max-width: 1512px;
     margin: 0 auto;
-    overflow: hidden;
 }
+
 //---------swiper-classes-----------
 .swiper {
     box-sizing: content-box;
-    max-width: 100%;
-    padding: 0 0 55px 0;
+    width: 100%;
+}
+
+.swiper-pagination {
+    position: relative;
+    margin-top: 28px;
 }
 
 .swiper-pagination-bullet {
@@ -52,25 +54,138 @@ $black: #000;
     height: 46px;
     position: absolute;
     top: 44%;
-    z-index: 10;
     display: flex;
-    padding: 10px;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
     background: $dark;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
+    &.btn-disable {
+        border: 1px solid $black;
+        background: transparent;
+    }
 }
-
 .btn-prev {
     left: 0;
 }
 .btn-next {
     right: 0;
 }
-
-.btn-disable {
-    border: 1px solid $black;
-    background: transparent;
+//--------media-query---------------
+@media (max-width: 1800px) {
+    .coach-inner__wrapper {
+        max-width: 1395px;
+    }
+    .train-areas-inner__wrapper {
+        max-width: 1458px;
+    }
+    .comment-inner__wrapper {
+        max-width: 1404px;
+    }
+    .swiper-pagination {
+        margin-top: 26px;
+    }
+    .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 42px;
+        height: 14px;
+        border-radius: 7px;
+    }
+    .btn-prev,
+    .btn-next {
+        width: 43px;
+        height: 43px;
+    }
+}
+//-----------------------------------
+@media (max-width: 1680px) {
+    .coach-inner__wrapper {
+        max-width: 1282px;
+    }
+    .train-areas-inner__wrapper {
+        max-width: 1348px;
+    }
+    .comment-inner__wrapper {
+        max-width: 1296px;
+    }
+    .swiper-pagination {
+        margin-top: 24px;
+    }
+    .swiper-pagination-bullet {
+        width: 13px;
+        height: 13px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 39px;
+        height: 13px;
+        border-radius: 6.5px;
+    }
+    .btn-prev,
+    .btn-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 9px;
+    }
+}
+//-----------------------------------
+@media (max-width: 1560px) {
+    .coach-inner__wrapper {
+        max-width: 1165px;
+    }
+    .train-areas-inner__wrapper {
+        max-width: 1218px;
+    }
+    .comment-inner__wrapper {
+        max-width: 1176px;
+    }
+    .swiper-pagination {
+        margin-top: 22px;
+    }
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 36px;
+        height: 12px;
+        border-radius: 6px;
+    }
+    .btn-prev,
+    .btn-next {
+        width: 36px;
+        height: 36px;
+    }
+}
+//-----------------------------------
+@media (max-width: 1440px) {
+    .coach-inner__wrapper {
+        max-width: 1048px;
+    }
+    .train-areas-inner__wrapper {
+        max-width: 1090px;
+    }
+    .comment-inner__wrapper {
+        max-width: 1050px;
+    }
+    .swiper-pagination {
+        margin-top: 20px;
+    }
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 32px;
+        height: 10px;
+        border-radius: 5px;
+    }
+    .btn-prev,
+    .btn-next {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
 }

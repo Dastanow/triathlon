@@ -1,14 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const CustomButton = ({
-    className,
-    name,
-    onClick,
-    type,
-    value,
-    form,
-}) => {
+const CustomButton = ({ className, name, onClick, type, value, form }) => {
     const inputRef = React.useRef(null);
 
     return (
@@ -17,7 +10,7 @@ const CustomButton = ({
                 ref={inputRef}
                 type={type}
                 name={name}
-                onCclick={onClick}
+                onClick={onClick}
                 value={value}
                 className={className}
                 form={form}
@@ -26,17 +19,19 @@ const CustomButton = ({
     );
 };
 
-CustomButton.defaultProps={
-    type:'button'
-}
+CustomButton.defaultProps = {
+    type: 'button',
+};
 
-CustomButton.propTypes={
-    className:PropTypes.string,
-    name:PropTypes.string,
-    onChange:PropTypes.func,
-    placeholder:PropTypes.string,
-    type:PropTypes.string,
-    value:PropTypes.string,
-}
+CustomButton.propTypes = {
+    className: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    form: PropTypes.node,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
+};
 
 export default CustomButton;

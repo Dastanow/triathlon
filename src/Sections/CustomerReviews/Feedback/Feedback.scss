@@ -1,15 +1,57 @@
 @import '../../../common/nullstyle.scss';
 .comments {
-    background: $white;
-    padding-top: 110px;
+    margin-bottom: 110px;
+}
+
+.comments__title {
+    margin-bottom: 24px;
 }
 
 .comments__subtitle {
     font-size: 40px;
     font-weight: 500;
-    font-style: normal;
     line-height: 120%;
     color: #181816;
     text-align: center;
-    margin-bottom: 90px;
+    margin-bottom: 92px;
+}
+//----media-query-----------
+@media (max-width: 1800px) {
+    .comments {
+        margin-bottom: 105px;
+    }
+    .comments__subtitle {
+        font-size: 37px;
+        margin-bottom: 81px;
+    }
+}
+//--------------------------
+@media (max-width: 1680px) {
+    .comments {
+        margin-bottom: 100px;
+    }
+    .comments__subtitle {
+        font-size: 34px;
+        margin-bottom: 70px;
+    }
+}
+//--------------------------
+@media (max-width: 1560px) {
+    .comments {
+        margin-bottom: 95px;
+    }
+    .comments__subtitle {
+        font-size: 31px;
+        margin-bottom: 59px;
+    }
+}
+//--------------------------
+@media (max-width: 1440px) {
+    .comments {
+        margin-bottom: 90px;
+    }
+    .comments__subtitle {
+        font-size: 28px;
+        margin-bottom: 48px;
+    }
 }

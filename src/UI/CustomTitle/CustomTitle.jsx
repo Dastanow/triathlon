@@ -1,18 +1,16 @@
 import './style.scss';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const CustomTitle = ({title}) => {
+const CustomTitle = ({ title }) => {
     return (
-        <div>
-            <h2 className="cust_title">
-                {title}</h2>
-        </div>
+        <>
+            <h2 className="cust_title">{title}</h2>
+        </>
     );
 };
 
-    CustomTitle.propTypes={
-        title:PropTypes.string,
-    }
+CustomTitle.propTypes = {
+    title: PropTypes.string,
+};
 
 export default CustomTitle;
-

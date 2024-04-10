@@ -4,6 +4,7 @@ import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
 import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
 
 const CoachesBlock = () => {
     const [data, setData] = useState({});
@@ -28,7 +29,7 @@ const CoachesBlock = () => {
     if (!data.coaches && !data.buttons) return 'Loader...';
 
     return (
-        <section className="coaches">
+        <section className="coaches" id="coaches">
             <div className="container">
                 <div className="coaches__title">
                     <CustomTitle title={'Наши тренеры'} />

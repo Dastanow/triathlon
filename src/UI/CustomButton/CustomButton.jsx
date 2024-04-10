@@ -1,20 +1,26 @@
-import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const CustomButton = ({ className, name, onClick, type, value, form }) => {
-    const inputRef = React.useRef(null);
-
+const CustomButton = ({
+    className,
+    name,
+    onClick,
+    type,
+    value,
+    form,
+    title,
+}) => {
     return (
         <div>
-            <input
-                ref={inputRef}
+            <button
                 type={type}
                 name={name}
                 onClick={onClick}
                 value={value}
                 className={className}
                 form={form}
-            />
+            >
+                {title}
+            </button>
         </div>
     );
 };
@@ -27,11 +33,10 @@ CustomButton.propTypes = {
     className: PropTypes.string,
     name: PropTypes.string,
     onClick: PropTypes.func,
-    form: PropTypes.node,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
+    form: PropTypes.func,
     type: PropTypes.string,
     value: PropTypes.string,
+    title: PropTypes.string,
 };
 
 export default CustomButton;

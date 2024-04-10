@@ -1,40 +1,57 @@
+#section {
+  scroll-margin-top: 120px;
+}
 .section {
   margin: 6rem auto;
   width: 1720px; 
   border-collapse: collapse; 
   border-radius: 0px 16.157px 0px 0px;
   overflow: hidden; 
-
-  .h2 {
-    text-align: center; // Центрируем заголовок
-    margin-bottom: 20px; // Отступ снизу
+  
+  h2 {
+    text-align: center; 
+    margin-bottom: 20px; 
     color: black;
   }
+
   .section__header {
     padding: 10px; 
     text-align: center; 
     border: 1px solid #ccc;
     color: #000;
-font-family: Montserrat;
-font-size: 32.315px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+    font-family: Montserrat;
+    font-size: 32.315px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   .section__row {
     text-align: center;
+  }
 
   .section__column {
     width: 25%; 
     padding: 13px; 
     border: 1px solid #ccc; 
     color: #000;
-font-family: Montserrat;
-font-size: 24.236px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Montserrat;
+    font-size: 24.236px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
-}
+  @media (max-width: 1920px){
+    margin-bottom: 112px;
+  }
+
+  @media (max-width: 1440px) {
+    margin-bottom: 90px;
+    width: 100%;
+    border-radius: 0; 
+    .section__column {
+      margin: 0 20px;
+      width: 35%; 
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import './style.scss';
+import './CustomTitle.scss';
 import PropTypes from 'prop-types';
 
 const CustomTitle = ({ title }) => {

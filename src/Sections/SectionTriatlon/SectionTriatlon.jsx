@@ -1,3 +1,4 @@
+import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import './SectionTriatlon.scss';
 
 const SectionTriatlon = () => {
@@ -60,8 +61,8 @@ const SectionTriatlon = () => {
     ];
 
     return (
-        <>
-            <h2 className="h2">Секции Триатлон</h2>
+        <div id="section">
+            <CustomTitle title={'Секции Триатлон'} />
             <table className="section" id="section">
                 <thead>
                     <tr className="section__trhead">
@@ -82,7 +83,7 @@ const SectionTriatlon = () => {
                     ))}
                 </tbody>
             </table>
-        </>
+        </div>
 
     );
 };

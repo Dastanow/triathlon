@@ -5,7 +5,7 @@ import './CommentCard.scss';
 const CommentCard = (props) => {
     const { title, subtitle, text, image } = props;
     const [isShow, setIsShow] = useState(true);
-    const maxLength = 100;
+    const maxLength = 90;
 
     const isHiddenText = text.length > maxLength && isShow;
 

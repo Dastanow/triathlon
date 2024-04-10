@@ -3,7 +3,7 @@ import arrowPrev from '../Assets/arrow-prev.png';
 import arrowNext from '../Assets/arrow-next.png';
 import arrowRight from '../Assets/arrow-right.png';
 import close from '../Assets/close-button.png';
-import error from '../Assets/dangerous.svg'
+import error from '../Assets/dangerous.svg';
 export const carouselInitState = {
     btnPrevClass: 'btn-prev',
     btnNextClass: 'btn-next',
@@ -14,80 +14,56 @@ export const carouselInitState = {
     btnNextDisable: arrowNext,
 };
 
-export const coachesInitState = {
-    gap: 36,
-    slidesPerView: 4,
-    coachClass: {
-        class0: 'coach-inner__wrapper',
-    },
-};
-
-export const feedbackInitState = {
-    gap: 35,
-    slidesPerView: 3,
-    commentClass: {
-        class0: 'comment-inner__wrapper',
-    },
-};
-
-export const trainAreasInitState = {
-    gap: 0,
-    slidesPerView: 1,
-    trainClass: {
-        class0: 'train-areas-inner__wrapper',
-    },
-};
-
 export const modalInitState = {
     image0: close,
     alt0: 'close button',
 };
+
 export const HeaderItem = [
     {
-        elment: 'Главная', 
-       
-    }
-]
+        elment: 'Главная',
+    },
+];
 
 //------init-form-state-----------------------
 
 export const initStateFaqForm = {
-    section:'faq',
-    faqTitle:'Остались вопросы?',
-    text:'Мы рады ответить на любой Ваш вопрос, выслушать Ваше предложение.',
-    formTitle:'form-faq__title',
-    formContent:'form-faq__content',
-    userNameField:'form-faq__field-name',
-    classArea:'form-faq__area',
-    classUser:'form-faq__user',
-    classPhone:'form-faq__phone',
-    classButton:'form-faq__button',
+    section: 'faq',
+    faqTitle: 'Остались вопросы?',
+    text: 'Мы рады ответить на любой Ваш вопрос, выслушать Ваше предложение.',
+    formTitle: 'form-faq__title',
+    formContent: 'form-faq__content',
+    userNameField: 'form-faq__field-name',
+    classArea: 'form-faq__area',
+    classUser: 'form-faq__user',
+    classPhone: 'form-faq__phone',
+    classButton: 'form-faq__button',
     isClass: 'form-faq',
-    fieldName:'Ваше имя*'
-}
+    fieldName: 'Ваше имя*',
+};
 
-export const  initStateAppForm = {
-    section:'app',
-    title:'Оставить заявку',
-    formTitle:'form-app__title',
-    formContent:'form-app__content',
-    errorIcon: error, 
-    classArea:'form-app__area',
-    classUser:'form-app__user',
-    classPhone:'form-app__phone',
-    classButton:'form-app__button',
+export const initStateAppForm = {
+    section: 'app',
+    title: 'Оставить заявку',
+    formTitle: 'form-app__title',
+    formContent: 'form-app__content',
+    errorIcon: error,
+    classArea: 'form-app__area',
+    classUser: 'form-app__user',
+    classPhone: 'form-app__phone',
+    classButton: 'form-app__button',
     isClass: 'form-app',
-    fieldName:'Ваше имя*'
-}
+    fieldName: 'Ваше имя*',
+};
 
-export const  initStateVacancyForm = {
-    section:'vacancy',
-    vacancyTitle:'Откликнуться на вакансию',
-    formTitle:'form-vacancy__title',
-    formContent:'form-vacancy__content',
-    classUser:'form-vacancy__user',
-    errorIcon: error, 
-    classButton:'form-vacancy__button',
+export const initStateVacancyForm = {
+    section: 'vacancy',
+    vacancyTitle: 'Откликнуться на вакансию',
+    formTitle: 'form-vacancy__title',
+    formContent: 'form-vacancy__content',
+    classUser: 'form-vacancy__user',
+    errorIcon: error,
+    classButton: 'form-vacancy__button',
     isClass: 'form-vacancy',
-    fieldName:'Имя, Фамилия*'
-}
+    fieldName: 'Имя, Фамилия*',
+};

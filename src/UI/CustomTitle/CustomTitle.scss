@@ -1,0 +1,34 @@
+.cust_title {
+    color: #013d83;
+    font-family: Montserrat;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+}
+
+//------media-query----------
+@media (max-width: 1800px) {
+    .cust_title {
+        font-size: 75px;
+    }
+}
+//--------------------------
+@media (max-width: 1680px) {
+    .cust_title {
+        font-size: 70px;
+    }
+}
+//--------------------------
+@media (max-width: 1560px) {
+    .cust_title {
+        font-size: 65px;
+    }
+}
+//--------------------------
+@media (max-width: 1440px) {
+    .cust_title {
+        font-size: 60px;
+    }
+}

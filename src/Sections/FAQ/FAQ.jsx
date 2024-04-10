@@ -6,7 +6,6 @@ import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import CustomForm from '../../UI/CustomForm/CustomForm';
 
 const Faq = () => {
-
     const questions = [
         {
             title: 'Есть ли у вас детские секции/группы для детей?',
@@ -31,56 +30,64 @@ const Faq = () => {
         {
             title: 'Есть ли у вас индивидуальные тренировки?',
             answer: 'У нас имеются индивидуальные тренировки у всех тренеров. Стоимость тренировки составляет 1500/2000/2500 сом в зависимости от категории тренера. Более подробную информацию о каждом тренере Вы можете найти во вкладке “Тренеры”.',
-        }
+        },
     ];
 
-    const [openIndexes, setOpenIndexes ] = useState(Array.from({ length: questions.length }, () => false));
-
+    const [openIndexes, setOpenIndexes] = useState(
+        Array.from({ length: questions.length }, () => false)
+    );
 
     const handleToggle = (index) => {
-        const updatedIndexes = openIndexes.map((item, ind) => { 
-            if (ind === index) { 
-                return !item; 
-            } else { 
-                return false; 
-            } 
-        }); 
+        const updatedIndexes = openIndexes.map((item, ind) => {
+            if (ind === index) {
+                return !item;
+            } else {
+                return false;
+            }
+        });
         setOpenIndexes(updatedIndexes);
-
     };
 
-
-    
     return (
         <section className="faq">
             <div className="faq_container">
-                <CustomTitle title={'Часто задаваемые вопросы:'}/>
+                <CustomTitle title={'Часто задаваемые вопросы:'} />
                 <div className="chief_block">
                     <div className="all_questions">
                         {questions.map((question, index) => (
-                            <div onClick={() => handleToggle(index)} className="boks_questions" key={index}>
+                            <div
+                                onClick={() => handleToggle(index)}
+                                className="boks_questions"
+                                key={index}
+                            >
                                 <div className="inside_box">
                                     <h4 className="title_questions">
                                         {question.title}
                                     </h4>
-                                    <img src={down} alt="img" style={{transform: openIndexes[index] ? 'rotate(180deg)' :'' , transition:'0.5s' }} />
+                                    <img
+                                        src={down}
+                                        alt="img"
+                                        style={{
+                                            transform: openIndexes[index]
+                                                ? 'rotate(180deg)'
+                                                : '',
+                                            transition: '0.5s',
+                                        }}
+                                    />
                                 </div>
-                               
+
                                 {openIndexes[index] && (
-                                    <p className="answer opened">{question.answer}</p>
+                                    <p className="answer opened">
+                                        {question.answer}
+                                    </p>
                                 )}
-                                
-                                
                             </div>
                         ))}
                     </div>
 
-
                     <div className="additional_questions">
                         <div className="boks_additional">
-                            <CustomForm 
-                                { ... initStateFaqForm}
-                            />
+                            <CustomForm {...initStateFaqForm} />
                         </div>
                     </div>
                 </div>

@@ -8,10 +8,10 @@ import Requisites from './Requisites/Requisites';
 import { useState } from 'react';
 
 const Aboniment = () => {
-    const [modalActive, setModalActive] = useState(false)
+    const [modalActive, setModalActive] = useState(false);
     return (
         <div className="abonement" id="abonement">
-            <CustomTitle title={'Абонементы'}/>
+            <CustomTitle title={'Абонементы'} />
             <div className="abonement--blocks">
                 {AbonimentData.map((el) => {
                     if (el.id == 2) {
@@ -28,7 +28,12 @@ const Aboniment = () => {
                                     </div>
                                 </div>
                                 <h2>{el.price}</h2>
-                                <button  onClick={() => setModalActive(true)} className="blockXits--btn">Купить</button>
+                                <button
+                                    onClick={() => setModalActive(true)}
+                                    className="blockXits--btn"
+                                >
+                                    Купить
+                                </button>
                                 <div className="blockXits--linear"></div>
                                 <div className="blockXits--possibilities">
                                     <p>
@@ -51,7 +56,12 @@ const Aboniment = () => {
                                     <p>{el.visits}</p>
                                 </div>
                                 <h2>{el.price}</h2>
-                                <button  onClick={() => setModalActive(true)} className="blockTwo--btn">Купить</button>
+                                <button
+                                    onClick={() => setModalActive(true)}
+                                    className="blockTwo--btn"
+                                >
+                                    Купить
+                                </button>
                                 <div className="blockTwo--linear"></div>
                                 <div className="blockTwo--possibilities">
                                     <p>
@@ -68,11 +78,9 @@ const Aboniment = () => {
                         );
                     }
                 })}
-                <ModalWindow active={modalActive} setActive={setModalActive} >
-                    <Requisites/>
+                <ModalWindow active={modalActive} setActive={setModalActive}>
+                    <Requisites />
                 </ModalWindow>
-                    
-                
             </div>
         </div>
     );

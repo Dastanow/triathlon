@@ -7,7 +7,7 @@ const InnerCarousel = ({ slide }) => {
     return (
         <Swiper
             modules={[Autoplay]}
-            spaceBetween={1}
+            spaceBetween={0}
             slidesPerView={1}
             loop={true}
             autoplay={{

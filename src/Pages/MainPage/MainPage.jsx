@@ -9,11 +9,12 @@ import Location from '../../Sections/Location/Location';
 import OurServices from '../../Sections/OurServices/OurServices';
 import SectionTriatlon from '../../Sections/SectionTriatlon/SectionTriatlon';
 import TrainingAreas from '../../Sections/TrainingAreas';
+import ScrollToTopIcon from '../../Sections/ScrollToTopIcon/ScrollToTopIcon';
 
 const MainPage = () => {
     return (
         <>
-            <HeroBlock/>
+            <HeroBlock />
             <AboutUs />
             <Advantages />
             <Aboniment />
@@ -24,6 +25,7 @@ const MainPage = () => {
             <Feedback />
             <FAQ />
             <Location />
+            <ScrollToTopIcon/>
         </>
     );
 };

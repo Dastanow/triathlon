@@ -1,4 +1,4 @@
 import Feedback from './Feedback/Feedback';
-import CommentCard from './CommentCard/CommentCard';
-export { CommentCard };
+import CommentsCarousel from './CommentsCarousel/CommentsCarousel';
+export { CommentsCarousel };
 export default Feedback;

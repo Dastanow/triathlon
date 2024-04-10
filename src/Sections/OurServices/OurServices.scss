@@ -3,34 +3,34 @@
 #services {
     scroll-margin-top: 130px;
 }
-.service{
+.service {
     height: 500px;
     margin-top: 50px;
     width: 1720px;
     margin: 0 auto;
-    &__block{
+    &__block {
         width: 1730px;
     }
 }
 
-.all__cards{
+.all__cards {
     display: flex;
     align-items: center;
     gap: 30px;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding-top: 80px;
-    &_card{
+    &_card {
         width: 282px;
         height: 156px;
         border-radius: 20px;
-        border: 1px solid #FFF;
-       background: #013d83;
+        border: 1px solid #fff;
+        background: #013d83;
     }
 
-    &-text{
+    &-text {
         width: 157px;
-        color: #FFF;
+        color: #fff;
         font-family: Montserrat;
         font-size: 22px;
         padding-top: 15px;
@@ -41,10 +41,10 @@
         padding-bottom: 26px;
     }
 
-    &-zero{
+    &-zero {
         width: 117px;
-        color: #FFF;
-        font-family: 'Montserrat' ,  sans-serif;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         padding-top: 20px;
         padding-left: 10px;
@@ -54,10 +54,10 @@
         padding-bottom: 46px;
     }
 
-    &-one{
-        color: #FFF;
+    &-one {
+        color: #fff;
         width: 240px;
-        font-family: 'Montserrat' ,  sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         margin-top: 5px;
         margin-left: 10px;
@@ -67,9 +67,9 @@
         padding-bottom: 10px;
     }
 
-    &-two{
-        color: #FFF;
-        font-family: 'Montserrat' ,  sans-serif;
+    &-two {
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         font-weight: 600;
         padding-top: 5px;
@@ -80,9 +80,9 @@
         padding-bottom: 12px;
     }
 
-    &-three{
-        color: #FFF;
-        font-family: 'Montserrat' ,  sans-serif;
+    &-three {
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         font-weight: 600;
         padding-top: 10px;
@@ -91,12 +91,11 @@
         font-style: normal;
         width: 177px;
         padding-bottom: 32px;
-        
     }
 
-    &-four{
-        color: #FFF;
-        font-family: 'Montserrat' ,  sans-serif;
+    &-four {
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         font-style: normal;
         font-weight: 600;
@@ -109,8 +108,8 @@
         padding-top: 23px;
     }
 
-    &-five{
-        color: #FFF;
+    &-five {
+        color: #fff;
         font-family: Montserrat;
         font-size: 22px;
         font-style: normal;
@@ -125,19 +124,19 @@
     }
 }
 
-.all--card-one{
+.all--card-one {
     display: flex;
-    gap: 18px;   
+    gap: 18px;
 }
 
-.all--card-two{
+.all--card-two {
     display: flex;
     gap: 24px;
     margin-left: 150px;
 }
 
-.all__info{
-    color: rgba(255, 255, 255, 0.60);
+.all__info {
+    color: rgba(255, 255, 255, 0.6);
     font-family: Montserrat;
     font-size: 21.551px;
     font-style: normal;
@@ -150,8 +149,8 @@
     border-radius: 0px, 10px, 0px, 10px;
     cursor: pointer;
 
-    &-one{
-        color: rgba(255, 255, 255, 0.60);
+    &-one {
+        color: rgba(255, 255, 255, 0.6);
         font-family: Montserrat;
         font-size: 21.551px;
         font-style: normal;
@@ -165,8 +164,8 @@
         cursor: pointer;
     }
 
-    &-two{
-        color: rgba(255, 255, 255, 0.60);
+    &-two {
+        color: rgba(255, 255, 255, 0.6);
         font-family: Montserrat;
         font-size: 21.551px;
         font-style: normal;
@@ -180,8 +179,8 @@
         cursor: pointer;
     }
 
-    &-three{
-        color: rgba(255, 255, 255, 0.60);
+    &-three {
+        color: rgba(255, 255, 255, 0.6);
         font-family: Montserrat;
         font-size: 21.551px;
         font-style: normal;
@@ -195,23 +194,8 @@
         cursor: pointer;
     }
 
-    &-four{
-        color: rgba(255, 255, 255, 0.60);
-        font-family: Montserrat;
-        font-size: 21.551px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        border-radius: 10px;
-        width: Fixed (153px);
-        height: 60px;
-        background-color: #002550;
-        border-radius: 0px, 10px, 0px, 10px;
-       cursor: pointer;        
-    }
-
-    &-five{
-        color: rgba(255, 255, 255, 0.60);
+    &-four {
+        color: rgba(255, 255, 255, 0.6);
         font-family: Montserrat;
         font-size: 21.551px;
         font-style: normal;
@@ -225,8 +209,8 @@
         cursor: pointer;
     }
 
-    &-six{
-        color: rgba(255, 255, 255, 0.60);
+    &-five {
+        color: rgba(255, 255, 255, 0.6);
         font-family: Montserrat;
         font-size: 21.551px;
         font-style: normal;
@@ -240,71 +224,79 @@
         cursor: pointer;
     }
 
+    &-six {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Montserrat;
+        font-size: 21.551px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 10px;
+        width: Fixed (153px);
+        height: 60px;
+        background-color: #002550;
+        border-radius: 0px, 10px, 0px, 10px;
+        cursor: pointer;
+    }
 }
 
-.img{
-   
-    &__zero{
+.img {
+    &__zero {
         position: absolute;
         margin-top: -110px;
         margin-left: 190px;
     }
 
-    &__one{
+    &__one {
         position: absolute;
         margin-top: -110px;
         margin-left: 190px;
-        
     }
 
-    &__two{
+    &__two {
         position: absolute;
         margin-top: -115px;
         margin-left: 200px;
-        
     }
 
-    &__three{
+    &__three {
         position: absolute;
         margin-top: -120px;
         margin-left: 200px;
-        
     }
 
-    &__four{
+    &__four {
         position: absolute;
         margin-top: -100px;
         margin-left: 190px;
-        
     }
 
-    &__five{
+    &__five {
         position: absolute;
         margin-top: -100px;
         margin-left: 190px;
-       
     }
 
-    &__six{
+    &__six {
         position: absolute;
         margin-top: -100px;
         margin-left: 200px;
     }
 
-    &__alt{
-         position: absolute;
+    &__alt {
+        position: absolute;
         margin-top: -120px;
         margin-left: 170px;
     }
-    &__alt2{
+    &__alt2 {
         position: absolute;
-       margin-top: -100px;
-       margin-left: 200px;
-   }
+        margin-top: -100px;
+        margin-left: 200px;
+    }
 }
 
-.modal-Title{
-   position: absolute;
+.modal-Title {
+    position: absolute;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;

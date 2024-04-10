@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const CustomButton = ({
     className,
@@ -9,7 +9,6 @@ const CustomButton = ({
     form,
     title,
 }) => {
-
     return (
         <div>
             <button
@@ -19,23 +18,25 @@ const CustomButton = ({
                 value={value}
                 className={className}
                 form={form}
-            >{title}</button>
+            >
+                {title}
+            </button>
         </div>
     );
 };
 
-CustomButton.defaultProps={
-    type:'button'
-}
+CustomButton.defaultProps = {
+    type: 'button',
+};
 
-CustomButton.propTypes={
-    className:PropTypes.string,
-    name:PropTypes.string,
-    onClick:PropTypes.func,
-    form:PropTypes.func,
-    type:PropTypes.string,
-    value:PropTypes.string,
-    title:PropTypes.string,
-}
+CustomButton.propTypes = {
+    className: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    form: PropTypes.func,
+    type: PropTypes.string,
+    value: PropTypes.string,
+    title: PropTypes.string,
+};
 
 export default CustomButton;

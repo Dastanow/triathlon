@@ -13,13 +13,13 @@ const Header = () => {
 
     const handleSvgClick = (event) => {
         if (!event.target.closest('.lein-acc')) {
-            setShowOtherImage(prevState => !prevState);
+            setShowOtherImage((prevState) => !prevState);
         }
     };
 
     const goToMainPage = () => {
         nav('/');
-        window.scrollTo(2000, 2000);
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -42,7 +42,11 @@ const Header = () => {
                 <div className="lein-language">
                     <div className="languages" onClick={handleSvgClick}>
                         <img className="language" src={rus} alt="" />
-                        <img className="languages_svg" src={svg_landuage} alt="" />
+                        <img
+                            className="languages_svg"
+                            src={svg_landuage}
+                            alt=""
+                        />
                     </div>
                     {showOtherImage && (
                         <div className="other-image-container">
@@ -59,5 +63,8 @@ const Header = () => {
         </div>
     );
 };
+    
+
 
 export default Header;
+

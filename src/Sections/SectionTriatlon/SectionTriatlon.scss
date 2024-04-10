@@ -41,8 +41,12 @@
     font-weight: 400;
     line-height: normal;
   }
+  @media (max-width: 1920px){
+    margin-bottom: 112px;
+  }
 
   @media (max-width: 1440px) {
+    margin-bottom: 90px;
     width: 100%;
     border-radius: 0; 
     .section__column {

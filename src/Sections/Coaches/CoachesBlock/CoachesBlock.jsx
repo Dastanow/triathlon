@@ -4,7 +4,6 @@ import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
 import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
 
 const CoachesBlock = () => {
     const [data, setData] = useState({});

@@ -5,7 +5,7 @@ import dumbbells from '../../Assets/svgServices/dumbbells.svg';
 import group from '../../Assets/svgServices/group.svg';
 import tick from '../../Assets/svgServices/tick.svg';
 import double from '../../Assets/svgServices/double.svg';
-import '../../UI/CustomTitle/style.scss';
+import '../../UI/CustomTitle/CustomTitle.scss';
 import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';

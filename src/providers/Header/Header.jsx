@@ -10,11 +10,13 @@ import { Link, useNavigate } from 'react-router-dom';
 const Header = () => {
     const nav = useNavigate();
     const [showOtherImage, setShowOtherImage] = useState(false);
+
     const handleSvgClick = (event) => {
         if (!event.target.closest('.lein-acc')) {
             setShowOtherImage((prevState) => !prevState);
         }
     };
+
     const goToMainPage = () => {
         nav('/');
         window.scrollTo(0, 0);
@@ -22,52 +24,21 @@ const Header = () => {
 
     return (
         <div className="main">
-            <div className="main__lein">
-                <div className="main__logotype">
-                    <Link to="/">
-                        <img
-                            className="main__logotype-icon"
-                            src={logot}
-                            alt=""
-                        />
-                    </Link>
-                </div>
-                <div className="navigation">
-                    <ul className="all-links">
-                        <a href="#main">
-                            <li className="links" onClick={goToMainPage}>
-                                Главная
-                            </li>
-                        </a>
-                        <a href="#coaches">
-                            <li className="links" onClick={goToMainPage}>
-                                Тренеры
-                            </li>
-                        </a>
-                        <a href="#abonement">
-                            <li className="links" onClick={goToMainPage}>
-                                Абонементы
-                            </li>
-                        </a>
-                        <a href="#section">
-                            {' '}
-                            <li className="links" onClick={goToMainPage}>
-                                Секции
-                            </li>
-                        </a>
-                        <li className="links">Расписание</li>
-                        <a href="#services">
-                            <li className="links" onClick={goToMainPage}>
-                                Услуги
-                            </li>
-                        </a>
-                        <a href="#location">
-                            <li className="links" onClick={goToMainPage}>
-                                Контакты
-                            </li>
-                        </a>
-                    </ul>
-                </div>
+            <div className="mainlein">
+                <Link to="/">
+                    <img className="main__logotype-icon" src={logot} alt="" />
+                </Link>
+
+                <ul className="navigation">
+                    <li className="links" onClick={goToMainPage}><a href="#main">Главная</a></li>
+                    <li className="links" onClick={goToMainPage}><a href="#coaches">Тренеры</a></li>
+                    <li className="links" onClick={goToMainPage}><a href="#abonement">Абонементы</a></li>
+                    <li className="links" onClick={goToMainPage}><a href="#section">Секции</a></li>
+                    <li className="links"><a href="#">Расписание</a></li>
+                    <li className="links" onClick={goToMainPage}><a href="#services">Услуги</a></li>
+                    <li className="links" onClick={goToMainPage}><a href="#location">Контакты</a></li>
+                </ul>
+
                 <div className="lein-language">
                     <div className="languages" onClick={handleSvgClick}>
                         <img className="language" src={rus} alt="" />
@@ -84,6 +55,7 @@ const Header = () => {
                         </div>
                     )}
                 </div>
+
                 <div className="lein-acc">
                     <img className="acc" src={acc} alt="" />
                 </div>
@@ -91,5 +63,8 @@ const Header = () => {
         </div>
     );
 };
+    
+
 
 export default Header;
+

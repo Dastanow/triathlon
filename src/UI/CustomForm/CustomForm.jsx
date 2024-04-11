@@ -225,8 +225,10 @@ const CustomForm = (props) => {
                 {isVacancy && 
                 <div className="politic">
                     <CheckBoxes
+                        name="price"
                         className="politic__check"
                         value={data.price} 
+                        id="price"
                         onChange={handleChange}
                     />
                     <span className="politic__text">Я согласен с <a className="politic__reference"

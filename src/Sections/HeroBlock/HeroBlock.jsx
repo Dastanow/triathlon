@@ -1,46 +1,29 @@
 import './HeroBlock.scss';
-import wp from '../../Assets/wp1.png';
 import ModaleWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomForm from '../../UI/CustomForm/CustomForm';
+import CustomButton from '../../UI/CustomButton/CustomButton';
 import { initStateAppForm } from '../../common/constants';
-
-
 
 const HeroBlock = () => {
     const [modalActive, setModalActive] = useState(false)
-    const ScrollToTop = () => {  
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
-    
-    
     return (
-        <div className="main_unit_home">
-            <div className="block">
-                <div className="menu">
-                    <h1 className="title">TRIATHLON CENTER</h1>
-
-                    <p className="text">
-                    Первая инклюзивная спортивная база в Кыргызской Республике
-                    </p>
-
-                    <div className="menu_btn">
-                        <button  onClick={() => setModalActive(true)} className="btn">Оставить заявку</button>
-                    </div>
-
-                    <ModaleWindow active={modalActive} setActive={setModalActive}>
-                        <CustomForm
-                            {... initStateAppForm}
-                        />
-                    </ModaleWindow> 
-
+        <section className="hero">
+            <div className="container">
+                <div className="hero-content">
+                    <h1 className="hero-content--title">TRIATHLON CENTER</h1>
+                    <p className="hero-content--description">Первая инклюзивная спортивная база в Кыргызской Республике</p>
+                    <CustomButton type="secondary" onClick={() => setModalActive(true)}>
+                        Оставить заявку
+                    </CustomButton>
                 </div>
-
             </div>
-        </div>
+            <ModaleWindow active={modalActive} setActive={setModalActive}>
+                <CustomForm
+                    {... initStateAppForm}
+                />
+            </ModaleWindow>
+        </section>
     );
 };
 

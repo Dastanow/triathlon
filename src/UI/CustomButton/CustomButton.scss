@@ -1,15 +1,13 @@
-.cust_btn {
-    width: 256px;
-    height: 70px;
+.btn {
     border-radius: 16px;
-    background: #FAA831;
-    color: white;
-    box-shadow: 0px 1.122px 4.488px 0px rgba(25, 33, 61, 0.08);
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Montserrat;
     font-size: 24px;
-    font-style: normal;
-    letter-spacing: -0.48px;
-    margin-left: -18px;
+    padding: 16px 24px;
+    &Primary {
+        background-color: #013D83;
+        color: #ffffff;
+    }
+    &Secondary {
+        background-color: #FAA831;
+        color: #000000;
+    }
 }

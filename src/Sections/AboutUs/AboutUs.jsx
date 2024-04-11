@@ -1,39 +1,30 @@
 import './AboutUs.scss';
-import School from '../../Assets/Placeholder Image.png';
+import school from '../../Assets/Placeholder Image.png';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import CustomButton from '../../UI/CustomButton/CustomButton';
+import Container from '../../Components/Container/Container';
 
 const AboutUs = () => {
     return (
-        <div className="aboutUs">
-            <div className="aboutUs__container">
+        <section id="about-us" className="aboutUs">
+            <Container classNames="aboutUsContainer">
                 <CustomTitle title={'O нас'} />
-                <div className="aboutUs__platfor">
-                    <div className="aboutUs__img">
-                        <img src={School} alt="img" />
+                <div className="aboutUsWrapper">
+                    <div className="aboutUsImage">
+                        <img src={school} alt="about us image" />
                     </div>
-                    <div className="aboutUs__content">
-                        <h3>TRIATHLON CENTER</h3>
-                        <p>
-                            Добро пожаловать в наш инклюзивный спортивный клуб!
-                            В нашем спортивном клубе профессиональные
-                            дружелюбные сотрудники знающие сервис, с
-                            индивидуальным подходом к каждому клиенту. Благодаря
-                            этому вы погрузитесь в добрую семейную обстановку,
-                            где присутствуют инновационные технологии. <br />{' '}
-                            Наш спортивный клуб - это место, где забота о вашем
-                            здоровье и благополучии становится страстью. Мы
-                            создали уютное пространство, где каждый посетитель
-                            может обрести не только физическую форму, но и
-                            умиротворение для души.
+                    <div className="aboutUsContent">
+                        <h3 className="aboutUsTitle">TRIATHLON CENTER</h3>
+                        <p className="aboutUsDescription">Добро пожаловать в наш инклюзивный спортивный клуб! В нашем спортивном клубе профессиональные дружелюбные сотрудники знающие сервис, с индивидуальным подходом к каждому клиенту. Благодаря этому вы погрузитесь в добрую семейную обстановку, где присутствуют инновационные технологии. 
+                            Наш спортивный клуб - это место, где забота о вашем здоровье и благополучии становится страстью. Мы создали уютное пространство, где каждый посетитель может обрести не только физическую форму, но и умиротворение для души.s
                         </p>
-                        <a href="https://www.triathlon.kg/" target="_blank">
-                            <CustomButton title={'Подробнее'} />
-                        </a>
+                        <CustomButton type="primary">
+                            Подробнее
+                        </CustomButton>
                     </div>
                 </div>
-            </div>
-        </div>
+            </Container>
+        </section>
     );
 };
 

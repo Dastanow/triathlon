@@ -42,31 +42,3 @@ body {
     line-height: 150%;
     color: $white;
 }
-.container {
-    max-width: 1720px;
-    margin: 0 auto;
-}
-//--------media-query----------
-@media (max-width: 1800px) {
-    .container {
-        max-width: 1600px;
-    }
-}
-//----------------------------
-@media (max-width: 1680px) {
-    .container {
-        max-width: 1480px;
-    }
-}
-//----------------------------
-@media (max-width: 1560px) {
-    .container {
-        max-width: 1340px;
-    }
-}
-//----------------------------
-@media (max-width: 1440px) {
-    .container {
-        max-width: 1200px;
-    }
-}

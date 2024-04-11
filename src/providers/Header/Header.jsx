@@ -1,20 +1,55 @@
 import { useState } from 'react';
 import './Header.scss';
-import logot from '../../Assets/logo1.png';
-import acc from '../../Assets/acc1.png';
+import logotype from '../../Assets/logo1.png';
+import account from '../../Assets/account.svg';
+import chevron from '../../Assets/solar_chevron-up.svg'
 import rus from '../../Assets/language_rus.png';
 import kyr from '../../Assets/language_kyr.png';
-import svg_landuage from '../../Assets/language.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import Container from '../../Components/Container/Container'
+
+const navigatePath = [
+    {
+        id: '#main',
+        path: 'Главная'
+    },
+    {
+        id: '#coaches',
+        path: 'Тренеры'
+    },
+    {
+        id: '#abonement',
+        path: 'Абонементы'
+    },
+    {
+        id: '#section',
+        path: 'Секции'
+    },
+    {
+        id: '#',
+        path: 'Расписание'
+    },
+    {
+        id: '#services',
+        path: 'Услуги'
+    },
+    {
+        id: '#location',
+        path: 'Контакты'
+    },
+]
 
 const Header = () => {
     const nav = useNavigate();
+    const [language, setLanguage] = useState('rus');
     const [showOtherImage, setShowOtherImage] = useState(false);
 
-    const handleSvgClick = (event) => {
-        if (!event.target.closest('.lein-acc')) {
-            setShowOtherImage((prevState) => !prevState);
-        }
+    const handleSvgClick = () => {
+        setShowOtherImage((prevState) => !prevState);
+    };
+
+    const switchLanguage = () => {
+        setLanguage(language === 'rus' ? 'kyr' : 'rus');
     };
 
     const goToMainPage = () => {
@@ -23,48 +58,48 @@ const Header = () => {
     };
 
     return (
-        <div className="main">
-            <div className="mainlein">
+        <header className="header">
+            <Container classNames="headerContainer">
                 <Link to="/">
-                    <img className="main__logotype-icon" src={logot} alt="" />
+                    <img
+                        src={logotype}
+                        className="headerLogotype"
+                        alt="logotype Triathlon Center"
+                    />
                 </Link>
-
-                <ul className="navigation">
-                    <li className="links" onClick={goToMainPage}><a href="#main">Главная</a></li>
-                    <li className="links" onClick={goToMainPage}><a href="#coaches">Тренеры</a></li>
-                    <li className="links" onClick={goToMainPage}><a href="#abonement">Абонементы</a></li>
-                    <li className="links" onClick={goToMainPage}><a href="#section">Секции</a></li>
-                    <li className="links"><a href="#">Расписание</a></li>
-                    <li className="links" onClick={goToMainPage}><a href="#services">Услуги</a></li>
-                    <li className="links" onClick={goToMainPage}><a href="#location">Контакты</a></li>
-                </ul>
-
-                <div className="lein-language">
-                    <div className="languages" onClick={handleSvgClick}>
-                        <img className="language" src={rus} alt="" />
-                        <img
-                            className="languages_svg"
-                            src={svg_landuage}
-                            alt=""
-                        />
+                <nav>
+                    <ul className="headerNav">
+                        {navigatePath.map((path) => (
+                            <li key={path.id}
+                                onClick={goToMainPage}
+                            >
+                                <a
+                                    className="headerNavLink"
+                                    href={path.id}
+                                >
+                                    {path.path}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                <div className="headerWrapper">
+                    <div className="headerLanguage" onClick={handleSvgClick}>
+                        <img src={language === 'rus' ? rus : kyr} alt={language === 'rus' ? 'Russian' : 'Kyrgyz'} />
+                        <img src={chevron} alt="Chevron" />
+                        {showOtherImage && (
+                            <div className="headerOption" onClick={switchLanguage}>
+                                <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'Kyrgyz' : 'Russian'} />
+                            </div>
+                        )}
                     </div>
-                    {showOtherImage && (
-                        <div className="other-image-container">
-                            <img src={kyr} alt="Other Image" />
-                            <img className="language" src={rus} alt="" />
-                        </div>
-                    )}
+                    <div className="headerAccount">
+                        <img src={account} alt="account" />
+                    </div>
                 </div>
-
-                <div className="lein-acc">
-                    <img className="acc" src={acc} alt="" />
-                </div>
-            </div>
-        </div>
+            </Container>
+        </header>
     );
 };
-    
-
 
 export default Header;
-

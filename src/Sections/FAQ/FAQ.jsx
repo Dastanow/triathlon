@@ -4,6 +4,7 @@ import down from '../../Assets/down_svg.png';
 import { initStateFaqForm } from '../../common/constants';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import CustomForm from '../../UI/CustomForm/CustomForm';
+import Container from '../../Components/Container/Container';
 
 const Faq = () => {
     const questions = [
@@ -49,19 +50,19 @@ const Faq = () => {
     };
 
     return (
-        <section className="faq">
-            <div className="faq_container">
+        <section className="faq" id="faq">
+            <Container classNames="faqContainer">
                 <CustomTitle title={'Часто задаваемые вопросы:'} />
-                <div className="chief_block">
-                    <div className="all_questions">
+                <div className="faqWrapper">
+                    <div className="faqSelects">
                         {questions.map((question, index) => (
                             <div
                                 onClick={() => handleToggle(index)}
-                                className="boks_questions"
+                                className="faqQuestions"
                                 key={index}
                             >
-                                <div className="inside_box">
-                                    <h4 className="title_questions">
+                                <div className="faqBox">
+                                    <h4 className="faqTitles">
                                         {question.title}
                                     </h4>
                                     <img
@@ -84,14 +85,11 @@ const Faq = () => {
                             </div>
                         ))}
                     </div>
-
-                    <div className="additional_questions">
-                        <div className="boks_additional">
-                            <CustomForm {...initStateFaqForm} />
-                        </div>
+                    <div className="faqForm">
+                        <CustomForm {...initStateFaqForm} />
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

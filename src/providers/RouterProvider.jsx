@@ -6,15 +6,13 @@ import PageNotFound from '../Pages/PageNotFound/PageNotFound'
 
 const Routing = () => {
     return (
-        <div className="routing--first__container">
-            <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route index element={<MainPage/>}/>
-                    <Route path="/vacancies" element={<IndexJSX />} />
-                    <Route path="*" element={<PageNotFound/>} />
-                </Route>
-            </Routes>
-        </div>
+        <Routes>
+            <Route path="/" element={<Layout/>}>
+                <Route index element={<MainPage/>}/>
+                <Route path="/vacancies" element={<IndexJSX />} />
+                <Route path="*" element={<PageNotFound/>} />
+            </Route>
+        </Routes>
     )
 }
 

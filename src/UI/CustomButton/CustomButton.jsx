@@ -1,42 +1,29 @@
 import PropTypes from 'prop-types';
+import './CustomButton.scss';
 
-const CustomButton = ({
-    className,
-    name,
-    onClick,
-    type,
-    value,
-    form,
-    title,
-}) => {
+const CustomButton = ({ type, onClick, children, className }) => {
     return (
-        <div>
-            <button
-                type={type}
-                name={name}
-                onClick={onClick}
-                value={value}
-                className={className}
-                form={form}
-            >
-                {title}
-            </button>
-        </div>
+        <button
+            className={`btn 
+                ${type === 'primary' ? 'btnPrimary' : ''} 
+                ${type === 'secondary' ? 'btnSecondary' : ''} 
+                ${className ? className : ''}`}
+            onClick={onClick}
+        >
+            {children}
+        </button>
     );
 };
 
-CustomButton.defaultProps = {
-    type: 'button',
-};
-
 CustomButton.propTypes = {
-    className: PropTypes.string,
-    name: PropTypes.string,
+    type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
     onClick: PropTypes.func,
-    form: PropTypes.func,
-    type: PropTypes.string,
-    value: PropTypes.string,
-    title: PropTypes.string,
+    children: PropTypes.isRequired,
+    className: PropTypes.string
+}
+
+CustomButton.defaultProps = {
+    onClick: () => {}
 };
 
 export default CustomButton;

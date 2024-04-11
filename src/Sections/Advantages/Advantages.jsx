@@ -1,22 +1,23 @@
 import './Advantages.scss';
-import AdvanData from './AdvanFakeData.json';
+import AdvantagesData from './AdvanFakeData.json';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import Container from '../../Components/Container/Container';
 
 const Advantages = () => {
     return (
-        <div className="advantages" id="advantages">
-            <CustomTitle title={'Наши преимущества'}/>
-            <div className="advantages--blocks">
-                {AdvanData.map((el) => {
-                    return (
-                        <div className="block--Two" key={el.id}>
-                            <img src={el.image} alt="img" />
-                            <p>{el.discription}</p>
+        <section id="advantages" className="advantages">
+            <Container classNames="advantagesContainer">
+                <CustomTitle title={'Наши преимущества'}/>
+                <div className="advantagesWrapper">
+                    {AdvantagesData.map((advantage) => (
+                        <div className="advantagesItem" key={advantage.id}>
+                            <img src={advantage.image} alt="img" />
+                            <p>{advantage.discription}</p>
                         </div>
-                    );
-                })}
-            </div>
-        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
     );
 };
 

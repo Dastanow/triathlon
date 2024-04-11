@@ -22,7 +22,7 @@ const Vacancies = () => {
     return(
         <section className="vacancies" id="vacancies">
             <Container classNames="vacanciesContainer">
-                <CustomTitle title={"Вакансии"} />
+                <CustomTitle title={'Вакансии'} />
                 <div className="vacanciesList">
                     {VacanciesData.map((vacancie, index) => (
                         <div className="vacanciesItem" key={index}>
@@ -35,6 +35,7 @@ const Vacancies = () => {
                                 </span>
                             </h5>
                             {openIndex === index && (
+                                <div className="vacanciesWrapp">
                                 <div className="vacanciesContent">
                                     <p className="vacanciesDescription">{vacancie.title}</p>
                                     <div className="vacancies-requirements">
@@ -47,7 +48,8 @@ const Vacancies = () => {
                                     </div>
                                     <div className="vacancies-conditions">
                                         <h3 className="vacancies-subtitle">Условия: </h3>
-                                        <p>{vacancie.conditions}</p>
+                                            <p>{vacancie.conditions}</p>
+                                        </div>
                                     </div>
                                     <CustomButton className="vacancieButton" type="primary" onClick={() => setModalActive(true)}>Отправить резюме</CustomButton>
                                 </div>

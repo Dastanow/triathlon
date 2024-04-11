@@ -27,10 +27,17 @@
     font-weight: 700;
     line-height: 150%; /* 36px */
   }
-  &Content{
+  &Wrapp {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding: 26px;
+
+  }
+  &Content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 30px;
     color: #000;
     font-size: 24px;
@@ -39,7 +46,6 @@
     line-height: 28.8px;
     width: 935px;
     transition: .6s;
-    padding: 26px;
     width: 100%;
   }
   &Description {

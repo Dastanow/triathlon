@@ -27,10 +27,10 @@ const TextField = ({
                     placeholder={placeholder}
                     className={className}
                 />
-                {error && <img src={errorIcon} className="error__icon" />}
+                {/* {error && <img src={errorIcon} className="error__icon" />} */}
           
             </div>
-            {error && <p className="error__text">{error}</p>}
+            {/* {error && <p className="error__text">{error}</p>} */}
         </div>
     )
 }

@@ -73,6 +73,9 @@ const Faq = () => {
                                                 ? 'rotate(180deg)'
                                                 : '',
                                             transition: '0.5s',
+                                            position: 'absolute',
+                                            left: '1200px',
+                                            
                                         }}
                                     />
                                 </div>

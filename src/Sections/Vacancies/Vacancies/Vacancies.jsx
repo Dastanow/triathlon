@@ -22,7 +22,7 @@ const Vacancies = () => {
     return(
         <section className="vacancies" id="vacancies">
             <Container classNames="vacanciesContainer">
-                <CustomTitle title={'Как нас найти'} />
+                <CustomTitle title={"Вакансии"} />
                 <div className="vacanciesList">
                     {VacanciesData.map((vacancie, index) => (
                         <div className="vacanciesItem" key={index}>

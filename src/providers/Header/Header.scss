@@ -59,6 +59,7 @@
         align-items: center;
         gap: 12px;
         cursor: pointer;
+        
     }
     &Option {
         position: absolute;
@@ -69,5 +70,7 @@
         padding: 26px;
         border-radius: 16px;
         background: rgba(0, 0, 0, 0.70);
+        margin-top: 20px;
+        margin-left: -20px;
     }
 }

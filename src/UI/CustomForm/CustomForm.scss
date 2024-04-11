@@ -225,7 +225,9 @@
         font-size: 40px;
         font-weight: 700;
         line-height: 48px;
-        color: #002550;        
+        color: #002550; 
+        position: relative; 
+        left: 95px;
     }
     &__user{
         width: 536px;
@@ -467,8 +469,7 @@
         border: 2px solid #002550;
         color: #002550;
         position: absolute;
-        margin-left: -25px;
-        margin-top: 3px;
+        left: 175px;
     }
     &__text{
         font-family: Montserrat;
@@ -478,9 +479,8 @@
         letter-spacing: -0.05em;
         text-align: left;  
         color: #646464;
-        margin-top: -10px; 
         position: relative;
-            
+           
     }
     &__reference{
         font-family: Montserrat;

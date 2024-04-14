@@ -5,9 +5,12 @@
     &__container{
         max-width: 1720px;
         margin: 0 auto;
+        @media screen and (max-width: 1440px) {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
     }
 }
-
 .all-cards{
     display: flex;
     align-items: center;
@@ -22,6 +25,10 @@
         border: 1px solid #FFF;
         background: #013d83;
         position: relative;
+        @media screen and (max-width: 1440px) {
+            width: 282px;
+            height: 156px;
+        }
     }
     &__text{
         width: 252px;
@@ -30,10 +37,11 @@
         font-size: 32px;
         padding-top: 15px;
         font-weight: 600;
-        line-height: normal;
-        font-style: normal;
         margin-left: 10px;
-       
+        @media screen and (max-width: 1440px) {
+            width: 177px;
+            font-size: 22px;
+        }
     }
 }
 .all-cards__info{
@@ -48,15 +56,26 @@
     background-color: #002550;
     border-radius: 12px;
     cursor: pointer;
+    @media screen and (max-width: 1440px) {
+        width: 153px;
+        height: 60px;
+        border-radius: 10px;
+    }
 }
 .all-cards__image{
     position: absolute;
     right: 25px;
     top: 70px;
+    @media screen and (max-width: 1440px) {
+        width: 72px;  
+    }
     &-alt{
         position: absolute;
         right: 10px;
         top: 95px;
+        @media screen and (max-width: 1440px) {
+            width: 56px;  
+        }
     }
 }
 .modal-title{
@@ -69,4 +88,7 @@
     transform: translateY(-50%);
     font-family: Montserrat;
     color: #FFF;
+    @media screen and (max-width: 1440px) {
+        font-size: 14px;
+    }
 }

@@ -1,5 +1,5 @@
 import './HeroBlock.scss';
-import ModaleWindow from '../../Modules/ModalWindow';
+import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomForm from '../../UI/CustomForm/CustomForm';
 import CustomButton from '../../UI/CustomButton/CustomButton';
@@ -18,11 +18,11 @@ const HeroBlock = () => {
                     </CustomButton>
                 </div>
             </div>
-            <ModaleWindow active={modalActive} setActive={setModalActive}>
+            <ModalWindow active={modalActive} setActive={setModalActive}>
                 <CustomForm
                     {... initStateAppForm}
                 />
-            </ModaleWindow>
+            </ModalWindow>
         </section>
     );
 };

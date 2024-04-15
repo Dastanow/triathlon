@@ -1,33 +1,63 @@
-  .advantages {
-    margin-top: 120px;
-    &--blocks {
-      margin-top: 80px;
+.advantages {
+  &Container {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  &List {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    @media screen and (max-width: 1220px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 762px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0;
+    }
+  }
+  &Item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    border: 1px solid #FFF;
+    background: #013D83;
+    gap: 24px;
+    padding: 24px;
+    @media screen and (max-width: 762px) {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      .block--Two {
-        display: flex;
-        width: 553px;
-        padding: 36px 122px;
-        justify-content: center;
-        flex-shrink: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        border-radius: 24px;
-        border: 1px solid #fff;
-        background: #013d83;
-        p {
-          color: #fff;
-          text-align: center;
-          font-family: Montserrat;
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 32px;
-          width: 525px;
-        }
+      flex-direction: row;
+      gap: 28px;
+      padding: 16px 0;
+      align-items: center;
+      background: transparent;
+      border-bottom: 1px solid  rgba(1, 61, 131, 0.70);
+      border-radius: 0;
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      @media screen and (max-width: 762px) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    p {
+      color: #FFF;
+      text-align: center;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 32px; /* 133.333% */
+      @media screen and (max-width: 762px) {
+        text-align: left;
+        color: #1D1D1D;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22.326px; /* 186.047% */
       }
     }
   }
+}

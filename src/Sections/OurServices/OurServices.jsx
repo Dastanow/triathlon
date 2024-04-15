@@ -2,33 +2,33 @@ import './OurServices.scss';
 import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import Container from '../../Components/Container/Container';
 import data from './fakeApiService.json'
 
 const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
     return (
-        <div className="service">
-            <div className="service__container">
+        <div className="ourServices">
+            <Container classNames="ourServicesContainer">
                 <CustomTitle title={'Наши услуги'}/>
-                <div className="all-cards">
-                    {data.map((el)=> {
+                <div className="ourServicesCards">
+                    {data.map((card)=> {
                         return (
-                            <div key={el.id} className="all-cards__card">
-                                <h3 className="all-cards__text">{el.name}</h3>
-                                <img src={el.icon} alt="img" className="all-cards__image" />
-                                <img src={el.doubleIcon} alt="img" className="all-cards__image-alt" />
-                                <div className="all-cards__info" onClick={() => setModalActive(true)}>
-                                    <span className="modal-title">
-                            Узнать больше
-                                    </span>
+                            <div key={card.id} className="ourServicesCard">
+                                <div className="ourServicesCardContent">
+                                    <h5 className="ourServicesCardLabel">{card.name}</h5>
+                                    <button className="ourServicesCardButton" onClick={() => setModalActive(true)}>
+                                        Узнать больше
+                                    </button>
                                 </div>
+                                <img src={card.icon} alt="img" className="ourServicesCardImg" />
                             </div>
                         )})}
                 </div>
                 <ModalWindow active={modalActive} setActive={setModalActive} >
                     {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
                 </ModalWindow>
-            </div>
+            </Container>
         </div>
     );
 };

@@ -97,11 +97,11 @@ const CustomForm = (props) => {
                 isVacancy && <label className="form-vacancy__title">{vacancyTitle}</label> ||
                 isApp && <label className={formTitle}>{title}</label>
             }
+            {isFaq &&  <p className="form-faq__text">{text}</p>}
             <form 
                 className={isClass}
                 onSubmit={handleSubmit}  
             >
-                {isFaq &&  <p className="form-faq__text">{text}</p>}
                 <div className={formContent}>
                     <div className="form__input-user">
                         <TextField
@@ -113,29 +113,21 @@ const CustomForm = (props) => {
                             error={errors.name}
                         />
                     </div>
-                    {isVacancy && <div className="form-double">
+                    {isVacancy && 
                         <TextField 
                             name="email"
                             value={data.email}
                             onChange={handleChange}
                             placeholder="Email*"
                             className="form-vacancy__email"
-                        />
-                        <TextField
-                            name="phoneNumber"
-                            value={data.phoneNumber}
-                            onChange={handleChange}
-                            placeholder="+996(___)___-___"
-                            className="form-vacancy__phone-number"
-                        />
-                    </div> || <TextField
+                        />}
+                    <TextField
                         name="phoneNumber"
                         value={data.phoneNumber}
                         onChange={handleChange}
                         placeholder="+996(___)___-___"
                         className={classPhone}
-                        
-                    />} 
+                    /> 
                     {isFaq | isApp  && 
                         <CustomInput
                             type="text-area"
@@ -156,7 +148,6 @@ const CustomForm = (props) => {
                                      </>
                                  ))}
                              </ul>
-                         
                          </>
                      ) : (
                          <form
@@ -170,7 +161,7 @@ const CustomForm = (props) => {
                              <h5 className="file__attach">Прикрепить файл</h5>
                              <div className="file__drop">Перетащите файл сюда или</div>
                              <label className="label">
-                                 <span>загрузите файл,</span>
+                                 <span className="label__span">загрузите файл,</span>
                                  <input
                                      className="input"
                                      type="file"

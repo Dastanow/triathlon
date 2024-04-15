@@ -1,5 +1,5 @@
 import './TextField.scss'
-import errorIcon from '../../Assets/dangerous.svg'
+// import errorIcon from '../../Assets/dangerous.svg'
 import PropTypes from 'prop-types'
 
 const TextField = ({
@@ -7,7 +7,7 @@ const TextField = ({
     value,
     onChange,
     placeholder,
-    error,
+    // error,
     className,
 }) => {
 

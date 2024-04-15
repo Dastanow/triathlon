@@ -2,61 +2,61 @@
     {
         "id": 0, 
         "name": "Персональные тренировки",
-        "icon": "/src/Assets/svgServices/dumbbells.svg",
+        "icon": "/src/Assets/svgServices/Dumbless.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 1, 
         "name": "Массаж",
-        "icon": "/src/Assets/svgServices/book.svg",
+        "icon": "/src/Assets/svgServices/Book.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     { 
         "id": 2, 
         "name": "Составления индивидуальных программ",
-        "icon": "/src/Assets/svgServices/group.svg",
+        "icon": "/src/Assets/svgServices/Lady.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 3, 
         "name": "30 дней заморозки",
-        "icon": "/src/Assets/svgServices/whiteSnow.svg", 
-        "doubleIcon": "/src/Assets/svgServices/flakeSnow.svg"
+        "icon": "/src/Assets/svgServices/Snow.svg", 
+        "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 4, 
         "name": "Ячейки для хранения велосипеда",
-        "icon": "/src/Assets/svgServices/double.svg",
+        "icon": "/src/Assets/svgServices/BicycleBike.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 5, 
         "name": "Аренда велосипеда",
-        "icon": "src/Assets/svgServices/bicycle.svg",
+        "icon": "src/Assets/svgServices/Bicycle.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 6, 
         "name": "Услуги вело-мастера",
-        "icon": "/src/Assets/svgServices/bicycle.svg",
+        "icon": "/src/Assets/svgServices/Bicycle.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 7, 
         "name": "Лицензия триатлета",
-        "icon": "/src/Assets/svgServices/tick.svg",
+        "icon": "/src/Assets/svgServices/Certified.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 8,
         "name": "Аренда шкафчиков",
-        "icon": "/src/Assets/svgServices/locker.svg",
+        "icon": "/src/Assets/svgServices/Lockers.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     },
     {
         "id": 9,
         "name": "Парковка",
-        "icon": "/src/Assets/svgServices/parking.svg",
+        "icon": "/src/Assets/svgServices/Parking.svg",
         "doubleIcon": "/src/Assets/svgServices/transparent.png"
     }
 ]

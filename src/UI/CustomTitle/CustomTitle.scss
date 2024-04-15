@@ -7,8 +7,15 @@
     text-align: center;
     @media screen and (max-width: 1440px) {
         font-size: 60px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 72px */
+        letter-spacing: -0.6px;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 762px) {
         font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 33.6px */
     }
 }

@@ -5,21 +5,19 @@ import Container from '../../Components/Container/Container';
 
 const Advantages = () => {
     return (
-        <div className="advantages" id="advantages">
+        <section id="advantages" className="advantages">
             <Container classNames="advantagesContainer">
                 <CustomTitle title={'Наши преимущества'}/>
-                <div className="advantagesList">
-                    {AdvantagesData.map((advantages) => {
-                        return (
-                            <div className="advantagesItem" key={advantages.id}>
-                                <img src={advantages.image} alt="img" />
-                                <p>{advantages.discription}</p>
-                            </div>
-                        );
-                    })}
+                <div className="advantagesWrapper">
+                    {AdvantagesData.map((advantage) => (
+                        <div className="advantagesItem" key={advantage.id}>
+                            <img src={advantage.image} alt="img" />
+                            <p>{advantage.discription}</p>
+                        </div>
+                    ))}
                 </div>
             </Container>
-        </div>
+        </section>
     );
 };
 

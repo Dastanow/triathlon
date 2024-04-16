@@ -1,6 +1,6 @@
 import coach from '../../Assets/coach.png';
 
-const buttons = [
+export const buttons = [
     {
         id: 1,
         name: 'pool',
@@ -13,7 +13,7 @@ const buttons = [
     },
 ];
 
-const coaches = [
+export const coaches = [
     {
         id: 1,
         section: 'coach',
@@ -115,7 +115,7 @@ const coaches = [
     },
 ];
 
-export function fetchAll() {
+export const fetchAll = () => {
     return {
         buttons,
         coaches,

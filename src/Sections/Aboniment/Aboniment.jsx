@@ -2,7 +2,7 @@ import './Aboniment.scss';
 import { FaCheck } from 'react-icons/fa6';
 import AbonimentData from './AbonimentFakeData.json';
 import imageKing from '../../Assets/mdi_crown.svg';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import { CustomTitle } from '@ui';
 import ModalWindow from '../../Modules/ModalWindow';
 import Requisites from './Requisites/Requisites';
 import { useState } from 'react';

@@ -1,9 +1,8 @@
 import './HeroBlock.scss';
 import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
-import CustomForm from '../../UI/CustomForm/CustomForm';
-import CustomButton from '../../UI/CustomButton/CustomButton';
-import { initStateAppForm } from '../../common/constants';
+import { CustomButton, CustomForm } from '@ui';
+import { initStateAppForm } from '../../Shared/constants';
 
 const HeroBlock = () => {
     const [modalActive, setModalActive] = useState(false)

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import { initStateFaqForm } from '../../common/constants';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-import CustomForm from '../../UI/CustomForm/CustomForm';
+import { initStateFaqForm } from '../../Shared/constants';
 import Container from '../../Components/Container/Container';
+import { CustomTitle, CustomForm } from '@ui';
 
 const Faq = () => {
     const questions = [

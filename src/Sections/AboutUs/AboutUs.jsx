@@ -1,8 +1,7 @@
 import './AboutUs.scss';
 import school from '../../Assets/Placeholder Image.png';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-import CustomButton from '../../UI/CustomButton/CustomButton';
 import Container from '../../Components/Container/Container';
+import { CustomTitle, CustomButton } from '@ui';
 
 const AboutUs = () => {
     return (

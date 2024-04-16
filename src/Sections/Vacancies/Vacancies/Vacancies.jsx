@@ -3,11 +3,9 @@ import './Vacancies.scss'
 import VacanciesData from './VacanciesFakeData.json' 
 import { IoIosArrowForward } from 'react-icons/io';
 import ModalWindow from '../../../Modules/ModalWindow';
-import CustomForm from '../../../UI/CustomForm/CustomForm';
-import { initStateVacancyForm } from '../../../common/constants';
+import { initStateVacancyForm } from '../../../Shared/constants';
 import Container from '../../../Components/Container/Container';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
-import CustomButton from '../../../UI/CustomButton/CustomButton';
+import { CustomButton, CustomForm, CustomTitle} from '@ui';
 
 const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);

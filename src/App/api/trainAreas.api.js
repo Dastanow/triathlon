@@ -15,7 +15,7 @@ import function2 from '../../Assets/function2.jpg';
 import function3 from '../../Assets/function3.jpg';
 import function4 from '../../Assets/function4.jpg';
 
-const trainAreas = [
+export const trainAreas = [
     {
         id: 1,
         section: 'train',
@@ -68,6 +68,6 @@ const trainAreas = [
     },
 ];
 
-export function fetchAll() {
+export const fetchAll = () => {
     return { trainAreas };
 }

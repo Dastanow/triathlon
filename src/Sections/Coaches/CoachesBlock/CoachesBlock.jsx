@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import './CoachesBlock.scss';
-import api from '../../../api';
-import CustomCarousel from '../../../UI/CustomCarousel';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
+import { CustomCarousel, CustomTitle } from '@ui';
+import { fetchAllCoaches } from '@app';
 
 const CoachesBlock = () => {
     const [data, setData] = useState({});
@@ -12,7 +11,7 @@ const CoachesBlock = () => {
     const slidesPerView = 4;
 
     useEffect(() => {
-        const data = api.data.fetchAll();
+        const data = fetchAllCoaches();
         setData(data);
         setCurGroup(data.coaches);
     }, []);

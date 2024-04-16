@@ -1,10 +1,9 @@
+import { fetchAllComments } from '@app';
 import './Feedback.scss';
-import api from '../../../api';
-import CustomCarousel from '../../../UI/CustomCarousel';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
+import { CustomCarousel, CustomTitle } from '@ui';
 
 const Feedback = () => {
-    const { comments } = api.comments.fetchAll();
+    const { comments } = fetchAllComments();
     const slidesPerView = 3;
 
     if (!comments) return 'Loading...';

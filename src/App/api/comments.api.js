@@ -1,6 +1,6 @@
 import client from '../../Assets/client-icon.png';
 
-const comments = [
+export const comments = [
     {
         id: 1,
         image: client,
@@ -45,6 +45,6 @@ const comments = [
     },
 ];
 
-export function fetchAll() {
+export const fetchAll = () => {
     return { comments };
 }

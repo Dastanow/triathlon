@@ -1,6 +1,6 @@
 import './Advantages.scss';
 import AdvantagesData from './AdvanFakeData.json';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import { CustomTitle } from '@ui';
 import Container from '../../Components/Container/Container';
 
 const Advantages = () => {

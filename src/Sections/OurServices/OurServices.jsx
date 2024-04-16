@@ -1,7 +1,7 @@
 import './OurServices.scss';
 import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import { CustomTitle } from '@ui';
 import Container from '../../Components/Container/Container';
 import data from './fakeApiService.json'
 

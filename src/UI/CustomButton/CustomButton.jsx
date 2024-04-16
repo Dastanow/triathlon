@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './CustomButton.scss';
 
-const CustomButton = ({ type, onClick, children, className }) => {
+export const CustomButton = ({ type, onClick, children, className }) => {
     return (
         <button
             className={`btn 
@@ -18,12 +18,10 @@ const CustomButton = ({ type, onClick, children, className }) => {
 CustomButton.propTypes = {
     type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
     onClick: PropTypes.func,
-    children: PropTypes.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string
 }
 
 CustomButton.defaultProps = {
     onClick: () => {}
 };
-
-export default CustomButton;

@@ -1,4 +1,4 @@
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import { CustomTitle } from '@ui';
 import './SectionTriatlon.scss';
 
 const SectionTriatlon = () => {

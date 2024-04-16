@@ -2,7 +2,7 @@ import './Location.scss';
 import email from '../../Assets/emailSVG.svg';
 import phone from '../../Assets/phoneSVG.svg';
 import map from '../../Assets/mapSVG.svg';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
+import { CustomTitle } from '@ui';
 
 const socialLink = [
     {

@@ -6,7 +6,7 @@ import instagram from '../../Assets/instagram.svg';
 import Logotip from '../../Assets/logo1.png';
 import { useNavigate } from 'react-router-dom';
 
-const Footer = () => {
+export const Footer = () => {
     const nav = useNavigate();
     const VacanciesClick = () => {
         nav('vacancies');
@@ -93,5 +93,3 @@ const Footer = () => {
         </footer>
     );
 };
-
-export default Footer;

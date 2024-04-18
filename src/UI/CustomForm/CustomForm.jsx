@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react'
 import good from '../../Assets/good.svg'
 import deleted from '../../Assets/delete.svg'
 import PropTypes from 'prop-types'
-import TextField from '../../Components/TextField/TextField'
 import { validate } from '../../utils/validate'
 import { validationConfig } from '../../utils/validationConfig'
-import CheckBoxes from '../../Components/CheckBoxes/CheckBoxes'
+import { CheckBoxes, TextField } from '@components';
 import { CustomInput } from '@ui';
 
 export const CustomForm = (props) => {

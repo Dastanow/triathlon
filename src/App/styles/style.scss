@@ -42,3 +42,9 @@ body {
     line-height: 150%;
     color: $white;
 }
+
+#body {
+    display: flex;
+    flex-direction: column;
+    gap: 126px;
+}

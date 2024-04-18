@@ -11,7 +11,7 @@ import TrainingAreas from '../../Sections/TrainingAreas';
 import ScrollToTopIcon from '../../Sections/ScrollToTopIcon/ScrollToTopIcon';
 import OurServices from '../../Sections/OurServices/OurServices';
 
-const MainPage = () => {
+export const HomePage = () => {
     return (
         <>
             <HeroBlock />
@@ -29,5 +29,3 @@ const MainPage = () => {
         </>
     );
 };
-
-export default MainPage;

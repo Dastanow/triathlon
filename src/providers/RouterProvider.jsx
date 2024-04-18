@@ -1,16 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
-import MainPage from '../Pages/MainPage/MainPage'
-import IndexJSX from '../Sections/Vacancies'
-import PageNotFound from '../Pages/PageNotFound/PageNotFound'
+import { HomePage, VacanciesPage, NotFoundPage } from '@pages';
+import { AdminPage } from '@/Pages';
 
 const Routing = () => {
     return (
         <Routes>
             <Route path="/" element={<Layout/>}>
-                <Route index element={<MainPage/>}/>
-                <Route path="/vacancies" element={<IndexJSX />} />
-                <Route path="*" element={<PageNotFound/>} />
+                <Route index element={<HomePage/>}/>
+                <Route path="/vacancies" element={<VacanciesPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="*" element={<NotFoundPage/>} />
             </Route>
         </Routes>
     )

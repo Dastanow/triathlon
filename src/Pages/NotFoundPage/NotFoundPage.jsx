@@ -1,8 +1,8 @@
-import './style.scss'
+import './NotFoundPage.scss'
 import error from '../../Assets/Group 2.png'
 import { Link } from 'react-router-dom'
 
-const PageNotFound = () => {
+export const NotFoundPage= () => {
     return (
         <div className="error__container" id="error404">
             <div className="error__content">
@@ -18,5 +18,3 @@ const PageNotFound = () => {
         </div>
     )
 }
-
-export default PageNotFound

@@ -6,7 +6,7 @@ import chevron from '../../Assets/solar_chevron-up.svg'
 import rus from '../../Assets/language_rus.png';
 import kyr from '../../Assets/language_kyr.png';
 import { Link, useNavigate } from 'react-router-dom';
-import Container from '../../Components/Container/Container'
+import { Container } from '@components'
 
 const navigatePath = [
     {
@@ -39,7 +39,7 @@ const navigatePath = [
     },
 ]
 
-const Header = () => {
+export const Header = () => {
     const nav = useNavigate();
     const [language, setLanguage] = useState('rus');
     const [showOtherImage, setShowOtherImage] = useState(false);
@@ -103,5 +103,3 @@ const Header = () => {
         </header>
     );
 };
-
-export default Header;

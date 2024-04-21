@@ -1,22 +1,25 @@
-import './HeroBlock.scss';
-import ModalWindow from '../../Modules/ModalWindow';
 import { useState } from 'react';
 import { CustomButton, CustomForm } from '@ui';
+import { Container } from '@components';
 import { initStateAppForm } from '../../Shared/constants';
+import ModalWindow from '../../Modules/ModalWindow';
+import './Hero.scss';
 
-const HeroBlock = () => {
+export const Hero = () => {
     const [modalActive, setModalActive] = useState(false)
     return (
-        <section className="hero">
-            <div className="container">
-                <div className="hero-content">
-                    <h1 className="hero-content--title">TRIATHLON CENTER</h1>
-                    <p className="hero-content--description">Первая инклюзивная спортивная база в Кыргызской Республике</p>
+        <section className="hero" id="hero">
+            <Container classNames="heroContainer">
+                <div className="heroContent">
+                    <h1 className="heroContentTitle">TRIATHLON CENTER</h1>
+                    <p className="heroContentDescription">
+                        Первая инклюзивная спортивная база в Кыргызской Республике
+                    </p>
                     <CustomButton type="secondary" onClick={() => setModalActive(true)}>
                         Оставить заявку
                     </CustomButton>
                 </div>
-            </div>
+            </Container>
             <ModalWindow active={modalActive} setActive={setModalActive}>
                 <CustomForm
                     {... initStateAppForm}
@@ -25,5 +28,3 @@ const HeroBlock = () => {
         </section>
     );
 };
-
-export default HeroBlock;

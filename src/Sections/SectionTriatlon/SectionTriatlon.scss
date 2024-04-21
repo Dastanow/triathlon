@@ -1,18 +1,13 @@
 #section {
   scroll-margin-top: 120px;
 }
-.section {
-  margin: 6rem auto;
-  width: 1720px; 
-  border-collapse: collapse; 
-  border-radius: 0px 16.157px 0px 0px;
-  overflow: hidden; 
-  
-  h2 {
-    text-align: center; 
-    margin-bottom: 20px; 
-    color: black;
-  }
+.table {
+    border-collapse: collapse; 
+    overflow: hidden;
+    h2 {
+      text-align: center; 
+      color: black;
+    }
 
   .section__header {
     padding: 10px; 
@@ -41,17 +36,11 @@
     font-weight: 400;
     line-height: normal;
   }
-  @media (max-width: 1920px){
-    margin-bottom: 112px;
-  }
-
-  @media (max-width: 1440px) {
-    margin-bottom: 90px;
-    width: 100%;
-    border-radius: 0; 
-    .section__column {
-      margin: 0 20px;
-      width: 35%; 
+    @media (max-width: 1440px) {
+      width: 100%;
+      border-radius: 0; 
+      .section__column {
+        width: 35%; 
+      }
     }
-  }
 }

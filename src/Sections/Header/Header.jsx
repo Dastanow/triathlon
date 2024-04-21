@@ -18,19 +18,15 @@ const navigatePath = [
         path: 'Тренеры'
     },
     {
-        id: '#abonement',
+        id: '#subscription',
         path: 'Абонементы'
     },
     {
-        id: '#section',
+        id: '#table',
         path: 'Секции'
     },
     {
-        id: '#',
-        path: 'Расписание'
-    },
-    {
-        id: '#services',
+        id: '#ourServices',
         path: 'Услуги'
     },
     {
@@ -69,6 +65,16 @@ export const Header = () => {
                 </Link>
                 <nav>
                     <ul className="headerNav">
+                        <li
+                            onClick={goToMainPage}
+                        >
+                            <Link
+                                className="headerNavLink"
+                                to="/schedule"
+                            >
+                                Расписание
+                            </Link>
+                        </li>
                         {navigatePath.map((path) => (
                             <li key={path.id}
                                 onClick={goToMainPage}
@@ -79,6 +85,7 @@ export const Header = () => {
                                 >
                                     {path.path}
                                 </a>
+                            
                             </li>
                         ))}
                     </ul>
@@ -95,9 +102,9 @@ export const Header = () => {
                             </div>
                         )}
                     </div>
-                    <div className="headerAccount">
+                    <Link target="_blank" to={'/personal-account'} className="headerAccount">
                         <img src={account} alt="account" />
-                    </div>
+                    </Link>
                 </div>
             </Container>
         </header>

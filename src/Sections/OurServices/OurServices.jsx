@@ -5,10 +5,10 @@ import { CustomTitle } from '@ui';
 import data from './fakeApiService.json'
 import { Container } from '@components';
 
-const OurServices = () => {
+export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
     return (
-        <div className="ourServices">
+        <section className="ourServices" id="ourServices">
             <Container classNames="ourServicesContainer">
                 <CustomTitle title={'Наши услуги'}/>
                 <div className="ourServicesCards">
@@ -29,8 +29,6 @@ const OurServices = () => {
                     {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
                 </ModalWindow>
             </Container>
-        </div>
+        </section>
     );
 };
-
-export default OurServices;

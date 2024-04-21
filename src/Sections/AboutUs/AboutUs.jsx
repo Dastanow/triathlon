@@ -3,9 +3,9 @@ import school from '../../Assets/Placeholder Image.png';
 import { Container } from '@components';
 import { CustomTitle, CustomButton } from '@ui';
 
-const AboutUs = () => {
+export const AboutUs = () => {
     return (
-        <section id="about-us" className="aboutUs">
+        <section id="aboutUs" className="aboutUs">
             <Container classNames="aboutUsContainer">
                 <CustomTitle title={'O нас'} />
                 <div className="aboutUsWrapper">
@@ -26,5 +26,3 @@ const AboutUs = () => {
         </section>
     );
 };
-
-export default AboutUs;

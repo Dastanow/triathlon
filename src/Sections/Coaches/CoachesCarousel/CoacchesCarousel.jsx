@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import CoachCard from '../CoachCard/CoachCard';
-import useGetSpaceBetweenSlides from '../../../Hooks/useGetSpaceBetweenSlides';
+import useGetSpaceBetweenSlides from '@hooks/useGetSpaceBetweenSlides';
 
 const CoachesCarousel = (props) => {
     const { dataArray, swiperRef, onNavButton, onClickSlide } = props;

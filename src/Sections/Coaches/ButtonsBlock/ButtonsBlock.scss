@@ -17,20 +17,18 @@ $black: #000;
 
 .coaches__button {
     height: 55px;
-    // font-family: 'Montserrat', sans-serif;
-    display: inline-block;
     font-size: 26px;
     font-weight: 500;
     color: $black;
-    padding: 8px 22px;
+    padding: 8px 28px;
     border-radius: 16px;
     border: 2px solid $black;
     background: transparent;
-}
-.active {
-    color: $white;
-    border: 2px solid $dark;
-    background: $dark;
+    &.active {
+        color: $white;
+        border: 2px solid $dark;
+        background: $dark;
+    }
 }
 //-----media-query----------------
 @media (max-width: 1800px) {
@@ -54,5 +52,27 @@ $black: #000;
 @media (max-width: 1440px) {
     .coaches__buttons > button {
         margin-right: 24px;
+    }
+    .coaches__button {
+        border-radius: 12px;
+    }
+}
+//-------------------------------
+@media (max-width: 762px) {
+    .coaches__buttons {
+        margin-bottom: 20px;
+        > button {
+            margin-right: 12px;
+        }
+    }
+    .coaches__button {
+        height: 37px;
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid $black;
+        &.active {
+            border: 1px solid $dark;
+        }
     }
 }

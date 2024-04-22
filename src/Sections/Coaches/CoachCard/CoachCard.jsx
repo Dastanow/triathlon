@@ -2,23 +2,23 @@ import PropTypes from 'prop-types';
 import './CoachCard.scss';
 
 const CoachCard = (props) => {
-    const { title, subtitle, image } = props;
+    const { name, position, photo } = props;
 
     return (
         <div className="coach-card">
-            <img src={image} alt={title} />
+            <img src={photo} alt={name} />
             <div className="coach-card__info coach-info">
-                <p className="coach-info__name">{title}</p>
-                <p className="coach-info__sertification">{subtitle}</p>
+                <p className="coach-info__name">{name}</p>
+                <p className="coach-info__sertification">{position}</p>
             </div>
         </div>
     );
 };
 
 CoachCard.propTypes = {
-    image: PropTypes.string,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
+    photo: PropTypes.string,
+    name: PropTypes.string,
+    position: PropTypes.string,
 };
 
 export default CoachCard;

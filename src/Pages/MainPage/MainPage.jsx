@@ -21,11 +21,11 @@ const MainPage = () => {
             <SectionTriatlon />
             <Coaches />
             <TrainingAreas />
-            <OurServices/>
+            <OurServices />
             <Feedback />
             <FAQ />
             <Location />
-            <ScrollToTopIcon/>
+            <ScrollToTopIcon />
         </>
     );
 };

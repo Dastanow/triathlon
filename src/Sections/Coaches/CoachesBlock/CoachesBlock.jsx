@@ -4,28 +4,34 @@ import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
 import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
+import coachService from '../../../Services/coachService.js';
 
 const CoachesBlock = () => {
-    const [data, setData] = useState({});
+    const [coaches, setCoaches] = useState([]);
+    const [buttons, setButtons] = useState([]);
     const [curGroup, setCurGroup] = useState([]);
     const [activeBtn, setActiveBtn] = useState(null);
     const slidesPerView = 4;
 
     useEffect(() => {
         const data = api.data.fetchAll();
-        setData(data);
-        setCurGroup(data.coaches);
+        setButtons(data.buttons);
+    }, []);
+
+    useEffect(() => {
+        coachService.get().then((data) => {
+            setCoaches(data);
+            setCurGroup(data);
+        });
     }, []);
 
     const handleChangeCoaches = ({ target }) => {
         setActiveBtn(target.name);
-        const newGroup = data.coaches.filter(
-            (coach) => coach.area === target.name
-        );
+        const newGroup = curGroup.filter((coach) => coach.area === target.name);
         setCurGroup(newGroup);
     };
 
-    if (!data.coaches && !data.buttons) return 'Loader...';
+    if (!coaches) return 'Loader...';
 
     return (
         <section className="coaches" id="coaches">
@@ -34,7 +40,7 @@ const CoachesBlock = () => {
                     <CustomTitle title={'Наши тренеры'} />
                 </div>
                 <ButtonsBlock
-                    buttons={data.buttons}
+                    buttons={buttons}
                     onChangeCoaches={handleChangeCoaches}
                     activeBtn={activeBtn}
                 />

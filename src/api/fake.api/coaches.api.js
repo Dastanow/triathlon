@@ -9,7 +9,7 @@ const buttons = [
     {
         id: 2,
         name: 'gym',
-        text: 'Тренировочный зал',
+        text: 'Тренажерный зал',
     },
 ];
 

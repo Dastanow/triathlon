@@ -1,11 +1,16 @@
+import { useEffect, useState } from 'react';
 import './Feedback.scss';
-import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
+import commentService from '../../../Services/commentService';
 
 const Feedback = () => {
-    const { comments } = api.comments.fetchAll();
+    const [comments, setComments] = useState([]);
     const slidesPerView = 3;
+
+    useEffect(() => {
+        commentService.get().then((data) => setComments(data));
+    }, []);
 
     if (!comments) return 'Loading...';
 

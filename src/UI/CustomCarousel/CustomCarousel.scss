@@ -189,3 +189,31 @@ $black: #000;
         border-radius: 8px;
     }
 }
+//-----------------------------------
+@media (max-width: 377px) {
+    .coach-inner__wrapper {
+        max-width: 335px;
+    }
+    .train-areas-inner__wrapper {
+        max-width: 335px;
+    }
+    // .comment-inner__wrapper {
+    //     max-width: 1050px;
+    // }
+    .swiper-pagination {
+        margin-top: 37px;
+    }
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 38px;
+        height: 12px;
+        border-radius: 6px;
+    }
+    .btn-prev,
+    .btn-next {
+        display: none;
+    }
+}

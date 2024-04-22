@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { carouselInitState } from '../../common/constants';
 import { TrainingAreasCarousel } from '../../Sections/TrainingAreas';
+// import ModalWindow from '../../Modules/ModalWindow';
 import Modal from '../Modal/Modal';
 import { CoachesCarousel, ModalCoachCard } from '../../Sections/Coaches';
 import { CommentsCarousel } from '../../Sections/CustomerReviews';
@@ -79,7 +80,7 @@ const CustomCarousel = (props) => {
     };
 
     const handleClickOnSlide = (swiper) => {
-        if (dataArray[0]?.section !== 'coach') return;
+        if (dataArray[0]?.section !== 'trainer') return;
         const slideIndex = swiper.clickedIndex;
         const clickedSlide = dataArray[slideIndex];
         setClickedSlide(clickedSlide);
@@ -91,7 +92,7 @@ const CustomCarousel = (props) => {
             <button className={data.btnPrev} onClick={handleSwitchPrevSlide}>
                 <img src={getIconBtnPrev()} alt="btn prev icon" />
             </button>
-            {(currentSection === 'coach' && (
+            {(currentSection === 'trainer' && (
                 <CoachesCarousel
                     {...props}
                     onNavButton={getNavButtonsClasses}
@@ -99,14 +100,14 @@ const CustomCarousel = (props) => {
                     swiperRef={swiperRef}
                 />
             )) ||
-                (currentSection === 'train' && (
+                (currentSection === 'trainzone' && (
                     <TrainingAreasCarousel
                         {...props}
                         onNavButton={getNavButtonsClasses}
                         swiperRef={swiperRef}
                     />
                 )) ||
-                (currentSection !== 'train' && (
+                (currentSection !== 'trainer' && (
                     <CommentsCarousel
                         {...props}
                         onNavButton={getNavButtonsClasses}

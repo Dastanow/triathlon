@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import './ButtonsBlock.scss';
 
 const ButtonsBlock = (props) => {
+    // return <h3>ButtonsBlock</h3>;
     const { buttons, onChangeCoaches, activeBtn } = props;
 
     const getBtnClass = (name) => {
@@ -25,7 +26,7 @@ const ButtonsBlock = (props) => {
 };
 
 ButtonsBlock.propTypes = {
-    buttons: PropTypes.array.isRequired,
+    buttons: PropTypes.array,
     activeBtn: PropTypes.string,
     onChangeCoaches: PropTypes.func,
 };

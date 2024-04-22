@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 
 const useGetSpaceBetweenSlides = () => {
     const [spaceBetween, setSpaceBetween] = useState(0);
+    const [slidesPerView, setSlidesPerView] = useState(4);
 
     const handleResize = () => {
         const width = window.innerWidth;
 
-        if (width < 1440) {
+        if (width < 377) {
+            setSpaceBetween(12);
+            setSlidesPerView(2);
+        } else if (width < 1440) {
             setSpaceBetween(24);
         } else if (width < 1560) {
             setSpaceBetween(27);
@@ -29,7 +33,7 @@ const useGetSpaceBetweenSlides = () => {
         };
     }, []);
 
-    return [spaceBetween];
+    return [spaceBetween, slidesPerView];
 };
 
 export default useGetSpaceBetweenSlides;

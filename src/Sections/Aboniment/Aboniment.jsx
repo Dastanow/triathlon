@@ -6,12 +6,14 @@ import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import ModalWindow from '../../Modules/ModalWindow';
 import Requisites from './Requisites/Requisites';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Aboniment = () => {
+    const { t } = useTranslation();
     const [modalActive, setModalActive] = useState(false);
     return (
         <div className="abonement" id="abonement">
-            <CustomTitle title={'Абонементы'} />
+            <CustomTitle title={t('aboniment')} />
             <div className="abonement--blocks">
                 {AbonimentData.map((el) => {
                     if (el.id == 2) {
@@ -32,7 +34,7 @@ const Aboniment = () => {
                                     onClick={() => setModalActive(true)}
                                     className="blockXits--btn"
                                 >
-                                    Купить
+                                    {t('buy')}
                                 </button>
                                 <div className="blockXits--linear"></div>
                                 <div className="blockXits--possibilities">
@@ -60,7 +62,7 @@ const Aboniment = () => {
                                     onClick={() => setModalActive(true)}
                                     className="blockTwo--btn"
                                 >
-                                    Купить
+                                        {t('buy')}
                                 </button>
                                 <div className="blockTwo--linear"></div>
                                 <div className="blockTwo--possibilities">

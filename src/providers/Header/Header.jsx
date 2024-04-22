@@ -98,8 +98,10 @@ const Header = () => {
                         <img src={language === 'rus' ? rus : kyr} alt={language === 'rus' ? 'Russian' : 'English'} />
                         <img src={chevron} alt="Chevron" />
                         {showOtherImage && (
-                            <div className="headerOption" onClick={switchLanguage}>
-                                <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'English' : 'Russian'} />
+                            <div className="header-back">
+                                <div className="headerOption" onClick={switchLanguage}>
+                                    <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'English' : 'Russian'} />
+                                </div>
                             </div>
                         )}
                     </div>

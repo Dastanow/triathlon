@@ -36,18 +36,18 @@ const Vacancies = () => {
                             </h5>
                             {openIndex === index && (
                                 <div className="vacanciesWrapp">
-                                <div className="vacanciesContent">
-                                    <p className="vacanciesDescription">{vacancie.title}</p>
-                                    <div className="vacancies-requirements">
-                                        <h3 className="vacancies-subtitle">Требуется: </h3>
-                                        <p>{vacancie.requirements}</p>
-                                    </div>
-                                    <div className="vacancies-offer">
-                                        <h3 className="vacancies-subtitle">Предлагаем:</h3>
-                                        <p>{vacancie.offer}</p>
-                                    </div>
-                                    <div className="vacancies-conditions">
-                                        <h3 className="vacancies-subtitle">Условия: </h3>
+                                    <div className="vacanciesContent">
+                                        <p className="vacanciesDescription">{vacancie.title}</p>
+                                        <div className="vacancies-requirements">
+                                            <h3 className="vacancies-subtitle">Требуется: </h3>
+                                            <p>{vacancie.requirements}</p>
+                                        </div>
+                                        <div className="vacancies-offer">
+                                            <h3 className="vacancies-subtitle">Предлагаем:</h3>
+                                            <p>{vacancie.offer}</p>
+                                        </div>
+                                        <div className="vacancies-conditions">
+                                            <h3 className="vacancies-subtitle">Условия: </h3>
                                             <p>{vacancie.conditions}</p>
                                         </div>
                                     </div>

@@ -62,6 +62,7 @@ export const initStateVacancyForm = {
     formTitle: 'form-vacancy__title',
     formContent: 'form-vacancy__content',
     classUser: 'form-vacancy__user',
+    classPhone: 'form-vacancy__phone',
     errorIcon: error,
     classButton: 'form-vacancy__button',
     isClass: 'form-vacancy',

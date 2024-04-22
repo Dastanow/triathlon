@@ -2,17 +2,19 @@ import './Advantages.scss';
 import AdvantagesData from './AdvanFakeData.json';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 import Container from '../../Components/Container/Container';
+import { useTranslation } from 'react-i18next';
 
 const Advantages = () => {
+    const {t} = useTranslation();
     return (
         <section id="advantages" className="advantages">
             <Container classNames="advantagesContainer">
-                <CustomTitle title={'Наши преимущества'}/>
+                <CustomTitle title={t('advantages')}/>
                 <div className="advantagesWrapper">
                     {AdvantagesData.map((advantage) => (
                         <div className="advantagesItem" key={advantage.id}>
                             <img src={advantage.image} alt="img" />
-                            <p>{advantage.discription}</p>
+                            <p>{t(advantage.discription)}</p>
                         </div>
                     ))}
                 </div>

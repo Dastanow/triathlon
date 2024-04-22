@@ -4,8 +4,11 @@ import api from '../../../api';
 import CustomCarousel from '../../../UI/CustomCarousel';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
 import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx';
+import { useTranslation } from 'react-i18next';
 
 const CoachesBlock = () => {
+    const {t} = useTranslation();
+
     const [data, setData] = useState({});
     const [curGroup, setCurGroup] = useState([]);
     const [activeBtn, setActiveBtn] = useState(null);
@@ -31,7 +34,7 @@ const CoachesBlock = () => {
         <section className="coaches" id="coaches">
             <div className="container">
                 <div className="coaches__title">
-                    <CustomTitle title={'Наши тренеры'} />
+                    <CustomTitle title={t('coaches')}/>        
                 </div>
                 <ButtonsBlock
                     buttons={data.buttons}

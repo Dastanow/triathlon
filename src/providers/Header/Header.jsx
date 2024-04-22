@@ -7,40 +7,39 @@ import rus from '../../Assets/language_rus.png';
 import kyr from '../../Assets/language_kyr.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Container from '../../Components/Container/Container'
+import { useTranslation } from 'react-i18next';
 
 const navigatePath = [
-    {
-        id: '#main',
-        path: 'Главная'
-    },
-    {
-        id: '#coaches',
-        path: 'Тренеры'
-    },
-    {
-        id: '#abonement',
-        path: 'Абонементы'
-    },
-    {
-        id: '#section',
-        path: 'Секции'
-    },
-    {
-        id: '#',
-        path: 'Расписание'
-    },
-    {
-        id: '#services',
-        path: 'Услуги'
-    },
-    {
-        id: '#location',
-        path: 'Контакты'
-    },
+    [
+      
+        {text:'path1', id: 'main'}
+    ],
+    [
+        
+        {text: 'path2', id: 'coaches'}
+    ],
+    [
+        {text: 'path3', id: 'abonement'}
+    ],
+    [
+        {text: 'path4', id: 'section'}
+    ],
+    [
+        {text: 'path5'}
+    ],
+    [
+        {text: 'path6', id: 'services'}
+    ],
+    [
+        {text: 'path7', id: 'location'}
+    ],
 ]
 
 const Header = () => {
+    const { t } = useTranslation();
     const nav = useNavigate();
+    const { i18n } = useTranslation();
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
     const [language, setLanguage] = useState('rus');
     const [showOtherImage, setShowOtherImage] = useState(false);
 
@@ -48,14 +47,24 @@ const Header = () => {
         setShowOtherImage((prevState) => !prevState);
     };
 
+    const changeLanguage = (lang) => {
+        i18n.changeLanguage(lang);
+        setSelectedLanguage(lang);
+    };
+
     const switchLanguage = () => {
-        setLanguage(language === 'rus' ? 'kyr' : 'rus');
+        setLanguage(language === 'rus' ? 'eng' : 'rus');
+        changeLanguage(language)
     };
 
     const goToMainPage = () => {
         nav('/');
         window.scrollTo(0, 0);
     };
+    
+
+
+    
 
     return (
         <header className="header">
@@ -69,28 +78,29 @@ const Header = () => {
                 </Link>
                 <nav>
                     <ul className="headerNav">
-                        {navigatePath.map((path) => (
-                            <li key={path.id}
-                                onClick={goToMainPage}
-                            >
-                                <a
-                                    className="headerNavLink"
-                                    href={path.id}
-                                >
-                                    {path.path}
-                                </a>
-                            </li>
-                        ))}
+                    {navigatePath.map((block, index) => (
+                    <div key={index}>
+                        {block.map((item, id) => {
+                            if (typeof item === 'object') {
+                                return (
+                                    <p key={id}>
+                                        <a className="headerNavLink" href={`#${item.id}`}> {t(item.text)}</a>
+                                    </p>
+                                );
+                            }
+                        })}
+                    </div>
+                ))}
                     </ul>
                 </nav>
                 <div className="headerWrapper">
                     <div className="headerLanguage" onClick={handleSvgClick}>
-                        <img src={language === 'rus' ? rus : kyr} alt={language === 'rus' ? 'Russian' : 'Kyrgyz'} />
+                        <img src={language === 'rus' ? rus : kyr} alt={language === 'rus' ? 'Russian' : 'English'} />
                         <img src={chevron} alt="Chevron" />
                         {showOtherImage && (
                             <div className="header-back">
                                 <div className="headerOption" onClick={switchLanguage}>
-                                    <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'Kyrgyz' : 'Russian'} />
+                                    <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'English' : 'Russian'} />
                                 </div>
                             </div>
                         )}

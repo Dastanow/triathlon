@@ -1,5 +1,7 @@
 import { CustomTitle } from '@ui';
 import './SectionTriatlon.scss';
+import { Container } from '@components';
+import { SectionTriatlhonMobile } from './SectionTriatlhonMobile/SectionTriatlhonMobile';
 
 const SectionTriatlon = () => {
     const rows = [
@@ -61,28 +63,31 @@ const SectionTriatlon = () => {
     ];
 
     return (
-        <section id="table">
-            <CustomTitle title={'Секции Триатлон'} />
-            <table className="table" id="table">
-                <thead>
-                    <tr className="section__trhead">
-                        <th className="section__header">Группа</th>
-                        <th className="section__header">Примечание</th>
-                        <th className="section__header">Кол-во часов в нед.</th>
-                        <th className="section__header">Стоимость</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows.map((row, index) => (
-                        <tr className="section__row" key={index}>
-                            <td className="section__column">{row.group}</td>
-                            <td className="section__column">{row.note}</td>
-                            <td className="section__column">{row.hours}</td>
-                            <td className="section__column">{row.cost}</td>
+        <section id="table" className="tableMobile">
+            <Container classNames="tableMobileContainer">
+                <CustomTitle title={'Секции Триатлон'} />
+                {/* <table>
+                    <thead>
+                        <tr className="tableHead">
+                            <th>Группа</th>
+                            <th>Примечание</th>
+                            <th>Кол-во часов в нед.</th>
+                            <th>Стоимость</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {rows.map((row, index) => (
+                            <tr  className="tableBody" key={index}>
+                                <td>{row.group}</td>
+                                <td>{row.note}</td>
+                                <td>{row.hours}</td>
+                                <td>{row.cost}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table> */}
+                <SectionTriatlhonMobile />
+            </Container>
         </section>
 
     );

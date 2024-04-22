@@ -1,10 +1,14 @@
 .error__container {
-display: flex;
-justify-content: center;
-padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    padding-top: 140px;
+}
+.error__image {
+    img {
+        width: 100%;
+    }
 }
 .error__content {
-    width: 485px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,9 +16,11 @@ padding-top: 140px;
     h2 {
         color: #000;
         font-size: 36px;
-        font-weight: 500;
+        font-weight: 600;
     }
     p {
+        text-wrap: balance;
+        width: 485px;
         color: #000;
         font-size: 18px;
         font-weight: 600;
@@ -27,9 +33,104 @@ padding-top: 140px;
         justify-content: center;
         align-items: center;
         border-radius: 6px;
-        background: #013D83;
+        background: #013d83;
         color: #fff;
         margin-top: 80px;
     }
 }
 
+// Adaptive
+
+@media screen and (max-width: 1220px) {
+    .error__container {
+        padding-inline: 50px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .error__container {
+        .error__content {
+            h2 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 14px;
+                width: 360px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .error__container {
+        flex-direction: column;
+        align-items: center;
+        .error__image {
+            margin-top: 50px;
+            width: 100%;
+            text-align: center;
+            img {
+                width: 80%;
+            }
+        }
+        button {
+            width: 100%;
+            margin-top: 50px;
+        }
+        .error__content {
+            width: 100%;
+            h2 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 18px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .error__container {
+        flex-direction: column;
+        padding-inline: 20px;
+
+        align-items: center;
+        .error__image {
+            margin-top: 50px;
+            width: 100%;
+            text-align: center;
+            img {
+                width: 75%;
+            }
+        }
+        .error__content {
+            h2 {
+                font-size: 26px;
+                line-height: 35px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+        button {
+            width: 100%;
+            margin-top: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .error__container {
+        padding-inline: unset;
+        .error__content {
+            width: 95%;
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

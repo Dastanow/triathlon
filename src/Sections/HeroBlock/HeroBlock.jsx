@@ -16,7 +16,7 @@ const HeroBlock = () => {
                     <h1 className="hero-content--title">TRIATHLON CENTER</h1>
                     <p className="hero-content--description">Первая инклюзивная спортивная база в Кыргызской Республике</p>
                     <CustomButton type="secondary" onClick={() => setModalActive(true)}>
-                       {t('buttonHero')}
+                        {t('buttonHero')}
                     </CustomButton>
                 </div>
             </div>

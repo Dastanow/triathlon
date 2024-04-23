@@ -18,7 +18,7 @@ const Feedback = () => {
                     <CustomTitle title={t('feedback')} />
                 </div>
                 <h4 className="comments__subtitle">
-                   {t('feedbacktitle')}
+                    {t('feedbacktitle')}
                 </h4>
                 <CustomCarousel
                     slidesPerView={slidesPerView}

@@ -7,14 +7,15 @@ import Requisites from './Requisites/Requisites';
 import './Subscription.scss';
 import { Container } from '@components';
 import crown from '@assets/crown.svg';
+import { useTranslation } from 'react-i18next';
 
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false);
-
+    const { t } = useTranslation();
     return (
         <section className="subscription" id="subscription">
             <Container classNames="subscriptionContainer">
-                <CustomTitle title={'Абонементы'} />
+                <CustomTitle title={t('aboniment')} />
                 <ul className="subscriptionList">
                     {SubscriptionData.map((subscription) => (
                         <li className={`subscriptionCard ${subscription.prime ? 'prime' : 'default'}`} key={subscription.id}>
@@ -33,7 +34,7 @@ export const Subscription = () => {
                                 <CustomButton
                                     onClick={() => setModalActive(!modalActive)}
                                     type={subscription.prime ? 'secondary' : 'primary'}
-                                >Купить</CustomButton>
+                                >{t('buy')}</CustomButton>
                                 <hr />
                             </div>
                             <ul className="subscriptionCardItems">

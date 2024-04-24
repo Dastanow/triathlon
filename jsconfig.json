@@ -7,7 +7,7 @@
       "@assets/*": ["Assets/*"],
       "@common/*": ["common/*"],
       "@components/*": ["Components/*"],
-      "@hooks/*": ["hooks/*"],
+      "@hooks/*": ["Hooks/*"],
       "@modules/*": ["Modules/*"],
       "@pages/*": ["Pages/*"],
       "@providers/*": ["providers/*"],

@@ -1,23 +1,27 @@
-import { fetchAllComments } from '@app';
-import './Feedback.scss';
-import { CustomCarousel, CustomTitle } from '@ui';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react'
+import './Feedback.scss'
+import CustomCarousel from '../../../UI/CustomCarousel'
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle'
+import commentService from '../../../Services/commentService'
 
 const Feedback = () => {
-    const {t} = useTranslation();
-    const { comments } = fetchAllComments();
-    const slidesPerView = 3;
+    const [comments, setComments] = useState([])
+    const slidesPerView = 3
 
-    if (!comments) return 'Loading...';
+    useEffect(() => {
+        commentService.get().then((data) => setComments(data))
+    }, [])
+
+    if (!comments) return 'Loading...'
 
     return (
         <section className="comments">
             <div className="container">
                 <div className="comments__title">
-                    <CustomTitle title={t('feedback')} />
+                    <CustomTitle title={'Отзывы наших клиентов'} />
                 </div>
                 <h4 className="comments__subtitle">
-                   {t('feedbacktitle')}
+                    Прочтите, что говорят о нас наши клиенты
                 </h4>
                 <CustomCarousel
                     slidesPerView={slidesPerView}
@@ -25,7 +29,7 @@ const Feedback = () => {
                 />
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default Feedback;
+export default Feedback

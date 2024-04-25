@@ -3,25 +3,29 @@ import './TrainingAreasCard.scss';
 import InnerCarousel from '../InnerCarousel/InnerCarousel.jsx';
 
 const TrainingAreasCard = (props) => {
-    const { title, text, slide } = props;
+    const { title, description, images } = props;
+
+    const textElement = document.createElement('p');
+    textElement.innerHTML = description;
+    const textContent = textElement.innerText || textElement.textContent;
 
     return (
         <div className="train-areas__card">
             <div className="train-areas__carousel-wrapper">
-                <InnerCarousel slide={slide} />
+                <InnerCarousel slides={images} />
             </div>
             <div className="train-areas__info">
                 <p className="train-areas__info-title">{title}</p>
-                <p className="train-areas__info-text">{text}</p>
+                <p className="train-areas__info-text">{textContent}</p>
             </div>
         </div>
     );
 };
 
 TrainingAreasCard.propTypes = {
-    slide: PropTypes.array,
+    images: PropTypes.array,
     title: PropTypes.string,
-    text: PropTypes.string,
+    description: PropTypes.string,
 };
 
 export default TrainingAreasCard;

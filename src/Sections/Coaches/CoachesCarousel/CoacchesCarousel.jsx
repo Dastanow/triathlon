@@ -6,14 +6,14 @@ import useGetSpaceBetweenSlides from '@hooks/useGetSpaceBetweenSlides';
 
 const CoachesCarousel = (props) => {
     const { dataArray, swiperRef, onNavButton, onClickSlide } = props;
-    const [spaceBetween] = useGetSpaceBetweenSlides();
-
+    const [spaceBetween, slidesPerView] = useGetSpaceBetweenSlides();
+    console.log(spaceBetween, slidesPerView);
     return (
         <div className="coach-inner__wrapper">
             <Swiper
                 modules={[Pagination]}
                 spaceBetween={spaceBetween}
-                slidesPerView={4}
+                slidesPerView={slidesPerView}
                 pagination={{ clickable: true }}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;

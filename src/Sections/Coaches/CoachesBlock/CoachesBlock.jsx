@@ -1,42 +1,45 @@
-import { useEffect, useState } from 'react';
-import './CoachesBlock.scss';
-import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx';
-import { CustomCarousel, CustomTitle } from '@ui';
-import { fetchAllCoaches } from '@app';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react'
+import './CoachesBlock.scss'
+import api from '../../../api'
+import CustomCarousel from '../../../UI/CustomCarousel'
+import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx'
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle.jsx'
+import coachService from '../../../Services/coachService.js'
 
 const CoachesBlock = () => {
-    const {t} = useTranslation();
-
-    const [data, setData] = useState({});
-    const [curGroup, setCurGroup] = useState([]);
-    const [activeBtn, setActiveBtn] = useState(null);
-    const slidesPerView = 4;
+    const [coaches, setCoaches] = useState([])
+    const [buttons, setButtons] = useState([])
+    const [curGroup, setCurGroup] = useState([])
+    const [activeBtn, setActiveBtn] = useState(null)
+    const slidesPerView = 4
 
     useEffect(() => {
-        const data = fetchAllCoaches();
-        setData(data);
-        setCurGroup(data.coaches);
-    }, []);
+        const data = api.data.fetchAll()
+        setButtons(data.buttons)
+    }, [])
+
+    useEffect(() => {
+        coachService.get().then((data) => {
+            setCoaches(data)
+            setCurGroup(data)
+        })
+    }, [])
 
     const handleChangeCoaches = ({ target }) => {
-        setActiveBtn(target.name);
-        const newGroup = data.coaches.filter(
-            (coach) => coach.area === target.name
-        );
-        setCurGroup(newGroup);
-    };
-
-    if (!data.coaches && !data.buttons) return 'Loader...';
+        setActiveBtn(target.name)
+        const newGroup = curGroup.filter((coach) => coach.area === target.name)
+        setCurGroup(newGroup)
+    }
+    if (!coaches) return 'Loader...'
 
     return (
         <section className="coaches" id="coaches">
             <div className="container">
                 <div className="coaches__title">
-                    <CustomTitle title={t('coaches')}/>        
+                    <CustomTitle title={'Наши тренеры'} />
                 </div>
                 <ButtonsBlock
-                    buttons={data.buttons}
+                    buttons={buttons}
                     onChangeCoaches={handleChangeCoaches}
                     activeBtn={activeBtn}
                 />
@@ -46,7 +49,7 @@ const CoachesBlock = () => {
                 />
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default CoachesBlock;
+export default CoachesBlock

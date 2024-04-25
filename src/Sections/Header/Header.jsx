@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Header.scss'
 import logotype from '../../Assets/logo1.png'
 import account from '../../Assets/account.svg'
-import chevron from '../../Assets/solar_chevron-up.svg'
+import { FaChevronUp } from 'react-icons/fa'
 import rus from '../../Assets/language_rus.png'
 import kyr from '../../Assets/language_kyr.png'
 import { Link } from 'react-router-dom'
@@ -39,6 +39,21 @@ export const Header = () => {
         setLanguage(language === 'rus' ? 'eng' : 'rus')
         changeLanguage(language)
     }
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.matchMedia('(min-width: 1024px)').matches) {
+                const header = document.querySelector('.header')
+                const headerHeight = header.offsetHeight
+                const scrollThreshold = 1.1 * headerHeight
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('fixed')
+                } else {
+                    header.classList.remove('fixed')
+                }
+            }
+        })
+    })
 
     return (
         <header className="header">
@@ -78,7 +93,7 @@ export const Header = () => {
                             src={language === 'rus' ? rus : kyr}
                             alt={language === 'rus' ? 'Russian' : 'English'}
                         />
-                        <img src={chevron} alt="Chevron" />
+                        <FaChevronUp className={showOtherImage && 'open'} />
                         {showOtherImage && (
                             <div className="header-back">
                                 <div
@@ -104,4 +119,3 @@ export const Header = () => {
         </header>
     )
 }
-

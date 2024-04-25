@@ -1,13 +1,22 @@
 .header {
-    background: rgba(0, 0, 0, 0.70);
+    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 120px;
     z-index: 999;
+    transition: all 0.3s ease;
     @media screen and (max-width: 1440px) {
         height: 90px;
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+    }
+    svg.open {
+        transform: rotate(180deg);
     }
     &Container {
         height: 100%;
@@ -35,7 +44,7 @@
         }
     }
     &NavLink {
-        color: #FFFFFF;
+        color: #ffffff;
         font-size: 24px;
         font-style: normal;
         font-weight: 500;
@@ -59,26 +68,23 @@
         align-items: center;
         gap: 12px;
         cursor: pointer;
-        
     }
     &Option {
         position: absolute;
-        top: 64px;
-        left: 0;
+        top: 80px;
+        left: 0px;
         display: flex;
         align-items: center;
         justify-items: center;
-        padding: 26px;
+        padding: 25px;
         border-radius: 16px;
-        background: rgba(0, 0, 0, 0.70);
-        margin-top: 20px;
-        margin-left: -20px;
-    }  
+        background: rgba(0, 0, 0, 0.7);
+        margin-left: -25px;
+    }
 }
 
-.header-back{
-    width: 100%;
-    height: 100%;
-    background-color: gray;
-    z-index: 100;         
+.header-back {
+    top: 0;
+    position: absolute;
+    z-index: 100;
 }

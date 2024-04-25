@@ -22,12 +22,9 @@ const useGetSpaceBetweenSlides = () => {
             setSpaceBetween(36);
         }
     };
-
     if (spaceBetween === 0) handleResize();
-
     useEffect(() => {
         window.addEventListener('resize', handleResize);
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };

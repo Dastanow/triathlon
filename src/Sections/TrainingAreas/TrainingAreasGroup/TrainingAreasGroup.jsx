@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import './TrainingAreasGroup.scss';
-import CustomCarousel from '../../../UI/CustomCarousel';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
-import trainAreaService from '../../../Services/trainAreaService';
+import { useState, useEffect } from 'react'
+import './TrainingAreasGroup.scss'
+import CustomCarousel from '../../../UI/CustomCarousel'
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle'
+import trainAreaService from '../../../Services/trainAreaService'
 
 const TrainingAreasGroup = () => {
-    const [trainingAreas, setTrainingAreas] = useState([]);
-    const slidesPerView = 1;
+    const [trainingAreas, setTrainingAreas] = useState([])
+    const slidesPerView = 1
 
     useEffect(() => {
-        trainAreaService.get().then((data) => setTrainingAreas(data));
-    }, []);
+        trainAreaService.get().then((data) => setTrainingAreas(data))
+    }, [])
 
-    if (!trainingAreas) return 'Loader...';
+    if (!trainingAreas) return 'Loader...'
 
     return (
         <section className="train-areas">
@@ -26,7 +26,7 @@ const TrainingAreasGroup = () => {
                 />
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default TrainingAreasGroup;
+export default TrainingAreasGroup

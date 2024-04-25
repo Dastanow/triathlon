@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import './Feedback.scss';
-import CustomCarousel from '../../../UI/CustomCarousel';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
-import commentService from '../../../Services/commentService';
+import { useEffect, useState } from 'react'
+import './Feedback.scss'
+import CustomCarousel from '../../../UI/CustomCarousel'
+import CustomTitle from '../../../UI/CustomTitle/CustomTitle'
+import commentService from '../../../Services/commentService'
 
 const Feedback = () => {
-    const [comments, setComments] = useState([]);
-    const slidesPerView = 3;
+    const [comments, setComments] = useState([])
+    const slidesPerView = 3
 
     useEffect(() => {
-        commentService.get().then((data) => setComments(data));
-    }, []);
+        commentService.get().then((data) => setComments(data))
+    }, [])
 
-    if (!comments) return 'Loading...';
+    if (!comments) return 'Loading...'
 
     return (
         <section className="comments">
@@ -29,7 +29,7 @@ const Feedback = () => {
                 />
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default Feedback;
+export default Feedback

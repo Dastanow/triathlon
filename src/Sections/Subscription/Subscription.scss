@@ -1,0 +1,162 @@
+.subscription {
+    &Container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+      @media screen and (max-width: 1280px) {
+        gap: 36px;
+      }
+      @media screen and (max-width: 762px) {
+        gap: 20px;
+      }
+    }
+    &List {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        padding: 24px;
+        overflow-x: auto;
+        width: 100%;
+        &::-webkit-scrollbar {
+          display: none;
+          overflow: auto;
+          -ms-overflow-style: none; /* IE 11 */
+          scrollbar-width: none; /* Firefox 64 */
+        }
+    }
+    &Card {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 32px;
+      border-radius: 24px;
+      width: 100%;
+      min-width: 412px;
+      @media screen and (max-width: 1280px) {
+        gap: 22px;
+        width: 100%;
+        min-width: 350px;
+        padding: 20px;
+      }
+      @media screen and (max-width: 762px) {
+        gap: 16px;
+        width: 100%;
+        min-width: 255px;
+        padding: 16px;
+      }
+      &Header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        h5 {
+          color: #FFF;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 140%; /* 28px */
+          @media screen and (max-width: 1280px) {
+            font: 16px;
+          }
+          @media screen and (max-width: 762px) {
+            font: 12px;
+          }
+        }
+        p {
+          color: #FFF;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%; /* 24px */
+          @media screen and (max-width: 1280px) {
+            font: 14px;
+          }
+          @media screen and (max-width: 762px) {
+            font: 12px;
+          }
+        }
+      }
+      &Hit {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        h5 {
+          color: #FAA831;
+          text-shadow: -2px -2px 4px rgba(247, 181, 18, 0.35), 2px 2px 4px rgba(247, 181, 18, 0.35);
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 140%; /* 28px */
+          @media screen and (max-width: 1280px) {
+            font: 14px;
+          }
+          @media screen and (max-width: 762px) {
+            font: 12px;
+          }
+        }
+      }
+      &Actions {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        h3 {
+          color: #FFF;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 120%; /* 48px */
+          @media screen and (max-width: 1280px) {
+            font: 14px;
+          }
+          @media screen and (max-width: 762px) {
+            font: 21px;
+          }
+        }
+        button {
+          border: 1px solid #ffffff;
+          color: #ffffff;
+        }
+        hr {
+          background: #FFF;
+          height: 1px;
+          width: 100%;
+        }
+      }
+      &Items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+      }
+    }
+    .prime {
+      border: 1px solid #FFF;
+      background: #013D83;
+      box-shadow: 0px 0px 24.998px 0px #013D83, 0px 0px 14.285px 0px #013D83, 0px 0px 8.333px 0px #013D83, 0px 0px 4.166px 0px #013D83, 0px 0px 1.19px 0px #013D83, 0px 0px 0.595px 0px #013D83;  
+    }
+    .default {
+      border: 1px solid #000000;
+      .subscriptionCardTitle {
+        h5 {
+          color: #000000;
+        }
+        p {
+          color: #000000;
+        }
+      }
+      .subscriptionCardActions {
+        h3 {
+          color: #000000;
+        }
+        hr {
+          background: #000000;
+        }
+      }
+      .subscriptionCardItems {
+        li {
+          color: #000000;
+        }
+      }
+    }
+}

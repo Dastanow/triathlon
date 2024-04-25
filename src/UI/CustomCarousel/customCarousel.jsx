@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { carouselInitState } from '../../common/constants';
+import { carouselInitState } from '../../Shared/constants';
 import { TrainingAreasCarousel } from '../../Sections/TrainingAreas';
 // import ModalWindow from '../../Modules/ModalWindow';
 import Modal from '../Modal/Modal';
@@ -10,7 +10,7 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import './CustomCarousel.scss';
 
-const CustomCarousel = (props) => {
+export const CustomCarousel = (props) => {
     const { slidesPerView, dataArray } = props;
     const {
         btnPrevClass,
@@ -128,5 +128,3 @@ CustomCarousel.propTypes = {
     slidesPerView: PropTypes.number.isRequired,
     dataArray: PropTypes.arrayOf(PropTypes.object),
 };
-
-export default CustomCarousel;

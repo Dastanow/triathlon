@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import { initStateFaqForm } from '../../common/constants';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-import CustomForm from '../../UI/CustomForm/CustomForm';
-import Container from '../../Components/Container/Container';
+import { initStateFaqForm } from '../../Shared/constants';
+import { CustomTitle, CustomForm } from '@ui';
+import { Container } from '@components';
+import { useTranslation } from 'react-i18next';
 
 const Faq = () => {
+    const {t} = useTranslation();
     const questions = [
         {
             title: 'Есть ли у вас детские секции/группы для детей?',
@@ -52,7 +53,7 @@ const Faq = () => {
     return (
         <section className="faq" id="faq">
             <Container classNames="faqContainer">
-                <CustomTitle title={'Часто задаваемые вопросы:'} />
+                <CustomTitle title={t('foq')} />
                 <div className="faqWrapper">
                     <div className="faqSelects">
                         {questions.map((question, index) => (

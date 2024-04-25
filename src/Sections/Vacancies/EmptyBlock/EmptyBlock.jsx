@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './EmptyBlock.scss';
+import { Link } from 'react-router-dom'
+import './EmptyBlock.scss'
 
 const EmptyBlock = () => {
     return (
@@ -11,7 +11,7 @@ const EmptyBlock = () => {
                 На главную
             </Link>
         </div>
-    );
-};
+    )
+}
 
-export default EmptyBlock;
+export default EmptyBlock

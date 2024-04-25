@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './Container.scss';
 
-const Container = ({ classNames, children }) => {
+export const Container = ({ classNames, children }) => {
     return (
         <div className={`container ${classNames ? classNames : ''}`}>
             {children}
@@ -11,7 +11,5 @@ const Container = ({ classNames, children }) => {
 
 Container.propTypes = {
     classNames: PropTypes.string,
-    children: PropTypes.isRequired,
+    children: PropTypes.node,
 }
-
-export default Container;

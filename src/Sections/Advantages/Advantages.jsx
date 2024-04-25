@@ -1,7 +1,7 @@
 import './Advantages.scss';
 import AdvantagesData from './AdvanFakeData.json';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-import Container from '../../Components/Container/Container';
+import { CustomTitle } from '@ui';
+import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
 
 const Advantages = () => {

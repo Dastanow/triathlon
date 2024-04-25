@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types'
 
-const CustomInput = ({
+export const CustomInput = ({
     className,
     name,
     onChange,
@@ -38,5 +38,3 @@ CustomInput.propTypes={
     type:PropTypes.string,
     value:PropTypes.string,
 }
-
-export default CustomInput;

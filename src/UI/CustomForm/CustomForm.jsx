@@ -1,17 +1,16 @@
-import CustomInput from '../CustomInput/CustomInput'
-import { initStateFaqForm } from '../../common/constants'
-import { initStateVacancyForm } from '../../common/constants'
+import { initStateFaqForm } from '../../Shared/constants'
+import { initStateVacancyForm } from '../../Shared/constants'
 import './CustomForm.scss'
 import { useEffect, useState } from 'react'
 import good from '../../Assets/good.svg'
 import deleted from '../../Assets/delete.svg'
 import PropTypes from 'prop-types'
-import TextField from '../../Components/TextField/TextField'
 import { validate } from '../../utils/validate'
 import { validationConfig } from '../../utils/validationConfig'
-import CheckBoxes from '../../Components/CheckBoxes/CheckBoxes'
+import { CheckBoxes, TextField } from '@components';
+import { CustomInput } from '@ui';
 
-const CustomForm = (props) => {
+export const CustomForm = (props) => {
     const {
         section,
         formContent,
@@ -243,5 +242,3 @@ CustomForm.propTypes = {
     classPhone:PropTypes.string,
     classButton:PropTypes.string,
 }
-
-export default CustomForm

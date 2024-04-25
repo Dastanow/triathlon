@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './style.scss';
 import api from '../../api';
 import CustomCarousel from '../../UI/CustomCarousel';
-import { coachesInitState } from '../../common/constants';
+import { coachesInitState } from '../../Shared/constants';
 import ButtonsBlock from './buttonsBlock';
 import CustomTitle from '../../UI/CustomTitle/CustomTitle';
 

@@ -1,8 +1,15 @@
 .advantages {
   &Container {
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+      @media screen and (max-width: 1280px) {
+          gap: 36px;
+      }
+      @media screen and (max-width: 762px) {
+          gap: 20px;
+      }
   }
   &Wrapper {
     display: grid;

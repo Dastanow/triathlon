@@ -47,11 +47,13 @@ export const Footer = () => {
                     <div className="footer__Logotip">
                         <img src={Logotip} alt="img" />
                     </div>
-                    <p>
-                        <img src={Map} alt="img" />
-                        Бишкек, ул.Фатьянова 10
+                    <div className="footer__count">
+                    <p className="location">
+                        <div className="footer__mapp"> <img src={Map} alt="img" />
+                        Бишкек, ул.Фатьянова 10</div>
+                       
                     </p>
-                    <p>
+                    <p className="location">
                         <img src={email} alt="img" />
                         triathloncenter.kg@gmail.com
                     </p>
@@ -59,18 +61,20 @@ export const Footer = () => {
                         href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
                         target="_blank"
                     >
-                        <p>
+                        <p className="location">
                             <img src={instagram} alt="img" />
                             @triathloncenter.kg
                         </p>
                     </a>
-                    <p className="footer__contacts__tel">
+                    <p className="location">
                         <img src={phone} alt="img" />
                         +996 997 000 180
                         <br />
                         +996 227 000 180
                     </p>
+                    </div>
                 </div>
+                <div className="footer__blocks">
                 {blocks.map((block, index) => (
                     <div className="footer__blok" key={index}>
                         {block.map((item, i) => {
@@ -86,7 +90,9 @@ export const Footer = () => {
                         })}
                     </div>
                 ))}
+                </div>
             </div>
+            <div className="footer__line"></div>
             <div className="footer__form">
                 <h3>Made by GEEKS PRO</h3>
             </div>

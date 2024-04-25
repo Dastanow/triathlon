@@ -1,15 +1,15 @@
 .aboutUs {
   &Container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 56px;
-    @media screen and (max-width: 1280px) {
-      gap: 36px;
-    }
-    @media screen and (max-width: 562px) {
-      gap: 20px;
-    }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+      @media screen and (max-width: 1280px) {
+        gap: 36px;
+      }
+      @media screen and (max-width: 762px) {
+        gap: 20px;
+      }
   }
   &Image {
     aspect-ratio: 16 / 9;
@@ -35,33 +35,34 @@
       flex-direction: column;
       gap: 26px;
     }
+    @media screen and (max-width: 762px) {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
   &Title {
     color: #000;
     font-size: 40px;
     font-weight: 500;
-    line-height: 120%;
+    line-height: 120%; /* 48px */
+    @media screen and (max-width: 1280px) {
+      font-size: 28px;
+    }
+    @media screen and (max-width: 762px) {
+      font-size: 22px;
+    }
   }
   &Description {
     color: #000;
     font-size: 26px;
     font-weight: 400;
-    line-height: 120%;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .aboutUs {
-    .aboutUsContent {
-      gap: 20px;
-    }
-    .aboutUsTitle {
-        font-size: 28px;
-        font-weight: 500;
-    }
-    .aboutUsDescription {
+    line-height: 120%; /* 31.2px */
+    @media screen and (max-width: 1280px) {
       font-size: 22px;
-      font-weight: 400;
-      line-height: 120%;
+    }
+    @media screen and (max-width: 762px) {
+      font-size: 16px;
     }
   }
 }

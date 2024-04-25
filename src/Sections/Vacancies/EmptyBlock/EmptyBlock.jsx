@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Empty.scss'
 
-const EmptyBlock = () => {
+export const EmptyBlock = () => {
     return(
         <div className="EmptyBlock" id="EmptyBlock">
             <div className="EmptyBlock--text">
@@ -21,5 +21,3 @@ const EmptyBlock = () => {
         </div>
     )
 }
-
-export default EmptyBlock

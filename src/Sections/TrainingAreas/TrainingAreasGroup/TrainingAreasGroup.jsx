@@ -1,11 +1,10 @@
+import { fetchAllTrains } from '@app';
 import './TrainingAreasGroup.scss';
-import api from '../../../api';
-import CustomCarousel from '../../../UI/CustomCarousel';
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle';
+import { CustomCarousel, CustomTitle } from '@ui';
 
 const TrainingAreasGroup = () => {
     const slidesPerView = 1;
-    const { trainAreas } = api.trainAreas.fetchAll();
+    const { trainAreas } = fetchAllTrains();
 
     if (!trainAreas) return 'Loader...';
 

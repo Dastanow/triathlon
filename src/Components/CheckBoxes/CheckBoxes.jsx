@@ -1,7 +1,7 @@
 import './CheckBoxes.scss'
 import PropTypes  from 'prop-types'
 
-const CheckBoxes = ({name, value, onChange, children, className}) => {
+export const CheckBoxes = ({name, value, onChange, children, className}) => {
     const handleChange = () => {
         onChange({ name: name, value: !value})
     }
@@ -34,5 +34,3 @@ CheckBoxes.propTypes = {
         PropTypes.node
     ])
 }
-
-export default CheckBoxes

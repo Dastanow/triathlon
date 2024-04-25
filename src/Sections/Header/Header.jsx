@@ -1,57 +1,44 @@
-import { useState } from 'react';
-import './Header.scss';
-import logotype from '../../Assets/logo1.png';
-import account from '../../Assets/account.svg';
+import { useState } from 'react'
+import './Header.scss'
+import logotype from '../../Assets/logo1.png'
+import account from '../../Assets/account.svg'
 import chevron from '../../Assets/solar_chevron-up.svg'
-import rus from '../../Assets/language_rus.png';
-import kyr from '../../Assets/language_kyr.png';
-import { Link, useNavigate } from 'react-router-dom';
-import { Container } from '@components'
+import rus from '../../Assets/language_rus.png'
+import kyr from '../../Assets/language_kyr.png'
+import { Link } from 'react-router-dom'
+import { Container } from '../../Components/Container/Container'
+import { useTranslation } from 'react-i18next'
 
 const navigatePath = [
-    {
-        id: '#main',
-        path: 'Главная'
-    },
-    {
-        id: '#coaches',
-        path: 'Тренеры'
-    },
-    {
-        id: '#subscription',
-        path: 'Абонементы'
-    },
-    {
-        id: '#table',
-        path: 'Секции'
-    },
-    {
-        id: '#ourServices',
-        path: 'Услуги'
-    },
-    {
-        id: '#location',
-        path: 'Контакты'
-    },
+    [{ text: 'path1', id: 'main' }],
+    [{ text: 'path2', id: 'coaches' }],
+    [{ text: 'path3', id: 'abonement' }],
+    [{ text: 'path4', id: 'section' }],
+    [{ text: 'path5' }],
+    [{ text: 'path6', id: 'services' }],
+    [{ text: 'path7', id: 'location' }],
 ]
 
 export const Header = () => {
-    const nav = useNavigate();
-    const [language, setLanguage] = useState('rus');
-    const [showOtherImage, setShowOtherImage] = useState(false);
+    const { t } = useTranslation()
+    const { i18n } = useTranslation()
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+    const [language, setLanguage] = useState('rus')
+    const [showOtherImage, setShowOtherImage] = useState(false)
 
     const handleSvgClick = () => {
-        setShowOtherImage((prevState) => !prevState);
-    };
+        setShowOtherImage((prevState) => !prevState)
+    }
+
+    const changeLanguage = (lang) => {
+        i18n.changeLanguage(lang)
+        setSelectedLanguage(lang)
+    }
 
     const switchLanguage = () => {
-        setLanguage(language === 'rus' ? 'kyr' : 'rus');
-    };
-
-    const goToMainPage = () => {
-        nav('/');
-        window.scrollTo(0, 0);
-    };
+        setLanguage(language === 'rus' ? 'eng' : 'rus')
+        changeLanguage(language)
+    }
 
     return (
         <header className="header">
@@ -65,48 +52,56 @@ export const Header = () => {
                 </Link>
                 <nav>
                     <ul className="headerNav">
-                        <li
-                            onClick={goToMainPage}
-                        >
-                            <Link
-                                className="headerNavLink"
-                                to="/schedule"
-                            >
-                                Расписание
-                            </Link>
-                        </li>
-                        {navigatePath.map((path) => (
-                            <li key={path.id}
-                                onClick={goToMainPage}
-                            >
-                                <a
-                                    className="headerNavLink"
-                                    href={path.id}
-                                >
-                                    {path.path}
-                                </a>
-                            
-                            </li>
+                        {navigatePath.map((block, index) => (
+                            <div key={index}>
+                                {block.map((item, id) => {
+                                    if (typeof item === 'object') {
+                                        return (
+                                            <p key={id}>
+                                                <a
+                                                    className="headerNavLink"
+                                                    href={`#${item.id}`}>
+                                                    {' '}
+                                                    {t(item.text)}
+                                                </a>
+                                            </p>
+                                        )
+                                    }
+                                })}
+                            </div>
                         ))}
                     </ul>
                 </nav>
                 <div className="headerWrapper">
                     <div className="headerLanguage" onClick={handleSvgClick}>
-                        <img src={language === 'rus' ? rus : kyr} alt={language === 'rus' ? 'Russian' : 'Kyrgyz'} />
+                        <img
+                            src={language === 'rus' ? rus : kyr}
+                            alt={language === 'rus' ? 'Russian' : 'English'}
+                        />
                         <img src={chevron} alt="Chevron" />
                         {showOtherImage && (
                             <div className="header-back">
-                                <div className="headerOption" onClick={switchLanguage}>
-                                    <img src={language === 'rus' ? kyr : rus} alt={language === 'rus' ? 'Kyrgyz' : 'Russian'} />
+                                <div
+                                    className="headerOption"
+                                    onClick={switchLanguage}>
+                                    <img
+                                        src={language === 'rus' ? kyr : rus}
+                                        alt={
+                                            language === 'rus'
+                                                ? 'English'
+                                                : 'Russian'
+                                        }
+                                    />
                                 </div>
                             </div>
                         )}
                     </div>
-                    <Link target="_blank" to={'/personal-account'} className="headerAccount">
+                    <div className="headerAccount">
                         <img src={account} alt="account" />
-                    </Link>
+                    </div>
                 </div>
             </Container>
         </header>
-    );
-};
+    )
+}
+

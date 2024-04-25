@@ -1,17 +1,17 @@
-import './Footer.scss';
-import Map from '../../Assets/map.svg';
-import email from '../../Assets/email.svg';
-import phone from '../../Assets/phone.svg';
-import instagram from '../../Assets/instagram.svg';
-import Logotip from '../../Assets/logo1.png';
-import { useNavigate } from 'react-router-dom';
+import './Footer.scss'
+import Map from '../../Assets/map.svg'
+import email from '../../Assets/email.svg'
+import phone from '../../Assets/phone.svg'
+import instagram from '../../Assets/instagram.svg'
+import Logotip from '../../Assets/logo1.png'
+import { useNavigate } from 'react-router-dom'
 
 export const Footer = () => {
-    const nav = useNavigate();
+    const nav = useNavigate()
     const VacanciesClick = () => {
-        nav('vacancies');
-        window.scrollTo(0, 0);
-    };
+        nav('vacancies')
+        window.scrollTo(0, 0)
+    }
     const blocks = [
         [
             'Главная',
@@ -39,7 +39,7 @@ export const Footer = () => {
             'В будние дни с 7:00 до 23:00',
             ' В выходные и праздничные  дни с 8:00 до 22:00',
         ],
-    ];
+    ]
     return (
         <footer>
             <div className="footer__container">
@@ -48,48 +48,49 @@ export const Footer = () => {
                         <img src={Logotip} alt="img" />
                     </div>
                     <div className="footer__count">
-                    <p className="location">
-                        <div className="footer__mapp"> <img src={Map} alt="img" />
-                        Бишкек, ул.Фатьянова 10</div>
-                       
-                    </p>
-                    <p className="location">
-                        <img src={email} alt="img" />
-                        triathloncenter.kg@gmail.com
-                    </p>
-                    <a
-                        href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
-                        target="_blank"
-                    >
                         <p className="location">
-                            <img src={instagram} alt="img" />
-                            @triathloncenter.kg
+                            <span className="footer__mapp">
+                                {' '}
+                                <img src={Map} alt="img" />
+                                Бишкек, ул.Фатьянова 10
+                            </span>
                         </p>
-                    </a>
-                    <p className="location">
-                        <img src={phone} alt="img" />
-                        +996 997 000 180
-                        <br />
-                        +996 227 000 180
-                    </p>
+                        <p className="location">
+                            <img src={email} alt="img" />
+                            triathloncenter.kg@gmail.com
+                        </p>
+                        <a
+                            href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
+                            target="_blank">
+                            <p className="location">
+                                <img src={instagram} alt="img" />
+                                @triathloncenter.kg
+                            </p>
+                        </a>
+                        <p className="location">
+                            <img src={phone} alt="img" />
+                            +996 997 000 180
+                            <br />
+                            +996 227 000 180
+                        </p>
                     </div>
                 </div>
                 <div className="footer__blocks">
-                {blocks.map((block, index) => (
-                    <div className="footer__blok" key={index}>
-                        {block.map((item, i) => {
-                            if (typeof item === 'object') {
-                                return (
-                                    <p key={i} onClick={item.onClick}>
-                                        {item.text}
-                                    </p>
-                                );
-                            } else {
-                                return <p key={i}>{item}</p>;
-                            }
-                        })}
-                    </div>
-                ))}
+                    {blocks.map((block, index) => (
+                        <div className="footer__blok" key={index}>
+                            {block.map((item, i) => {
+                                if (typeof item === 'object') {
+                                    return (
+                                        <p key={i} onClick={item.onClick}>
+                                            {item.text}
+                                        </p>
+                                    )
+                                } else {
+                                    return <p key={i}>{item}</p>
+                                }
+                            })}
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="footer__line"></div>
@@ -97,5 +98,5 @@ export const Footer = () => {
                 <h3>Made by GEEKS PRO</h3>
             </div>
         </footer>
-    );
-};
+    )
+}

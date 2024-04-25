@@ -29,22 +29,24 @@ export const SectionTriatlhonMobile = ({ rows }) => {
                 .filter((item) => item.id == currentSlide)
                 .map((item) => (
                     <table key={item.id} className="mobileTable">
-                        <tr className="tableBody">
-                            <th className="tableTop">Группа</th>
-                            <td className="tableTop">{item.group}</td>
-                        </tr>
-                        <tr className="tableBody">
-                            <th>Примечание</th>
-                            <td>{item.note}</td>
-                        </tr>
-                        <tr className="tableBody">
-                            <th>Кол-во часов в нед.</th>
-                            <td>{item.hours}</td>
-                        </tr>
-                        <tr className="tableBody">
-                            <th>Стоимость</th>
-                            <td>{item.cost}</td>
-                        </tr>
+                        <tbody>
+                            <tr className="tableBody">
+                                <th className="tableTop">Группа</th>
+                                <td className="tableTop">{item.group}</td>
+                            </tr>
+                            <tr className="tableBody">
+                                <th>Примечание</th>
+                                <td>{item.note}</td>
+                            </tr>
+                            <tr className="tableBody">
+                                <th>Кол-во часов в нед.</th>
+                                <td>{item.hours}</td>
+                            </tr>
+                            <tr className="tableBody">
+                                <th>Стоимость</th>
+                                <td>{item.cost}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 ))}
             <div className="tableButtons">

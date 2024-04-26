@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import './Feedback.scss'
-import CustomCarousel from '../../../UI/CustomCarousel'
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle'
-import commentService from '../../../Services/commentService'
+import { CustomCarousel, CustomTitle } from '@/UI'
+import commentService from '@/Services/commentService'
+import useInitStateCarousel from '@/hooks/useInitStateCarousel'
 
 const Feedback = () => {
     const [comments, setComments] = useState([])
-    const slidesPerView = 3
+    const [, , , slidesPerView] = useInitStateCarousel()
 
     useEffect(() => {
         commentService.get().then((data) => setComments(data))

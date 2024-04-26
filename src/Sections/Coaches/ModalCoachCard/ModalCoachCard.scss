@@ -5,7 +5,6 @@ $white: #fff;
     max-width: 1186px;
     height: 497px;
     display: flex;
-    background-color: $white;
     border-radius: 16px;
     overflow: hidden;
 }
@@ -14,10 +13,11 @@ $white: #fff;
     width: 350px;
     height: 100%;
     object-fit: cover;
+    background: #fff;
 }
 
 .coach-modal-card__info-block {
-    max-width: 836px;
+    width: 836px;
     height: 100%;
     padding: 25px 60px;
     background-color: $dark;
@@ -29,7 +29,8 @@ $white: #fff;
     }
 }
 .block-info__top {
-    padding-bottom: 36px;
+    pointer-events: none;
+    margin-bottom: 36px;
     .block-info__top-name {
         font-size: 36px;
         font-weight: 700;
@@ -42,11 +43,47 @@ $white: #fff;
 }
 
 .block-info__bottom {
-    height: 310px;
+    height: 330px;
     overflow: auto;
     .block-info__bottom-description {
         font-size: 24px;
         font-weight: 500;
-        line-height: 150%;
+        line-height: normal;
+    }
+}
+//-----media-query-------------------
+@media (max-width: 375px) {
+    .coach-modal-card {
+        max-width: 335px;
+        height: 312px;
+    }
+    .coach-modal-card__image {
+        display: none;
+    }
+    .coach-modal-card__info-block {
+        width: 100%;
+        padding: 14px 12px;
+    }
+    .block-info__top {
+        margin-bottom: 8px;
+        .block-info__top-name {
+            width: 260px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .block-info__top-sertification {
+            width: 300px;
+            font-size: 16px;
+            padding: 0;
+        }
+    }
+    .block-info__bottom {
+        width: 300px;
+        height: 220px;
+        overflow: auto;
+        .block-info__bottom-description {
+            font-size: 12px;
+        }
     }
 }

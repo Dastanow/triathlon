@@ -1,2 +1,2 @@
-import CustomCarousel from './CustomCarousel';
-export default CustomCarousel;
+import { CustomCarousel } from './CustomCarousel.jsx'
+export { CustomCarousel }

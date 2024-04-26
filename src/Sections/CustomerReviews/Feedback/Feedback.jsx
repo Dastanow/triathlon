@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Feedback.scss'
-import CustomCarousel from '../../../UI/CustomCarousel'
-import CustomTitle from '../../../UI/CustomTitle/CustomTitle'
+import { CustomCarousel } from '../../../UI'
+import { CustomTitle } from '../../../UI'
 import commentService from '../../../Services/commentService'
 
 const Feedback = () => {

@@ -26,7 +26,7 @@ export const OurServices = () => {
     return (
         <section className="ourServices" id="ourServices">
             <Container classNames="ourServicesContainer">
-                <CustomTitle title={'Наши услуги'}/>
+                <CustomTitle title={'Наши услуги'} />
                 <div className="ourServicesCards">
                     {servicesData.filter(card => card.id).map((card)=> {
                         return (
@@ -39,12 +39,13 @@ export const OurServices = () => {
                                 </div>
                                 <img src={card.image && card.image.icon} alt="icon" className="ourServicesCardImg" />
                             </div>
-                        )})}
+                        )
+                    })}
                 </div>
                 <ModalWindow active={modalActive} setActive={setModalActive} >
                     <CustomForm {... initStateAppForm}/>
                 </ModalWindow>
             </Container>
         </section>
-    );
-};
+    )
+}

@@ -22,7 +22,7 @@ const navigatePath = [
 export const Header = () => {
     const { t } = useTranslation()
     const { i18n } = useTranslation()
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+    const [, setSelectedLanguage] = useState(i18n.language)
     const [language, setLanguage] = useState('rus')
     const [showOtherImage, setShowOtherImage] = useState(false)
 

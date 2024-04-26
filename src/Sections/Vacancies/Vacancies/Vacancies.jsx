@@ -15,7 +15,6 @@ export const Vacancies = () => {
     };
 
     const [modalActive, setModalActive] = useState(false);
-    const { vacancyClass } = initStateVacancyForm;
 
     return (
         <section className="vacancies" id="vacancies">
@@ -85,7 +84,7 @@ export const Vacancies = () => {
                 </div>
             </Container>
             <ModalWindow active={modalActive} setActive={setModalActive}>
-                <CustomForm classes={vacancyClass} {...initStateVacancyForm} />
+                <CustomForm  {...initStateVacancyForm} />
             </ModalWindow>
         </section>
     );

@@ -1,15 +1,47 @@
+.validate{
+    position: relative;
+    width: 605px;
+    display: inline-block;
+    @media screen and (max-width: 1440px) {
+        width: 434px;
+    }
+}
+.validate__input{
+    width: 600px;
+    height: 52px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #909090;
+    color: #909090;
+    font-family: Montserrat;
+    outline: none;
+        @media screen and (max-width: 1440px) {
+            width: 434px;
+            height: 38px;
+            border-radius: 5px;
+        }
+        &.error {
+            border-color: #D64751;
+        }
+}
 .error{
     position: relative;
-    &__text{
-        color: red;
-        text-align: left;
-        margin-left: 80px;
-       position: fixed;
-    }
-    &__icon{
-        position: absolute;
-        right: 95px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+        &__text{
+            color: #D64751;
+            position: absolute;
+            left: 10px;
+            bottom: 0px;
+            @media screen and (max-width: 1440px) {
+                font-size: 14px;
+            }
+        }
+        &__icon{
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-100%);
+            @media screen and (max-width: 1440px) {
+                right: 20px;
+            }
+        }
 }

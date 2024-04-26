@@ -1,6 +1,6 @@
+import './CustomForm.scss'
 import { initStateFaqForm } from '../../Shared/constants'
 import { initStateVacancyForm } from '../../Shared/constants'
-import './CustomForm.scss'
 import { useEffect, useState } from 'react'
 import good from '../../Assets/good.svg'
 import deleted from '../../Assets/delete.svg'
@@ -9,6 +9,7 @@ import { validate } from '../../utils/validate'
 import { validationConfig } from '../../utils/validationConfig'
 import { CheckBoxes, TextField } from '@components'
 import { CustomInput } from '@ui'
+import ReactInputMask from 'react-input-mask'
 
 export const CustomForm = (props) => {
     const {
@@ -18,9 +19,6 @@ export const CustomForm = (props) => {
         fieldName,
         title,
         isClass,
-        classArea,
-        classUser,
-        classPhone,
         classButton,
     } = props
     const [data, setData] = useState({
@@ -29,6 +27,7 @@ export const CustomForm = (props) => {
         email: '',
         price: false,
         get: false,
+        policy: false,
     })
     const [errors, setErrors] = useState({})
 
@@ -108,31 +107,35 @@ export const CustomForm = (props) => {
                             value={data.name}
                             onChange={handleChange}
                             placeholder={fieldName}
-                            className={classUser}
                             error={errors.name}
-                        />
+                        /> 
                     </div>
-                    {isVacancy && (
-                        <TextField
+                    {isVacancy && ( 
+                        <TextField 
                             name="email"
                             value={data.email}
                             onChange={handleChange}
                             placeholder="Email*"
-                            className="form-vacancy__email"
-                        />
-                    )}
-                    <TextField
-                        name="phoneNumber"
-                        value={data.phoneNumber}
-                        onChange={handleChange}
-                        placeholder="+996(___)___-___"
-                        className={classPhone}
-                    />
+                            error={errors.email}
+                        />)}
+                    <ReactInputMask mask="+999(999)999-999" onChange={handleChange}>
+                        {(inputProps) => (
+                            <input
+                                name="phoneNumber"
+                                value={inputProps.value}
+                                onChange={inputProps.onChange}
+                                placeholder="+996(___)___-___"
+                                className="validate__input"
+                                error={errors && errors.phoneNumber}
+                            />
+                        )}  
+                    </ReactInputMask>
+                    
                     {isFaq | isApp && (
                         <CustomInput
                             type="text-area"
                             placeholder="Напишите Ваш вопрос"
-                            className={classArea}
+                            className="textArea"
                         />
                     )}
                 </div>

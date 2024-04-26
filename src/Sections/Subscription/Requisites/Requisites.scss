@@ -3,38 +3,53 @@
     position: relative;
     &__icon{
         position: absolute;
-        margin-top: -101px;
+        top: -70px;
     }
 }
-
 .requisites{
-    margin-top: 40px;
+    position: relative;
+    width: 760px;
+    margin-top: 30px;
+    margin-left: 20px;
+    text-align: center;
+        @media screen and (max-width: 1440px) {
+            width: 600px;
+            margin-left: 0;
+            margin-top: 20px;
+        }
     &__title{
         font-family: Montserrat;
         font-size: 36px;
         font-weight: 700;
         line-height: 43.2px;
-        text-align: center;
         color: #013D83;
-
-        margin-left: 190px      
-    }
+            @media screen and (max-width: 1440px) {
+                font-size: 28px;
+            }
+        }
     &__info{
         font-family: Montserrat;
         font-size: 22px;
-        width: 515px;
-        font-weight: 600;
+        width: 697px;
+        font-weight: 500;
         line-height: 33px;
         text-align: center;
         color: #000000;
-        margin-left: 120px; 
-        margin-top: 20px;       
-    }
+            margin-top: 20px;  
+            @media screen and (max-width: 1440px) {
+                width: 575px;
+                font-size: 20px;
+            }     
+        }
 }
 .phone{
-    display: flex;
-    justify-content: center;
+    margin-right: 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
+        @media screen and (max-width: 1440px) {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
     &__reference{
         display: inline-grid;
     }
@@ -44,7 +59,10 @@
         font-weight: 500;
         line-height: 34.13px;
         text-align: center;
-        color: #171717;        
+        color: #171717; 
+        @media screen and (max-width: 1440px) {
+            font-size: 20px;
+        }       
     }
     &__number{
         font-family: Montserrat;
@@ -53,26 +71,25 @@
         line-height: 34.13px;
         text-align: center;
         color: #171717;  
-
+        @media screen and (max-width: 1440px) {
+            font-size: 20px;
+        }
     }
-}
-.card{
-    margin-top: 20px;
-    margin-left: 350px;
 }
 .payment{
     color: #000000;  
-    margin-top: 30px; 
     font-family: Montserrat;
     font-size: 24px;
     font-weight: 500;
     line-height: 29.26px;
-    text-align: center;
+    width: 726px;
+        @media screen and (max-width: 1440px) {
+            width: 575px;
+            font-size: 20px;
+        }
 }
 .location{
     margin-top: 10px;
-    display: flex;
-    justify-content: center;
     &__reference{
         font-family: Montserrat;
         font-size: 24px;
@@ -80,5 +97,8 @@
         line-height: 41.44px;
         text-align: left;
         color: #171717;
+        @media screen and (max-width: 1440px) {
+            font-size: 20px;
+        }
     }
 }

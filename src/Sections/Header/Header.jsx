@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import './Header.scss'
-import logotype from '../../Assets/logo1.png'
-import account from '../../Assets/account.svg'
-import chevron from '../../Assets/solar_chevron-up.svg'
-import rus from '../../Assets/language_rus.png'
-import kyr from '../../Assets/language_kyr.png'
+import logotype from '@assets/logo1.png'
+import account from '@assets/account.svg'
+import ru from '@assets/language_rus.png'
+import ky from '@assets/language_kyr.png'
 import { Link } from 'react-router-dom'
-import Container from '../../Components/Container/Container'
+import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
+import { FaChevronUp } from 'react-icons/fa'
 
 const navigatePath = [
     [{ text: 'path1', id: 'main' }],
@@ -19,7 +19,7 @@ const navigatePath = [
     [{ text: 'path7', id: 'location' }],
 ]
 
-const Header = () => {
+export const Header = () => {
     const { t, i18n } = useTranslation()
     const [selectedLanguage, setSelectedLanguage] = useState(
         localStorage.getItem('selectedLanguage') || i18n.language,
@@ -28,7 +28,7 @@ const Header = () => {
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
-        console.log('Language saved to localStorage:', selectedLanguage) // Отладочный вывод
+        console.log('Language saved to localStorage:', i18n.language) // Отладочный вывод
         i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage, i18n])
 
@@ -37,11 +37,11 @@ const Header = () => {
     }
 
     const switchLanguage = () => {
-        const newLanguage = selectedLanguage === 'rus' ? 'kyr' : 'rus'
+        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
         setSelectedLanguage(newLanguage)
     }
 
-    console.log('Current selectedLanguage:', selectedLanguage) // Отладочный вывод
+    console.log('Current selectedLanguage:', i18n.language) // Отладочный вывод
 
     return (
         <header className="header">
@@ -78,14 +78,14 @@ const Header = () => {
                 <div className="headerWrapper">
                     <div className="headerLanguage" onClick={handleSvgClick}>
                         <img
-                            src={selectedLanguage === 'rus' ? rus : kyr}
+                            src={selectedLanguage === 'ru' ? ru : ky}
                             alt={
-                                selectedLanguage === 'rus'
-                                    ? 'Russian'
-                                    : 'Kyrgyz'
+                                selectedLanguage === 'ru'
+                                    ? 'russian'
+                                    : 'kygyz'
                             }
                         />
-                        <img src={chevron} alt="Chevron" />
+                        <FaChevronUp />
                         {showOtherImage && (
                             <div className="header-back">
                                 <div
@@ -93,14 +93,14 @@ const Header = () => {
                                     onClick={switchLanguage}>
                                     <img
                                         src={
-                                            selectedLanguage === 'rus'
-                                                ? kyr
-                                                : rus
+                                            selectedLanguage === 'ru'
+                                                ? ky
+                                                : ru
                                         }
                                         alt={
-                                            selectedLanguage === 'rus'
-                                                ? 'Kyrgyz'
-                                                : 'Russian'
+                                            selectedLanguage === 'ru'
+                                                ? 'kygyz'
+                                                : 'russian'
                                         }
                                     />
                                 </div>

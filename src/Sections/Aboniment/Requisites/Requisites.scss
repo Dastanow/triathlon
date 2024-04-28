@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+.logotype{
+    position: relative;
+    &__icon{
+        position: absolute;
+        margin-top: -101px;
+    }
+}
+
+.requisites{
+    margin-top: 40px;
+    &__title{
+        font-family: Montserrat;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 43.2px;
+        text-align: center;
+        color: #013D83;
+
+        margin-left: 190px      
+    }
+    &__info{
+        font-family: Montserrat;
+        font-size: 22px;
+        width: 515px;
+        font-weight: 600;
+        line-height: 33px;
+        text-align: center;
+        color: #000000;
+        margin-left: 120px; 
+        margin-top: 20px;       
+    }
+}
+.phone{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    &__reference{
+        display: inline-grid;
+    }
+    &__number-one{
+        font-family: Montserrat;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 34.13px;
+        text-align: center;
+        color: #171717;        
+    }
+    &__number{
+        font-family: Montserrat;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 34.13px;
+        text-align: center;
+        color: #171717;  
+
+    }
+}
+.card{
+    margin-top: 20px;
+    margin-left: 350px;
+}
+.payment{
+    color: #000000;  
+    margin-top: 30px; 
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29.26px;
+    text-align: center;
+}
+.location{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    &__reference{
+        font-family: Montserrat;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 41.44px;
+        text-align: left;
+        color: #171717;
+    }
+}

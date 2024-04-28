@@ -2,7 +2,7 @@ import './TextField.scss'
 // import errorIcon from '../../Assets/dangerous.svg'
 import PropTypes from 'prop-types'
 
-const TextField = ({
+export const TextField = ({
     name,
     value,
     onChange,
@@ -48,5 +48,3 @@ TextField.propTypes = {
     placeholder: PropTypes.string,
     className: PropTypes.string,
 };
-
-export default TextField

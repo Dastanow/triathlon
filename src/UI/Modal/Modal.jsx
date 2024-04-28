@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import './Modal.scss';
-import { modalInitState } from '../../common/constants';
+import { modalInitState } from '../../Shared/constants';
 
-const Modal = ({ active, setActive, children }) => {
+export const Modal = ({ active, setActive, children }) => {
     const { image0, alt0 } = modalInitState;
 
     const getExternalFieldClass = () => {
@@ -40,5 +40,3 @@ Modal.propTypes = {
     setActive: PropTypes.func,
     children: PropTypes.object,
 };
-
-export default Modal;

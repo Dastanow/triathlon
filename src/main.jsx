@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.scss';
-import { BrowserRouter } from 'react-router-dom';
-import Routing from './providers/RouterProvider.jsx';
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import '@app/styles/style.scss'
+import { BrowserRouter } from 'react-router-dom'
+import Routing from './providers/RouterProvider.jsx'
+import { I18nextProvider } from 'react-i18next'
+import i18n from './i18n'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <I18nextProvider i18n={i18n}>
@@ -13,5 +13,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Routing />
             </React.StrictMode>
         </BrowserRouter>
-    </I18nextProvider>
-);
+    </I18nextProvider>,
+)

@@ -1,25 +1,16 @@
 import { Link } from 'react-router-dom'
-import './Empty.scss'
+import './EmptyBlock.scss'
 
-const EmptyBlock = () => {
-    return(
+export const EmptyBlock = () => {
+    return (
         <div className="EmptyBlock" id="EmptyBlock">
-            <div className="EmptyBlock--text">
-                <h2>
-                Вакансии закрыты. Следите за новыми возможностями!
-                </h2>
-                <p>
-                К сожалению, вакансий на данный момент нет, но не расстраивайтесь!
-Мы постоянно развиваемся и скоро будем искать новых талантов.
-                </p>
-                <Link to="/" > 
-                    <button>
-                            На главную
-                    </button>
-                </Link>
-            </div>
+            <p className="EmptyBlock__text">
+                На данный момент нет активных вакансий, следите за новостями
+            </p>
+            <Link to="/" className="EmptyBlock__link">
+                На главную
+            </Link>
         </div>
     )
 }
 
-export default EmptyBlock

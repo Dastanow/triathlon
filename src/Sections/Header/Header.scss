@@ -1,0 +1,90 @@
+.header {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    z-index: 999;
+    transition: all 0.3s ease;
+    @media screen and (max-width: 1440px) {
+        height: 90px;
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+    }
+    svg.open {
+        transform: rotate(180deg);
+    }
+    &Container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &Logotype {
+        width: 170px;
+        @media screen and (max-width: 1440px) {
+            width: 120px;
+        }
+    }
+    &Nav {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        @media screen and (max-width: 1440px) {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        @media screen and (max-width: 1220px) {
+            display: none;
+        }
+    }
+    &NavLink {
+        color: #ffffff;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 27px;
+        @media screen and (max-width: 1440px) {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 22px;
+        }
+    }
+    &Wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+    &Language {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+    }
+    &Option {
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        padding: 25px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.7);
+        margin-left: -25px;
+    }
+}
+
+.header-back {
+    top: 0;
+    position: absolute;
+    z-index: 100;
+}

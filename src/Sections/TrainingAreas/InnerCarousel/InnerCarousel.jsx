@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import './InnerCarousel.scss';
 
-const InnerCarousel = ({ slide }) => {
+const InnerCarousel = ({ slides }) => {
     return (
         <Swiper
             modules={[Autoplay]}
@@ -15,12 +15,12 @@ const InnerCarousel = ({ slide }) => {
                 disableOnInteraction: true,
             }}
         >
-            {slide &&
-                slide.map((item) => (
-                    <SwiperSlide key={item.id}>
+            {slides &&
+                slides.map((item, index) => (
+                    <SwiperSlide key={index}>
                         <img
-                            src={item.image}
-                            alt={item.alt}
+                            src={item.images}
+                            alt={item.title}
                             className="inner-carousel-image"
                         />
                     </SwiperSlide>
@@ -30,7 +30,7 @@ const InnerCarousel = ({ slide }) => {
 };
 
 InnerCarousel.propTypes = {
-    slide: PropTypes.array,
+    slides: PropTypes.array,
 };
 
 export default InnerCarousel;

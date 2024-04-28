@@ -18,9 +18,9 @@ const TrainingAreasCarousel = (props) => {
                 }}
                 onSlideChange={(swiper) => onNavButton(swiper)}
             >
-                {dataArray.map((item) => {
+                {dataArray.map((item, index) => {
                     return (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={index}>
                             <TrainingAreasCard {...item} />
                         </SwiperSlide>
                     );

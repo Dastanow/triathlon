@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import CommentCard from '../CommentCard/CommentCard';
-import useGetSpaceBetweenSlides from '../../../hooks/useGetSpaceBetweenSlides';
+import useGetSpaceBetweenSlides from '@hooks/useGetSpaceBetweenSlides';
 
 const CommentsCarousel = (props) => {
     const { dataArray, swiperRef, onNavButton } = props;
@@ -20,9 +20,9 @@ const CommentsCarousel = (props) => {
                 }}
                 onSlideChange={(swiper) => onNavButton(swiper)}
             >
-                {dataArray.map((item) => {
+                {dataArray.map((item, index) => {
                     return (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={index}>
                             <CommentCard {...item} />
                         </SwiperSlide>
                     );

@@ -1,14 +1,13 @@
 import './AboutUs.scss';
 import school from '../../Assets/Placeholder Image.png';
-import CustomTitle from '../../UI/CustomTitle/CustomTitle';
-import CustomButton from '../../UI/CustomButton/CustomButton';
-import Container from '../../Components/Container/Container';
+import { Container } from '@components';
+import { CustomTitle, CustomButton } from '@ui';
 import { useTranslation } from 'react-i18next';
 
-const AboutUs = () => {
+export const AboutUs = () => {
     const { t } = useTranslation();
     return (
-        <section id="about-us" className="aboutUs">
+        <section id="aboutUs" className="aboutUs">
             <Container classNames="aboutUsContainer">
                 <CustomTitle title={t('aboutUs')} />
                 <div className="aboutUsWrapper">
@@ -29,5 +28,3 @@ const AboutUs = () => {
         </section>
     );
 };
-
-export default AboutUs;

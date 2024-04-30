@@ -1,4 +1,3 @@
-import Aboniment from '@/Sections/Aboniment/Aboniment';
 import Advantages from '../../Sections/Advantages/Advantages';
 import Coaches from '../../Sections/Coaches';
 import Feedback from '../../Sections/CustomerReviews';
@@ -14,7 +13,6 @@ export const HomePage = () => {
             <Hero />
             <AboutUs />
             <Advantages />
-            <Aboniment/>
             <Subscription />
             <SectionTriatlon />
             <Coaches />

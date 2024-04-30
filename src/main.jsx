@@ -9,9 +9,7 @@ import i18n from './i18n'
 ReactDOM.createRoot(document.getElementById('root')).render(
     <I18nextProvider i18n={i18n}>
         <BrowserRouter>
-            <React.StrictMode>
                 <Routing />
-            </React.StrictMode>
         </BrowserRouter>
     </I18nextProvider>,
 )

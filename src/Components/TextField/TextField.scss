@@ -39,9 +39,9 @@
             position: absolute;
             right: 20px;
             top: 50%;
-            transform: translateY(-100%);
+            transform: translateY(-110%);
             @media screen and (max-width: 1440px) {
-                right: 20px;
+                right: 15px;
             }
         }
 }

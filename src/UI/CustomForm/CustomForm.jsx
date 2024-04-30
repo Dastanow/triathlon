@@ -10,7 +10,8 @@ import { validationConfig } from '../../utils/validationConfig'
 import { CheckBoxes, TextField } from '@components'
 import { CustomInput } from '@ui'
 import ReactInputMask from 'react-input-mask'
-
+import axios from 'axios'
+ 
 export const CustomForm = (props) => {
     const {
         section,
@@ -30,6 +31,9 @@ export const CustomForm = (props) => {
         policy: false,
     })
     const [errors, setErrors] = useState({})
+    const [files, setFiles] = useState([])
+    const [dragActive, setDragActive] = useState(false)
+    const [showFiles, setShowFiles] = useState(false)
 
     const handleChange = (target) => {
         setData((prevState) => ({
@@ -44,18 +48,31 @@ export const CustomForm = (props) => {
     }, [data])
 
     const isValid = Object.keys(errors).length === 0
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         if (!isValid) return
+        
+        const formData = new FormData()
+        formData.append('name', data.name)
+        formData.append('email', data.email)
+        formData.append('phoneNumber', data.phoneNumber)
+        console.log(formData);
+        files.forEach((file) => {
+            formData.append('file', file)
+        })
+    
+        try {
+            const response = await axios.post('http://209.38.228.54:83/api/v1/application/', formData)
+            console.log(response.data) 
+        } catch (error) {
+            console.error(error)
+        }
     }
     const isFaq = section === 'faq'
     const isApp = section === 'app'
     const isVacancy = section === 'vacancy'
     const { faqTitle, text } = initStateFaqForm
     const { vacancyTitle } = initStateVacancyForm
-    const [files, setFiles] = useState([])
-    const [dragActive, setDragActive] = useState(false)
-    const [showFiles, setShowFiles] = useState(false)
 
     const handleChangeFiles = (event) => {
         event.preventDefault()
@@ -88,6 +105,7 @@ export const CustomForm = (props) => {
         setFiles([])
         setShowFiles(false)
     }
+    console.log(data);
 
     return (
         <div>
@@ -189,6 +207,7 @@ export const CustomForm = (props) => {
                                         type="file"
                                         multiple={true}
                                         onChange={handleChangeFiles}
+                                        onDragOver={handleDrag}
                                     />
                                 </label>
                                 <div className="warning">
@@ -207,7 +226,8 @@ export const CustomForm = (props) => {
                 <button
                     className={classButton}
                     type="submit"
-                    disabled={!isValid}>
+                    disabled={!isValid}
+                    onClick={handleSubmit} >
                     Отправить
                 </button>
                 {isApp && (
@@ -264,8 +284,5 @@ CustomForm.propTypes = {
     fieldName: PropTypes.string,
     title: PropTypes.string,
     isClass: PropTypes.string,
-    classArea: PropTypes.string,
-    classUser: PropTypes.string,
-    classPhone: PropTypes.string,
     classButton: PropTypes.string,
 }

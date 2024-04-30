@@ -5,7 +5,7 @@ const useInitStateCarousel = () => {
     const [data, setData] = useState({ coach: 4, comment: 3 })
 
     const handleResize = () => {
-        const width = window.innerWidth
+        const width = window.outerWidth
 
         if (width <= 375) {
             setSpace((prevState) => ({

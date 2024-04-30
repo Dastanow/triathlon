@@ -35,3 +35,10 @@
     top: 15px;
     right: 15px;
 }
+//------media-query-------------
+@media (max-width: 375px) {
+    .custom-modal__content-close {
+        width: 30px;
+        height: 30px;
+    }
+}

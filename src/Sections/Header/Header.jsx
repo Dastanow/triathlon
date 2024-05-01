@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Header.scss';
 import logotype from '../../Assets/logo1.png';
 import account from '../../Assets/account.svg';
@@ -14,7 +14,7 @@ const navigatePath = [
     [{ text: 'path2', id: 'coaches' }],
     [{ text: 'path3', id: 'abonement' }],
     [{ text: 'path4', id: 'section' }],
-    [{ text: 'path5' ,}],
+    [{ text: 'path5', id: 'schedule', script: 'https://reservi.ru/widget-fit1c.v2/js/config.js' }],
     [{ text: 'path6', id: 'services' }],
     [{ text: 'path7', id: 'location' }],
 ];
@@ -61,6 +61,27 @@ export const Header = () => {
         `);
         win.document.close();
     };
+    const handleSchaduleClick = (script) => {
+        const win = window.open('', '_blank');
+        win.document.open();
+        win.document.write(`
+        <html>
+            <head>
+                <script src="${script}" data-fit-salon-id="b1297733-0bf6-48da-bda8-4beb936b6ec5"></script>
+            </head>
+            <body>
+                <div data-get-fit-index-lk></div>
+                <script>
+                    window.onload = function() {
+                        // Любой код, который вы хотите выполнить после загрузки скрипта
+                    };
+                </script>
+            </body>
+        </html>
+    `);
+        win.document.close();
+    };
+
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -92,30 +113,37 @@ export const Header = () => {
                         {navigatePath.map((block, index) => (
                             <div key={index}>
                                 {block.map((item, id) => {
-
-                                    if (typeof item === 'object' && item.id !== 4) {
-                                        return (
-                                            <p key={id}>
-                                                <a
-                                                    className="headerNavLink"
-                                                    href={`#${item.id}`}>
-                                                    {' '}
-                                                    {t(item.text)}
-                                                </a>
-                                            </p>
-                                        );
-                                    }else if (item.id === 5){
-                                        <p     onClick={handleClick}>
-                                        
-                                            {t(item.text)}
-                                           
-                                        </p>
+                                    if (typeof item === 'object') {
+                                        if (item.id === 'schedule') {
+                                            return (
+                                                <p key={id}>
+                                                    <a
+                                                        className="headerNavLink"
+                                                        href={`#${item.id}`}
+                                                        onClick={() => handleSchaduleClick(item.script)}
+                                                    >
+                                                        {t(item.text)}
+                                                    </a>
+                                                </p>
+                                            );
+                                        } else {
+                                            return (
+                                                <p key={id}>
+                                                    <a
+                                                        className="headerNavLink"
+                                                        href={`#${item.id}`}
+                                                    >
+                                                        {t(item.text)}
+                                                    </a>
+                                                </p>
+                                            );
+                                        }
                                     }
                                 })}
+
                             </div>
                         ))}
-                        {/* Добавление скрипта к последнему элементу списка */}
-                      
+
                     </ul>
                 </nav>
                 <div className="headerWrapper">

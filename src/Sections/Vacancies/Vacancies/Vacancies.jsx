@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import './Vacancies.scss';
-import VacanciesData from './VacanciesFakeData.json';
-import { IoIosArrowUp } from 'react-icons/io';
-import ModalWindow from '../../../Modules/ModalWindow';
-import { initStateVacancyForm } from '../../../Shared/constants';
-import { CustomButton, CustomForm, CustomTitle} from '@ui';
-import { Container } from '@components';
+import { useState } from 'react'
+import './Vacancies.scss'
+import VacanciesData from './VacanciesFakeData.json'
+import { IoIosArrowDown } from 'react-icons/io'
+import ModalWindow from '../../../Modules/ModalWindow'
+import { initStateVacancyForm } from '../../../Shared/constants'
+import { CustomButton, CustomForm, CustomTitle } from '@ui'
+import { Container } from '@components'
 
 export const Vacancies = () => {
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null)
 
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+        setOpenIndex(openIndex === index ? null : index)
+    }
 
-    const [modalActive, setModalActive] = useState(false);
-    const { vacancyClass } = initStateVacancyForm;
+    const [modalActive, setModalActive] = useState(false)
+    const { vacancyClass } = initStateVacancyForm
 
     return (
         <section className="vacancies" id="vacancies">
@@ -30,17 +30,15 @@ export const Vacancies = () => {
                                     (openIndex === index
                                         ? ' vacanciesItem-opened'
                                         : '')
-                                }
-                            >
+                                }>
                                 <div
                                     className="vacanciesToggleField"
-                                    onClick={() => handleToggle(index)}
-                                >
+                                    onClick={() => handleToggle(index)}>
                                     <h5 className="vacanciesTitle">
                                         {vacancie.zgolovok}
                                     </h5>
                                     <span className="vacanciesArrow">
-                                        <IoIosArrowUp
+                                        <IoIosArrowDown
                                             className={
                                                 openIndex === index
                                                     ? 'openArrow'
@@ -75,8 +73,7 @@ export const Vacancies = () => {
                                 <CustomButton
                                     className="vacanciesButton"
                                     type="primary"
-                                    onClick={() => setModalActive(true)}
-                                >
+                                    onClick={() => setModalActive(true)}>
                                     Отправить резюме
                                 </CustomButton>
                             </div>
@@ -88,7 +85,7 @@ export const Vacancies = () => {
                 <CustomForm classes={vacancyClass} {...initStateVacancyForm} />
             </ModalWindow>
         </section>
-    );
-};
+    )
+}
 
-export default Vacancies;
+export default Vacancies

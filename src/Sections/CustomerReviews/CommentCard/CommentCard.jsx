@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import './CommentCard.scss';
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import './CommentCard.scss'
 
 const CommentCard = (props) => {
-    const { name, jobtitle, description, photo } = props;
-    const [isShow, setIsShow] = useState(true);
-    const maxLength = 90;
+    const { name, jobtitle, description, photo } = props
+    const [isShow, setIsShow] = useState(true)
+    const maxLength = 90
 
-    const textElement = document.createElement('p');
-    textElement.innerHTML = description;
-    const textContent = textElement.innerText || textElement.textContent;
+    const textElement = document.createElement('p')
+    textElement.innerHTML = description
+    const textContent = textElement.innerText || textElement.textContent
 
-    const isHiddenText = textContent.length > maxLength && isShow;
+    const isHiddenText = textContent.length > maxLength && isShow
 
     const toggleText = () => {
-        setIsShow(!isShow);
-    };
+        setIsShow(!isShow)
+    }
 
     const trimmedText = isHiddenText
         ? textContent.slice(0, maxLength)
-        : textContent;
+        : textContent
 
     return (
         <div className="comment-card">
@@ -31,21 +31,20 @@ const CommentCard = (props) => {
                     className={`comment-info__text ${
                         !isShow ? ' comment-info__expanded-text' : ''
                     }`}
-                    onClick={toggleText}
-                >
+                    onClick={toggleText}>
                     {trimmedText}
                     <span> {isHiddenText ? '...ещё ' : ''}</span>
                 </p>
             </div>
         </div>
-    );
-};
+    )
+}
 
 CommentCard.propTypes = {
     photo: PropTypes.string,
     name: PropTypes.string,
     jobtitle: PropTypes.string,
     description: PropTypes.string,
-};
+}
 
-export default CommentCard;
+export default CommentCard

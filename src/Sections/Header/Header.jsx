@@ -23,7 +23,7 @@ export const Header = () => {
     const { t } = useTranslation()
     const { i18n } = useTranslation()
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
-    const [language, setLanguage] = useState('rus')
+    const [language, setLanguage] = useState('kyr')
     const [showOtherImage, setShowOtherImage] = useState(false)
 
     const handleSvgClick = () => {
@@ -36,7 +36,7 @@ export const Header = () => {
     }
 
     const switchLanguage = () => {
-        setLanguage(language === 'rus' ? 'eng' : 'rus')
+        setLanguage(language === 'kyr' ? 'rus' : 'kyr')
         changeLanguage(language)
     }
 
@@ -90,8 +90,8 @@ export const Header = () => {
                 <div className="headerWrapper">
                     <div className="headerLanguage" onClick={handleSvgClick}>
                         <img
-                            src={language === 'rus' ? rus : kyr}
-                            alt={language === 'rus' ? 'Russian' : 'English'}
+                            src={language === 'rus' ? kyr : rus}
+                            alt={language === 'rus' ? 'Russian' : 'Kygyz'}
                         />
                         <FaChevronUp className={showOtherImage && 'open'} />
                         {showOtherImage && (
@@ -100,10 +100,10 @@ export const Header = () => {
                                     className="headerOption"
                                     onClick={switchLanguage}>
                                     <img
-                                        src={language === 'rus' ? kyr : rus}
+                                        src={language === 'kyr' ? kyr : rus}
                                         alt={
                                             language === 'rus'
-                                                ? 'English'
+                                                ? 'Kygyz'
                                                 : 'Russian'
                                         }
                                     />

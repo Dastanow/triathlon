@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import './Feedback.scss'
-import { CustomCarousel } from '../../../UI'
-import { CustomTitle } from '../../../UI'
-import commentService from '../../../Services/commentService'
+import { CustomCarousel, CustomTitle } from '@/UI'
+import commentService from '@/Services/commentService'
+import useInitStateCarousel from '@/hooks/useInitStateCarousel'
+import { useTranslation } from 'react-i18next'
 
 const Feedback = () => {
+    const { t } = useTranslation()
     const [comments, setComments] = useState([])
-    const slidesPerView = 3
+    const [, , , slidesPerView] = useInitStateCarousel()
 
     useEffect(() => {
         commentService.get().then((data) => setComments(data))
@@ -20,9 +22,7 @@ const Feedback = () => {
                 <div className="comments__title">
                     <CustomTitle title={'Отзывы наших клиентов'} />
                 </div>
-                <h4 className="comments__subtitle">
-                    Прочтите, что говорят о нас наши клиенты
-                </h4>
+                <h4 className="comments__subtitle">{t('feedbacktitle')}</h4>
                 <CustomCarousel
                     slidesPerView={slidesPerView}
                     dataArray={comments}

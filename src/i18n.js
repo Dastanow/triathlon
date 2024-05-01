@@ -6,18 +6,19 @@ import translationKR from './mock/locales/kr.json'
 
 i18n.use(initReactI18next).init({
     resources: {
-        kyr: {
+        ky: {
             translation: translationKR,
         },
-        rus: {
+        ru: {
             translation: translationRU,
         },
     },
-    lng: 'rus',
-    fallbackLng: 'rus',
+    lng: 'ky',
+    fallbackLng: 'ky',
     interpolation: {
         escapeValue: false,
     },
 })
 
 export default i18n
+

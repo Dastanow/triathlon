@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react'
 import './CoachesBlock.scss'
-import { fetchAllCoaches } from '../../../App'
-import { CustomCarousel } from '../../../UI'
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock.jsx'
-import { CustomTitle } from '../../../UI'
-import coachService from '../../../Services/coachService.js'
+import { CustomTitle, CustomCarousel } from '@/UI'
+import useInitStateCarousel from '@/hooks/useInitStateCarousel'
+import buttonService from '@/Services/buttonService'
+import coachService from '@/Services/coachService'
 
 const CoachesBlock = () => {
     const [coaches, setCoaches] = useState([])
     const [buttons, setButtons] = useState([])
     const [curGroup, setCurGroup] = useState([])
     const [activeBtn, setActiveBtn] = useState(null)
-    const slidesPerView = 4
+    const [, slidesPerView] = useInitStateCarousel()
 
     useEffect(() => {
-        const data = fetchAllCoaches()
-        setButtons(data.buttons)
+        buttonService.get().then((data) => setButtons(data))
     }, [])
 
     useEffect(() => {
@@ -27,10 +26,13 @@ const CoachesBlock = () => {
 
     const handleChangeCoaches = ({ target }) => {
         setActiveBtn(target.name)
-        const newGroup = curGroup.filter((coach) => coach.area === target.name)
+        const newGroup = coaches.filter(
+            (coach) => coach.type_of_trainer.name === target.name,
+        )
         setCurGroup(newGroup)
     }
-    if (!coaches) return 'Loader...'
+
+    if (!coaches && !buttons) return 'Loader...'
 
     return (
         <section className="coaches" id="coaches">

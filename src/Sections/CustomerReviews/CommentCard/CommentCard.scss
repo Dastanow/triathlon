@@ -4,7 +4,7 @@ $lightblack: #002550;
     width: 480px;
     min-height: 418px;
     text-align: center;
-    padding: 10px 24px;
+    padding: 10px 24px 5px 24px;
     border-radius: 24px;
     border: 1px solid $lightblack;
     &:hover {
@@ -70,6 +70,7 @@ $lightblack: #002550;
     }
     .comment-info > p {
         margin-bottom: 13px;
+        line-height: 140%;
     }
     .comment-info__name {
         font-size: 23px;
@@ -135,14 +136,14 @@ $lightblack: #002550;
     .comment-info__text {
         width: 300px;
         max-height: 100px;
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 //--------------------------------
 @media (max-width: 1440px) {
     .comment-card {
         width: 334px;
-        min-height: 306px;
+        min-height: 312px;
         border-radius: 21px;
         > img {
             width: 112px;
@@ -153,7 +154,7 @@ $lightblack: #002550;
     .comment-info {
         line-height: 130%;
         > p {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
     }
     .comment-info__name {
@@ -165,6 +166,54 @@ $lightblack: #002550;
     .comment-info__text {
         width: 280px;
         max-height: 100px;
-        font-size: 16px;
+    }
+}
+//--------------------------------
+@media (max-width: 375px) {
+    .comment-card {
+        width: 256px;
+        min-height: 237px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        &:hover {
+            box-shadow: none;
+        }
+        > img {
+            width: 86px;
+            height: 86px;
+            margin-bottom: 8px;
+        }
+    }
+    .comment-info {
+        line-height: 150%;
+        > p {
+            margin-bottom: 8px;
+        }
+    }
+    .comment-info__name {
+        font-size: 14px;
+    }
+    .comment-info__specialization {
+        font-size: 12px;
+    }
+    .comment-info__text {
+        font-size: 12px;
+        width: 215px;
+        max-height: 72px;
+    }
+    .comments .container .carousel-inner {
+        > .btn-prev,
+        .btn-next {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            top: 87%;
+        }
+        > .btn-prev {
+            left: 32px;
+        }
+        > .btn-next {
+            right: 32px;
+        }
     }
 }

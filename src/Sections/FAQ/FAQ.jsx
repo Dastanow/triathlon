@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './FAQ.scss';
-import down from '../../Assets/down_svg.png';
-import { initStateFaqForm } from '../../Shared/constants';
+import down from '@assets/down_svg.png';
+import { initStateFaqForm } from '@shared/constants';
 import { CustomTitle, CustomForm } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';

@@ -1,37 +1,38 @@
-import './ModalWindow.scss';
-import modalSvg from '../Assets/modalka.svg';
+import './ModalWindow.scss'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { toggleModal } from '@/store/modalSlice'
 
-const ModalWindow = ({ active, setActive, children }) => {
+const ModalWindow = ({ children }) => {
+    const dispatch = useDispatch()
+    const handleCloseModal = () => {
+        dispatch(toggleModal(false))
+    }
+
+    const modalState = useSelector((state) => state.modal.isActive)
+
     return (
         <div>
             <div
-                className={active ? 'modal active' : 'modal'}
-                onClick={() => setActive(false)}
-            >
+                className={modalState ? 'modal active' : 'modal'}
+                onClick={() => handleCloseModal()}>
                 <div
-                    className={active ? 'modal__content active' : 'modal__content'}
-                    onClick={(e) => e.stopPropagation()}
-                >
-                    <img
-                        src={modalSvg}
-                        onClick={() => setActive(false)}
-                        className="modal-blockk__cross"
-                        alt="reset"
-                    />
-                    {children} 
+                    className={
+                        modalState ? 'modal__content active' : 'modal__content'
+                    }
+                    onClick={(e) => e.stopPropagation()}>
+                    {children}
                 </div>
             </div>
-            
         </div>
-    );
-};
+    )
+}
 
 ModalWindow.propTypes = {
     active: PropTypes.bool,
     setActive: PropTypes.func,
     children: PropTypes.object,
-};
+}
 
-export default ModalWindow;
-
+export default ModalWindow

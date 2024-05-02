@@ -1,7 +1,7 @@
 import './Location.scss';
-import email from '../../Assets/emailSVG.svg';
-import phone from '../../Assets/phoneSVG.svg';
-import map from '../../Assets/mapSVG.svg';
+import email from '@assets/emailSVG.svg';
+import phone from '@assets/phoneSVG.svg';
+import map from '@assets/mapSVG.svg';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
 

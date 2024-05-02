@@ -1,9 +1,9 @@
 import './Footer.scss'
-import Map from '../../Assets/map.svg'
-import email from '../../Assets/email.svg'
-import phone from '../../Assets/phone.svg'
-import instagram from '../../Assets/instagram.svg'
-import Logotip from '../../Assets/logo1.png'
+import Map from '@assets/map.svg'
+import email from '@assets/email.svg'
+import phone from '@assets/phone.svg'
+import instagram from '@assets/instagram.svg'
+import Logotip from '@assets/logo1.png'
 import { useNavigate } from 'react-router-dom'
 
 export const Footer = () => {

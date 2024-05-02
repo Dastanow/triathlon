@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './Vacancies.scss';
 import VacanciesData from './VacanciesFakeData.json';
 import { IoIosArrowUp } from 'react-icons/io';
-import ModalWindow from '../../../Modules/ModalWindow';
-import { initStateVacancyForm } from '../../../Shared/constants';
+import ModalWindow from '@modules/ModalWindow';
+import { initStateVacancyForm } from '@shared/constants';
 import { CustomButton, CustomForm, CustomTitle} from '@ui';
 import { Container } from '@components';
 

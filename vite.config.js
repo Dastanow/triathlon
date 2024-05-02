@@ -17,9 +17,11 @@ export default defineConfig({
             '@modules': path.resolve(__dirname, './src/Modules'),
             '@pages': path.resolve(__dirname, './src/Pages'),
             '@providers': path.resolve(__dirname, './src/providers'),
+            '@shared': path.resolve(__dirname, './src/Shared'),
             '@sections': path.resolve(__dirname, './src/Sections'),
             '@ui': path.resolve(__dirname, './src/UI'),
             '@utils': path.resolve(__dirname, './src/utils'),
+
         },
     },
 })

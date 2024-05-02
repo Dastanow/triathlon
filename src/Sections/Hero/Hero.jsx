@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { CustomButton, CustomForm } from '@ui';
+import { CustomButton } from '@ui';
 import { Container } from '@components';
-import { initStateAppForm } from '../../Shared/constants';
 import ModalWindow from '../../Modules/ModalWindow';
 import './Hero.scss';
 import { useTranslation } from 'react-i18next';
+import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm';
 export const Hero = () => {
     const [modalActive, setModalActive] = useState(false)
     const {t} = useTranslation();
@@ -22,9 +22,7 @@ export const Hero = () => {
                 </div>
             </Container>
             <ModalWindow active={modalActive} setActive={setModalActive}>
-                <CustomForm
-                    {... initStateAppForm}
-                />
+                <ApplicationForm/>
             </ModalWindow>
         </section>
     );

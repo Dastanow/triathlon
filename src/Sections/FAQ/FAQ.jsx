@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import { initStateFaqForm } from '../../Shared/constants';
-import { CustomTitle, CustomForm } from '@ui';
+import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
+import FaqForm from '@/UI/CustomForm/FaqForm/FaqForm';
 
 const Faq = () => {
     const {t} = useTranslation();
@@ -87,7 +87,7 @@ const Faq = () => {
                         ))}
                     </div>
                     <div className="faqForm">
-                        <CustomForm {...initStateFaqForm} />
+                        <FaqForm/>
                     </div>
                 </div>
             </Container>

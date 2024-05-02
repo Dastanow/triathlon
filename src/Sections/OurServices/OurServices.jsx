@@ -3,13 +3,14 @@ import ModalWindow from '../../Modules/ModalWindow';
 import { useState, useEffect } from 'react';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
-import { CustomForm } from '@/UI';
-import { initStateAppForm } from '@/Shared/constants';
 import axios from 'axios';
+import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm';
+import { useTranslation } from 'react-i18next';
 
 export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false);
     const [servicesData, setServicesData] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,7 +27,7 @@ export const OurServices = () => {
     return (
         <section className="ourServices" id="ourServices">
             <Container classNames="ourServicesContainer">
-                <CustomTitle title={'Наши услуги'} />
+                <CustomTitle title={t('path6')} />
                 <div className="ourServicesCards">
                     {servicesData.filter(card => card.id).map((card)=> {
                         return (
@@ -34,7 +35,7 @@ export const OurServices = () => {
                                 <div className="ourServicesCardContent">
                                     <h5 className="ourServicesCardLabel">{card.title}</h5>
                                     <button className="ourServicesCardButton" onClick={() => setModalActive(true)}>
-                                        Узнать больше
+                                        {t('findOutMore')}
                                     </button>
                                 </div>
                                 <img src={card.image && card.image.icon} alt="icon" className="ourServicesCardImg" />
@@ -43,7 +44,7 @@ export const OurServices = () => {
                     })}
                 </div>
                 <ModalWindow active={modalActive} setActive={setModalActive} >
-                    <CustomForm {... initStateAppForm}/>
+                    <ApplicationForm/>
                 </ModalWindow>
             </Container>
         </section>

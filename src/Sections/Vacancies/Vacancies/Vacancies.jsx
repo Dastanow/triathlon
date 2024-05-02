@@ -3,9 +3,9 @@ import './Vacancies.scss';
 import VacanciesData from './VacanciesFakeData.json';
 import { IoIosArrowUp } from 'react-icons/io';
 import ModalWindow from '../../../Modules/ModalWindow';
-import { initStateVacancyForm } from '../../../Shared/constants';
-import { CustomButton, CustomForm, CustomTitle} from '@ui';
+import { CustomButton, CustomTitle} from '@ui';
 import { Container } from '@components';
+import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm';
 
 export const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -84,7 +84,7 @@ export const Vacancies = () => {
                 </div>
             </Container>
             <ModalWindow active={modalActive} setActive={setModalActive}>
-                <CustomForm  {...initStateVacancyForm} />
+                <VacancyForm/>
             </ModalWindow>
         </section>
     );

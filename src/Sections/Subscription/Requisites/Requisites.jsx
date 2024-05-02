@@ -1,7 +1,9 @@
 import './Requisites.scss'
 import subscription from '../../../Assets/subscription.svg'
+import { useTranslation } from 'react-i18next'
 
 const Requisites = () => {
+    const { t } = useTranslation()
     return (
         <div>
             <div className="logotype">
@@ -22,7 +24,7 @@ const Requisites = () => {
                 <p className="payment">Если вы предпочитаете оплату наличными или картой,
                     вы можете подойти в Триатлон-Центр для совершения покупки.</p>
                 <div className="location">
-                    <span className="location__reference">Ул. Фатьянова 10, Школа №69 им. Т. Сатылганова</span>
+                    <span className="location__reference">{t('address')}</span>
                 </div>
             </div>
         </div>

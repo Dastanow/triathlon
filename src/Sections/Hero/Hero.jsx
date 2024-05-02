@@ -40,11 +40,9 @@ export const Hero = () => {
                     </CustomButton>
                 </div>
             </Container>
-            {modalActive && (
-                <ModalWindow>
-                    <CustomForm {...initStateAppForm} />
-                </ModalWindow>
-            )}
+            <ModalWindow>
+                {modalActive && <CustomForm {...initStateAppForm} />}
+            </ModalWindow>
         </section>
     )
 }

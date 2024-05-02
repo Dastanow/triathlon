@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-.form-faq{
+.form-faq {
     cursor: default;
-    &__title{
+    &__title {
         font-family: Montserrat;
         font-size: 44px;
         font-weight: 700;
@@ -11,7 +11,7 @@
             font-size: 32px;
         }
     }
-    &__text{
+    &__text {
         font-family: Montserrat;
         font-size: 22px;
         font-weight: 400;
@@ -28,7 +28,7 @@
             margin-bottom: 10px;
         }
     }
-    &__user{
+    &__user {
         width: 577px;
         height: 70px;
         padding: 20px;
@@ -46,18 +46,18 @@
             margin-bottom: 15px;
         }
     }
-    &__user::placeholder{
+    &__user::placeholder {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 300;
         line-height: 22px;
-        color: #000000;        
+        color: #000000;
     }
-    &__phone{
+    &__phone {
         width: 577px;
         height: 70px;
         padding: 20px;
-        border-radius: 16px ;
+        border-radius: 16px;
         border: 1px solid #00000080;
         color: #909090;
         font-family: Montserrat;
@@ -71,14 +71,14 @@
             margin-bottom: 20px;
         }
     }
-    &__phone::placeholder{
+    &__phone::placeholder {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 300;
         line-height: 22px;
-        color: #000000;        
+        color: #000000;
     }
-     &__area{
+    &__area {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 300;
@@ -90,7 +90,7 @@
         border: 1px solid #00000080;
         color: #909090;
         font-family: Montserrat;
-        padding-bottom: 150px; 
+        padding-bottom: 150px;
         margin-bottom: 50px;
         @media screen and (max-width: 1440px) {
             width: 350px;
@@ -100,56 +100,56 @@
             margin-bottom: 30px;
         }
     }
-    &__area::placeholder{
+    &__area::placeholder {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 300;
-        color: #000000;        
+        color: #000000;
     }
-    &__button{
+    &__button {
         width: 577px;
         height: 70px;
         border-radius: 16px;
-        background: #013D83;
-        color: #FFF;   
+        background: #013d83;
+        color: #fff;
         font-family: system-ui;
         font-size: 22px;
         font-weight: 600;
         line-height: 22.44px;
-        text-align: center; 
+        text-align: center;
         @media screen and (max-width: 1440px) {
             width: 350px;
             height: 45px;
             border-radius: 12px;
-        }         
+        }
     }
 }
 
-.form-app{
+.form-app {
     text-align: center;
     cursor: default;
     width: 790px;
     @media screen and (max-width: 1440px) {
         width: 570px;
     }
-    &__title{
-        cursor: default;   
+    &__title {
+        display: block;
+        text-align: center;
+        padding: 20px 0;
+        cursor: default;
         font-family: Montserrat;
         font-size: 40px;
         font-weight: 700;
         line-height: 48px;
-        text-align: center;
-        color: #002550;  
-        position: relative; 
-        left: 210px;
-        bottom: 30px;
+        color: #002550;
+        margin: 0 auto;
         @media screen and (max-width: 1440px) {
             width: 252px;
             font-size: 28px;
             left: 160px;
         }
     }
-    &__user{
+    &__user {
         width: 600px;
         height: 52px;
         padding: 14px;
@@ -166,20 +166,20 @@
             padding: 8px;
         }
     }
-    &__user::placeholder{
+    &__user::placeholder {
         color: #909090;
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 400;
-        line-height: 19.2px;  
+        line-height: 19.2px;
         @media screen and (max-width: 1440px) {
             font-size: 11px;
         }
     }
-    &__phone{
+    &__phone {
         width: 600px;
         height: 52px;
-        padding: 14px ;
+        padding: 14px;
         border-radius: 8px;
         border: 1px solid #909090;
         color: #909090;
@@ -193,7 +193,7 @@
             padding: 8px;
         }
     }
-    &__phone::placeholder{
+    &__phone::placeholder {
         color: #909090;
         font-family: Montserrat;
         font-size: 16px;
@@ -201,9 +201,9 @@
         line-height: 19.2px;
         @media screen and (max-width: 1440px) {
             font-size: 11px;
-        } 
+        }
     }
-     &__area{
+    &__area {
         padding: 20px;
         font-family: Montserrat;
         font-size: 16px;
@@ -214,39 +214,39 @@
         height: 222px;
         border-radius: 8px;
         border: 1px solid #909090;
-        padding-bottom: 200px; 
+        padding-bottom: 200px;
         outline: none;
         @media screen and (max-width: 1440px) {
             width: 434px;
             height: 160px;
             border-radius: 5px;
             padding: 8px;
-            padding-bottom: 130px; 
+            padding-bottom: 130px;
         }
     }
-    &__area::placeholder{
+    &__area::placeholder {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 400;
         line-height: 19.2px;
         letter-spacing: -0.05em;
-        text-align: left;    
+        text-align: left;
         @media screen and (max-width: 1440px) {
             font-size: 13px;
-        }  
+        }
     }
-    &__button{
+    &__button {
         width: 600px;
         height: 66px;
         padding: 16px;
         border-radius: 16px;
-        background: #013D83;
-        color: #FFF;   
-        margin-top: 30px; 
+        background: #013d83;
+        color: #fff;
+        margin-top: 30px;
         font-family: system-ui;
         font-size: 22px;
         font-weight: 600;
-        text-align: center;   
+        text-align: center;
         @media screen and (max-width: 1440px) {
             width: 434px;
             height: 49px;
@@ -256,21 +256,22 @@
     }
 }
 
-.form-vacancy{
+.form-vacancy {
     text-align: center;
     cursor: default;
     width: 790px;
     @media screen and (max-width: 1440px) {
         width: 580px;
     }
-    &__title{
+    &__title {
         font-family: Montserrat;
         font-size: 40px;
         font-weight: 700;
         line-height: 48px;
-        color: #002550; 
-        position: relative; 
-        left: 95px;
+        color: #002550;
+        display: block;
+        text-align: center;
+        margin: 20px 0;
         @media screen and (max-width: 1440px) {
             width: 252px;
             font-size: 28px;
@@ -278,10 +279,10 @@
             color: #000000;
         }
     }
-    &__user{
+    &__user {
         width: 536px;
         height: 52px;
-        padding: 14px ;
+        padding: 14px;
         border-radius: 8px;
         border: 1px solid #909090;
         color: #909090;
@@ -294,10 +295,10 @@
             margin-top: 20px;
         }
     }
-    &__email{
+    &__email {
         width: 536px;
         height: 52px;
-        padding: 14px ;
+        padding: 14px;
         border-radius: 8px;
         border: 1px solid #909090;
         color: #909090;
@@ -308,7 +309,7 @@
             height: 39px;
         }
     }
-    &__phone{
+    &__phone {
         width: 536px;
         height: 52px;
         padding: 14px;
@@ -321,13 +322,13 @@
             height: 39px;
         }
     }
-    &__button{
+    &__button {
         width: 522px;
         height: 70px;
-        padding: 16px ;
+        padding: 16px;
         border-radius: 8px;
-        background-color: #013A7F;
-        color: #FFF;
+        background-color: #013a7f;
+        color: #fff;
         font-family: Montserrat;
         font-size: 24px;
         font-weight: 600;
@@ -339,12 +340,11 @@
             padding: 8px;
         }
     }
-    
-.form-double{
-    display: flex;
-    justify-content: center;
-}
 
+    .form-double {
+        display: flex;
+        justify-content: center;
+    }
 }
 .check {
     color: #444;
@@ -358,69 +358,66 @@
         line-height: 19px;
         margin-left: 5px;
     }
-  }
-  .box {
+}
+.box {
     display: flex;
     margin-top: 15px;
     @media screen and (max-width: 1440px) {
         margin-top: 5px;
     }
     &-in {
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
-      @media screen and (max-width: 1440px) {
-        width: 18px;
-        height: 18px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        @media screen and (max-width: 1440px) {
+            width: 18px;
+            height: 18px;
+        }
     }
-    }
-  }
-  .module-block__content-checkboxs {
-    margin-left: 180px;
-    margin-top: 25px;
-    @media screen and (max-width: 1440px) {
-        margin-left: 160px;
-        margin-top: 20px;
-    }
-  } 
+}
+.module-block__content-checkboxs {
+    margin: 0 auto;
+    display: inline-block;
+    padding: 20px 0;
+}
 .file {
     width: 517px;
     height: 142px;
-    padding: 20px ;
+    padding: 20px;
     border-radius: 16px;
     text-align: center;
     border: 1px dashed grey;
     &__attach {
-      font-family: Montserrat;
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 22px;
-      letter-spacing: -0.05em;
-      text-align: left;
-      color: #000000;
-      text-align: center;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 22px;
+        letter-spacing: -0.05em;
+        text-align: left;
+        color: #000000;
+        text-align: center;
     }
     &__drop {
-      font-family: Montserrat;
-      font-size: 16px;
-      font-weight: 450;
-      line-height: 19px;
-      letter-spacing: -0.05em;
-      text-align: left;
-      width: 355px;
-      color: #000000;
-      height: 14px;
-      margin-top: 10px;
-      cursor: default; 
-      @media screen and (max-width: 1440px) {
-        width: 380px;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 450;
+        line-height: 19px;
+        letter-spacing: -0.05em;
+        text-align: left;
+        width: 355px;
+        color: #000000;
+        height: 14px;
+        margin-top: 10px;
+        cursor: default;
+        @media screen and (max-width: 1440px) {
+            width: 380px;
+        }
     }
-    }
-    &__label{
+    &__label {
         padding: 5px 10px;
         background-color: transparent;
         font-size: 20px;
-        color: #FFF;
+        color: #fff;
         cursor: pointer;
         color: #013d83;
         font-family: Montserrat;
@@ -429,8 +426,8 @@
     &__install {
         z-index: 2;
     }
-    &__list{
-        border: 3px solid #64C661;
+    &__list {
+        border: 3px solid #64c661;
         width: 544px;
         height: 44px;
         padding: 14px;
@@ -440,12 +437,12 @@
         margin-bottom: 30px;
         margin-left: 125px;
     }
-  }
-  .file:hover {
+}
+.file:hover {
     transition: 0.5s;
     border: 1px dashed red;
-  }
-.warning-titles{
+}
+.warning-titles {
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 300;
@@ -453,13 +450,13 @@
     letter-spacing: -0.05em;
     text-align: left;
     color: #000000;
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-bottom: 5px;
     cursor: default;
     @media screen and (max-width: 1440px) {
         margin-top: 0px;
     }
-    &__child{
+    &__child {
         font-family: Montserrat;
         font-size: 14px;
         font-weight: 300;
@@ -471,15 +468,15 @@
     }
 }
 .form {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 140px;
     margin-bottom: 30px;
-    width: 517px;
+    width: 535px;
     height: 142px;
-    padding: 20px ;
+    padding: 20px;
+    margin: 5px auto;
+    margin-bottom: 30px;
     border: 2px dashed #002550;
     border-radius: 16px;
     box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.5);
@@ -489,44 +486,44 @@
         height: 126px;
         margin-left: 90px;
     }
-  }
-  .form.drag {
+}
+.form.drag {
     border-color: red;
-  }
-  .label {
-        padding: 5px 10px;
-        background-color: transparent;
-        font-size: 16px;
-        color: #FFF;
-        cursor: pointer;
-        color: #013d83;
-        font-family: Montserrat;
-        font-weight: 600;
-        line-height: 19.2px;
-        margin-left: 227px;
-        margin-top: -18px;
-        @media screen and (max-width: 1440px) {
-            margin-left: 200px;
-        }
-        &__span{
-            position: relative;
-            bottom: 3px;
-        }
-  } 
-  .input {
+}
+.label {
+    padding: 5px 10px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    color: #013d83;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 19.2px;
+    margin-left: 227px;
+    margin-top: -18px;
+    @media screen and (max-width: 1440px) {
+        margin-left: 200px;
+    }
+    &__span {
+        position: relative;
+        bottom: 3px;
+    }
+}
+.input {
     margin: 0;
     padding: 0;
     width: 0;
     height: 0;
     visibility: hidden;
-  }
-  
-.correct{
-    &__tick{
+}
+
+.correct {
+    &__tick {
         width: 13px;
         height: 13px;
     }
-    &__title{
+    &__title {
         font-family: Montserrat;
         font-size: 16px;
         font-weight: 400;
@@ -535,7 +532,7 @@
         text-align: left;
         color: #646464;
     }
-    &__delete{
+    &__delete {
         position: fixed;
         width: 16px;
         height: 16px;
@@ -543,9 +540,9 @@
         cursor: pointer;
     }
 }
-.politic{
+.politic {
     margin-top: 20px;
-    &__check{
+    &__check {
         width: 20px;
         height: 20px;
         border: 2px solid #002550;
@@ -557,24 +554,23 @@
             left: 90px;
         }
     }
-    &__text{
-        font-family: Montserrat;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 16.8px;
-        letter-spacing: -0.05em;
-        text-align: left;  
-        color: #646464;
-        position: relative;
-           
-    }
-    &__reference{
+    &__text {
         font-family: Montserrat;
         font-size: 14px;
         font-weight: 400;
         line-height: 16.8px;
         letter-spacing: -0.05em;
         text-align: left;
-        color: #013D83;
+        color: #646464;
+        position: relative;
+    }
+    &__reference {
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.8px;
+        letter-spacing: -0.05em;
+        text-align: left;
+        color: #013d83;
     }
 }

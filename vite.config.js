@@ -21,7 +21,6 @@ export default defineConfig({
             '@sections': path.resolve(__dirname, './src/Sections'),
             '@ui': path.resolve(__dirname, './src/UI'),
             '@utils': path.resolve(__dirname, './src/utils'),
-
         },
     },
 })

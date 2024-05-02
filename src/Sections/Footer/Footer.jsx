@@ -5,6 +5,8 @@ import phone from '@assets/phone.svg'
 import instagram from '@assets/instagram.svg'
 import Logotip from '@assets/logo1.png'
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+
 
 export const Footer = () => {
     const nav = useNavigate()
@@ -12,6 +14,14 @@ export const Footer = () => {
         nav('vacancies')
         window.scrollTo(0, 0)
     }
+    const [News, setNews] = useState(
+        window.matchMedia('(max-width: 769px)').matches
+    );
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setNews(window.matchMedia('(max-width:960px)').matches);
+        }, [])
+    })
     const blocks = [
         [
             'Главная',
@@ -67,11 +77,12 @@ export const Footer = () => {
                                 @triathloncenter.kg
                             </p>
                         </a>
-                        <p className="location">
+                        <p className="locationfoun">
                             <img src={phone} alt="img" />
-                            +996 997 000 180
+                        +996 997 000 180
                             <br />
-                            +996 227 000 180
+                        +996 227 000 180
+                      
                         </p>
                     </div>
                 </div>
@@ -91,6 +102,10 @@ export const Footer = () => {
                             })}
                         </div>
                     ))}
+                    {News && 
+                    <a href="https://www.triathlon.kg/" target="_blank">
+                        <p>Новости</p></a>
+                    }
                 </div>
             </div>
             <div className="footer__line"></div>

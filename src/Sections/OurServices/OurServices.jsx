@@ -1,5 +1,5 @@
 import './OurServices.scss'
-import ModalWindow from '../../Modules/ModalWindow'
+import ModalWindow from '@modules/ModalWindow'
 import doubleIcon from '@assets/svgServices/transparent.png'
 import Img1 from '@assets/svgServices/Dumbless.svg'
 import Img2 from '@assets/svgServices/book.svg'
@@ -10,12 +10,27 @@ import Img6 from '@assets/svgServices/bicycle.svg'
 import Img7 from '@assets/svgServices/Certified.svg'
 import Img8 from '@assets/svgServices/Lockers.svg'
 import Img9 from '@assets/svgServices/parking.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CustomTitle } from '@ui'
 import { Container } from '@components'
+import { toggleModal } from '@/store/modalSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false)
+    const modalState = useSelector((state) => state.modal.isActive)
+
+    const dispatch = useDispatch()
+    const handleOpenModal = () => {
+        dispatch(toggleModal(true))
+        setModalActive(true)
+    }
+    useEffect(() => {
+        if (!modalState) {
+            setModalActive(false)
+        }
+    }, [modalState])
+
 
     const data = [
         {
@@ -94,7 +109,7 @@ export const OurServices = () => {
                                     </h5>
                                     <button
                                         className="ourServicesCardButton"
-                                        onClick={() => setModalActive(true)}>
+                                        onClick={() => handleOpenModal()}>
                                         Узнать больше
                                     </button>
                                 </div>
@@ -107,9 +122,11 @@ export const OurServices = () => {
                         )
                     })}
                 </div>
-                <ModalWindow active={modalActive} setActive={setModalActive}>
-                    {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
-                </ModalWindow>
+                {modalActive && (
+                    <ModalWindow>
+                        {/* {... initStateAppForm}  /////FIX ME\\\\\\ */}
+                    </ModalWindow>
+                )}
             </Container>
         </section>
     )

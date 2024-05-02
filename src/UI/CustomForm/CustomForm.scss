@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 .form-faq{
-    margin-left: 50px;
     cursor: default;
     &__title{
         font-family: Montserrat;
@@ -8,7 +7,6 @@
         font-weight: 700;
         line-height: 52.8px;
         color: #000000;
-        margin-left: 50px;
         @media screen and (max-width: 1440px) {
             font-size: 32px;
         }
@@ -22,7 +20,6 @@
         margin-top: 10px;
         margin-bottom: 20px;
         cursor: default;
-        margin-left: 50px;
         @media screen and (max-width: 1440px) {
             font-size: 16px;
             width: 317.52px;
@@ -43,7 +40,7 @@
         margin-bottom: 30px;
         outline: none;
         @media screen and (max-width: 1440px) {
-            width: 377px;
+            width: 350px;
             height: 45px;
             border-radius: 12px;
             margin-bottom: 15px;
@@ -68,7 +65,7 @@
         margin-bottom: 30px;
         outline: none;
         @media screen and (max-width: 1440px) {
-            width: 377px;
+            width: 350px;
             height: 45px;
             border-radius: 12px;
             margin-bottom: 20px;
@@ -96,7 +93,7 @@
         padding-bottom: 150px; 
         margin-bottom: 50px;
         @media screen and (max-width: 1440px) {
-            width: 377px;
+            width: 350px;
             height: 193px;
             padding-bottom: 155px;
             border-radius: 12px;
@@ -121,7 +118,7 @@
         line-height: 22.44px;
         text-align: center; 
         @media screen and (max-width: 1440px) {
-            width: 377px;
+            width: 350px;
             height: 45px;
             border-radius: 12px;
         }         

@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import './Vacancies.scss'
-import VacanciesData from './VacanciesFakeData.json'
+
+import { useState } from 'react';
+import './Vacancies.scss';
+import VacanciesData from './VacanciesFakeData.json';
 import { IoIosArrowDown } from 'react-icons/io'
-import ModalWindow from '../../../Modules/ModalWindow'
-import { initStateVacancyForm } from '../../../Shared/constants'
-import { CustomButton, CustomForm, CustomTitle } from '@ui'
-import { Container } from '@components'
+import ModalWindow from '@modules/ModalWindow';
+import { initStateVacancyForm } from '@shared/constants';
+import { CustomButton, CustomForm, CustomTitle} from '@ui';
+import { Container } from '@components';
 
 export const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null)

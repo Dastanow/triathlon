@@ -79,9 +79,13 @@ export const CustomCarousel = (props) => {
     }
 
     const handleClickOnSlide = (swiper) => {
-        if (dataArray[0]?.section !== 'trainer') return
-        const slideIndex = swiper.clickedIndex
-        const clickedSlide = dataArray[slideIndex]
+        const clickedIndex = swiper.clickedIndex
+        const clickedSlide = dataArray[clickedIndex]
+
+        const isTargetSection = dataArray[0]?.section !== 'trainer'
+        const isClickedSlide = swiper.clickedSlide
+
+        if (!isTargetSection && !isClickedSlide) return
         setClickedSlide(clickedSlide)
         setModalActive(true)
     }

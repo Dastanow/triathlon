@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CustomButton } from '@ui';
 import { Container } from '@components';
 import ModalWindow from '../../Modules/ModalWindow';

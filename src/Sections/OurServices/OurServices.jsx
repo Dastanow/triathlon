@@ -5,10 +5,25 @@ import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import axios from 'axios';
 import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm';
+import { toggleModal } from '@/store/modalSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
 
 export const OurServices = () => {
-    const [modalActive, setModalActive] = useState(false);
+    const [modalActive, setModalActive] = useState(false)
+    const modalState = useSelector((state) => state.modal.isActive)
+
+    const dispatch = useDispatch()
+    const handleOpenModal = () => {
+        dispatch(toggleModal(true))
+        setModalActive(true)
+    }
+    useEffect(() => {
+        if (!modalState) {
+            setModalActive(false)
+        }
+    }, [modalState])
+
     const [servicesData, setServicesData] = useState([]);
     const { t } = useTranslation();
 
@@ -34,7 +49,7 @@ export const OurServices = () => {
                             <div key={card.id} className="ourServicesCard">
                                 <div className="ourServicesCardContent">
                                     <h5 className="ourServicesCardLabel">{card.title}</h5>
-                                    <button className="ourServicesCardButton" onClick={() => setModalActive(true)}>
+                                    <button className="ourServicesCardButton" onClick={() => handleOpenModal()}>
                                         {t('findOutMore')}
                                     </button>
                                 </div>
@@ -43,9 +58,11 @@ export const OurServices = () => {
                         )
                     })}
                 </div>
-                <ModalWindow active={modalActive} setActive={setModalActive} >
-                    <ApplicationForm/>
-                </ModalWindow>
+                {modalActive && (
+                    <ModalWindow>
+                        <ApplicationForm/>
+                    </ModalWindow>
+                )}
             </Container>
         </section>
     )

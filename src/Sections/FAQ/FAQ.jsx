@@ -53,7 +53,7 @@ const Faq = () => {
     return (
         <section className="faq" id="faq">
             <Container classNames="faqContainer">
-                <CustomTitle title={t('foq')} />
+                <CustomTitle title={t('faq')} />
                 <div className="faqWrapper">
                     <div className="faqSelects">
                         {questions.map((question, index) => (

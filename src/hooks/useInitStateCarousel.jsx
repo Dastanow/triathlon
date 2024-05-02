@@ -5,9 +5,11 @@ const useInitStateCarousel = () => {
     const [data, setData] = useState({ coach: 4, comment: 3 })
 
     const handleResize = () => {
-        const width = window.outerWidth
+        const inner = window.innerWidth
+        const outer = window.outerWidth
+        const resultWidth = inner <= outer ? inner : outer
 
-        if (width <= 375) {
+        if (resultWidth <= 375) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 12,
@@ -18,7 +20,7 @@ const useInitStateCarousel = () => {
                 coach: 1.5,
                 comment: 1,
             }))
-        } else if (width < 1440) {
+        } else if (resultWidth < 1440) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 24,
@@ -29,19 +31,19 @@ const useInitStateCarousel = () => {
                 coach: 4,
                 comment: 3,
             }))
-        } else if (width < 1560) {
+        } else if (resultWidth < 1560) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 27,
                 comment: 27,
             }))
-        } else if (width < 1680) {
+        } else if (resultWidth < 1680) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 30,
                 comment: 30,
             }))
-        } else if (width < 1800) {
+        } else if (resultWidth < 1800) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 33,

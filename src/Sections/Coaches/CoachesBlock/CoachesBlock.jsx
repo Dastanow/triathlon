@@ -11,6 +11,7 @@ const CoachesBlock = () => {
     const [buttons, setButtons] = useState([])
     const [curGroup, setCurGroup] = useState([])
     const [activeBtn, setActiveBtn] = useState(null)
+    const [swiperInstance, setSwiperInstance] = useState(null)
     const [, slidesPerView] = useInitStateCarousel()
 
     useEffect(() => {
@@ -30,6 +31,9 @@ const CoachesBlock = () => {
             (coach) => coach.type_of_trainer.name === target.name,
         )
         setCurGroup(newGroup)
+        if (swiperInstance) {
+            swiperInstance.slideTo(0)
+        }
     }
 
     if (!coaches && !buttons) return 'Loader...'
@@ -48,6 +52,7 @@ const CoachesBlock = () => {
                 <CustomCarousel
                     dataArray={curGroup}
                     slidesPerView={slidesPerView}
+                    onSwiper={setSwiperInstance}
                 />
             </div>
         </section>

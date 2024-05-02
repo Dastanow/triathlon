@@ -21,13 +21,8 @@ footer {
   .logo__container {
     display: flex;
     flex-direction: column;
-
     gap: 34px;
     margin-top: 20px;
-    .footer__count {
-      .footer__contacts__tel {
-      }
-    }
     p {
       display: flex;
       justify-content: start;
@@ -53,8 +48,9 @@ footer {
   display: flex;
   background: var(--Primary, #002550);
   justify-content: center;
+  padding: 10px 0;
   h3 {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 150%;
   }
@@ -80,12 +76,13 @@ p {
 @media only screen and (max-width: 1440px) {
   .footer__container {
     padding: 20px 120px;
-    gap: 66px;
+    gap: 50px;
     .footer__blocks {
-      gap: 66px;
+      gap: 40px;
     }
     .logo__container {
       display: flex;
+      align-items: center;
       flex-direction: column;
       gap: 23px;
       p {
@@ -97,7 +94,6 @@ p {
     p {
       color: #fff;
       gap: 8px;
-
       font-size: 14px;
       font-weight: 500;
       line-height: 120%;
@@ -111,12 +107,17 @@ p {
     }
   }
 }
+@media only screen and (max-width: 985px) {
+  .footer__container {
+  gap: 55px;
+    .footer__blocks {
+  gap: 45px;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .footer__container {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
     .footer__blocks {
       flex-direction: column;
       flex-direction: column-reverse;
@@ -135,19 +136,24 @@ p {
       }
     }
     .logo__container {
-      display: ruby;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       font-size: 0;
+      
       .footer__count {
         display: flex;
        margin-left: 30px;
+       .locationfoun {
+        font-size: 0;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 10px;
+       }
         .location {
           font-size: 0;
           display: flex;
           align-items: center;
-          margin-right: 20px;
+          gap: 30px;
           .footer__mapp {
             img {
               display: none;
@@ -164,7 +170,6 @@ p {
     }
   }
   .footer__line {
-    width: 395px;
     height: 1px;
     background-color: rgba(1, 61, 131, 0.7);
     margin: auto;

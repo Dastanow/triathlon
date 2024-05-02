@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import './TrainingAreasGroup.scss'
-import { CustomCarousel } from '../../../UI'
-import { CustomTitle } from '../../../UI'
-import trainAreaService from '../../../Services/trainAreaService'
+import { CustomCarousel, CustomTitle } from '@/UI'
+import trainAreaService from '@/Services/trainAreaService'
 
 const TrainingAreasGroup = () => {
     const [trainingAreas, setTrainingAreas] = useState([])

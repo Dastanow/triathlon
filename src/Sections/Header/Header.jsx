@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Header.scss'
-import logotype from '../../Assets/logo1.png'
-import account from '../../Assets/account.svg'
-import { FaChevronUp } from 'react-icons/fa'
-import rus from '../../Assets/language_rus.png'
-import kyr from '../../Assets/language_kyr.png'
+import logotype from '@assets/logo1.png'
+import account from '@assets/account.svg'
+import ru from '@assets/language_rus.png'
+import ky from '@assets/language_kyr.png'
 import { Link } from 'react-router-dom'
-import { Container } from '../../Components/Container/Container'
+import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
+import { FaChevronUp } from 'react-icons/fa'
 
 const navigatePath = [
     [{ text: 'path1', id: 'main' }],
@@ -20,40 +20,28 @@ const navigatePath = [
 ]
 
 export const Header = () => {
-    const { t } = useTranslation()
-    const { i18n } = useTranslation()
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
-    const [language, setLanguage] = useState('rus')
+    const { t, i18n } = useTranslation()
+    const [selectedLanguage, setSelectedLanguage] = useState(
+        localStorage.getItem('selectedLanguage') || i18n.language,
+    )
     const [showOtherImage, setShowOtherImage] = useState(false)
+
+    useEffect(() => {
+        localStorage.setItem('selectedLanguage', selectedLanguage)
+        console.log('Language saved to localStorage:', i18n.language) // Отладочный вывод
+        i18n.changeLanguage(selectedLanguage)
+    }, [selectedLanguage, i18n])
 
     const handleSvgClick = () => {
         setShowOtherImage((prevState) => !prevState)
     }
 
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang)
-        setSelectedLanguage(lang)
-    }
-
     const switchLanguage = () => {
-        setLanguage(language === 'rus' ? 'eng' : 'rus')
-        changeLanguage(language)
+        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
+        setSelectedLanguage(newLanguage)
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.matchMedia('(min-width: 1024px)').matches) {
-                const header = document.querySelector('.header')
-                const headerHeight = header.offsetHeight
-                const scrollThreshold = 1.1 * headerHeight
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add('fixed')
-                } else {
-                    header.classList.remove('fixed')
-                }
-            }
-        })
-    })
+    console.log('Current selectedLanguage:', i18n.language) // Отладочный вывод
 
     return (
         <header className="header">
@@ -90,21 +78,29 @@ export const Header = () => {
                 <div className="headerWrapper">
                     <div className="headerLanguage" onClick={handleSvgClick}>
                         <img
-                            src={language === 'rus' ? rus : kyr}
-                            alt={language === 'rus' ? 'Russian' : 'English'}
+                            src={selectedLanguage === 'ru' ? ru : ky}
+                            alt={
+                                selectedLanguage === 'ru'
+                                    ? 'russian'
+                                    : 'kygyz'
+                            }
                         />
-                        <FaChevronUp className={showOtherImage && 'open'} />
+                        <FaChevronUp />
                         {showOtherImage && (
                             <div className="header-back">
                                 <div
                                     className="headerOption"
                                     onClick={switchLanguage}>
                                     <img
-                                        src={language === 'rus' ? kyr : rus}
+                                        src={
+                                            selectedLanguage === 'ru'
+                                                ? ky
+                                                : ru
+                                        }
                                         alt={
-                                            language === 'rus'
-                                                ? 'English'
-                                                : 'Russian'
+                                            selectedLanguage === 'ru'
+                                                ? 'kygyz'
+                                                : 'russian'
                                         }
                                     />
                                 </div>
@@ -119,3 +115,5 @@ export const Header = () => {
         </header>
     )
 }
+
+export default Header

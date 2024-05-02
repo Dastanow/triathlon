@@ -1,8 +1,6 @@
 .inner-carousel-image {
     width: 1090px;
     height: 610px;
-    border-radius: 16px 0 0 16px;
-    overflow: hidden;
     object-fit: cover;
 }
 //-------media-query------------------
@@ -10,7 +8,6 @@
     .inner-carousel-image {
         width: 1014px;
         height: 567px;
-        border-radius: 15px 0 0 15px;
     }
 }
 //------------------------------------
@@ -18,7 +15,6 @@
     .inner-carousel-image {
         width: 938px;
         height: 525px;
-        border-radius: 14px 0 0 14px;
     }
 }
 //------------------------------------
@@ -26,7 +22,6 @@
     .inner-carousel-image {
         width: 850px;
         height: 475px;
-        border-radius: 13px 0 0 13px;
     }
 }
 //------------------------------------
@@ -34,6 +29,12 @@
     .inner-carousel-image {
         width: 760px;
         height: 425px;
-        border-radius: 11px 0 0 11px;
+    }
+}
+//------------------------------------
+@media (max-width: 375px) {
+    .inner-carousel-image {
+        width: 343px;
+        height: 220px;
     }
 }

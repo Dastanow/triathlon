@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import CoachCard from '../CoachCard/CoachCard';
-import useGetSpaceBetweenSlides from '@hooks/useGetSpaceBetweenSlides';
+import PropTypes from 'prop-types'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules'
+import CoachCard from '../CoachCard/CoachCard'
+import useInitStateCarousel from '@/hooks/useInitStateCarousel'
 
 const CoachesCarousel = (props) => {
-    const { dataArray, swiperRef, onNavButton, onClickSlide } = props;
-    const [spaceBetween, slidesPerView] = useGetSpaceBetweenSlides();
-    console.log(spaceBetween, slidesPerView);
+    const { dataArray, swiperRef, onNavButton, onClickSlide, onSwiper } = props
+    const [spaceBetween, slidesPerView] = useInitStateCarousel()
+
     return (
         <div className="coach-inner__wrapper">
             <Swiper
@@ -16,28 +16,29 @@ const CoachesCarousel = (props) => {
                 slidesPerView={slidesPerView}
                 pagination={{ clickable: true }}
                 onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
+                    swiperRef.current = swiper
                 }}
+                onSwiper={onSwiper}
                 onSlideChange={(swiper) => onNavButton(swiper)}
-                onClick={(swiper) => onClickSlide(swiper)}
-            >
+                onClick={(swiper) => onClickSlide(swiper)}>
                 {dataArray.map((item) => {
                     return (
                         <SwiperSlide key={item.id}>
                             <CoachCard {...item} />
                         </SwiperSlide>
-                    );
+                    )
                 })}
             </Swiper>
         </div>
-    );
-};
+    )
+}
 
 CoachesCarousel.propTypes = {
     dataArray: PropTypes.arrayOf(PropTypes.object),
     onNavButton: PropTypes.func,
     onClickSlide: PropTypes.func,
     swiperRef: PropTypes.object,
-};
+    onSwiper: PropTypes.func,
+}
 
-export default CoachesCarousel;
+export default CoachesCarousel

@@ -14,13 +14,14 @@ export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData,setSubsData] = useState()
     const modalState = useSelector((state) => state.modal.isActive)
-    const { t,i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     const dispatch = useDispatch()
     const handleOpenModal = () => {
         dispatch(toggleModal(true))
         setModalActive(true)
     }
+    
     useEffect(() => {
         if (!modalState) {
             setModalActive(false)
@@ -36,7 +37,8 @@ export const Subscription = () => {
     }
     useEffect(()=>{
         funcGet()
-    },[i18n])
+    },[i18n.language])
+
     return (
         <section className="subscription" id="subscription">
             <Container classNames="subscriptionContainer">

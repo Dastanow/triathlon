@@ -2,31 +2,38 @@ import { CustomTitle } from '@ui'
 import './SectionTriatlon.scss'
 import { Container } from '@components'
 import { SectionTriatlhonMobile } from './SectionTriatlhonMobile/SectionTriatlhonMobile'
-import { useEffect, useState, useTransition } from 'react'
+import { useEffect, useState } from 'react'
 import { axiosAPI } from '@/App'
+import { useTranslation } from 'react-i18next'
 
 const SectionTriatlon = () => {
+    const [rows, setRows] = useState()
+    const { i18n } = useTranslation()
+
     const [showMobile, setShowMobile] = useState(
         window.matchMedia('(max-width: 768px)').matches,
     )
+
     useEffect(() => {
         window.addEventListener('resize', () => {
             setShowMobile(window.matchMedia('(max-width: 768px)').matches)
         })
     }, [])
-    const [rows,setRows] = useState()
-    const [i18n] = useTransition
-    const funcGet =  async()=>{
-        try{
-            const res = await axiosAPI.get('http://209.38.228.54:83/api/v1/services/')
+
+    const funcGet = async () => {
+        try {
+            const res = await axiosAPI.get(
+                'http://209.38.228.54:83/api/v1/services/',
+            )
             setRows(res.data)
-        }catch(err){
-            console.log(err,'error in SectionTriatlon');
+        } catch (err) {
+            console.log(err, 'error in SectionTriatlon')
         }
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         funcGet()
-    },[i18n])
+    }, [i18n.language])
 
     return (
         <section id="table" className="tableMobile">

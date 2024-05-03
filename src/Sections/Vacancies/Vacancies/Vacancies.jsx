@@ -1,21 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Vacancies.scss';
 import VacanciesData from './VacanciesFakeData.json';
-import { IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io'
 import ModalWindow from '@modules/ModalWindow';
-import { initStateVacancyForm } from '@shared/constants';
-import { CustomButton, CustomForm, CustomTitle} from '@ui';
+import { toggleModal } from '@/store/modalSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { CustomButton, CustomTitle} from '@ui';
 import { Container } from '@components';
+import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm';
 
 export const Vacancies = () => {
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null)
+    const [modalActive, setModalActive] = useState(false)
 
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+        setOpenIndex(openIndex === index ? null : index)
+    }
 
-    const [modalActive, setModalActive] = useState(false);
-    const { vacancyClass } = initStateVacancyForm;
+    const modalState = useSelector((state) => state.modal.isActive)
+
+    const dispatch = useDispatch()
+    const handleOpenModal = () => {
+        dispatch(toggleModal(true))
+        setModalActive(true)
+    }
+    useEffect(() => {
+        if (!modalState) {
+            setModalActive(false)
+        }
+    }, [modalState])
+
 
     return (
         <section className="vacancies" id="vacancies">
@@ -30,17 +44,15 @@ export const Vacancies = () => {
                                     (openIndex === index
                                         ? ' vacanciesItem-opened'
                                         : '')
-                                }
-                            >
+                                }>
                                 <div
                                     className="vacanciesToggleField"
-                                    onClick={() => handleToggle(index)}
-                                >
+                                    onClick={() => handleToggle(index)}>
                                     <h5 className="vacanciesTitle">
                                         {vacancie.zgolovok}
                                     </h5>
                                     <span className="vacanciesArrow">
-                                        <IoIosArrowUp
+                                        <IoIosArrowDown
                                             className={
                                                 openIndex === index
                                                     ? 'openArrow'
@@ -75,8 +87,7 @@ export const Vacancies = () => {
                                 <CustomButton
                                     className="vacanciesButton"
                                     type="primary"
-                                    onClick={() => setModalActive(true)}
-                                >
+                                    onClick={() => handleOpenModal()}>
                                     Отправить резюме
                                 </CustomButton>
                             </div>
@@ -84,11 +95,13 @@ export const Vacancies = () => {
                     ))}
                 </div>
             </Container>
-            <ModalWindow active={modalActive} setActive={setModalActive}>
-                <CustomForm classes={vacancyClass} {...initStateVacancyForm} />
-            </ModalWindow>
+            {modalActive && (
+                <ModalWindow>
+                    <VacancyForm/>
+                </ModalWindow>
+            )}
         </section>
-    );
-};
+    )
+}
 
-export default Vacancies;
+export default Vacancies

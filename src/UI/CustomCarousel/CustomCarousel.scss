@@ -191,12 +191,16 @@ $black: #000;
     }
 }
 //-----------------------------------
-@media (max-width: 375px) {
+@media (max-width: 425px) {
+    .carousel-inner {
+        max-width: 335px;
+        margin: 0 auto;
+    }
     .coach-inner__wrapper {
-        max-width: 327px;
+        width: 100%;
     }
     .train-areas-inner__wrapper {
-        max-width: 100%;
+        width: 100%;
     }
     .comment-inner__wrapper {
         max-width: 256px;

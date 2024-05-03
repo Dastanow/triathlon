@@ -9,7 +9,7 @@ export const validationConfig = {
         },
     },
     phoneNumber: {
-        isCorrectNumber: {
+        isRequired: {
             message: 'Введите телефон полностью',
         }
     },
@@ -29,6 +29,11 @@ export const validationConfig = {
     price: {
         isRequired: {
             message: 'Узнайте о цене'
+        }
+    },
+    policy: {
+        isRequired: {
+            message: 'Соглашение с политикой'
         }
     },
 }

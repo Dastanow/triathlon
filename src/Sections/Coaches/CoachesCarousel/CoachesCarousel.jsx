@@ -5,7 +5,7 @@ import CoachCard from '../CoachCard/CoachCard'
 import useInitStateCarousel from '@/hooks/useInitStateCarousel'
 
 const CoachesCarousel = (props) => {
-    const { dataArray, swiperRef, onNavButton, onClickSlide } = props
+    const { dataArray, swiperRef, onNavButton, onClickSlide, onSwiper } = props
     const [spaceBetween, slidesPerView] = useInitStateCarousel()
 
     return (
@@ -18,7 +18,8 @@ const CoachesCarousel = (props) => {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
-                onSlideChange={(swiper) => onNavButton(swiper)}
+                onSwiper={onSwiper}
+                onSlideChange={(event) => onNavButton(event)}
                 onClick={(swiper) => onClickSlide(swiper)}>
                 {dataArray.map((item) => {
                     return (
@@ -37,6 +38,7 @@ CoachesCarousel.propTypes = {
     onNavButton: PropTypes.func,
     onClickSlide: PropTypes.func,
     swiperRef: PropTypes.object,
+    onSwiper: PropTypes.func,
 }
 
 export default CoachesCarousel

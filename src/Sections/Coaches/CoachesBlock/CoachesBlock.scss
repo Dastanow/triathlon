@@ -1,40 +1,10 @@
-.coaches {
-    margin-bottom: 110px;
-}
-
 .coaches__title {
     margin-bottom: 36px;
     pointer-events: none;
 }
-//----media-----------------
-@media (max-width: 1800px) {
-    .coaches {
-        margin-bottom: 105px;
-    }
-}
-//---------------------------
-@media (max-width: 1680px) {
-    .coaches {
-        margin-bottom: 100px;
-    }
-}
-//---------------------------
-@media (max-width: 1560px) {
-    .coaches {
-        margin-bottom: 95px;
-    }
-}
-//---------------------------
-@media (max-width: 1440px) {
-    .coaches {
-        margin-bottom: 90px;
-    }
-}
+
 //---------------------------
 @media (max-width: 762px) {
-    .coaches {
-        margin-bottom: 24px;
-    }
     .coaches__title {
         margin-bottom: 20px;
     }

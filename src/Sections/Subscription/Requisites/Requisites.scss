@@ -2,10 +2,11 @@
 .logotype {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 .requisites_block {
-    padding-block: 20px;
+    padding: 30px;
 }
 
 .requisites {
@@ -62,15 +63,19 @@
     margin-left: 350px;
 }
 .payment {
-    width: 725px;
-    margin: 0 auto;
+    text-align: center;
+    margin: 20px auto;
     color: #000000;
     margin-top: 30px;
     font-family: Montserrat;
     font-size: 24px;
     font-weight: 500;
     line-height: 29.26px;
-    text-align: center;
+    width: 726px;
+        @media screen and (max-width: 1440px) {
+            width: 575px;
+            font-size: 20px;
+        }
 }
 .location {
     margin-top: 10px;
@@ -83,5 +88,8 @@
         line-height: 41.44px;
         text-align: left;
         color: #171717;
+        @media screen and (max-width: 1440px) {
+            font-size: 20px;
+        }
     }
 }

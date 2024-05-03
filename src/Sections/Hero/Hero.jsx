@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { CustomButton, CustomForm } from '@ui'
+import { useState, useEffect } from 'react'
+import { CustomButton } from '@ui'
 import { Container } from '@components'
-import { initStateAppForm } from '@shared/constants'
-import ModalWindow from '@modules/ModalWindow'
+import ModalWindow from '../../Modules/ModalWindow'
 import './Hero.scss'
 import { useTranslation } from 'react-i18next'
+import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm'
 import { toggleModal } from '@/store/modalSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -40,11 +40,7 @@ export const Hero = () => {
                     </CustomButton>
                 </div>
             </Container>
-            {modalActive && (
-                <ModalWindow>
-                    <CustomForm {...initStateAppForm} />
-                </ModalWindow>
-            )}
+            <ModalWindow>{modalActive && <ApplicationForm />}</ModalWindow>
         </section>
     )
 }

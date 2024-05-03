@@ -64,11 +64,7 @@ footer {
     font-weight: 500;
   }
 }
-h2,
-h3,
-p {
-  cursor: pointer;
-}
+
 .Link:visited {
   color: inherit;
 }
@@ -80,7 +76,7 @@ p {
     .footer__blocks {
       gap: 40px;
     }
-    .logo__container {
+    .logo__container {  
       display: flex;
       align-items: center;
       flex-direction: column;

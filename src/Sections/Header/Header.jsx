@@ -25,16 +25,14 @@ export const Header = () => {
     const [count, setCount] = useState(false);
     const nav = useNavigate();
     const { t, i18n } = useTranslation()
-    const [selectedLanguage, setSelectedLanguage] = useState(
-        localStorage.getItem('selectedLanguage') || i18n.language,
-    )
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
     const [showOtherImage, setShowOtherImage] = useState(false)
     const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
 
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
-        console.log('Language saved to localStorage:', i18n.language) // Отладочный вывод
+        console.log('Language saved to localStorage:', selectedLanguage) // Отладочный вывод
         i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage, i18n])
 
@@ -99,9 +97,7 @@ export const Header = () => {
                             className='headerlangImg'
                             src={selectedLanguage === 'ru' ? ru : ky}
                             alt={
-                                selectedLanguage === 'ru'
-                                    ? 'russian'
-                                    : 'kygyz'
+                                selectedLanguage === 'ru' ? 'russian' : 'kygyz'
                             }
                         />
                         <img src={chevron} alt="Chevron" style={{
@@ -115,9 +111,7 @@ export const Header = () => {
                                     <img
                                         className='headerlangImg'
                                         src={
-                                            selectedLanguage === 'ru'
-                                                ? ky
-                                                : ru
+                                            selectedLanguage === 'ru' ? ky : ru
                                         }
                                         alt={
                                             selectedLanguage === 'ru'

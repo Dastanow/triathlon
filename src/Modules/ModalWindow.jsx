@@ -32,7 +32,7 @@ const ModalWindow = ({ children }) => {
 ModalWindow.propTypes = {
     active: PropTypes.bool,
     setActive: PropTypes.func,
-    children: PropTypes.object,
+    children: PropTypes.any,
 }
 
 export default ModalWindow

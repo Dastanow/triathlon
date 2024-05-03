@@ -11,12 +11,12 @@ import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm';
 
 export const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null)
+    const [modalActive, setModalActive] = useState(false)
 
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index)
     }
 
-    const [modalActive, setModalActive] = useState(false)
     const modalState = useSelector((state) => state.modal.isActive)
 
     const dispatch = useDispatch()
@@ -29,6 +29,7 @@ export const Vacancies = () => {
             setModalActive(false)
         }
     }, [modalState])
+
 
     return (
         <section className="vacancies" id="vacancies">

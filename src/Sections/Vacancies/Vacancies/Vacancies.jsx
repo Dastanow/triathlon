@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
-import './Vacancies.scss'
-import VacanciesData from './VacanciesFakeData.json'
+import { useState, useEffect } from 'react';
+import './Vacancies.scss';
+import VacanciesData from './VacanciesFakeData.json';
 import { IoIosArrowDown } from 'react-icons/io'
-import ModalWindow from '@modules/ModalWindow'
-import { initStateVacancyForm } from '@shared/constants'
-import { CustomButton, CustomForm, CustomTitle } from '@ui'
-import { Container } from '@components'
-import { useDispatch, useSelector } from 'react-redux'
+import ModalWindow from '@modules/ModalWindow';
 import { toggleModal } from '@/store/modalSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { CustomButton, CustomTitle} from '@ui';
+import { Container } from '@components';
+import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm';
 
 export const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null)
@@ -30,7 +30,6 @@ export const Vacancies = () => {
         }
     }, [modalState])
 
-    const { vacancyClass } = initStateVacancyForm
 
     return (
         <section className="vacancies" id="vacancies">
@@ -96,14 +95,11 @@ export const Vacancies = () => {
                     ))}
                 </div>
             </Container>
-            <ModalWindow>
-                {modalActive && (
-                    <CustomForm
-                        classes={vacancyClass}
-                        {...initStateVacancyForm}
-                    />
-                )}
-            </ModalWindow>
+            {modalActive && (
+                <ModalWindow>
+                    <VacancyForm/>
+                </ModalWindow>
+            )}
         </section>
     )
 }

@@ -19,7 +19,7 @@ const CoachesCarousel = (props) => {
                     swiperRef.current = swiper
                 }}
                 onSwiper={onSwiper}
-                onSlideChange={(swiper) => onNavButton(swiper)}
+                onSlideChange={(event) => onNavButton(event)}
                 onClick={(swiper) => onClickSlide(swiper)}>
                 {dataArray.map((item) => {
                     return (

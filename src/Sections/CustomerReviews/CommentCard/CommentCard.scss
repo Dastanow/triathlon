@@ -169,9 +169,9 @@ $lightblack: #002550;
     }
 }
 //--------------------------------
-@media (max-width: 375px) {
+@media (max-width: 425px) {
     .comment-card {
-        width: 256px;
+        width: 100%;
         min-height: 237px;
         padding: 5px 12px;
         border-radius: 20px;
@@ -210,10 +210,10 @@ $lightblack: #002550;
             top: 87%;
         }
         > .btn-prev {
-            left: 32px;
+            left: 40px;
         }
         > .btn-next {
-            right: 32px;
+            right: 40px;
         }
     }
 }

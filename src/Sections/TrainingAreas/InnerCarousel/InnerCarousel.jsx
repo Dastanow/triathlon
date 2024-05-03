@@ -1,20 +1,19 @@
-import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import './InnerCarousel.scss';
+import PropTypes from 'prop-types'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import './InnerCarousel.scss'
 
 const InnerCarousel = ({ slides }) => {
     return (
         <Swiper
             modules={[Autoplay]}
-            spaceBetween={0}
+            spaceBetween={10}
             slidesPerView={1}
             loop={true}
             autoplay={{
                 delay: 3000,
                 disableOnInteraction: true,
-            }}
-        >
+            }}>
             {slides &&
                 slides.map((item, index) => (
                     <SwiperSlide key={index}>
@@ -26,11 +25,11 @@ const InnerCarousel = ({ slides }) => {
                     </SwiperSlide>
                 ))}
         </Swiper>
-    );
-};
+    )
+}
 
 InnerCarousel.propTypes = {
     slides: PropTypes.array,
-};
+}
 
-export default InnerCarousel;
+export default InnerCarousel

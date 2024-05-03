@@ -36,9 +36,9 @@
     right: 15px;
 }
 //------media-query-------------
-@media (max-width: 375px) {
+@media (max-width: 425px) {
     .custom-modal__content-close {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
     }
 }

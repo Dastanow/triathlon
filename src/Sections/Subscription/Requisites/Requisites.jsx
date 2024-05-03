@@ -1,14 +1,17 @@
 import './Requisites.scss'
-import subscription from '@assets/subscription.svg'
+import subscription from '../../../Assets/subscription.svg'
 import modalSvg from '@assets/modalka.svg'
 import { useDispatch } from 'react-redux'
 import { toggleModal } from '@/store/modalSlice'
+import { useTranslation } from 'react-i18next'
 
 const Requisites = () => {
     const dispatch = useDispatch()
     const handleCloseModal = () => {
         dispatch(toggleModal(false))
     }
+    const { t } = useTranslation()
+
     return (
         <div className="requisites_block">
             <div className="logotype">
@@ -48,9 +51,7 @@ const Requisites = () => {
                     подойти в Триатлон-Центр для совершения покупки.
                 </p>
                 <div className="location">
-                    <span className="location__reference">
-                        Ул. Фатьянова 10, Школа №69 им. Т. Сатылганова
-                    </span>
+                    <span className="location__reference">{t('address')}</span>
                 </div>
             </div>
         </div>

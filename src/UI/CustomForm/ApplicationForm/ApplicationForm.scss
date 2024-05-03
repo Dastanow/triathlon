@@ -1,0 +1,106 @@
+.form-app{
+    text-align: center;
+    cursor: default;
+    width: 790px;
+    @media screen and (max-width: 1440px) {
+        width: 570px;
+    }
+    &__title{
+        cursor: default;   
+        font-family: Montserrat;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 48px;
+        text-align: center;
+        color: #002550;
+        display: block;  
+        padding: 20px 0;
+        @media screen and (max-width: 1440px) {
+            font-size: 28px;
+        }
+    }
+    &__button{
+        width: 600px;
+        height: 66px;
+        padding: 16px;
+        border-radius: 16px;
+        background: #013d83;
+        color: #FFF;    
+        font-family: system-ui;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;   
+        @media screen and (max-width: 1440px) {
+            width: 434px;
+            height: 49px;
+            border-radius: 8px;
+            padding: 10px;
+        }
+    }
+}
+.textArea{
+    padding: 20px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 22px;
+    width: 600px;
+    height: 222px;
+    border-radius: 8px;
+    border: 1px solid #909090;
+    padding-bottom: 200px; 
+    margin-bottom: 20px;
+    outline: none;
+    @media screen and (max-width: 1440px) {
+        width: 434px;
+        height: 160px;
+        border-radius: 5px;
+        padding: 8px;
+        padding-bottom: 130px; 
+    }
+}
+.textArea::placeholder{
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    letter-spacing: -0.05em;
+    text-align: left;    
+    @media screen and (max-width: 1440px) {
+        font-size: 13px;
+    }  
+}
+.check {
+    color: #444;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-left: 10px;
+    @media screen and (max-width: 1440px) {
+        font-size: 17px;
+        line-height: 19px;
+        margin-left: 5px;
+    }
+  }
+  .box {
+    display: flex;
+    margin-top: 15px;
+    @media screen and (max-width: 1440px) {
+        margin-top: 5px;
+    }
+    &-in {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      @media screen and (max-width: 1440px) {
+        width: 18px;
+        height: 18px;
+    }
+    }
+  }
+  .content-checkboxes {
+    padding: 20px 0;
+    display: inline-block;
+  } 

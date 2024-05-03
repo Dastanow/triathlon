@@ -1,22 +1,27 @@
 import './TextField.scss'
-// import errorIcon from '../../Assets/dangerous.svg'
+import errorIcon from '../../Assets/dangerous.svg'
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 export const TextField = ({
     name,
     value,
     onChange,
     placeholder,
-    // error,
-    className,
+    error,
 }) => {
 
     const handleChange = ({ target }) => {
         onChange({ name: target.name, value: target.value});
     };  
+    const [focused, setFocused] = useState(false);
+
+    const handleBlur = () => {
+        setFocused(true);
+    };
 
     return (
-        <div>
+        <div className="validate">
             <div className="error">
                 <input 
                     type="text" 
@@ -25,12 +30,12 @@ export const TextField = ({
                     value={value}
                     onChange={handleChange} 
                     placeholder={placeholder}
-                    className={className}
+                    className={`validate__input ${focused && error ? 'error' : ''}`}
+                    onBlur={handleBlur}
                 />
-                {/* {error && <img src={errorIcon} className="error__icon" />} */}
-          
+                {focused && error && <img src={errorIcon} className="error__icon" />}
             </div>
-            {/* {error && <p className="error__text">{error}</p>} */}
+            {focused && error && <p className="error__text">{error}</p>}
         </div>
     )
 }
@@ -46,5 +51,4 @@ TextField.propTypes = {
     onChange: PropTypes.func,
     error: PropTypes.string,
     placeholder: PropTypes.string,
-    className: PropTypes.string,
 };

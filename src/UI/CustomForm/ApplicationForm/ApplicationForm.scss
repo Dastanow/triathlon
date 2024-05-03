@@ -12,9 +12,9 @@
         font-weight: 700;
         line-height: 48px;
         text-align: center;
-        color: #002550;  
-        position: relative; 
-        bottom: 30px;
+        color: #002550;
+        display: block;  
+        padding: 20px 0;
         @media screen and (max-width: 1440px) {
             font-size: 28px;
         }
@@ -101,10 +101,6 @@
     }
   }
   .content-checkboxes {
-    margin-left: 180px;
-    margin-top: 25px;
-    @media screen and (max-width: 1440px) {
-        margin-left: 160px;
-        margin-top: 20px;
-    }
+    padding: 20px 0;
+    display: inline-block;
   } 

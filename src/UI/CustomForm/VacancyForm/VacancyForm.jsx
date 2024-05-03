@@ -14,12 +14,11 @@ export const VacancyForm = () => {
         name: '',
         phoneNumber: '',
         email: '',
-        summary:'',
+        summary: '',
         policy: false,
-        
     })
     const [errors, setErrors] = useState({})
-    const { t } = useTranslation();
+    const { t } = useTranslation()
     const [files, setFiles] = useState([])
     const [dragActive, setDragActive] = useState(false)
     const [showFiles, setShowFiles] = useState(false)
@@ -40,21 +39,24 @@ export const VacancyForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (!isValid) return
-        
-        const formData = new FormData();
-        const properties = ['name', 'email', 'phoneNumber', 'summary'];
-        
-        properties.forEach(property => {
-            formData.append(property, data[property]);
-        });
-        console.log(formData);
-        files.forEach((file) => {
-            formData.append('file', file) 
+
+        const formData = new FormData()
+        const properties = ['name', 'email', 'phoneNumber', 'summary']
+
+        properties.forEach((property) => {
+            formData.append(property, data[property])
         })
-    
+        console.log(formData)
+        files.forEach((file) => {
+            formData.append('file', file)
+        })
+
         try {
-            const response = await axios.post('http://209.38.228.54:83/api/v1/application/', formData)
-            console.log(response.data) 
+            const response = await axios.post(
+                'http://209.38.228.54:83/api/v1/application/',
+                formData,
+            )
+            console.log(response.data)
         } catch (error) {
             console.error(error)
         }
@@ -91,13 +93,11 @@ export const VacancyForm = () => {
         setFiles([])
         setShowFiles(false)
     }
-    console.log(data);
+    console.log(data)
 
     return (
         <div className="form-vacancy">
-            <label className="form-vacancy__title">
-                {t('vacancy')}
-            </label>
+            <label className="form-vacancy__title">{t('vacancy')}</label>
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form__input-user">
                     <TextField
@@ -106,15 +106,17 @@ export const VacancyForm = () => {
                         onChange={handleChange}
                         placeholder={t('nameSurname')}
                         error={errors.name}
-                    /> 
-                    <TextField 
+                    />
+                    <TextField
                         name="email"
                         value={data.email}
                         onChange={handleChange}
                         placeholder="Email*"
                         error={errors.email}
                     />
-                    <ReactInputMask mask="+999(999)999-999" onChange={handleChange}>
+                    <ReactInputMask
+                        mask="+999(999)999-999"
+                        onChange={handleChange}>
                         {(inputProps) => (
                             <input
                                 name="phoneNumber"
@@ -124,7 +126,7 @@ export const VacancyForm = () => {
                                 className="validate__input"
                                 error={errors && errors.phoneNumber}
                             />
-                        )}  
+                        )}
                     </ReactInputMask>
                 </div>
                 <div>
@@ -138,9 +140,7 @@ export const VacancyForm = () => {
                                             src={good}
                                             alt="icon"
                                         />
-                                        <li
-                                            className="correct__title"
-                                            key={id}>
+                                        <li className="correct__title" key={id}>
                                             {name}
                                         </li>
                                         <img
@@ -154,19 +154,14 @@ export const VacancyForm = () => {
                             </ul>
                         </>
                     ) : (
-                        <form
+                        <div
                             className={`form ${dragActive ? 'drag' : ''}`}
-                            onSubmit={() => handleSubmit}
                             onDragEnter={handleDrag}
                             onDragOver={handleDrag}
                             onDragLeave={handleLive}
                             onDrop={handleDrop}>
-                            <h5 className="file__attach">
-                                {t('attachFile')}
-                            </h5>
-                            <div className="file__drop">
-                                {t('dragAndDrop')}
-                            </div>
+                            <h5 className="file__attach">{t('attachFile')}</h5>
+                            <div className="file__drop">{t('dragAndDrop')}</div>
                             <label className="label">
                                 <span className="label__span">
                                     {t('upload')}
@@ -179,7 +174,7 @@ export const VacancyForm = () => {
                                     onDragOver={handleDrag}
                                 />
                             </label>
-                            <div className="warning"> 
+                            <div className="warning">
                                 <div className="warning-titles">
                                     {t('fileSize')}
                                 </div>
@@ -187,15 +182,15 @@ export const VacancyForm = () => {
                                     {t('format')}
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     )}
                 </div>
                 <button
                     className="form-vacancy__button"
                     type="submit"
-                    onClick={handleSubmit} >
+                    onClick={handleSubmit}>
                     {t('send')}
-                </button>  
+                </button>
                 <div className="politic">
                     <CheckBoxes
                         name="policy"
@@ -205,13 +200,15 @@ export const VacancyForm = () => {
                         onChange={handleChange}
                     />
                     <div className="politic__text">
-                        {t('agree')}{' '}
-                        <a className="politic__reference" href="">
-                            {t('politic')}
-                        </a>
+                        <p>
+                            {t('agree')}{' '}
+                            <a className="politic__reference" href="">
+                                {t('politic')}
+                            </a>
+                        </p>
                     </div>
                 </div>
-            </form>  
+            </form>
         </div>
     )
 }

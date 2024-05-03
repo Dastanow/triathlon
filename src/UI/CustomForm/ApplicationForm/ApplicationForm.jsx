@@ -5,7 +5,7 @@ import { validationConfig } from '../../../utils/validationConfig'
 import { CheckBoxes, TextField } from '@components'
 import { CustomInput } from '@ui'
 import ReactInputMask from 'react-input-mask'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
 export const ApplicationForm = () => {
     const [data, setData] = useState({
@@ -15,8 +15,8 @@ export const ApplicationForm = () => {
         get: false,
     })
     const [errors, setErrors] = useState({})
-    const { t } = useTranslation();
-    
+    const { t } = useTranslation()
+
     const isValid = Object.keys(errors).length === 0
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -46,8 +46,10 @@ export const ApplicationForm = () => {
                         onChange={handleChange}
                         placeholder={t('yourName')}
                         error={errors.name}
-                    /> 
-                    <ReactInputMask mask="+999(999)999-999" onChange={handleChange}>
+                    />
+                    <ReactInputMask
+                        mask="+\9\96(999)999-999"
+                        onChange={handleChange}>
                         {(inputProps) => (
                             <input
                                 name="phoneNumber"
@@ -57,7 +59,7 @@ export const ApplicationForm = () => {
                                 className="validate__input"
                                 error={errors && errors.phoneNumber}
                             />
-                        )}  
+                        )}
                     </ReactInputMask>
                     <CustomInput
                         type="text-area"
@@ -67,7 +69,7 @@ export const ApplicationForm = () => {
                     <button
                         className="form-app__button"
                         type="submit"
-                        onClick={handleSubmit} >
+                        onClick={handleSubmit}>
                         {t('send')}
                     </button>
                 </div>
@@ -96,7 +98,6 @@ export const ApplicationForm = () => {
                 </div>
             </form>
         </div>
-
     )
 }
 

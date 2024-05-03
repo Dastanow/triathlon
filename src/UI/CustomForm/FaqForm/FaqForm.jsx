@@ -48,7 +48,7 @@ export const FaqForm = () => {
                         placeholder={t('yourName')}
                         error={errors.name}
                     /> 
-                    <ReactInputMask mask="+999(999)999-999" onChange={handleChange}>
+                    <ReactInputMask mask="+\9\96(999)999-999" onChange={handleChange}>
                         {(inputProps) => (
                             <input
                                 name="phoneNumber"

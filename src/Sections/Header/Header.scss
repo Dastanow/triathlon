@@ -25,7 +25,9 @@
         justify-content: space-between;
     }
     &Logotype {
+        position: relative;        
         width: 170px;
+        z-index: 2;
         @media screen and (max-width: 1440px) {
             width: 120px;
         }
@@ -41,6 +43,13 @@
         }
         @media screen and (max-width: 1220px) {
             display: none;
+            position: absolute;
+            left: -200%;
+            top: 0;
+            display: block;
+            background: #000;
+            padding: 76px 246px 356px 20px;
+            transition: left 1s;
         }
     }
     &NavLink {
@@ -54,13 +63,15 @@
             font-style: normal;
             font-weight: 500;
             line-height: 22px;
+            padding: 12px 0;
+            display: block;
         }
     }
     &Wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 32px;
+        gap: 27px;
     }
     &Language {
         position: relative;
@@ -68,19 +79,29 @@
         align-items: center;
         gap: 12px;
         cursor: pointer;
+        &.headerHidden {
+            opacity: 0;
+        }
     }
-    &Option {
-        position: absolute;
-        top: 80px;
-        left: 0px;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        padding: 25px;
-        border-radius: 16px;
-        background: rgba(0, 0, 0, 0.7);
-        margin-left: -25px;
+}
+.headerOption {
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-left: -25px;
+    @media screen and (max-width: 767px) {
+        top: 60px;
     }
+    @media screen and (max-width: 425px) {
+        
+    }
+
 }
 
 .header-back {
@@ -88,3 +109,52 @@
     position: absolute;
     z-index: 100;
 }
+
+.headerlangImg {
+    width: 54px;
+    @media screen and (max-width: 1440px) {
+        width: 40.5px;
+    }
+    @media screen and (max-width: 768px) {
+        width: 30px;
+    }
+
+}
+
+.headerBurger {
+    display: none;
+    border: none;
+    position: relative;
+    @media (max-width: 768px) {
+        display: block;
+        margin-top: 4px;
+    }
+}
+.headerNav.active {
+    left: 0;
+    background: #000;
+    border: #000;
+    height: 100vh;
+
+}
+
+@media screen and (max-width: 768px) {
+    .headerAccountBurger {
+        align-items: center;
+        margin-top: 20px;
+    }
+    .headerAccount {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 1220px) {
+    .mobileSeparator {
+        border: none;
+        border-top: 1px solid white;
+        width: 95vw;
+        margin-top: 8px;
+    }
+}
+

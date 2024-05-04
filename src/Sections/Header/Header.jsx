@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import './Header.scss'
 import logotype from '@assets/logo1.png'
 import account from '@assets/account.svg'
+import chevron from '../../Assets/solar_chevron-up.svg'
 import ru from '@assets/language_rus.png'
 import ky from '@assets/language_kyr.png'
-import { Link } from 'react-router-dom'
+import burger from '../../Assets/burger.png'
+import close from '../../Assets/close_burg.png'
+import { Link, useNavigate } from 'react-router-dom'
 import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
-import { FaChevronUp } from 'react-icons/fa'
 
 const navigatePath = [
     [{ text: 'path1', id: 'main' }],
@@ -20,9 +22,13 @@ const navigatePath = [
 ]
 
 export const Header = () => {
+    const [count, setCount] = useState(false);
+    const nav = useNavigate();
     const { t, i18n } = useTranslation()
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
     const [showOtherImage, setShowOtherImage] = useState(false)
+    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
+
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
@@ -31,8 +37,20 @@ export const Header = () => {
     }, [selectedLanguage, i18n])
 
     const handleSvgClick = () => {
-        setShowOtherImage((prevState) => !prevState)
-    }
+        console.log('work');
+        setShowOtherImage((prevState) => !prevState);
+        setIsLanguageOptionsOpen((prevState) => !prevState);
+
+    };
+    console.log(showOtherImage);
+    
+    const handleNavLinkClick = (sectionId) => {
+        const section = document.getElementById(sectionId); // Находим секцию по id
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' }); // Скроллим к секции с плавной анимацией
+        }
+        setCount(false); // Закрываем бургер меню
+    };
 
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
@@ -52,42 +70,56 @@ export const Header = () => {
                     />
                 </Link>
                 <nav>
-                    <ul className="headerNav">
-                        {navigatePath.map((block, index) => (
-                            <div key={index}>
-                                {block.map((item, id) => {
-                                    if (typeof item === 'object') {
-                                        return (
-                                            <p key={id}>
-                                                <a
-                                                    className="headerNavLink"
-                                                    href={`#${item.id}`}>
-                                                    {' '}
-                                                    {t(item.text)}
-                                                </a>
-                                            </p>
-                                        )
-                                    }
-                                })}
+                    <ul className={count ? 'headerNav active' : 'headerNav'}>
+                    {navigatePath.map((block, index) => (
+                        <div key={index}>
+                            {block.map((item, id) => {
+                                if (typeof item === 'object') {
+                                    return (
+                                        <p key={id}>
+                                            <Link
+                                                className="headerNavLink"
+                                                to={`#${item.id}`}
+                                                onClick={() => handleNavLinkClick(item.id)} // Добавляем обработчик клика для перехода на определенную секцию
+                                            >
+                                                {t(item.text)}
+                                            </Link>
+                                            {index === navigatePath.length - 1 && (
+                                                <hr className="mobileSeparator" />
+                                            )}
+                                        </p>
+                                    );
+                                }
+                            })}
+                        </div>
+                    ))}
+                        
+                        {count && (
+                            <div className="headerAccountBurger">
+                                <img src={account} alt="account" />
                             </div>
-                        ))}
+                        )}
                     </ul>
                 </nav>
                 <div className="headerWrapper">
-                    <div className="headerLanguage" onClick={handleSvgClick}>
+                    <div className={ 'headerLanguage' + (count ? ' headerHidden' : '') } onClick={handleSvgClick}>
                         <img
+                            className='headerlangImg'
                             src={selectedLanguage === 'ru' ? ru : ky}
                             alt={
                                 selectedLanguage === 'ru' ? 'russian' : 'kygyz'
                             }
                         />
-                        <FaChevronUp />
+                        <img src={chevron} alt="Chevron" style={{
+                            transform: isLanguageOptionsOpen ? 'rotate(180deg)' : '',
+                            transition: '0.5s',
+                        }}/>
                         {showOtherImage && (
                             <div className="header-back">
                                 <div
-                                    className="headerOption"
-                                    onClick={switchLanguage}>
+                                    name="showOtherImage" className={'headerOption' + (showOtherImage ? ' show' : '')} onClick={switchLanguage}>
                                     <img
+                                        className='headerlangImg'
                                         src={
                                             selectedLanguage === 'ru' ? ky : ru
                                         }
@@ -96,12 +128,17 @@ export const Header = () => {
                                                 ? 'kygyz'
                                                 : 'russian'
                                         }
+                                        
                                     />
                                 </div>
                             </div>
                         )}
                     </div>
-                    <div className="headerAccount">
+                    <div onClick={() => setCount(!count)} className="headerBurger">
+                        {count ? <img src={close} alt="close" /> : <img src={burger} alt="burger" />}
+                    </div>
+
+                    <div className="headerAccount" >
                         <img src={account} alt="account" />
                     </div>
                 </div>

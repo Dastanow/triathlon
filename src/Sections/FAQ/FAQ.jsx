@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './FAQ.scss';
-import down from '../../Assets/down_svg.png';
+import chevron from '../../Assets/solar_chevron-up.svg'
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
@@ -66,8 +66,9 @@ const Faq = () => {
                                     <h4 className="faqTitles">
                                         {question.title}
                                     </h4>
+                                <div className="faqArrow">
                                     <img
-                                        src={down}
+                                        src={chevron}
                                         alt="img"
                                         style={{
                                             transform: openIndexes[index]
@@ -76,6 +77,7 @@ const Faq = () => {
                                             transition: '0.5s',
                                         }}
                                     />
+                                </div>
                                 </div>
 
                                 {openIndexes[index] && (

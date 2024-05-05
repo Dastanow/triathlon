@@ -95,6 +95,9 @@
     border-radius: 16px;
     background: rgba(0, 0, 0, 0.7);
     margin-left: -25px;
+    @media screen and (max-width: 767px) {
+        top: 60px;
+    }
 }
 
 .header-back {
@@ -108,8 +111,8 @@
     @media screen and (max-width: 1440px) {
         width: 40.5px;
     }
-    @media screen and (max-width: 426px) {
-        width: 22.235px;
+    @media screen and (max-width: 768px) {
+        width: 30px;
     }
 
 }
@@ -118,8 +121,9 @@
     display: none;
     border: none;
     position: relative;
-    @media (max-width: 426px) {
+    @media (max-width: 768px) {
         display: block;
+        margin-top: 4px;
     }
 }
 .headerNav.active {
@@ -130,7 +134,7 @@
 
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 768px) {
     .headerAccountBurger {
         align-items: center;
         margin-top: 20px;
@@ -144,7 +148,7 @@
     .mobileSeparator {
         border: none;
         border-top: 1px solid white;
-        width: 88vw;
+        width: 95vw;
         margin-top: 8px;
     }
 }

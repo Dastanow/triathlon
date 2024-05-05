@@ -43,6 +43,14 @@ export const Header = () => {
 
     };
     console.log(showOtherImage);
+    
+    const handleNavLinkClick = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' }); 
+        }
+        setCount(false);
+    };
 
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
@@ -63,27 +71,29 @@ export const Header = () => {
                 </Link>
                 <nav>
                     <ul className={count ? 'headerNav active' : 'headerNav'}>
-                        {navigatePath.map((block, index) => (
-                            <div key={index}>
-                                {block.map((item, id) => {
-                                    if (typeof item === 'object') {
-                                        return (
-                                            <p key={id}>
-                                                <a
-                                                    className="headerNavLink"
-                                                    href={`#${item.id}`}>
-                                                    {' '}
-                                                    {t(item.text)}
-                                                </a>
-                                                {index === navigatePath.length - 1 && (
-                                                    <hr className="mobileSeparator" />
-                                                )}
-                                            </p>
-                                        )
-                                    }
-                                })}
-                            </div>
-                        ))}
+                    {navigatePath.map((block, index) => (
+                        <div key={index}>
+                            {block.map((item, id) => {
+                                if (typeof item === 'object') {
+                                    return (
+                                        <p key={id}>
+                                            <Link
+                                                className="headerNavLink"
+                                                to={`#${item.id}`}
+                                                onClick={() => handleNavLinkClick(item.id)}
+                                            >
+                                                {t(item.text)}
+                                            </Link>
+                                            {index === navigatePath.length - 1 && (
+                                                <hr className="mobileSeparator" />
+                                            )}
+                                        </p>
+                                    );
+                                }
+                            })}
+                        </div>
+                    ))}
+                        
                         {count && (
                             <div className="headerAccountBurger">
                                 <img src={account} alt="account" />
@@ -128,7 +138,7 @@ export const Header = () => {
                         {count ? <img src={close} alt="close" /> : <img src={burger} alt="burger" />}
                     </div>
 
-                    <div className="headerAccount">
+                    <div className="headerAccount" >
                         <img src={account} alt="account" />
                     </div>
                 </div>

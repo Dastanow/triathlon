@@ -7,7 +7,7 @@ import ru from '@assets/language_rus.png'
 import ky from '@assets/language_kyr.png'
 import burger from '../../Assets/burger.png'
 import close from '../../Assets/close_burg.png'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
 
@@ -22,13 +22,14 @@ const navigatePath = [
 ]
 
 export const Header = () => {
-    const [count, setCount] = useState(false);
-    const nav = useNavigate();
+    const [count, setCount] = useState(false)
+    const [isMobile, setIsMobile] = useState(
+        window.matchMedia('(max-width: 768px)').matches,
+    )
     const { t, i18n } = useTranslation()
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
     const [showOtherImage, setShowOtherImage] = useState(false)
-    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
-
+    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false)
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
@@ -36,21 +37,30 @@ export const Header = () => {
         i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage, i18n])
 
-    const handleSvgClick = () => {
-        console.log('work');
-        setShowOtherImage((prevState) => !prevState);
-        setIsLanguageOptionsOpen((prevState) => !prevState);
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setIsMobile(window.matchMedia('(max-width: 768px)').matches)
+        })
+    }, [])
 
-    };
-    console.log(showOtherImage);
-    
+    useEffect(() => {
+        if (!isMobile) setCount(false)
+    }, [isMobile])
+
+    const handleSvgClick = () => {
+        console.log('work')
+        setShowOtherImage((prevState) => !prevState)
+        setIsLanguageOptionsOpen((prevState) => !prevState)
+    }
+    console.log(showOtherImage)
+
     const handleNavLinkClick = (sectionId) => {
-        const section = document.getElementById(sectionId);
+        const section = document.getElementById(sectionId)
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' }); 
+            section.scrollIntoView({ behavior: 'smooth' })
         }
-        setCount(false);
-    };
+        setCount(false)
+    }
 
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
@@ -70,30 +80,43 @@ export const Header = () => {
                     />
                 </Link>
                 <nav>
-                    <ul className={count ? 'headerNav active' : 'headerNav'}>
-                    {navigatePath.map((block, index) => (
-                        <div key={index}>
-                            {block.map((item, id) => {
-                                if (typeof item === 'object') {
-                                    return (
-                                        <p key={id}>
-                                            <Link
-                                                className="headerNavLink"
-                                                to={`#${item.id}`}
-                                                onClick={() => handleNavLinkClick(item.id)}
-                                            >
-                                                {t(item.text)}
-                                            </Link>
-                                            {index === navigatePath.length - 1 && (
-                                                <hr className="mobileSeparator" />
-                                            )}
-                                        </p>
-                                    );
-                                }
-                            })}
-                        </div>
-                    ))}
-                        
+                    <ul
+                        className={
+                            isMobile
+                                ? count
+                                    ? 'headerNav active'
+                                    : 'headerNav'
+                                : 'headerNav'
+                        }>
+                        {navigatePath.map((block, index) => (
+                            <div key={index}>
+                                {block.map((item, id) => {
+                                    if (typeof item === 'object') {
+                                        return (
+                                            <div key={id}>
+                                                <p>
+                                                    <Link
+                                                        className="headerNavLink"
+                                                        to={`#${item.id}`}
+                                                        onClick={() =>
+                                                            handleNavLinkClick(
+                                                                item.id,
+                                                            )
+                                                        }>
+                                                        {t(item.text)}
+                                                    </Link>
+                                                </p>
+                                                {index ===
+                                                    navigatePath.length - 1 && (
+                                                    <hr className="mobileSeparator" />
+                                                )}
+                                            </div>
+                                        )
+                                    }
+                                })}
+                            </div>
+                        ))}
+
                         {count && (
                             <div className="headerAccountBurger">
                                 <img src={account} alt="account" />
@@ -102,43 +125,67 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <div className="headerWrapper">
-                    <div className={ 'headerLanguage' + (count ? ' headerHidden' : '') } onClick={handleSvgClick}>
-                        <img
-                            className='headerlangImg'
-                            src={selectedLanguage === 'ru' ? ru : ky}
-                            alt={
-                                selectedLanguage === 'ru' ? 'russian' : 'kygyz'
-                            }
-                        />
-                        <img src={chevron} alt="Chevron" style={{
-                            transform: isLanguageOptionsOpen ? 'rotate(180deg)' : '',
-                            transition: '0.5s',
-                        }}/>
-                        {showOtherImage && (
-                            <div className="header-back">
-                                <div
-                                    name="showOtherImage" className={'headerOption' + (showOtherImage ? ' show' : '')} onClick={switchLanguage}>
-                                    <img
-                                        className='headerlangImg'
-                                        src={
-                                            selectedLanguage === 'ru' ? ky : ru
+                    {!count && (
+                        <div
+                            className={'headerLanguage'}
+                            onClick={handleSvgClick}>
+                            <img
+                                className="headerlangImg"
+                                src={selectedLanguage === 'ru' ? ru : ky}
+                                alt={
+                                    selectedLanguage === 'ru'
+                                        ? 'russian'
+                                        : 'kygyz'
+                                }
+                            />
+                            <img
+                                src={chevron}
+                                alt="Chevron"
+                                style={{
+                                    transform: isLanguageOptionsOpen
+                                        ? 'rotate(180deg)'
+                                        : '',
+                                    transition: '0.5s',
+                                }}
+                            />
+                            {showOtherImage && (
+                                <div className="header-back">
+                                    <div
+                                        name="showOtherImage"
+                                        className={
+                                            'headerOption' +
+                                            (showOtherImage ? ' show' : '')
                                         }
-                                        alt={
-                                            selectedLanguage === 'ru'
-                                                ? 'kygyz'
-                                                : 'russian'
-                                        }
-                                        
-                                    />
+                                        onClick={switchLanguage}>
+                                        <img
+                                            className="headerlangImg"
+                                            src={
+                                                selectedLanguage === 'ru'
+                                                    ? ky
+                                                    : ru
+                                            }
+                                            alt={
+                                                selectedLanguage === 'ru'
+                                                    ? 'kygyz'
+                                                    : 'russian'
+                                            }
+                                        />
+                                    </div>
                                 </div>
-                            </div>
+                            )}
+                        </div>
+                    )}
+                    <div
+                        onClick={() => setCount(!count)}
+                        className="headerBurger">
+                        {count ? (
+                            <img src={close} alt="close" />
+                        ) : (
+                            <img src={burger} alt="burger" />
                         )}
                     </div>
-                    <div onClick={() => setCount(!count)} className="headerBurger">
-                        {count ? <img src={close} alt="close" /> : <img src={burger} alt="burger" />}
-                    </div>
 
-                    <div className="headerAccount" >
+                    <div className="headerAccount">
                         <img src={account} alt="account" />
                     </div>
                 </div>

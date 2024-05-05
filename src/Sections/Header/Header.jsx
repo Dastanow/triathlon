@@ -45,11 +45,11 @@ export const Header = () => {
     console.log(showOtherImage);
     
     const handleNavLinkClick = (sectionId) => {
-        const section = document.getElementById(sectionId); // Находим секцию по id
+        const section = document.getElementById(sectionId);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' }); // Скроллим к секции с плавной анимацией
+            section.scrollIntoView({ behavior: 'smooth' }); 
         }
-        setCount(false); // Закрываем бургер меню
+        setCount(false);
     };
 
     const switchLanguage = () => {
@@ -80,7 +80,7 @@ export const Header = () => {
                                             <Link
                                                 className="headerNavLink"
                                                 to={`#${item.id}`}
-                                                onClick={() => handleNavLinkClick(item.id)} // Добавляем обработчик клика для перехода на определенную секцию
+                                                onClick={() => handleNavLinkClick(item.id)}
                                             >
                                                 {t(item.text)}
                                             </Link>

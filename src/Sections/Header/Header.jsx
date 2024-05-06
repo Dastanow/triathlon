@@ -10,13 +10,13 @@ import { useTranslation } from 'react-i18next'
 import { FaChevronUp } from 'react-icons/fa'
 
 const navigatePath = [
-    [{ text: 'path1', id: 'main' }],
-    [{ text: 'path2', id: 'coaches' }],
-    [{ text: 'path3', id: 'abonement' }],
-    [{ text: 'path4', id: 'section' }],
-    [{ text: 'path5', id: 'schedule', script: 'https://reservi.ru/widget-fit1c.v2/js/config.js' }],
-    [{ text: 'path6', id: 'services' }],
-    [{ text: 'path7', id: 'location' }],
+    { text: 'path1', id: '#main' },
+    { text: 'path2', id: '#coaches' },
+    { text: 'path3', id: '#abonement' },
+    { text: 'path4', id: '#section' },
+    { text: 'path5', id: '/schedule' },
+    { text: 'path6', id: '#services' },
+    { text: 'path7', id: '#location' },
 ];
 
 export const Header = () => {
@@ -28,7 +28,7 @@ export const Header = () => {
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
-        console.log('Language saved to localStorage:', i18n.language) // Отладочный вывод
+        console.log('Language saved to localStorage:', i18n.language)
         i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage, i18n])
 
@@ -36,55 +36,12 @@ export const Header = () => {
         setShowOtherImage((prevState) => !prevState);
     };
 
-
-    const handleClick = () => {
-        const win = window.open('', '_blank');
-
-        win.document.open();
-        win.document.write(`
-            <html>
-                <head>
-                    <script src="https://reservi.ru/widget-fit1c.v2/js/config.js" data-fit-salon-id="b1297733-0bf6-48da-bda8-4beb936b6ec5"></script>
-                </head>
-                <body>
-                    <div data-get-fit-index-lk></div>
-                    <script>
-                        window.onload = function() {
-                            // Любой код, который вы хотите выполнить после загрузки скрипта
-                        };
-                    </script>
-                </body>
-            </html>
-        `);
-        win.document.close();
-    };
-    const handleSchaduleClick = (script) => {
-        const win = window.open('', '_blank');
-        win.document.open();
-        win.document.write(`
-        <html>
-            <head>
-                <script src="${script}" data-fit-salon-id="b1297733-0bf6-48da-bda8-4beb936b6ec5"></script>
-            </head>
-            <body>
-                <div data-get-fit-index-lk></div>
-                <script>
-                    window.onload = function() {
-                        // Любой код, который вы хотите выполнить после загрузки скрипта
-                    };
-                </script>
-            </body>
-        </html>
-    `);
-        win.document.close();
-    };
-
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
         setSelectedLanguage(newLanguage)
     }
 
-    console.log('Current selectedLanguage:', i18n.language) // Отладочный вывод
+    console.log('Current selectedLanguage:', i18n.language)
 
     return (
         <header className="header">
@@ -98,40 +55,32 @@ export const Header = () => {
                 </Link>
                 <nav>
                     <ul className="headerNav">
-                        {navigatePath.map((block, index) => (
-                            <div key={index}>
-                                {block.map((item, id) => {
-                                    if (typeof item === 'object') {
-                                        if (item.id === 'schedule') {
-                                            return (
-                                                <p key={id}>
-                                                    <a
-                                                        className="headerNavLink"
-                                                        href={`#${item.id}`}
-                                                        onClick={() => handleSchaduleClick(item.script)}
-                                                    >
-                                                        {t(item.text)}
-                                                    </a>
-                                                </p>
-                                            );
-                                        } else {
-                                            return (
-                                                <p key={id}>
-                                                    <a
-                                                        className="headerNavLink"
-                                                        href={`#${item.id}`}
-                                                    >
-                                                        {t(item.text)}
-                                                    </a>
-                                                </p>
-                                            );
-                                        }
-                                    }
-                                })}
-
-                            </div>
-                        ))}
-
+                        {navigatePath.map((path, index) => {
+                            if (path.id === '/schedule') {
+                                return (
+                                    <li key={index}>
+                                        <Link
+                                            target="_blank"
+                                            className="headerNavLink"
+                                            to={`${path.id}`}
+                                        >
+                                            {t(path.text)}
+                                        </Link>
+                                    </li>
+                                );
+                            } else {
+                                return (
+                                    <li key={index}>
+                                        <a
+                                            className="headerNavLink"
+                                            href={`${path.id}`}
+                                        >
+                                            {t(path.text)}
+                                        </a>
+                                    </li>
+                                );
+                            }
+                        })}
                     </ul>
                 </nav>
                 <div className="headerWrapper">
@@ -166,13 +115,12 @@ export const Header = () => {
                             </div>
                         )}
                     </div>
-                    <div className="headerAccount">
+                    <Link to="/personal-account" target="_blank" className="headerAccount">
                         <img
                             src={account}
-                            onClick={handleClick}
                             alt="account"
                         />
-                    </div>
+                    </Link>
                 </div>
             </Container>
         </header>

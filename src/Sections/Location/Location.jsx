@@ -4,44 +4,37 @@ import phone from '../../Assets/phoneSVG.svg';
 import map from '../../Assets/mapSVG.svg';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
-
-const socialLink = [
-    {
-        src: email,
-        label: 'triathloncenter.kg@gmail.com'
-    },
-    {
-        src: phone,
-        label: '+996 997 000 180'
-    },
-    {
-        src: phone,
-        label: '+996 227 000 180'
-    },
-    {
-        src: map,
-        label: 'Бишкек'
-    },
-    {
-        label: 'ул.Фатьянова 10'
-    }
-]
+import { useEffect, useState } from 'react';
+import locationapiSer from '@/Services/locationService';
+import { t } from 'i18next';
 
 const Location = () => {
+    const [locationapi, setLocationapi] = useState([]);
+useEffect(() => {
+    const fetchData = async () => {
+        locationapiSer.get()
+        .then((data) => setLocationapi(data))
+};
+fetchData()
+}, []);
     return (
         <section className="location" id="location">
             <Container classNames="locationContainer">
                 <CustomTitle title={'Как нас найти'} />
                 <div className="locationWrapper">
                     <div className="locationContent">
-                        <h3 className="locationTitle">Наши контакты</h3>
+                        <h3 className="locationTitle">{t('locationtitle')}</h3>
                         <ul className="locationList">
-                            {socialLink.map((location) => (
-                                <li className="locationItem" key={location.label}>
-                                    {location.src && <img src={location.src} alt={location.label} />}
-                                    <a href={location.label}>{location.label}</a>
-                                </li>
-                            ))}
+                            {locationapi?.map((item, i) => {
+                                return (
+                                    <div key={i}>
+                                        <li className="locationItem"><img src={email} alt="img" />{item.email}</li>
+                                        <li className="locationItem"><img src={phone} alt="img" />{item.second_number}</li>
+                                        <li className="locationItem"><img src={phone} alt="img" />{item.first_number}</li>
+                                        <li className="locationItemap"><img src={map} alt="img" />{item.address}</li>
+                                    </div>
+                                )
+                            })}
                         </ul>
                     </div>
                     <iframe

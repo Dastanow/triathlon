@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import './TrainingAreasGroup.scss'
 import { CustomCarousel, CustomTitle } from '@/UI'
 import trainAreaService from '@/Services/trainAreaService'
+import { useTranslation } from 'react-i18next'
 
 const TrainingAreasGroup = () => {
     const [trainingAreas, setTrainingAreas] = useState([])
+    const { t } = useTranslation()
     const slidesPerView = 1
 
     useEffect(() => {
@@ -17,7 +19,7 @@ const TrainingAreasGroup = () => {
         <section className="train-areas">
             <div className="container">
                 <div className="train-areas__title">
-                    <CustomTitle title={'Тренировочные зоны'} />
+                    <CustomTitle title={t('trainingAreas')} />
                 </div>
                 <CustomCarousel
                     slidesPerView={slidesPerView}

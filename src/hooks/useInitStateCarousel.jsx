@@ -9,7 +9,7 @@ const useInitStateCarousel = () => {
         const outer = window.outerWidth
         const resultWidth = inner <= outer ? inner : outer
 
-        if (resultWidth <= 375) {
+        if (resultWidth <= 425) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 12,

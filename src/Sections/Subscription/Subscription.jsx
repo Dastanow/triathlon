@@ -12,7 +12,7 @@ import { axiosAPI } from '@/App'
 
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
-    const [subsData,setSubsData] = useState()
+    const [subsData, setSubsData] = useState()
     const modalState = useSelector((state) => state.modal.isActive)
     const { t, i18n } = useTranslation()
 
@@ -21,80 +21,80 @@ export const Subscription = () => {
         dispatch(toggleModal(true))
         setModalActive(true)
     }
-    
+
     useEffect(() => {
         if (!modalState) {
             setModalActive(false)
         }
     }, [modalState])
-    const funcGet = async () =>{
-        try{
-            const res = await axiosAPI.get('http://209.38.228.54:83/api/v1/abonements/')
+    const funcGet = async () => {
+        try {
+            const res = await axiosAPI.get(
+                'abonements',
+            )
             setSubsData(res.data)
-        }catch(err){
-            console.log(err,'error in subscription');
+            console.log(res)
+        } catch (err) {
+            console.log(err, 'error in subscription')
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         funcGet()
-    },[i18n.language])
+    }, [i18n.language])
 
     return (
         <section className="subscription" id="subscription">
             <Container classNames="subscriptionContainer">
                 <CustomTitle title={t('aboniment')} />
                 <ul className="subscriptionList">
-                    {subsData.map((subscription) => (
-                        <li
-                            className={`subscriptionCard ${
-                                subscription.prime ? 'prime' : 'default'
-                            }`}
-                            key={subscription.id}>
-                            <div className="subscriptionCardHeader">
-                                <div className="subscriptionCardTitle">
-                                    <h5>{subscription.title}</h5>
-                                    <p>{subscription.time}</p>
+                    {subsData &&
+                        subsData.map((subscription) => (
+                            <li
+                                className={`subscriptionCard ${
+                                    subscription.special ? 'prime' : 'default'
+                                }`}
+                                key={subscription.id}>
+                                <div className="subscriptionCardHeader">
+                                    <div className="subscriptionCardTitle">
+                                        <h5>{subscription.title}</h5>
+                                        <p>{subscription.time}</p>
+                                    </div>
+                                    {subscription.special && (
+                                        <span className="subscriptionCardHit">
+                                            <h5>Хит</h5>
+                                            <img src={crown} alt="хит" />
+                                        </span>
+                                    )}
                                 </div>
-                                {subscription.prime && (
-                                    <span className="subscriptionCardHit">
-                                        <h5>Хит</h5>
-                                        <img
-                                            src={crown}
-                                            alt={subscription.visits}
-                                        />
-                                    </span> 
-                                )}
-                            </div>
-                            <div className="subscriptionCardActions">
-                                <h3>{subscription.price}</h3>
-                                <CustomButton
-                                    onClick={() => handleOpenModal()}
-                                    type={
-                                        subscription.prime
-                                            ? 'secondary'
-                                            : 'primary'
-                                    }>
-                                    {t('buy')}
-                                </CustomButton>
-                                <hr />
-                            </div>
-                            <ul className="subscriptionCardItems">
-                                <li>
-                                    <p>{subscription.mark_freeze}</p>
-                                    {subscription.freeze}
-                                </li>
-                                <li>
-                                    <p>{subscription.mark_trainer}</p>
-                                    {subscription.trainer}
-                                </li>
-                                <li>
-                                    <p>{subscription.mark_guest}</p>
-                                    {subscription.guest}
-                                </li>
-                                
-                            </ul>
-                        </li>
-                    ))}
+                                <div className="subscriptionCardActions">
+                                    <h3>{subscription.price}</h3>
+                                    <CustomButton
+                                        onClick={() => handleOpenModal()}
+                                        type={
+                                            subscription.special
+                                                ? 'secondary'
+                                                : 'primary'
+                                        }>
+                                        {t('buy')}
+                                    </CustomButton>
+                                    <hr />
+                                </div>
+                                <ul className="subscriptionCardItems">
+                                    <li>
+                                        <p>{subscription.mark_freeze}</p>
+                                        {subscription.freeze}
+                                    </li>
+                                    <li>
+                                        <p>{subscription.mark_trainer}</p>
+                                        {subscription.trainer}
+                                    </li>
+                                    <li>
+                                        <p>{subscription.mark_guest}</p>
+                                        {subscription.guest}
+                                    </li>
+                                </ul>
+                            </li>
+                        ))}
                 </ul>
             </Container>
             {modalActive && (

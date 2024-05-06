@@ -23,7 +23,7 @@ const SectionTriatlon = () => {
     const funcGet = async () => {
         try {
             const res = await axiosAPI.get(
-                'http://209.38.228.54:83/api/v1/services/',
+                'services',
             )
             setRows(res.data)
         } catch (err) {
@@ -54,7 +54,7 @@ const SectionTriatlon = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {rows.map((row, index) => (
+                            {rows && rows.map((row, index) => (
                                 <tr className="tableBody" key={index}>
                                     <td>{row.title}</td>
                                     <td>{row.note}</td>

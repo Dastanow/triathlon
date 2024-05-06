@@ -13,8 +13,8 @@ i18n.use(initReactI18next).init({
             translation: translationRU,
         },
     },
-    lng: 'ky',
-    fallbackLng: 'ky',
+    lng: 'ru',
+    fallbackLng: 'ru',
     interpolation: {
         escapeValue: false,
     },

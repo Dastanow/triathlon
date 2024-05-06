@@ -20,7 +20,7 @@ const Feedback = () => {
         <section className="comments">
             <div className="container">
                 <div className="comments__title">
-                    <CustomTitle title={'Отзывы наших клиентов'} />
+                    <CustomTitle title={t('feedback')} />
                 </div>
                 <h4 className="comments__subtitle">{t('feedbacktitle')}</h4>
                 <CustomCarousel

@@ -1,5 +1,5 @@
 import './AboutUs.scss';
-import school from '../../Assets/Placeholder Image.png';
+import school from '@assets/Placeholder Image.png';
 import { Container } from '@components';
 import { CustomTitle, CustomButton } from '@ui';
 import { useTranslation } from 'react-i18next';

@@ -1,10 +1,12 @@
 import './Footer.scss'
-import Map from '../../Assets/map.svg'
-import email from '../../Assets/email.svg'
-import phone from '../../Assets/phone.svg'
-import instagram from '../../Assets/instagram.svg'
-import Logotip from '../../Assets/logo1.png'
+import Map from '@assets/map.svg'
+import email from '@assets/email.svg'
+import phone from '@assets/phone.svg'
+import instagram from '@assets/instagram.svg'
+import Logotip from '@assets/logo1.png'
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+
 import { useTranslation } from 'react-i18next'
 
 export const Footer = () => {
@@ -23,6 +25,14 @@ export const Footer = () => {
     const DocumentPayment = () => {
         window.open('http://209.38.228.54:83/media/files/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf', '_blank')
     }
+    const [News, setNews] = useState(
+        window.matchMedia('(max-width: 769px)').matches
+    );
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setNews(window.matchMedia('(max-width:960px)').matches);
+        }, [])
+    })
     const blocks = [
         [
             'path1',
@@ -78,11 +88,12 @@ export const Footer = () => {
                                 @triathloncenter.kg
                             </p>
                         </a>
-                        <p className="location">
+                        <p className="locationfoun">
                             <img src={phone} alt="img" />
-                            +996 997 000 180
+                        +996 997 000 180
                             <br />
-                            +996 227 000 180
+                        +996 227 000 180
+                      
                         </p>
                     </div>
                 </div>
@@ -102,6 +113,10 @@ export const Footer = () => {
                             })}
                         </div>
                     ))}
+                    {News && 
+                    <a href="https://www.triathlon.kg/" target="_blank">
+                        <p>Новости</p></a>
+                    }
                 </div>
             </div>
             <div className="footer__line"></div>

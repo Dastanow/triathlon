@@ -1,117 +1,80 @@
 import './Footer.scss'
-import Map from '@assets/map.svg'
-import email from '@assets/email.svg'
-import phone from '@assets/phone.svg'
-import instagram from '@assets/instagram.svg'
-import Logotip from '@assets/logo1.png'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react';
-
+import { Container } from '@components';
+import linkData from './Footer.data.json';
+import { Link } from 'react-router-dom';
+import LogoSVG from '@assets/TriathlonSVGLogo.svg';
+import Map from '@assets/map.svg';
+import Email from '@assets/email.svg';
+import Instagram from '@assets/instagram.svg';
+import Phone from '@assets/phone.svg';
 
 export const Footer = () => {
-    const nav = useNavigate()
-    const VacanciesClick = () => {
-        nav('vacancies')
-        window.scrollTo(0, 0)
-    }
-    const [News, setNews] = useState(
-        window.matchMedia('(max-width: 769px)').matches
-    );
-    useEffect(() => {
-        window.addEventListener('resize', () => {
-            setNews(window.matchMedia('(max-width:960px)').matches);
-        }, [])
-    })
-    const blocks = [
-        [
-            'Главная',
-            'Тренеры',
-            'Абонементы',
-            'Секции',
-            'Расписание',
-            'Услуги',
-            'Контакты',
-            'Новости',
-        ],
-        [
-            'Документы',
-            'Правила возврата и оплаты',
-            'Политика конфиденциальности',
-            'Договор возмездного оказания услуг',
-        ],
-        [
-            { onClick: VacanciesClick, text: 'Вакансии' },
-            'Тренеры',
-            'Отдел продаж',
-        ],
-        [
-            'График работы',
-            'В будние дни с 7:00 до 23:00',
-            ' В выходные и праздничные  дни с 8:00 до 22:00',
-        ],
-    ]
+
     return (
-        <footer>
-            <div className="footer__container">
-                <div className="logo__container">
-                    <div className="footer__Logotip">
-                        <img src={Logotip} alt="img" />
+        <footer className="footer">
+            <Container classNames="footerContainer">
+                <div className="footerInform">
+                    <div className="footerInformContent">
+                        <img src={LogoSVG} className="footerLogo" alt="Logo" />
+                        <ul className="footerList">
+                            <li className="footerContact">
+                                <img src={Map} alt="map" />
+                                <a className="footerLabel" href="triathloncenter.kg@gmail.com" target="_blank">Бишкек, ул.Фатьянова 10</a>
+                            </li>
+                            <li className="footerContact">
+                                <img src={Email} alt="email" />
+                                <a className="footerLabel">triathloncenter.kg@gmail.com</a>
+                            </li>
+                            <li className="footerContact">
+                                <img src={Instagram} alt="instagram" />
+                                <a className="footerLabel" href="https://www.instagram.com/triathloncenter.kg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">@triathloncenter.kg</a>
+                            </li>
+                            <li className="footerContact">
+                                <img src={Phone} alt="Contact" />
+                                <a className="footerLabel" >
+                                    <p>+996 997 000 180</p>
+                                    <p>+996 227 000 180</p>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="footer__count">
-                        <p className="location">
-                            <span className="footer__mapp">
-                                {' '}
-                                <img src={Map} alt="img" />
-                                Бишкек, ул.Фатьянова 10
-                            </span>
-                        </p>
-                        <p className="location">
-                            <img src={email} alt="img" />
-                            triathloncenter.kg@gmail.com
-                        </p>
-                        <a
-                            href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
-                            target="_blank">
-                            <p className="location">
-                                <img src={instagram} alt="img" />
-                                @triathloncenter.kg
-                            </p>
-                        </a>
-                        <p className="locationfoun">
-                            <img src={phone} alt="img" />
-                        +996 997 000 180
-                            <br />
-                        +996 227 000 180
-                      
-                        </p>
-                    </div>
-                </div>
-                <div className="footer__blocks">
-                    {blocks.map((block, index) => (
-                        <div className="footer__blok" key={index}>
-                            {block.map((item, i) => {
-                                if (typeof item === 'object') {
-                                    return (
-                                        <p key={i} onClick={item.onClick}>
-                                            {item.text}
+                    {linkData.map((link, index) => (
+                        <ul className="footerContent" key={index}>
+                            <li key={index} className="">
+                                {link[0].src ? (
+                                    <Link to={link[0].src} target="_self">
+                                        <b>
+                                            {link[0].title}
+                                        </b>
+                                    </Link> 
+                                ) : (
+                                    <p>
+                                        <b>
+                                            {link[0].title}
+                                        </b>
+                                    </p>
+                                )}
+                            </li>
+                            {link.slice(1).map(item => (
+                                <li key={item.id}>
+                                    {item.src ? (
+                                        <a href={item.src}>
+                                            {item.title}
+                                        </a> 
+                                    ) : (
+                                        <p>
+                                            {item.title}
                                         </p>
-                                    )
-                                } else {
-                                    return <p key={i}>{item}</p>
-                                }
-                            })}
-                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
                     ))}
-                    {News && 
-                    <a href="https://www.triathlon.kg/" target="_blank">
-                        <p>Новости</p></a>
-                    }
                 </div>
-            </div>
-            <div className="footer__line"></div>
-            <div className="footer__form">
-                <h3>Made by GEEKS PRO</h3>
-            </div>
+                <div className="footerBottom">
+                    <a href="">Made by GEEKS PRO</a>
+                </div>
+            </Container>
         </footer>
     )
 }

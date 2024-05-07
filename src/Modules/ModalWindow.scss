@@ -13,7 +13,7 @@
     pointer-events: none;
     transition: 0.5s;
       &__content {
-        padding: 20px;
+        width: min-content;
         border-radius: 24px;
         background: #fff;
         transform: scale(0.5);
@@ -31,13 +31,15 @@
     color: #fff;
     background-color: rgba(0, 0, 0, 0.4);
   }
+  .modal__content{
+    transform: scale(0);
+  }
   .modal__content.active {
     transform: scale(1);
     background: #fff;
   }
   .modal-blockk__cross {
     position: relative;
-    left: 740px;
     cursor: pointer;
     @media screen and (max-width: 1440px) {
       left: 530px;

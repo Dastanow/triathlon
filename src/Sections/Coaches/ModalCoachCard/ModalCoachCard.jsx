@@ -5,11 +5,7 @@ const ModalCoachCard = ({ coach }) => {
     if (!coach) return 'Loader...'
 
     const { photo, name, position, description } = coach
-
-    // const textElement = document.createElement('p')
-    // textElement.innerHTML = description
-    // const textContent = textElement.innerText || textElement.textContent
-
+    
     return (
         <div className="coach-modal-card">
             <img src={photo} alt={name} className="coach-modal-card__image" />

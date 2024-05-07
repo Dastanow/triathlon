@@ -21,14 +21,12 @@ const navigatePath = [
 
 export const Header = () => {
     const { t, i18n } = useTranslation()
-    const [selectedLanguage, setSelectedLanguage] = useState(
-        localStorage.getItem('selectedLanguage') || i18n.language,
-    )
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
     const [showOtherImage, setShowOtherImage] = useState(false)
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
-        console.log('Language saved to localStorage:', i18n.language)
+        console.log('Language saved to localStorage:', selectedLanguage) // Отладочный вывод
         i18n.changeLanguage(selectedLanguage)
     }, [selectedLanguage, i18n])
 
@@ -88,9 +86,7 @@ export const Header = () => {
                         <img
                             src={selectedLanguage === 'ru' ? ru : ky}
                             alt={
-                                selectedLanguage === 'ru'
-                                    ? 'russian'
-                                    : 'kygyz'
+                                selectedLanguage === 'ru' ? 'russian' : 'kygyz'
                             }
                         />
                         <FaChevronUp />
@@ -101,9 +97,7 @@ export const Header = () => {
                                     onClick={switchLanguage}>
                                     <img
                                         src={
-                                            selectedLanguage === 'ru'
-                                                ? ky
-                                                : ru
+                                            selectedLanguage === 'ru' ? ky : ru
                                         }
                                         alt={
                                             selectedLanguage === 'ru'

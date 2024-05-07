@@ -52,7 +52,7 @@ $white: #fff;
     }
 }
 //-----media-query-------------------
-@media (max-width: 375px) {
+@media (max-width: 425px) {
     .coach-modal-card {
         max-width: 335px;
         height: 312px;
@@ -80,7 +80,7 @@ $white: #fff;
     }
     .block-info__bottom {
         width: 300px;
-        height: 220px;
+        height: 185px;
         overflow: auto;
         .block-info__bottom-description {
             font-size: 12px;

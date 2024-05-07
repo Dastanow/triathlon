@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './FAQ.scss';
 import down from '../../Assets/down_svg.png';
-import { initStateFaqForm } from '../../Shared/constants';
-import { CustomTitle, CustomForm } from '@ui';
+import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
+import FaqForm from '@/UI/CustomForm/FaqForm/FaqForm';
 
 const Faq = () => {
     const {t} = useTranslation();
@@ -53,7 +53,7 @@ const Faq = () => {
     return (
         <section className="faq" id="faq">
             <Container classNames="faqContainer">
-                <CustomTitle title={t('foq')} />
+                <CustomTitle title={t('faq')} />
                 <div className="faqWrapper">
                     <div className="faqSelects">
                         {questions.map((question, index) => (
@@ -87,7 +87,7 @@ const Faq = () => {
                         ))}
                     </div>
                     <div className="faqForm">
-                        <CustomForm {...initStateFaqForm} />
+                        <FaqForm/>
                     </div>
                 </div>
             </Container>

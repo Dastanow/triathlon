@@ -115,7 +115,7 @@ export const VacancyForm = () => {
                         error={errors.email}
                     />
                     <ReactInputMask
-                        mask="+\9\96(999)999-999"
+                        mask="+999(999)999-999"
                         onChange={handleChange}>
                         {(inputProps) => (
                             <input

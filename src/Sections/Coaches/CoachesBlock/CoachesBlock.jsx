@@ -18,9 +18,6 @@ const CoachesBlock = () => {
 
     useEffect(() => {
         buttonService.get().then((data) => setButtons(data))
-    }, [])
-
-    useEffect(() => {
         coachService.get().then((data) => {
             setCoaches(data)
             setCurGroup(data)

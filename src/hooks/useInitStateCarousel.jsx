@@ -17,7 +17,29 @@ const useInitStateCarousel = () => {
             }))
             setData((prevState) => ({
                 ...prevState,
-                coach: 1.5,
+                coach: 1.565,
+                comment: 1,
+            }))
+        } else if (resultWidth <= 600) {
+            setSpace((prevState) => ({
+                ...prevState,
+                coach: 18,
+                comment: 18,
+            }))
+            setData((prevState) => ({
+                ...prevState,
+                coach: 1.565,
+                comment: 1,
+            }))
+        } else if (resultWidth < 768) {
+            setSpace((prevState) => ({
+                ...prevState,
+                coach: 24,
+                comment: 24,
+            }))
+            setData((prevState) => ({
+                ...prevState,
+                coach: 1.565,
                 comment: 1,
             }))
         } else if (resultWidth < 1440) {

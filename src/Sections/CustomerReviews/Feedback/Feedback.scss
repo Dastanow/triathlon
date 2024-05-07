@@ -39,7 +39,36 @@
     }
 }
 //--------------------------
+@media (max-width: 767px) {
+    .comments {
+        margin-bottom: 60px;
+    }
+    .comments__title {
+        margin-bottom: 36px;
+    }
+    .comments__subtitle {
+        font-size: 28px;
+        margin-bottom: 36px;
+    }
+}
+//--------------------------
+@media (max-width: 600px) {
+    .comments {
+        margin-bottom: 40px;
+    }
+    .comments__title {
+        margin-bottom: 28px;
+    }
+    .comments__subtitle {
+        font-size: 21px;
+        margin-bottom: 28px;
+    }
+}
+//--------------------------
 @media (max-width: 425px) {
+    .comments {
+        margin-bottom: 25px;
+    }
     .comments__title {
         margin-bottom: 20px;
     }

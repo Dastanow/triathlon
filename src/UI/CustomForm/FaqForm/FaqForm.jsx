@@ -34,7 +34,7 @@ export const FaqForm = () => {
     }, [data])
 
     return (
-        <div>
+        <div className="form-faq">
             <div>
                 <label className="form-faq__title">{t('remains')}</label>
                 <p className="form-faq__text">{t('answer')}</p>

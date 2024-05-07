@@ -3,11 +3,12 @@ import ModalWindow from '../../Modules/ModalWindow';
 import { useState, useEffect } from 'react';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
-import axios from 'axios';
 import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm';
 import { toggleModal } from '@/store/modalSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
+import { axiosAPI } from '@/App';
+import i18n from '@/i18n';
 
 export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -30,14 +31,14 @@ export const OurServices = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await axios.get('http://209.38.228.54:83/api/v1/offering/');
+                const { data } = await axiosAPI.get('http://209.38.228.54:83/api/v1/offering/');
                 setServicesData(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
         fetchData();
-    }, []);
+    }, [i18n]);
 
     return (
         <section className="ourServices" id="ourServices">

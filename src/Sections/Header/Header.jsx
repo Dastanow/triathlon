@@ -12,12 +12,12 @@ import { FaChevronUp } from 'react-icons/fa'
 const navigatePath = [
     { text: 'path1', id: '#main' },
     { text: 'path2', id: '#coaches' },
-    { text: 'path3', id: '#abonement' },
+    { text: 'path3', id: '#subscription' },
     { text: 'path4', id: '#section' },
     { text: 'path5', id: '/schedule' },
     { text: 'path6', id: '#services' },
     { text: 'path7', id: '#location' },
-];
+]
 
 export const Header = () => {
     const { t, i18n } = useTranslation()
@@ -31,8 +31,8 @@ export const Header = () => {
     }, [selectedLanguage, i18n])
 
     const handleSvgClick = () => {
-        setShowOtherImage((prevState) => !prevState);
-    };
+        setShowOtherImage((prevState) => !prevState)
+    }
 
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
@@ -59,24 +59,21 @@ export const Header = () => {
                                     <li key={index}>
                                         <Link
                                             target="_blank"
-                                            className="headerNavLink"
-                                            to={`${path.id}`}
-                                        >
+                                            className="headerNavLink">
                                             {t(path.text)}
                                         </Link>
                                     </li>
-                                );
+                                )
                             } else {
                                 return (
                                     <li key={index}>
                                         <a
                                             className="headerNavLink"
-                                            href={`${path.id}`}
-                                        >
+                                            href={`${path.id}`}>
                                             {t(path.text)}
                                         </a>
                                     </li>
-                                );
+                                )
                             }
                         })}
                     </ul>
@@ -109,11 +106,11 @@ export const Header = () => {
                             </div>
                         )}
                     </div>
-                    <Link to="/personal-account" target="_blank" className="headerAccount">
-                        <img
-                            src={account}
-                            alt="account"
-                        />
+                    <Link
+                        to="/personal-account"
+                        target="_blank"
+                        className="headerAccount">
+                        <img src={account} alt="account" />
                     </Link>
                 </div>
             </Container>

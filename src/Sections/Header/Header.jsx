@@ -12,13 +12,13 @@ import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
 
 const navigatePath = [
-    [{ text: 'path1', id: 'main' }],
-    [{ text: 'path2', id: 'coaches' }],
-    [{ text: 'path3', id: 'abonement' }],
-    [{ text: 'path4', id: 'section' }],
-    [{ text: 'path5' }],
-    [{ text: 'path6', id: 'services' }],
-    [{ text: 'path7', id: 'location' }],
+    { text: 'path1', id: '#main' },
+    { text: 'path2', id: '#coaches' },
+    { text: 'path3', id: '#abonement' },
+    { text: 'path4', id: '#section' },
+    { text: 'path5', id: '/schedule' },
+    { text: 'path6', id: '#services' },
+    { text: 'path7', id: '#location' },
 ]
 
 export const Header = () => {
@@ -67,7 +67,7 @@ export const Header = () => {
         setSelectedLanguage(newLanguage)
     }
 
-    console.log('Current selectedLanguage:', i18n.language) // Отладочный вывод
+    console.log('Current selectedLanguage:', i18n.language)
 
     return (
         <header className="header">
@@ -88,35 +88,39 @@ export const Header = () => {
                                     : 'headerNav'
                                 : 'headerNav'
                         }>
-                        {navigatePath.map((block, index) => (
-                            <div key={index}>
-                                {block.map((item, id) => {
-                                    if (typeof item === 'object') {
-                                        return (
-                                            <div key={id}>
-                                                <p>
-                                                    <Link
-                                                        className="headerNavLink"
-                                                        to={`#${item.id}`}
-                                                        onClick={() =>
-                                                            handleNavLinkClick(
-                                                                item.id,
-                                                            )
-                                                        }>
-                                                        {t(item.text)}
-                                                    </Link>
-                                                </p>
-                                                {index ===
-                                                    navigatePath.length - 1 && (
-                                                    <hr className="mobileSeparator" />
-                                                )}
-                                            </div>
-                                        )
-                                    }
-                                })}
-                            </div>
-                        ))}
-
+                        {navigatePath.map((path, index) => {
+                            if (path.id === '/schedule') {
+                                return (
+                                    <li key={index}>
+                                        <Link
+                                            target="_blank"
+                                            className="headerNavLink"
+                                            to={`${path.id}`}
+                                            onClick={() =>
+                                                handleNavLinkClick(path.id)
+                                            }>
+                                            {t(path.text)}
+                                        </Link>
+                                    </li>
+                                )
+                            } else {
+                                return (
+                                    <li key={index}>
+                                        <a
+                                            onClick={() =>
+                                                handleNavLinkClick(path.id)
+                                            }
+                                            className="headerNavLink"
+                                            href={`${path.id}`}>
+                                            {t(path.text)}
+                                        </a>
+                                        {index === navigatePath.length - 1 && (
+                                            <hr className="mobileSeparator" />
+                                        )}
+                                    </li>
+                                )
+                            }
+                        })}
                         {count && (
                             <div className="headerAccountBurger">
                                 <img src={account} alt="account" />
@@ -184,10 +188,12 @@ export const Header = () => {
                             <img src={burger} alt="burger" />
                         )}
                     </div>
-
-                    <div className="headerAccount">
+                    <Link
+                        to="/personal-account"
+                        target="_blank"
+                        className="headerAccount">
                         <img src={account} alt="account" />
-                    </div>
+                    </Link>
                 </div>
             </Container>
         </header>

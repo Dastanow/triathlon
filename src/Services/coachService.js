@@ -1,12 +1,16 @@
-import httpService from './httpService';
+import { axiosAPI } from '@/App'
 
-const coachEndPoint = 'trainer/';
+const coachEndPoint = 'trainer/'
 
 const coachService = {
     get: async () => {
-        const { data } = await httpService.get(coachEndPoint);
-        return data;
+        try {
+            const { data } = await axiosAPI.get(coachEndPoint)
+            return data
+        } catch (error) {
+            console.error('Error fetching data')
+        }
     },
-};
+}
 
-export default coachService;
+export default coachService

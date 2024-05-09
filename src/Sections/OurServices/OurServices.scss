@@ -108,6 +108,8 @@
             color: #ffffff;
             padding: 16px 24px; /* Adjusted padding */
             border-radius: 8px;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
             font-weight: 400;
             font-family: Montserrat;
             @media screen and (max-width: 1440px) {

@@ -23,36 +23,3 @@ export const HeaderItem = [
         elment: 'Главная',
     },
 ];
-
-//------init-form-state-----------------------
-
-export const initStateFaqForm = {
-    section: 'faq',
-    faqTitle: 'Остались вопросы?',
-    text: 'Мы рады ответить на любой Ваш вопрос, выслушать Ваше предложение.',
-    formTitle: 'form-faq__title',
-    formContent: 'form-faq__content',
-    classButton: 'form-faq__button',
-    isClass: 'form-faq',
-    fieldName: 'Ваше имя*',
-};
-
-export const initStateAppForm = {
-    section: 'app',
-    title: 'Оставить заявку',
-    formTitle: 'form-app__title',
-    formContent: 'form-app__content',
-    classButton: 'form-app__button',
-    isClass: 'form-app',
-    fieldName: 'Ваше имя*',
-};
-
-export const initStateVacancyForm = {
-    section: 'vacancy',
-    vacancyTitle: 'Откликнуться на вакансию',
-    formTitle: 'form-vacancy__title',
-    formContent: 'form-vacancy__content',
-    classButton: 'form-vacancy__button',
-    isClass: 'form-vacancy',
-    fieldName: 'Имя, Фамилия*',
-};

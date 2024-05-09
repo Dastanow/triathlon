@@ -51,7 +51,7 @@ const Requisites = () => {
                     подойти в Триатлон-Центр для совершения покупки.
                 </p>
                 <div className="location">
-                    <span className="location__reference">{t('address')}</span>
+                    <p className="location__reference">{t('address')}</p>
                 </div>
             </div>
         </div>

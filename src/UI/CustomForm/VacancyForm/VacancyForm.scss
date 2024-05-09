@@ -1,9 +1,14 @@
 .form-vacancy {
     text-align: center;
-    cursor: default;
     width: 790px;
     @media screen and (max-width: 1440px) {
         width: 580px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 720px;
+    }   
+    @media screen and (max-width: 425px) {
+        width: 335px;
     }
     &__title {
         font-family: Montserrat;
@@ -17,6 +22,15 @@
             font-size: 28px;
             color: #000000;
         }
+        @media screen and (max-width: 767px) {
+            font-size: 40px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 20px;
+            line-height: 24px;
+            width: 210px;
+            margin: 0 auto;
+        }
     }
     &__button {
         width: 522px;
@@ -29,12 +43,19 @@
         font-size: 24px;
         font-weight: 600;
         line-height: 28.8px;
-        text-align: center;
         @media screen and (max-width: 1440px) {
             width: 388px;
             height: 49px;
             padding: 8px;
         }
+        @media screen and (max-width: 767px) {
+            width: 608px;
+            height: 65px;
+        }
+        @media screen and (max-width: 425px) {
+            width: 305px;
+            height: 42px;
+        }  
     }
 }
 
@@ -43,7 +64,6 @@
     height: 142px;
     padding: 20px;
     border-radius: 16px;
-    text-align: center;
     border: 1px dashed grey;
     &__attach {
         font-family: Montserrat;
@@ -51,9 +71,13 @@
         font-weight: 800;
         line-height: 22px;
         letter-spacing: -0.05em;
-        text-align: left;
         color: #000000;
-        text-align: center;
+        @media screen and (max-width: 767px) {
+            margin-bottom: 5px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 12px;
+        }
     }
     &__drop {
         font-family: Montserrat;
@@ -62,34 +86,41 @@
         line-height: 19px;
         letter-spacing: -0.05em;
         color: #000000;
+        @media screen and (max-width: 767px) {
+            font-size: 18px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 12px;
+        }
     }
-    &__label {
-        padding: 5px 10px;
-        background-color: transparent;
-        font-size: 20px;
-        color: #fff;
-        cursor: pointer;
-        color: #013d83;
-        font-family: Montserrat;
-        font-weight: 600;
-    }
+    
     &__install {
         z-index: 2;
     }
     &__list {
         position: relative;
-        border: 3px solid #64c661;
+        border: 3px solid #64C661;
         width: 600px;
         height: 44px;
         padding: 14px;
         gap: 5px;
         border-radius: 8px;
         display: flex;
+        margin: 0 auto;
         margin-bottom: 30px;
-        margin-left: 95px;
         @media screen and (max-width: 1440px) {
             width: 435px;
-            margin-left: 72px;
+            border: 2px solid #64C661;
+        }
+        @media screen and (max-width: 767px) {
+            width: 608px;
+            height: 65px;
+            border: 2px solid #64C661;
+        }
+        @media screen and (max-width: 425px) {
+            width: 305px;
+            height: 44px;
+            border: 2px solid #64C661;
         }
     }
 }
@@ -111,6 +142,13 @@
     @media screen and (max-width: 1440px) {
         margin-top: 5px;
     }
+    @media screen and (max-width: 767px) {
+        font-size: 18px;
+    }
+    @media screen and (max-width: 425px) {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
     &__child {
         font-family: Montserrat;
         font-size: 14px;
@@ -119,7 +157,14 @@
         letter-spacing: -0.05em;
         text-align: left;
         color: #000000;
+        @media screen and (max-width: 767px) {
+            font-size: 18px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 12px;
+        }
     }
+    
 }
 .form {
     position: relative;
@@ -129,14 +174,23 @@
     margin: 0 auto;
     margin-bottom: 30px;
     width: 517px;
-    padding: 20px;
-    border: 2px dashed #002550;
+    padding: 15px;
+    border: 1px dashed #002550;
     border-radius: 16px;
     box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.5);
     transition: border-color 0.3s, background-color 0.3s;
     @media screen and (max-width: 1440px) {
         width: 401px;
         margin-bottom: 20px;
+        padding: 10px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 608px;
+        margin-bottom: 20px;
+    }
+    @media screen and (max-width: 425px) {
+        width: 305px;
+        padding: 5px;
     }
 }
 .form.drag {
@@ -151,6 +205,9 @@
     font-family: Montserrat;
     font-weight: 600;
     line-height: 19.2px;
+    @media screen and (max-width: 425px) {
+        font-size: 12px;
+    }
 }
 .input {
     margin: 0;
@@ -163,6 +220,14 @@
     &__tick {
         width: 13px;
         height: 13px;
+        @media screen and (max-width: 767px) {
+            width: 25px;
+            height: 25px;
+        }
+        @media screen and (max-width: 425px) {
+            width: 13px;
+            height: 13px;
+        }
     }
     &__title {
         font-family: Montserrat;
@@ -172,6 +237,14 @@
         letter-spacing: -0.05em;
         text-align: left;
         color: #646464;
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+            padding: 7px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 16px;
+            padding: 0;
+        }
     }
     &__delete {
         position: absolute;
@@ -179,6 +252,14 @@
         height: 16px;
         right: 20px;
         cursor: pointer;
+        @media screen and (max-width: 767px) {
+            width: 25px;
+            height: 25px;
+        }
+        @media screen and (max-width: 425px) {
+            width: 16px;
+            height: 16px; 
+        }
     }
 }
 .politic {
@@ -191,8 +272,6 @@
         display: inline;
         height: 20px;
         vertical-align: text-top;
-        border: 2px solid #002550;
-        color: #002550;
     }
     &__text {
         font-family: Montserrat;

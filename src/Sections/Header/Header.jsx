@@ -9,7 +9,7 @@ import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
 import { FaChevronUp } from 'react-icons/fa'
 
-const navigatePath = [
+export const navigatePath = [
     { text: 'path1', id: '#main' },
     { text: 'path2', id: '#coaches' },
     { text: 'path3', id: '#abonement' },

@@ -1,12 +1,16 @@
-import httpService from './httpService';
+import { axiosAPI } from '@/App'
 
-const trainAreaEndPoint = 'train-zone/';
+const trainAreaEndPoint = 'train-zone/'
 
 const trainAreaService = {
     get: async () => {
-        const { data } = await httpService.get(trainAreaEndPoint);
-        return data;
+        try {
+            const { data } = await axiosAPI.get(trainAreaEndPoint)
+            return data
+        } catch (error) {
+            console.error('Error fetching data')
+        }
     },
-};
+}
 
-export default trainAreaService;
+export default trainAreaService

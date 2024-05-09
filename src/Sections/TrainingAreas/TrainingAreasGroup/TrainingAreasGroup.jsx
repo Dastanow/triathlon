@@ -6,14 +6,14 @@ import { useTranslation } from 'react-i18next'
 
 const TrainingAreasGroup = () => {
     const [trainingAreas, setTrainingAreas] = useState([])
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const slidesPerView = 1
 
     useEffect(() => {
         trainAreaService.get().then((data) => setTrainingAreas(data))
-    }, [])
+    }, [i18n.language])
 
-    if (!trainingAreas) return 'Loader...'
+    if (trainingAreas.length === 0) return 'Loader...'
 
     return (
         <section className="train-areas">

@@ -25,7 +25,7 @@ export const SectionTriatlhonMobile = ({ rows }) => {
 
     return (
         <>
-            {rows
+            {rows && rows
                 .filter((item) => item.id == currentSlide)
                 .map((item) => (
                     <table key={item.id} className="mobileTable">

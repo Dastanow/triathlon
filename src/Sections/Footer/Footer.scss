@@ -152,16 +152,9 @@ footer {
     a {
       color: #FFF;
       font-family: Montserrat;
-      font-size: 32px;
+      font-size: 18px;
       font-weight: 500;
       line-height: 150%; /* 48px */
-      @media screen and (max-width: 1440px) {
-        font-size: 24px;
-      }
-      @media screen and (max-width: 768px) {
-        
-        font-size: 16px;
-      }
     }
   }
 }

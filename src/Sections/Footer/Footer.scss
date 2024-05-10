@@ -1,180 +1,160 @@
 footer {
+  margin-top: 112px;
+  @media screen and (max-width: 1440px) {
+    margin-top: 90px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
   background: var(--Primary, #002550);
+  a {
+    color: #FFFFFF;
+  }
 }
-.footer__container {
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  gap: 88px;
-  margin-top: 80px;
-  padding: 26px 160px;
-
-  .footer__Logotip img {
-    width: 245.094px;
-    height: 76.293px;
-  }
-  .footer__blocks {
-    display: flex;
-    gap: 88px;
-  }
-
-  .logo__container {
+.footer {
+  &Container {
+    max-width: 1625px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 34px;
-    margin-top: 20px;
-    p {
-      display: flex;
-      justify-content: start;
-      font-size: 16;
-      font-weight: 400;
-      line-height: 150%;
-      gap: 14px;
-      line-height: 39px;
-    }
-    a {
-      color: #fff;
-    }
-    h3 {
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-  }
-}
-
-.footer__form {
-  display: flex;
-  background: var(--Primary, #002550);
-  justify-content: center;
-  padding: 10px 0;
-  h3 {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 150%;
-  }
-}
-.footer__blok {
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
-  p {
-    font-size: 18px;
-    font-weight: 500;
-  }
-}
-
-.Link:visited {
-  color: inherit;
-}
-
-@media only screen and (max-width: 1440px) {
-  .footer__container {
-    padding: 20px 120px;
-    gap: 50px;
-    .footer__blocks {
-      gap: 40px;
-    }
-    .logo__container {  
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 23px;
-      p {
-        font-size: 14.563px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-    p {
-      color: #fff;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 120%;
-    }
-    .footer__Logotip img {
-      width: 182.031px;
-      height: 56.663px;
-    }
-    .footer__blok {
+    gap: 21px;
+    padding: 26px 16px;
+    @media screen and (max-width: 1440px) {
+      padding: 20px 16px;
       gap: 16px;
     }
-  }
-}
-@media only screen and (max-width: 985px) {
-  .footer__container {
-  gap: 55px;
-    .footer__blocks {
-  gap: 45px;
+    @media screen and (max-width: 768px) {
+      padding: 22px 16px;
     }
   }
-}
-@media only screen and (max-width: 768px) {
-  .footer__container {
-    flex-direction: column;
-    .footer__blocks {
+  &Logo {
+    @media screen and (max-width: 1440px) { 
+      width: 182px;
+      height: 56px;
+    }
+  }
+  &Inform {
+    display: flex;
+    align-items: flex-start;
+    gap: 88px;
+    @media screen and (max-width: 1440px) {
+      gap: 66px;
+    }
+    @media screen and (max-width: 1200px) {
+      gap: 44px;
+    }
+    @media screen and (max-width: 1000px) {
+      gap: 20px;
+    }
+    @media screen and (max-width: 768px) {
+      gap: 20px;
+      display: flex;
       flex-direction: column;
-      flex-direction: column-reverse;
       align-items: center;
     }
-    .footer__blok {
+  }
+  &InformContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+    @media screen and (max-width: 768px) {
+      align-items: center;
+    }
+  }
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media screen and (max-width: 1440px) {
+      gap: 16px;
+    }
+    @media screen and (max-width: 768px) {
+      flex-direction: row;
+    }
+    li {
+      display: flex;
+      align-items: start;
+      gap: 7px;
+    }
+  }
+  &Label {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 19.417px;
+    font-weight: 400;
+    line-height: 150%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    @media screen and (max-width: 1440px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 960px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  &Content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media screen and (max-width: 768px) {
+      align-items: center;
+    }
+    li {
       p {
-        display: flex;
-        justify-content: center;
-        color: #fff;
-        text-align: center;
-
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 120%;
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 19.417px;
+        font-weight: 400;
+        line-height: 150%;
+        @media screen and (max-width: 1440px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 960px) {
+          font-size: 14px;
+        }
+        @media screen and (max-width: 768px) {
+          text-align: center;
+        }
       }
-    }
-    .logo__container {
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 0;
-      
-      .footer__count {
-        display: flex;
-       margin-left: 30px;
-       .locationfoun {
-        font-size: 0;
-        display: flex;
+      a {
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 19.417px;
+        font-weight: 400;
+        line-height: 150%;
+        @media screen and (max-width: 1440px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 960px) {
+          font-size: 14px;
+        }
+        margin-bottom: 11px;
+      }
+      @media screen and (max-width: 768px) {
         align-items: center;
-        gap: 30px;
-        margin-top: 10px;
-       }
-        .location {
-          font-size: 0;
-          display: flex;
-          align-items: center;
-          gap: 30px;
-          .footer__mapp {
-            img {
-              display: none;
-            }
-          }
-        }
-        .location img {
-          display: block;
-        }
-        .footer__contacts__tel {
-          font-size: 0;
-        }
       }
     }
   }
-  .footer__line {
-    height: 1px;
-    background-color: rgba(1, 61, 131, 0.7);
-    margin: auto;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .footer__blok:nth-child(1) {
-    display: none;
+  &Bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 768px) {
+      padding-top: 4px;
+      border-top: 1px solid rgba(1, 61, 131, 0.70);
+    }
+    a {
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 150%; /* 48px */
+    }
   }
 }

@@ -1,14 +1,16 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
 }
 body {
-  background: #fff;
-  overflow-x: hidden;
+    background: #fff;
+    overflow-x: hidden;
 }
 .routing--first__container {
-  width: 100%;
-  margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
 }
-

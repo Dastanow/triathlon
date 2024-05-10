@@ -22,10 +22,8 @@ const SectionTriatlon = () => {
 
     const funcGet = async () => {
         try {
-            const res = await axiosAPI.get(
-                'services',
-            )
-            setRows(res.data)
+            const { data } = await axiosAPI.get('services')
+            setRows(data)
         } catch (err) {
             console.log(err, 'error in SectionTriatlon')
         }
@@ -38,7 +36,9 @@ const SectionTriatlon = () => {
     return (
         <section id="table" className="tableMobile">
             <Container classNames="tableMobileContainer">
-                <CustomTitle title={'Секции Триатлон'} />
+                <div id="section">
+                    <CustomTitle title={'section_triathlon'} />
+                </div>
                 {showMobile ? (
                     <SectionTriatlhonMobile rows={rows} />
                 ) : (
@@ -54,14 +54,15 @@ const SectionTriatlon = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {rows && rows.map((row, index) => (
-                                <tr className="tableBody" key={index}>
-                                    <td>{row.title}</td>
-                                    <td>{row.note}</td>
-                                    <td>{row.hours_week}</td>
-                                    <td>{row.price}</td>
-                                </tr>
-                            ))}
+                            {rows &&
+                                rows.map((row, index) => (
+                                    <tr className="tableBody" key={index}>
+                                        <td>{row.title}</td>
+                                        <td>{row.note}</td>
+                                        <td>{row.hours_week}</td>
+                                        <td>{row.price}</td>
+                                    </tr>
+                                ))}
                         </tbody>
                     </table>
                 )}

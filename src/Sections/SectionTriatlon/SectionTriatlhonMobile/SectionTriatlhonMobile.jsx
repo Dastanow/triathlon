@@ -8,16 +8,16 @@ export const SectionTriatlhonMobile = ({ rows }) => {
     const [currentSlide, setCurrentSlide] = useState(1)
 
     const nextSlide = () => {
-        if (currentSlide >= 9) {
-            setCurrentSlide(1)
+        if (currentSlide >= rows.length - 1) {
+            setCurrentSlide(0)
         } else {
             setCurrentSlide(currentSlide + 1)
         }
     }
 
     const prevSlide = () => {
-        if (currentSlide <= 1) {
-            setCurrentSlide(9)
+        if (currentSlide <= 0) {
+            setCurrentSlide(rows.length - 1)
         } else {
             setCurrentSlide(currentSlide - 1)
         }
@@ -25,30 +25,31 @@ export const SectionTriatlhonMobile = ({ rows }) => {
 
     return (
         <>
-            {rows && rows
-                .filter((item) => item.id == currentSlide)
-                .map((item) => (
-                    <table key={item.id} className="mobileTable">
-                        <tbody>
-                            <tr className="tableBody">
-                                <th className="tableTop">Группа</th>
-                                <td className="tableTop">{item.group}</td>
-                            </tr>
-                            <tr className="tableBody">
-                                <th>Примечание</th>
-                                <td>{item.note}</td>
-                            </tr>
-                            <tr className="tableBody">
-                                <th>Кол-во часов в нед.</th>
-                                <td>{item.hours}</td>
-                            </tr>
-                            <tr className="tableBody">
-                                <th>Стоимость</th>
-                                <td>{item.cost}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                ))}
+            {rows &&
+                rows
+                    .filter((_, id) => id == currentSlide)
+                    .map((item) => (
+                        <table key={item.id} className="mobileTable">
+                            <tbody>
+                                <tr className="tableBody">
+                                    <th className="tableTop">Группа</th>
+                                    <td className="tableTop">{item.title}</td>
+                                </tr>
+                                <tr className="tableBody">
+                                    <th>Примечание</th>
+                                    <td>{item.note}</td>
+                                </tr>
+                                <tr className="tableBody">
+                                    <th>Кол-во часов в нед.</th>
+                                    <td>{item.hours_week}</td>
+                                </tr>
+                                <tr className="tableBody">
+                                    <th>Стоимость</th>
+                                    <td>{item.price}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    ))}
             <div className="tableButtons">
                 <button onClick={prevSlide}>
                     <FaArrowLeft />

@@ -27,7 +27,28 @@
     }
 }
 //--------------------------
+@media (max-width: 767px) {
+    .train-areas {
+        margin-bottom: 40px;
+    }
+    .train-areas__title {
+        margin-bottom: 36px;
+    }
+}
+//--------------------------
+@media (max-width: 600px) {
+    .train-areas {
+        margin-bottom: 30px;
+    }
+    .train-areas__title {
+        margin-bottom: 28px;
+    }
+}
+//--------------------------
 @media (max-width: 425px) {
+    .train-areas {
+        margin-bottom: 20px;
+    }
     .train-areas__title {
         margin-bottom: 20px;
     }

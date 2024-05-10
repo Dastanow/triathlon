@@ -5,7 +5,7 @@ const ModalCoachCard = ({ coach }) => {
     if (!coach) return 'Loader...'
 
     const { photo, name, position, description } = coach
-    
+
     return (
         <div className="coach-modal-card">
             <img src={photo} alt={name} className="coach-modal-card__image" />
@@ -17,7 +17,6 @@ const ModalCoachCard = ({ coach }) => {
                 <div className="block-info__bottom">
                     <div
                         className="block-info__bottom-description"
-                        // style={{ background: 'transparent', color: '#fff' }}
                         dangerouslySetInnerHTML={{ __html: description }}
                     />
                 </div>

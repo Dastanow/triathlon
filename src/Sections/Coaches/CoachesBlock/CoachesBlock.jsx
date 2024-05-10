@@ -14,18 +14,18 @@ const CoachesBlock = () => {
     const [activeBtn, setActiveBtn] = useState(null)
     const [swiperInstance, setSwiperInstance] = useState(null)
     const [, slidesPerView] = useInitStateCarousel()
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+
+    const isCoaches = coaches.length !== 0
+    const isButtons = buttons.length !== 0
 
     useEffect(() => {
         buttonService.get().then((data) => setButtons(data))
-    }, [])
-
-    useEffect(() => {
         coachService.get().then((data) => {
             setCoaches(data)
             setCurGroup(data)
         })
-    }, [])
+    }, [i18n.language])
 
     const handleChangeCoaches = ({ target }) => {
         setActiveBtn(target.name)
@@ -38,7 +38,7 @@ const CoachesBlock = () => {
         }
     }
 
-    if (!coaches && !buttons) return 'Loader...'
+    if (!isCoaches || !isButtons) return 'Loader...'
 
     return (
         <section className="coaches" id="coaches">

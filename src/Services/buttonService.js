@@ -1,11 +1,15 @@
-import httpService from './httpService'
+import { axiosAPI } from '@/App'
 
 const buttonEndPoint = 'type_of_trainer/'
 
 const buttonService = {
     get: async () => {
-        const { data } = await httpService.get(buttonEndPoint)
-        return data
+        try {
+            const { data } = await axiosAPI.get(buttonEndPoint)
+            return data
+        } catch (error) {
+            console.error('Error fetching data')
+        }
     },
 }
 

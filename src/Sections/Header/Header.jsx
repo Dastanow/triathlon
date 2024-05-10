@@ -192,10 +192,12 @@ export const Header = () => {
                             <img src={burger} alt="burger" />
                         )}
                     </div>
-
-                    <div className="headerAccount">
+                    <Link
+                        to="/personal-account"
+                        target="_blank"
+                        className="headerAccount">
                         <img src={account} alt="account" />
-                    </div>
+                    </Link>
                 </div>
             </Container>
         </header>

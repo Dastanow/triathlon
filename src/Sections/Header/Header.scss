@@ -7,6 +7,7 @@
     height: 120px;
     z-index: 999;
     transition: all 0.3s ease;
+    
     @media screen and (max-width: 1440px) {
         height: 90px;
     }
@@ -46,6 +47,7 @@
             position: absolute;
             left: -200%;
             top: 0;
+            height: 100vh;
             display: block;
             background: #000;
             padding: 76px 246px 356px 20px;

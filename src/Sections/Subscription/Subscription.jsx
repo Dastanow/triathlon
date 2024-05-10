@@ -27,13 +27,11 @@ export const Subscription = () => {
             setModalActive(false)
         }
     }, [modalState])
+
     const funcGet = async () => {
         try {
-            const res = await axiosAPI.get(
-                'abonements',
-            )
-            setSubsData(res.data)
-            console.log(res)
+            const { data } = await axiosAPI.get('abonements')
+            setSubsData(data)
         } catch (err) {
             console.log(err, 'error in subscription')
         }
@@ -43,9 +41,11 @@ export const Subscription = () => {
     }, [i18n.language])
 
     return (
-        <section className="subscription" id="subscription">
+        <section className="subscription">
             <Container classNames="subscriptionContainer">
-                <CustomTitle title={t('aboniment')} />
+                <div id="subscription">
+                    <CustomTitle title={t('aboniment')} />
+                </div>
                 <ul className="subscriptionList">
                     {subsData &&
                         subsData.map((subscription) => (

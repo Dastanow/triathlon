@@ -5,10 +5,6 @@ import InnerCarousel from '../InnerCarousel/InnerCarousel.jsx'
 const TrainingAreasCard = (props) => {
     const { title, description, images } = props
 
-    // const textElement = document.createElement('p');
-    // textElement.innerHTML = description;
-    // const textContent = textElement.innerText || textElement.textContent;
-
     return (
         <div className="train-areas__card">
             <div className="train-areas__carousel-wrapper">

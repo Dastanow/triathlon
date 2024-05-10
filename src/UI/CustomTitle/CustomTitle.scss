@@ -1,5 +1,5 @@
 .customTitle {
-    color: #013D83;
+    color: #013d83;
     font-size: 80px;
     font-style: normal;
     font-weight: 700;
@@ -12,10 +12,16 @@
         line-height: 120%; /* 72px */
         letter-spacing: -0.6px;
     }
-    @media screen and (max-width: 762px) {
+    @media screen and (max-width: 767px) {
+        font-size: 56px;
+        line-height: 120%; /* 69.6px */
+    }
+    @media screen and (max-width: 600px) {
+        font-size: 38px;
+        line-height: 120%; /* 51.6px */
+    }
+    @media screen and (max-width: 425px) {
         font-size: 28px;
-        font-style: normal;
-        font-weight: 700;
         line-height: 120%; /* 33.6px */
     }
 }

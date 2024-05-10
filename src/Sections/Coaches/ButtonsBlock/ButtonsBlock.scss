@@ -16,7 +16,6 @@ $black: #000;
 }
 
 .coaches__button {
-    height: 55px;
     font-size: 26px;
     font-weight: 500;
     color: $black;
@@ -57,16 +56,54 @@ $black: #000;
         border-radius: 12px;
     }
 }
+//-----mobile-version----------
+@media (max-width: 767px) {
+    .coaches__buttons {
+        margin-bottom: 36px;
+        > button {
+            height: 74px;
+            margin-right: 36px;
+        }
+    }
+    .coaches__button {
+        font-size: 28px;
+        padding: 16px 20px;
+        border-radius: 16px;
+        border: 1px solid $black;
+        &.active {
+            border: 1px solid $dark;
+        }
+    }
+}
 //-------------------------------
-@media (max-width: 762px) {
+@media (max-width: 600px) {
+    .coaches__buttons {
+        margin-bottom: 28px;
+        > button {
+            height: 55px;
+            margin-right: 24px;
+        }
+    }
+    .coaches__button {
+        font-size: 20px;
+        padding: 8px 20px;
+        border-radius: 12px;
+        border: 1px solid $black;
+        &.active {
+            border: 1px solid $dark;
+        }
+    }
+}
+//-------------------------------
+@media (max-width: 425px) {
     .coaches__buttons {
         margin-bottom: 20px;
         > button {
+            height: 37px;
             margin-right: 12px;
         }
     }
     .coaches__button {
-        height: 37px;
         font-size: 14px;
         padding: 8px 14px;
         border-radius: 8px;

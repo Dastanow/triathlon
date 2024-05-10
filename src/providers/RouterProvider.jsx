@@ -5,7 +5,7 @@ import {
     VacanciesPage,
     NotFoundPage,
     AdminPage,
-    // SchedulePage,
+    SchedulePage,
 } from '@pages'
 
 const Routing = () => {
@@ -15,7 +15,7 @@ const Routing = () => {
                 <Route index element={<HomePage />} />
                 <Route path="vacancies" element={<VacanciesPage />} />
             </Route>
-            {/* <Route path="schedule" element={<SchedulePage />} /> */}
+            <Route path="schedule" element={<SchedulePage />} />
             <Route path="personal-account" element={<AdminPage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>

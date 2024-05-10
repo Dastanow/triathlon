@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
 
-const navigatePath = [
+export const navigatePath = [
     { text: 'path1', id: '#main' },
     { text: 'path2', id: '#coaches' },
     { text: 'path3', id: '#subscription' },

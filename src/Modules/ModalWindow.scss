@@ -37,13 +37,7 @@
   .modal__content.active {
     transform: scale(1);
     background: #fff;
-  }
-  .modal-blockk__cross {
-    position: relative;
-    cursor: pointer;
-    @media screen and (max-width: 1440px) {
-      left: 530px;
-  }
-  }
- 
- 
+    position: fixed;
+    top: 150px;
+
+  } 

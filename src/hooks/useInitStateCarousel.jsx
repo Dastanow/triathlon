@@ -6,9 +6,7 @@ const useInitStateCarousel = () => {
 
     const handleResize = () => {
         const inner = window.innerWidth
-        const outer = window.outerWidth
-        const result = inner >= outer ? inner : outer
-
+        
         if (inner <= 425) {
             setSpace((prevState) => ({
                 ...prevState,

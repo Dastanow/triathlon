@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './FAQ.scss';
 import chevron from '../../Assets/solar_chevron-up.svg';
 import { CustomTitle } from '@ui';
@@ -11,7 +11,7 @@ const Faq = () => {
     const { t, i18n } = useTranslation();
     const [openIndexes, setOpenIndexes] = useState([]);
     const [faqData, setFaqData] = useState([]);
-    
+
     const fetchData = async () => {
         try {
             const { data } = await axiosAPI.get('faq');

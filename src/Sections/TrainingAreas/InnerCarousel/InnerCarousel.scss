@@ -32,6 +32,20 @@
     }
 }
 //------------------------------------
+@media (max-width: 1320px) {
+    .inner-carousel-image {
+        width: 680px;
+        height: 380px;
+    }
+}
+//------------------------------------
+@media (max-width: 1200px) {
+    .inner-carousel-image {
+        width: 608px;
+        height: 340px;
+    }
+}
+//------------------------------------
 @media (max-width: 767px) {
     .inner-carousel-image {
         width: 100%;

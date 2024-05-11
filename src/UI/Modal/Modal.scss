@@ -37,15 +37,18 @@
     right: 15px;
 }
 //------media-query----------------
+@media (max-width: 1320px) {
+    .custom-modal__content-close {
+        width: 44px;
+        height: 44px;
+    }
+}
+//---------------------------------
 @media (max-width: 767px) {
     .custom-modal__content-close {
         width: 40px;
         height: 40px;
     }
-    // .custom-modal__content-close {
-    //     top: 15px;
-    //     right: 35px;
-    // }
 }
 //---------------------------------
 @media (max-width: 600px) {
@@ -53,10 +56,6 @@
         width: 30px;
         height: 30px;
     }
-    // .custom-modal__content-close {
-    //     top: 15px;
-    //     right: 35px;
-    // }
 }
 //---------------------------------
 @media (max-width: 425px) {

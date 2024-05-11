@@ -1,21 +1,32 @@
-import { useState, useEffect } from 'react';
-import './Vacancies.scss';
-import VacanciesData from './VacanciesFakeData.json';
+import { useState, useEffect } from 'react'
+import './Vacancies.scss'
 import { IoIosArrowDown } from 'react-icons/io'
-import ModalWindow from '@modules/ModalWindow';
+import ModalWindow from '@modules/ModalWindow'
 import { toggleModal } from '@/store/modalSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { CustomButton, CustomTitle} from '@ui';
-import { Container } from '@components';
-import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm';
+import { CustomButton, CustomTitle } from '@ui'
+import { Container } from '@components'
+import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm'
+import { axiosAPI } from '@/App'
+import { useTranslation } from 'react-i18next'
 
 export const Vacancies = () => {
     const [openIndex, setOpenIndex] = useState(null)
     const [modalActive, setModalActive] = useState(false)
+    const [data, setData] = useState([])
+    const { i18n } = useTranslation()
 
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index)
     }
+
+    const getData = async () => {
+        const { data } = await axiosAPI.get('vacancy')
+        setData(data)
+    }
+    useEffect(() => {
+        getData()
+    }, [i18n.language])
 
     const modalState = useSelector((state) => state.modal.isActive)
 
@@ -30,13 +41,12 @@ export const Vacancies = () => {
         }
     }, [modalState])
 
-
     return (
         <section className="vacancies" id="vacancies">
             <Container classNames="vacanciesContainer">
                 <CustomTitle title={'Вакансии'} />
                 <div className="vacanciesList">
-                    {VacanciesData.map((vacancie, index) => (
+                    {data.map((vacancy, index) => (
                         <div className="vacanciesWrapper" key={index}>
                             <div
                                 className={
@@ -49,7 +59,7 @@ export const Vacancies = () => {
                                     className="vacanciesToggleField"
                                     onClick={() => handleToggle(index)}>
                                     <h5 className="vacanciesTitle">
-                                        {vacancie.zgolovok}
+                                        {vacancy.title}
                                     </h5>
                                     <span className="vacanciesArrow">
                                         <IoIosArrowDown
@@ -62,26 +72,25 @@ export const Vacancies = () => {
                                     </span>
                                 </div>
                                 <div className="vacanciesContent">
-                                    <p className="vacanciesDescription">
-                                        {vacancie.title}
+                                    <p className="vacanciesDescription" dangerouslySetInnerHTML={{__html: vacancy.desc}}>
                                     </p>
                                     <div className="vacancies-requirements">
                                         <h3 className="vacancies-subtitle">
-                                            Требуется:{' '}
+                                            Требования:
                                         </h3>
-                                        <p>{vacancie.requirements}</p>
+                                        <p>{vacancy.requirements}</p>
                                     </div>
                                     <div className="vacancies-offer">
                                         <h3 className="vacancies-subtitle">
                                             Предлагаем:
                                         </h3>
-                                        <p>{vacancie.offer}</p>
+                                        <p>{vacancy.offer}</p>
                                     </div>
                                     <div className="vacancies-conditions">
                                         <h3 className="vacancies-subtitle">
-                                            Условия:{' '}
+                                            Условия:    
                                         </h3>
-                                        <p>{vacancie.conditions}</p>
+                                        <p>{vacancy.conditions}</p>
                                     </div>
                                 </div>
                                 <CustomButton
@@ -97,7 +106,7 @@ export const Vacancies = () => {
             </Container>
             {modalActive && (
                 <ModalWindow>
-                    <VacancyForm/>
+                    <VacancyForm />
                 </ModalWindow>
             )}
         </section>

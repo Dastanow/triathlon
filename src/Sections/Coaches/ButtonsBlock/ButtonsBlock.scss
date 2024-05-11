@@ -56,6 +56,30 @@ $black: #000;
         border-radius: 12px;
     }
 }
+//-------------------------------
+@media (max-width: 1320px) {
+    .coaches__buttons {
+        font-size: 24px;
+        > button {
+            margin-right: 22px;
+        }
+    }
+    .coaches__button {
+        border-radius: 10px;
+    }
+}
+//-------------------------------
+@media (max-width: 1200px) {
+    .coaches__buttons {
+        font-size: 22px;
+        > button {
+            margin-right: 20px;
+        }
+    }
+    .coaches__button {
+        border-radius: 8px;
+    }
+}
 //-----mobile-version----------
 @media (max-width: 767px) {
     .coaches__buttons {

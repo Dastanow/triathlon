@@ -8,17 +8,17 @@ $black: #000;
 }
 
 .coach-inner__wrapper {
-    max-width: 1508px;
+    width: 1508px;
     margin: 0 auto;
 }
 
 .train-areas-inner__wrapper {
-    max-width: 1566px;
+    width: 1566px;
     margin: 0 auto;
 }
 
 .comment-inner__wrapper {
-    max-width: 1512px;
+    width: 1512px;
     margin: 0 auto;
 }
 
@@ -75,13 +75,13 @@ $black: #000;
 //--------media-query---------------
 @media (max-width: 1800px) {
     .coach-inner__wrapper {
-        max-width: 1395px;
+        width: 1395px;
     }
     .train-areas-inner__wrapper {
-        max-width: 1458px;
+        width: 1458px;
     }
     .comment-inner__wrapper {
-        max-width: 1404px;
+        width: 1404px;
     }
     .swiper-pagination {
         margin-top: 26px;
@@ -104,13 +104,13 @@ $black: #000;
 //-----------------------------------
 @media (max-width: 1680px) {
     .coach-inner__wrapper {
-        max-width: 1282px;
+        width: 1282px;
     }
     .train-areas-inner__wrapper {
-        max-width: 1348px;
+        width: 1348px;
     }
     .comment-inner__wrapper {
-        max-width: 1296px;
+        width: 1296px;
     }
     .swiper-pagination {
         margin-top: 24px;
@@ -134,13 +134,13 @@ $black: #000;
 //-----------------------------------
 @media (max-width: 1560px) {
     .coach-inner__wrapper {
-        max-width: 1165px;
+        width: 1165px;
     }
     .train-areas-inner__wrapper {
-        max-width: 1218px;
+        width: 1218px;
     }
     .comment-inner__wrapper {
-        max-width: 1176px;
+        width: 1176px;
     }
     .swiper-pagination {
         margin-top: 22px;
@@ -163,13 +163,13 @@ $black: #000;
 //-----------------------------------
 @media (max-width: 1440px) {
     .coach-inner__wrapper {
-        max-width: 1048px;
+        width: 1048px;
     }
     .train-areas-inner__wrapper {
-        max-width: 1090px;
+        width: 1090px;
     }
     .comment-inner__wrapper {
-        max-width: 1050px;
+        width: 1050px;
     }
     .swiper-pagination {
         margin-top: 20px;
@@ -191,6 +191,30 @@ $black: #000;
     }
 }
 //-----------------------------------
+@media (max-width: 1320px) {
+    .coach-inner__wrapper {
+        width: 946px;
+    }
+    .train-areas-inner__wrapper {
+        width: 975px;
+    }
+    .comment-inner__wrapper {
+        width: 944px;
+    }
+}
+//-----------------------------------
+@media (max-width: 1200px) {
+    .coach-inner__wrapper {
+        width: 836px;
+    }
+    .train-areas-inner__wrapper {
+        width: 872px;
+    }
+    .comment-inner__wrapper {
+        width: 838px;
+    }
+}
+//----mobile-version------------------
 @media (max-width: 767px) {
     .carousel-inner {
         max-width: 686px;

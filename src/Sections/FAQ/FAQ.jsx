@@ -11,21 +11,21 @@ const Faq = () => {
     const { t, i18n } = useTranslation();
     const [openIndexes, setOpenIndexes] = useState([]);
     const [faqData, setFaqData] = useState([]);
-
+    
+    const fetchData = async () => {
+        try {
+            const { data } = await axiosAPI.get('faq');
+            const formattedData = data.map(item => ({
+                title: item.question,
+                answer: item.answer
+            }));
+            setFaqData(formattedData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data } = await axiosAPI.get('http://209.38.228.54:83/api/v1/faq/');
-                const formattedData = data.map(item => ({
-                    title: item.question,
-                    answer: item.answer
-                }));
-                setFaqData(formattedData);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
         fetchData();
     }, [i18n.language]);
 

@@ -9,13 +9,13 @@ import { axiosAPI } from '@/App';
 
 const Faq = () => {
     const { t, i18n } = useTranslation();
-    const [openIndexes, setOpenIndexes] = useState([]);
+    const [openIndex, setOpenIndex] = useState(null);
     const [faqData, setFaqData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await axiosAPI.get('http://209.38.228.54:83/api/v1/faq/');
+                const { data } = await axiosAPI.get('faq');
                 const formattedData = data.map(item => ({
                     title: item.question,
                     answer: item.answer
@@ -30,65 +30,53 @@ const Faq = () => {
     }, [i18n.language]);
 
     const handleToggle = (index) => {
-        setOpenIndexes(prevIndexes => {
-            const updatedIndexes = prevIndexes.map((item, ind) => {
-                if (ind === index) {
-                    return !item; 
-                } else if (item && ind !== index) {
-                    return false; 
-                }
-                return item;
-            });
-            return updatedIndexes;
-        });
+        setOpenIndex(prevIndex => (prevIndex === index ? null : index)); 
     };
     
-    
-
     return (
         <section className="faq" id="faq">
-            <Container classNames="faqContainer">
-                <CustomTitle title={t('faq')} />
-                <div className="faqWrapper">
-                    <div className="faqSelects">
-                        {faqData.map((item, index) => (
-                            <div
-                                onClick={() => handleToggle(index)}
-                                className="faqQuestions"
-                                key={index}
-                            >
-                                <div className="faqBox">
-                                    <h4 className="faqTitles">
-                                        {item.title}
-                                    </h4>
-                                    <div className="faqArrow">
-                                        <img
-                                            src={chevron}
-                                            alt="img"
-                                            style={{
-                                                transform: openIndexes[index]
-                                                    ? 'rotate(180deg)'
-                                                    : '',
-                                                transition: '0.5s',
-                                            }}
-                                        />
-                                    </div>
+        <Container classNames="faqContainer">
+            <CustomTitle title={t('faq')} />
+            <div className="faqWrapper">
+                <div className="faqSelects">
+                    {faqData.map((item, index) => (
+                        <div
+                            onClick={() => handleToggle(index)}
+                            className="faqQuestions"
+                            key={index}
+                        >
+                            <div className="faqBox">
+                                <h4 className="faqTitles">
+                                    {item.title}
+                                </h4>
+                                <div className="faqArrow">
+                                    <img
+                                        src={chevron}
+                                        alt="img"
+                                        style={{
+                                            transform: openIndex === index 
+                                                ? 'rotate(180deg)'
+                                                : '',
+                                            transition: '0.5s',
+                                        }}
+                                    />
                                 </div>
-
-                                {openIndexes[index] && (
-                                    <p className="answer opened">
-                                        {item.answer}
-                                    </p>
-                                )}
                             </div>
-                        ))}
-                    </div>
-                    <div className="faqForm">
-                        <FaqForm />
-                    </div>
+
+                            {openIndex === index && ( 
+                                <p className="answer opened">
+                                    {item.answer}
+                                </p>
+                            )}
+                        </div>
+                    ))}
                 </div>
-            </Container>
-        </section>
+                <div className="faqForm">
+                    <FaqForm />
+                </div>
+            </div>
+        </Container>
+    </section>
     );
 };
 

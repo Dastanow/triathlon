@@ -103,6 +103,49 @@ $dark: #013d83;
     }
 }
 //-------------------------------
+@media (max-width: 1320px) {
+    .coach-card {
+        width: 220px;
+        height: 312px;
+    }
+    .coach-info {
+        height: 110px;
+        padding: 6px;
+        > p {
+            line-height: 135%;
+        }
+    }
+    .coach-info__name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .coach-info__sertification {
+        font-size: 15px;
+    }
+}
+//-------------------------------
+@media (max-width: 1200px) {
+    .coach-card {
+        width: 194px;
+        height: 276px;
+    }
+    .coach-info {
+        height: 95px;
+        padding: 4px;
+        > p {
+            line-height: 130%;
+        }
+    }
+    .coach-info__name {
+        font-size: 17px;
+        margin-bottom: 9px;
+    }
+    .coach-info__sertification {
+        font-size: 14px;
+    }
+}
+//----mobile-version------------
 @media (max-width: 767px) {
     .coach-card {
         width: 100%;

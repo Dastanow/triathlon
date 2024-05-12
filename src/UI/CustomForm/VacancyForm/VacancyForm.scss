@@ -8,7 +8,7 @@
         width: 720px;
     }   
     @media screen and (max-width: 425px) {
-        width: 335px;
+        width: 355px;
     }
     &__title {
         font-family: Montserrat;
@@ -18,9 +18,11 @@
         color: #002550;
         padding: 20px 0;
         display: block;
+        margin-top: 40px;
         @media screen and (max-width: 1440px) {
             font-size: 28px;
             color: #000000;
+            margin-top: 30px;
         }
         @media screen and (max-width: 767px) {
             font-size: 40px;
@@ -30,6 +32,7 @@
             line-height: 24px;
             width: 210px;
             margin: 0 auto;
+            font-size: 14px;
         }
     }
     &__button {
@@ -287,5 +290,19 @@
         letter-spacing: -0.05em;
         color: #013d83;
         margin: 0 auto;
+    }
+}
+.modal-vacancy__cross{
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    @media screen and (max-width: 1440px) {
+        width: 36px;
+        height: 36px;
+    }
+    @media screen and (max-width: 425px) {
+        width: 25px;
+        height: 25px;
     }
 }

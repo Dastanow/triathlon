@@ -6,7 +6,6 @@ import { FaArrowRight } from 'react-icons/fa6'
 
 export const SectionTriatlhonMobile = ({ rows }) => {
     const [currentSlide, setCurrentSlide] = useState(1)
-    console.log(rows)
 
     const nextSlide = () => {
         if (currentSlide >= rows.length - 1) {

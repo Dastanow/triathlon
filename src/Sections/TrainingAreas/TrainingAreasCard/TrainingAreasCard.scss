@@ -7,7 +7,7 @@ $dark: #013d83;
     overflow: hidden;
 }
 .train-areas__carousel-wrapper {
-    max-width: 1090px;
+    width: 1090px;
 }
 .train-areas__info {
     display: flex;
@@ -36,7 +36,7 @@ $dark: #013d83;
         border-radius: 15px;
     }
     .train-areas__carousel-wrapper {
-        max-width: 1014px;
+        width: 1014px;
     }
     .train-areas__info {
         width: 444px;
@@ -56,7 +56,7 @@ $dark: #013d83;
         border-radius: 14px;
     }
     .train-areas__carousel-wrapper {
-        max-width: 938px;
+        width: 938px;
     }
     .train-areas__info {
         width: 410px;
@@ -76,7 +76,7 @@ $dark: #013d83;
         border-radius: 13px;
     }
     .train-areas__carousel-wrapper {
-        max-width: 850px;
+        width: 850px;
     }
     .train-areas__info {
         width: 368px;
@@ -97,7 +97,7 @@ $dark: #013d83;
         border-radius: 12px;
     }
     .train-areas__carousel-wrapper {
-        max-width: 760px;
+        width: 760px;
     }
     .train-areas__info {
         width: 330px;
@@ -106,10 +106,46 @@ $dark: #013d83;
     }
     .train-areas__info-title {
         font-size: 28px;
-        font-weight: 500;
     }
     .train-areas__info-text {
         font-size: 16px;
+    }
+}
+//---------------------------------
+@media (max-width: 1320px) {
+    .train-areas__carousel-wrapper {
+        width: 680px;
+    }
+    .train-areas__info {
+        width: 295px;
+        height: 380px;
+        padding: 24px;
+    }
+    .train-areas__info-title {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    .train-areas__info-text {
+        font-size: 15px;
+    }
+}
+//---------------------------------
+@media (max-width: 1200px) {
+    .train-areas__carousel-wrapper {
+        width: 608px;
+    }
+    .train-areas__info {
+        width: 264px;
+        height: 340px;
+        padding: 20px;
+    }
+    .train-areas__info-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .train-areas__info-text {
+        font-size: 13px;
+        line-height: 140%;
     }
 }
 //---------------------------------

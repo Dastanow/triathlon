@@ -2,7 +2,7 @@ $dark: #013d83;
 $white: #fff;
 
 .coach-modal-card {
-    max-width: 1186px;
+    width: 1186px;
     height: 497px;
     display: flex;
     border-radius: 16px;
@@ -51,6 +51,36 @@ $white: #fff;
     }
 }
 //-----media-query-------------------
+@media (max-width: 1320px) {
+    .coach-modal-card {
+        width: 946px;
+        height: 396px;
+    }
+    .coach-modal-card__image {
+        width: 279px;
+    }
+    .coach-modal-card__info-block {
+        width: 667px;
+        padding: 20px 50px;
+    }
+    .block-info__top {
+        margin-bottom: 20px;
+        .block-info__top-name {
+            font-size: 26px;
+            margin-bottom: 18px;
+        }
+        .block-info__top-sertification {
+            font-size: 16px;
+        }
+    }
+    .block-info__bottom {
+        height: 265px;
+        .block-info__bottom-description {
+            font-size: 18px;
+        }
+    }
+}
+//-----mobile-version----------------
 @media (max-width: 767px) {
     .coach-modal-card {
         max-width: 680px;

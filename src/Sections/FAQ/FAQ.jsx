@@ -4,7 +4,7 @@ import chevron from '../../Assets/solar_chevron-up.svg';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
-import FaqForm from '@/UI/CustomForm/FaqForm/FaqForm';
+import Form from '@/UI/CustomForm/FaqForm/FaqForm';
 import { axiosAPI } from '@/App';
 
 const Faq = () => {
@@ -84,7 +84,7 @@ const Faq = () => {
                         ))}
                     </div>
                     <div className="faqForm">
-                        <FaqForm />
+                        <Form type="default" />
                     </div>
                 </div>
             </Container>

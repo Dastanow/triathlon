@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm'
 import { toggleModal } from '@/store/modalSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import Form from '@/UI/CustomForm/FaqForm/FaqForm'
 
 export const Hero = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -40,7 +41,7 @@ export const Hero = () => {
                     </CustomButton>
                 </div>
             </Container>
-            <ModalWindow>{modalActive && <ApplicationForm />}</ModalWindow>
+            <ModalWindow>{modalActive && <Form type="leaveRequest" />}</ModalWindow>
         </section>
     )
 }

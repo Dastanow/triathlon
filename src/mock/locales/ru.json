@@ -59,5 +59,8 @@
     "vacancies": "Вакансии",
     "vacacies": "Тренеры",
     "vacanciesеthree": "Отдел продаж",
-    "locationtitle": "Наши контакты"
+    "locationtitle": "Наши контакты",
+    "faqForm": {
+        "title": ""
+    }
 }

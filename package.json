@@ -27,7 +27,8 @@
     "react-slick": "^0.30.2",
     "redux-toolkit": "^1.1.2",
     "sass": "^1.71.0",
-    "swiper": "^11.0.6"
+    "swiper": "^11.0.6",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

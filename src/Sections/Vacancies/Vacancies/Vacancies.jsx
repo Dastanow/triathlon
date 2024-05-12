@@ -8,10 +8,12 @@ import { CustomButton, CustomTitle } from '@ui'
 import PropTypes from 'prop-types'
 import { Container } from '@components'
 import VacancyForm from '@/UI/CustomForm/VacancyForm/VacancyForm'
+import { useTranslation } from 'react-i18next'
 
 export const Vacancies = ({ data }) => {
     const [openIndex, setOpenIndex] = useState(null)
     const [modalActive, setModalActive] = useState(false)
+    const { t } = useTranslation()
 
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index)
@@ -34,7 +36,7 @@ export const Vacancies = ({ data }) => {
     return (
         <section className="vacancies" id="vacancies">
             <Container classNames="vacanciesContainer">
-                <CustomTitle title={'Вакансии'} />
+                <CustomTitle title={'vacancies'} />
                 <div className="vacanciesList">
                     {data.map((vacancy, index) => (
                         <div className="vacanciesWrapper" key={index}>
@@ -72,7 +74,7 @@ export const Vacancies = ({ data }) => {
                                     className="vacanciesButton"
                                     type="primary"
                                     onClick={() => handleOpenModal()}>
-                                    Отправить резюме
+                                    {t('sendCv')}
                                 </CustomButton>
                             </div>
                         </div>

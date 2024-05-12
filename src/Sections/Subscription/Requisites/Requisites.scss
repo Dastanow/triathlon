@@ -14,11 +14,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    @media screen and (max-width: 767px) {
-        width: 680px;
+    @media screen and (max-width: 768px) {
+        width: 85vw;
     }
     @media screen and (max-width: 425px) {
-        width: 320px;
+        width: 80vw;
     }
     &__title {
         font-family: Montserrat;
@@ -27,64 +27,13 @@
         line-height: 43.2px;
         text-align: center;
         color: #013d83;
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 768px) {
             font-size: 45px;
         }
         @media screen and (max-width: 425px) {
             font-size: 24px;
             line-height: 28px;
         }
-    }
-    &__info {
-        font-family: Montserrat;
-        width: 650px;
-        font-size: 22px;
-        margin: 0 auto;
-        font-weight: 600;
-        line-height: 33px;
-        text-align: center;
-        color: #000000;
-        margin-top: 20px;
-        @media screen and (max-width: 767px) {
-            width: 430px;
-            margin-top: 30px;
-            font-weight: 500;
-            font-size: 25px;
-        }
-        @media screen and (max-width: 425px) {
-            width: 335px;
-            margin-top: 10px;
-        }
-    }
-}
-.phone {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    @media screen and (max-width: 767px) {
-        margin-top: 20px;
-    }
-    @media screen and (max-width: 425px) {
-        margin-top: 10px;
-    }
-    &__reference {
-        display: inline-grid;
-    }
-    &__number-one {
-        font-family: Montserrat;
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 34.13px;
-        text-align: center;
-        color: #171717;
-    }
-    &__number {
-        font-family: Montserrat;
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 34.13px;
-        text-align: center;
-        color: #171717;
     }
 }
 .payment {
@@ -101,40 +50,18 @@
             width: 575px;
             font-size: 20px;
         }
-        @media screen and (max-width: 767px) {
-            width: 430px;
+        @media screen and (max-width: 768px) {
+            width: 100%;
             margin-top: 30px;
             font-weight: 500;
             font-size: 25px;
             margin-top: 20px;
         }
         @media screen and (max-width: 425px) {
-            width: 335px;
+            width: 100%;
+            font-size: 14px;
+            line-height: unset;
         }
-}
-.location {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    &__reference {
-        font-family: Montserrat;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 41.44px;
-        color: #171717;
-        @media screen and (max-width: 1440px) {
-            font-size: 20px;
-        }
-        @media screen and (max-width: 1440px) {
-            width: 430px;
-            font-size: 25px;
-        }
-        @media screen and (max-width: 425px) {
-            width: 335px;
-            font-size: 20px;
-            line-height: 30px;
-        }
-    }
 }
 .modal-payment__cross{
     position: fixed;

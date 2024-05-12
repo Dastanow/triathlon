@@ -12,20 +12,19 @@ const Requisites = () => {
     const handleCloseModal = () => {
         dispatch(toggleModal(false))
     }
-    const { t, i18n } = useTranslation()
-    const [ contactData, setContactData ] = useState([])
+    const { i18n } = useTranslation()
+    const [contactData, setContactData] = useState([])
     const fetchData = async () => {
         try {
-            const { data } = await axiosAPI.get('contacts');
-            setContactData(data);
+            const { data } = await axiosAPI.get('payment')
+            setContactData(data)
         } catch (error) {
-            console.error('Error data:', error);
+            console.error('Error data:', error)
         }
-    };
+    }
     useEffect(() => {
         fetchData()
-    }, [i18n.language]) 
-
+    }, [i18n.language])
 
     return (
         <div className="requisites_block">
@@ -40,39 +39,13 @@ const Requisites = () => {
             </div>
             <div className="requisites">
                 <label className="requisites__title">TRIATHLON CENTER</label>
-                <p className="requisites__info">
-                    Для оплаты онлайн, пожалуйста, свяжитесь с отделом продаж
-                    для получения дополнительной информации о процессе
-                    онлайн-оплаты.{' '}
-                </p>
-                {contactData.map(info => (
-                    <div>
-                        <div className="phone">
-                            <div className="phone__reference">
-                                <a
-                                    className="phone__number-one"
-                                    href="https://wa.me/996227000180"
-                                    target="_blank">
-                                    {info.first_number}
-                                </a>
-                                <a
-                                    className="phone__number"
-                                    href="https://wa.me/996997000180"
-                                    target="_blank">
-                                    {info.second_number}
-                                </a>
-                            </div>
-                        </div>
-                        <p className="payment">
-                    Если вы предпочитаете оплату наличными или картой, вы можете
-                    подойти в Триатлон-Центр для совершения покупки.
-                        </p>
-                        <div className="location">
-                            <p className="location__reference">{info.address}</p>
-                        </div>
+                {contactData.map((info, id) => (
+                    <div key={id}>
+                        <p
+                            className="payment"
+                            dangerouslySetInnerHTML={{ __html: info.disc }}></p>
                     </div>
                 ))}
-                
             </div>
         </div>
     )

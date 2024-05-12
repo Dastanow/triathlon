@@ -11,13 +11,13 @@ import { t } from 'i18next';
 
 const Location = () => {
     const [locationapi, setLocationapi] = useState([]);
-useEffect(() => {
-    const fetchData = async () => {
-        locationapiSer.get()
-        .then((data) => setLocationapi(data))
-};
-fetchData()
-}, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            locationapiSer.get()
+                .then((data) => setLocationapi(data))
+        };
+        fetchData()
+    }, []);
     const {t} = useTranslation()
     return (
         <section className="location" id="location">

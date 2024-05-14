@@ -2,28 +2,52 @@ import './AboutUs.scss';
 import school from '@assets/Placeholder Image.png';
 import { Container } from '@components';
 import { CustomTitle, CustomButton } from '@ui';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios'
 
 export const AboutUs = () => {
     const { t } = useTranslation();
+    const [aboutUsapi, setAboutUsapi] = useState()
+    useEffect(() => {
+       const FetchData = async () => {
+        try {
+            const {data} = await axios.get('http://209.38.228.54:83/api/v1/about-us/')
+            setAboutUsapi(data);
+            console.log(data);
+            
+        }catch {
+            console.log("Failed to fetch data");
+        }
+       }
+       FetchData();
+    }, [])
     return (
         <section id="aboutUs" className="aboutUs">
             <Container classNames="aboutUsContainer">
                 <CustomTitle title={t('aboutUs')} />
-                <div className="aboutUsWrapper">
+                {aboutUsapi?.map((item) => {
+                    return(
+                         <div className="aboutUsWrapper">
+             
                     <div className="aboutUsImage">
-                        <img src={school} alt="about us image" />
+                        <img src={item.image} alt="about us image" />
                     </div>
                     <div className="aboutUsContent">
-                        <h3 className="aboutUsTitle">TRIATHLON CENTER</h3>
-                        <p className="aboutUsDescription">
-                        Добро пожаловать в наш инклюзивный спортивный клуб! В нашем спортивном клубе работают профессиональные дружелюбные сотрудники, знающие сервис, с индивидуальным подходом к каждому клиенту. Благодаря этому вы погрузитесь в добрую семейную обстановку, где присутствуют инновационные технологии. Наш спортивный клуб - это место, где забота о вашем здоровье и благополучии становится страстью. Мы создаем уютное пространство, где каждый посетитель может обрести не только физическую форму, но и умиротворение души.
-                        </p>
+                        <h3 className="aboutUsTitle">{item.title}</h3>
+                        <div className='aboutUsDescription'
+                        dangerouslySetInnerHTML={{__html: item.desc}}>
+                            
+                        </div>
                         <CustomButton type="primary">
                             {t('buttonKR')}
                         </CustomButton>
                     </div>
                 </div>
+                    )
+  
+})}
+             
             </Container>
         </section>
     );

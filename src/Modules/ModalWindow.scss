@@ -12,7 +12,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
-      &__content {
+    &__content {
         width: min-content;
         border-radius: 24px;
         background: #fff;
@@ -20,30 +20,23 @@
         transition: 0.4s all;
         z-index: 2;
         cursor: default;
-      }
-  }
+    }
+}
 
-  .modal.active {
+.modal.active {
     opacity: 1;
     pointer-events: all;
     left: 0;
     top: 0;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.4);
-  }
-  .modal__content{
+}
+.modal__content {
     transform: scale(0);
-  }
-  .modal__content.active {
+}
+.modal__content.active {
     transform: scale(1);
     background: #fff;
-  }
-  .modal-blockk__cross {
-    position: relative;
-    cursor: pointer;
-    @media screen and (max-width: 1440px) {
-      left: 530px;
-  }
-  }
- 
- 
+    position: fixed;
+    margin-top: 10px;
+}

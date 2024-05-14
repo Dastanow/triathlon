@@ -8,6 +8,10 @@ import { CheckBoxes, TextField } from '@components'
 import ReactInputMask from 'react-input-mask'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { toggleModal } from '@/store/modalSlice'
+import modalSvg from '@assets/modalka.svg'
+
 
 export const VacancyForm = () => {
     const [data, setData] = useState({
@@ -19,6 +23,10 @@ export const VacancyForm = () => {
     })
     const [errors, setErrors] = useState({})
     const { t } = useTranslation()
+    const dispatch = useDispatch()
+    const handleCloseModal = () => {
+        dispatch(toggleModal(false))
+    }
     const [files, setFiles] = useState([])
     const [dragActive, setDragActive] = useState(false)
     const [showFiles, setShowFiles] = useState(false)
@@ -97,6 +105,12 @@ export const VacancyForm = () => {
 
     return (
         <div className="form-vacancy">
+            <img
+                src={modalSvg}
+                onClick={() => handleCloseModal()}
+                className="modal-vacancy__cross"
+                alt="reset"
+            />
             <label className="form-vacancy__title">{t('vacancy')}</label>
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form__input-user">

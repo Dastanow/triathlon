@@ -1,128 +1,182 @@
-import './Footer.scss'
-import Map from '@assets/map.svg'
-import email from '@assets/email.svg'
-import phone from '@assets/phone.svg'
-import instagram from '@assets/instagram.svg'
-import Logotip from '@assets/logo1.png'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Container } from '@components'
+import { axiosAPI } from '@/App'
+import { navigatePath } from '../Header/Header'
+
+import LogoSVG from '@assets/TriathlonCenterLogo.png'
+import Map from '@assets/map.svg'
+import Email from '@assets/email.svg'
+import Instagram from '@assets/instagram.svg'
+import Phone from '@assets/phone.svg'
+import './Footer.scss'
 
 export const Footer = () => {
-    const {t} = useTranslation()
-    const nav = useNavigate()
-    const VacanciesClick = () => {
-        nav('vacancies')
-        window.scrollTo(0, 0)
+    const { t, i18n } = useTranslation()
+    const [allData, setAllData] = useState([])
+
+    const fetchData = async (endpoint) => {
+        try {
+            const response = await axiosAPI.get(`/${endpoint}`)
+            console.log(`Data fetched from ${endpoint}:`, response.data)
+            return { [endpoint]: response.data }
+        } catch (error) {
+            console.error(`Error fetching data from ${endpoint}:`, error)
+            return { [endpoint]: null }
+        }
     }
-    const DocumentServices = () => {
-        window.open('http://209.38.228.54:83/media/files/%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80_%D0%B2%D0%BE%D0%B7%D0%BC%D0%B5%D0%B7%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F_%D1%83%D1%81%D0%BB%D1%83%D0%B3.pdf', '_blank')
-    }
-    const DocumentPolicy = () => {
-        window.open('http://209.38.228.54:83/media/files/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.pdf', '_blank')
-    }
-    const DocumentPayment = () => {
-        window.open('http://209.38.228.54:83/media/files/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf', '_blank')
-    }
-    const [News, setNews] = useState(
-        window.matchMedia('(max-width: 769px)').matches
-    );
+
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            setNews(window.matchMedia('(max-width:960px)').matches);
-        }, [])
-    })
-    const blocks = [
-        [
-            'path1',
-            'path2',
-            'path3',
-            'path4',
-            'path5',
-            'path6',
-            'path7',
-            'Новости',
-        ],
-        [
-            'document',
-            {onClick: DocumentPayment, text: 'documents'},
-            {onClick: DocumentPolicy, text: 'documenttwo'},
-            {onClick: DocumentServices, text: 'domumentthri'}
-        ],
-        [
-            { onClick: VacanciesClick, text: 'vacancies' },
-            'vacanciestwo',
-            'vacanciesеthree',
-        ],
-        [
-            'location',
-            'locationtime',
-            'locationtimetwo',
-        ],
-    ]
+        const fetchAllData = async (endpoints) => {
+            try {
+                const requests = endpoints.map((endpoint) =>
+                    fetchData(endpoint),
+                )
+                const responses = await Promise.all(requests)
+                const responseData = Object.assign({}, ...responses)
+                setAllData(responseData)
+
+                console.log('All data fetched:', responseData)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
+        }
+
+        const endpoints = ['schedule', 'file', 'vacancy']
+        fetchAllData(endpoints)
+    }, [i18n.language])
+
     return (
-        <footer>
-            <div className="footer__container">
-                <div className="logo__container">
-                    <div className="footer__Logotip">
-                        <img src={Logotip} alt="img" />
+        <footer className="footer">
+            <Container classNames="footerContainer">
+                <div className="footerInform">
+                    <div className="footerInformContent">
+                        <Link to="/">
+                            <img
+                                src={LogoSVG}
+                                className="footerLogo"
+                                alt="Logo"
+                            />
+                        </Link>
+                        <ul className="footerList">
+                            <li className="footerContact">
+                                <a
+                                    href="https://www.google.com/maps/place/10+%D0%A4%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2%D0%B0,+Bishkek/@42.8600908,74.6056157,20.67z/data=!4m5!3m4!1s0x389eb632b000a38b:0xae646f5966b1033e!8m2!3d42.8601249!4d74.6056813?entry=ttu"
+                                    target="_blank">
+                                    <img src={Map} alt="map" />
+                                </a>
+                                <a
+                                    className="footerLabel"
+                                    href="https://www.google.com/maps/place/10+%D0%A4%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2%D0%B0,+Bishkek/@42.8600908,74.6056157,20.67z/data=!4m5!3m4!1s0x389eb632b000a38b:0xae646f5966b1033e!8m2!3d42.8601249!4d74.6056813?entry=ttu"
+                                    target="_blank">
+                                    Бишкек, ул.Фатьянова 10
+                                </a>
+                            </li>
+                            <li className="footerContact">
+                                <a
+                                    href="mailto:triathloncenter.kg@gmail.com"
+                                    target="_blank">
+                                    <img src={Email} alt="email" />
+                                </a>
+                                <a
+                                    className="footerLabel"
+                                    target="_blank"
+                                    href="mailto:triathloncenter.kg@gmail.com">
+                                    triathloncenter.kg@gmail.com
+                                </a>
+                            </li>
+                            <li className="footerContact">
+                                <a
+                                    href="https://www.instagram.com/triathloncenter.kg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                    target="_blank">
+                                    <img src={Instagram} alt="instagram" />
+                                </a>
+                                <a
+                                    className="footerLabel"
+                                    href="https://www.instagram.com/triathloncenter.kg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                    target="_blank">
+                                    @triathloncenter.kg
+                                </a>
+                            </li>
+                            <li className="footerContact">
+                                <a href="tel:+996997000180" target="_blank">
+                                    <img src={Phone} alt="Contact" />
+                                </a>
+                                <a className="footerLabel">
+                                    <p>+996 997 000 180</p>
+                                    <p>+996 227 000 180</p>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="footer__count">
-                        <p className="location">
-                            <span className="footer__mapp">
-                                {' '}
-                                <img src={Map} alt="img" />
-                                Бишкек, ул.Фатьянова 10
-                            </span>
-                        </p>
-                        <p className="location">
-                            <img src={email} alt="img" />
-                            triathloncenter.kg@gmail.com
-                        </p>
-                        <a
-                            href="https://www.instagram.com/triathloncenter.kg/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
-                            target="_blank">
-                            <p className="location">
-                                <img src={instagram} alt="img" />
-                                @triathloncenter.kg
+                    <ul className="footerContent">
+                        {navigatePath.map((path, index) => (
+                            <li key={index}>
+                                {index === 0 ? (
+                                    <Link to="/">
+                                        <b>{t(path.text)}</b>
+                                    </Link>
+                                ) : (
+                                    <>
+                                        {path.id === '/schedule' ? (
+                                            <Link target="_blank" to={path.id}>
+                                                {t(path.text)}
+                                            </Link>
+                                        ) : (
+                                            <a href={path.id}>{t(path.text)}</a>
+                                        )}
+                                    </>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                    <ul className="footerContent">
+                        <li>
+                            <p>
+                                <b>{t('documents')}</b>
                             </p>
-                        </a>
-                        <p className="locationfoun">
-                            <img src={phone} alt="img" />
-                        +996 997 000 180
-                            <br />
-                        +996 227 000 180
-                      
-                        </p>
-                    </div>
+                        </li>
+                        {allData.file?.map((item) => (
+                            <li key={item.file}>
+                                <a href={item.file} target="_blank" download>
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <ul className="footerContent">
+                        <li>
+                            <Link to="/vacancies">
+                                <b>{t('vacancies')}</b>
+                            </Link>
+                        </li>
+                        {allData.vacancy?.map((item, id) => (
+                            <li key={id}>
+                                <Link to="/vacancies">{item.title}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <ul className="footerContent">
+                        <li>
+                            <p>
+                                <b>{t('location')}</b>
+                            </p>
+                        </li>
+                        {allData.schedule?.map((item, id) => (
+                            <li key={id}>
+                                <p>{item.holiday_work_time}</p>
+                                <p>{item.work_time}</p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                <div className="footer__blocks">
-                    {blocks.map((block, index) => (
-                        <div className="footer__blok" key={index}>
-                            {block.map((item, i) => {
-                                if (typeof item === 'object') {
-                                    return (
-                                        <p key={i} onClick={item.onClick}>
-                                            {t(item.text)}
-                                        </p>
-                                    )
-                                } else {
-                                    return <p key={i}>{t(item)}</p>
-                                }
-                            })}
-                        </div>
-                    ))}
-                    {News && 
-                    <a href="https://www.triathlon.kg/" target="_blank">
-                        <p>Новости</p></a>
-                    }
+                <div className="footerBottom">
+                    <a href="" target="_blank">
+                        Made by GEEKS PRO
+                    </a>
                 </div>
-            </div>
-            <div className="footer__line"></div>
-            <div className="footer__form">
-                <h3>Made by GEEKS PRO</h3>
-            </div>
+            </Container>
         </footer>
     )
 }

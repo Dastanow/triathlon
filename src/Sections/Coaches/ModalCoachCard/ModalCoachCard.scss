@@ -2,7 +2,7 @@ $dark: #013d83;
 $white: #fff;
 
 .coach-modal-card {
-    max-width: 1186px;
+    width: 1186px;
     height: 497px;
     display: flex;
     border-radius: 16px;
@@ -22,14 +22,13 @@ $white: #fff;
     padding: 25px 60px;
     background-color: $dark;
     > div {
-        max-width: 100%;
         color: $white;
         font-style: normal;
-        line-height: normal;
     }
 }
 .block-info__top {
     pointer-events: none;
+    line-height: normal;
     margin-bottom: 36px;
     .block-info__top-name {
         font-size: 36px;
@@ -52,6 +51,111 @@ $white: #fff;
     }
 }
 //-----media-query-------------------
+@media (max-width: 1320px) {
+    .coach-modal-card {
+        width: 946px;
+        height: 396px;
+    }
+    .coach-modal-card__image {
+        width: 279px;
+    }
+    .coach-modal-card__info-block {
+        width: 667px;
+        padding: 20px 50px;
+    }
+    .block-info__top {
+        margin-bottom: 20px;
+        .block-info__top-name {
+            font-size: 26px;
+            margin-bottom: 18px;
+        }
+        .block-info__top-sertification {
+            font-size: 16px;
+        }
+    }
+    .block-info__bottom {
+        height: 265px;
+        .block-info__bottom-description {
+            font-size: 18px;
+        }
+    }
+}
+//-----mobile-version----------------
+@media (max-width: 767px) {
+    .coach-modal-card {
+        max-width: 680px;
+        height: 634px;
+        border-radius: 24px;
+    }
+    .coach-modal-card__image {
+        display: none;
+    }
+    .coach-modal-card__info-block {
+        padding: 28px 24px;
+        width: 100%;
+    }
+    .block-info__top {
+        margin-bottom: 16px;
+        .block-info__top-name {
+            width: 500px;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .block-info__top-sertification {
+            width: 100%;
+            font-size: 32px;
+            padding: 0;
+        }
+    }
+    .block-info__bottom {
+        width: 100%;
+        height: 400px;
+        overflow: auto;
+        .block-info__bottom-description {
+            line-height: 150%;
+        }
+    }
+}
+//---------------------------------------
+@media (max-width: 600px) {
+    .coach-modal-card {
+        max-width: 510px;
+        height: 470px;
+        border-radius: 20px;
+    }
+    .coach-modal-card__image {
+        display: none;
+    }
+    .coach-modal-card__info-block {
+        padding: 21px 18px;
+        width: 100%;
+    }
+    .block-info__top {
+        margin-bottom: 14px;
+        .block-info__top-name {
+            width: 310px;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .block-info__top-sertification {
+            width: 100%;
+            font-size: 24px;
+            padding: 0;
+        }
+    }
+    .block-info__bottom {
+        width: 100%;
+        height: 290px;
+        overflow: auto;
+        .block-info__bottom-description {
+            font-size: 18px;
+            line-height: 150%;
+        }
+    }
+}
+//----------------------------------------
 @media (max-width: 425px) {
     .coach-modal-card {
         max-width: 335px;
@@ -65,12 +169,12 @@ $white: #fff;
         padding: 14px 12px;
     }
     .block-info__top {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         .block-info__top-name {
             width: 260px;
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .block-info__top-sertification {
             width: 300px;
@@ -80,7 +184,7 @@ $white: #fff;
     }
     .block-info__bottom {
         width: 300px;
-        height: 185px;
+        height: 215px;
         overflow: auto;
         .block-info__bottom-description {
             font-size: 12px;

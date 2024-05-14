@@ -1,6 +1,12 @@
 .form-faq{
-    margin-left: 50px;
-    cursor: default;
+    @media screen and (max-width: 767px) {
+        width: 650px;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 425px) {
+        width: 300px;
+        margin: 0 auto;
+    }
     &__title{
         font-family: Montserrat;
         font-size: 44px;
@@ -9,6 +15,9 @@
         color: #000000;
         @media screen and (max-width: 1440px) {
             font-size: 32px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 25px;
         }
     }
     &__text{
@@ -28,22 +37,32 @@
             margin-top: 5px;
             margin-bottom: 10px;
         }
+        @media screen and (max-width: 425px) {
+            margin-top: 0;
+        }
     }
     &__button{
         width: 600px;
         height: 70px;
         border-radius: 16px;
-        background: #30639D;
+        background: #013D83;
         color: #FFF;   
         font-family: system-ui;
         font-size: 22px;
         font-weight: 600;
         line-height: 22.44px;
-        text-align: center; 
         @media screen and (max-width: 1440px) {
             width: 434px;
             height: 45px;
             border-radius: 12px;
-        }         
+        }    
+        @media screen and (max-width: 767px) {
+            width: 608px;
+            height: 65px;
+        } 
+        @media screen and (max-width: 425px) {
+            width: 305px;
+            height: 42px;
+        }     
     }
 }

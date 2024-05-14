@@ -3,10 +3,13 @@ $lightblack: #002550;
 .comment-card {
     width: 480px;
     min-height: 422px;
-    text-align: center;
-    padding: 10px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
     border-radius: 24px;
     border: 1px solid $lightblack;
+    transition: all .3s;
     &:hover {
         box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
     }
@@ -16,7 +19,7 @@ $lightblack: #002550;
         border-radius: 50%;
         object-fit: cover;
         overflow: hidden;
-        margin-bottom: 14px;
+        margin-bottom: 30px;
     }
 }
 .comment-info {
@@ -48,9 +51,9 @@ $lightblack: #002550;
     margin: 0 auto;
     cursor: pointer;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.7s ease;
     &.comment-info__expanded-text {
-        max-height: 310px;
+        max-height: 500px;
     }
     > span {
         color: rgba(100, 100, 100, 0.4);
@@ -65,7 +68,6 @@ $lightblack: #002550;
         > img {
             width: 151px;
             height: 151px;
-            margin-bottom: 13px;
         }
     }
     .comment-info > p {
@@ -92,7 +94,7 @@ $lightblack: #002550;
         > img {
             width: 138px;
             height: 138px;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
         }
     }
     .comment-info {
@@ -121,7 +123,7 @@ $lightblack: #002550;
         > img {
             width: 125px;
             height: 125px;
-            margin-bottom: 11px;
+            margin-bottom: 22px;
         }
     }
     .comment-info > p {
@@ -148,7 +150,7 @@ $lightblack: #002550;
         > img {
             width: 112px;
             height: 112px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     }
     .comment-info {
@@ -169,11 +171,179 @@ $lightblack: #002550;
     }
 }
 //--------------------------------
+@media (max-width: 1320px) {
+    .comment-card {
+        width: 300px;
+        min-height: 264px;
+        border-radius: 18px;
+        padding: 11px 20px;
+        > img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 16px;
+        }
+    }
+    .comment-info {
+        line-height: 130%;
+        > p {
+            margin-bottom: 8px;
+        }
+    }
+    .comment-info__name {
+        font-size: 18px;
+    }
+    .comment-info__specialization {
+        font-size: 15px;
+    }
+    .comment-info__text {
+        width: 260px;
+        font-size: 14px;
+        max-height: 60px;
+        &.comment-info__expanded-text {
+            max-height: 300px;
+        }
+    }
+}
+//--------------------------------
+@media (max-width: 1200px) {
+    .comment-card {
+        width: 266px;
+        min-height: 234px;
+        border-radius: 16px;
+        padding: 8px 16px;
+        > img {
+            width: 84px;
+            height: 84px;
+            margin-bottom: 14px;
+        }
+    }
+    .comment-info {
+        line-height: 130%;
+        > p {
+            margin-bottom: 7px;
+        }
+    }
+    .comment-info__name {
+        font-size: 17px;
+    }
+    .comment-info__specialization {
+        font-size: 14px;
+    }
+    .comment-info__text {
+        width: 230px;
+        font-size: 13px;
+        max-height: 60px;
+    }
+}
+//--------------------------------
+@media (max-width: 767px) {
+    .comment-card {
+        width: 100%;
+        min-height: 474px;
+        padding: 25px 24px;
+        border-radius: 40px;
+        &:hover {
+            box-shadow: none;
+        }
+        > img {
+            width: 172px;
+            height: 172px;
+            margin-bottom: 42px;
+        }
+    }
+    .comment-info {
+        line-height: 150%;
+        > p {
+            margin-bottom: 16px;
+        }
+    }
+    .comment-info__name {
+        font-size: 28px;
+    }
+    .comment-info__specialization {
+        font-size: 24px;
+    }
+    .comment-info__text {
+        font-size: 24px;
+        width: 415px;
+        max-height: 120px;
+        transition: max-height 0.7s linear;
+    }
+    .comments .container .carousel-inner {
+        > .btn-prev,
+        .btn-next {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            top: 90%;
+        }
+        > .btn-prev {
+            left: 88px;
+        }
+        > .btn-next {
+            right: 88px;
+        }
+    }
+}
+//--------------------------------
+@media (max-width: 600px) {
+    .comment-card {
+        width: 100%;
+        min-height: 356px;
+        padding: 20px;
+        border-radius: 30px;
+        &:hover {
+            box-shadow: none;
+        }
+        > img {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 27px;
+        }
+    }
+    .comment-info {
+        line-height: 150%;
+        > p {
+            margin-bottom: 12px;
+        }
+    }
+    .comment-info__name {
+        font-size: 21px;
+    }
+    .comment-info__specialization {
+        font-size: 18px;
+    }
+    .comment-info__text {
+        font-size: 18px;
+        width: 315px;
+        max-height: 120px;
+        transition: max-height 0.7s linear;
+        &.comment-info__expanded-text {
+            max-height: 400px;
+        }
+    }
+    .comments .container .carousel-inner {
+        > .btn-prev,
+        .btn-next {
+            width: 65px;
+            height: 65px;
+            border-radius: 12px;
+            top: 90%;
+        }
+        > .btn-prev {
+            left: 64px;
+        }
+        > .btn-next {
+            right: 64px;
+        }
+    }
+}
+//--------------------------------
 @media (max-width: 425px) {
     .comment-card {
         width: 100%;
         min-height: 237px;
-        padding: 5px 12px;
+        padding: 10px 12px;
         border-radius: 20px;
         &:hover {
             box-shadow: none;
@@ -181,7 +351,7 @@ $lightblack: #002550;
         > img {
             width: 86px;
             height: 86px;
-            margin-bottom: 8px;
+            margin-bottom: 24px;
         }
     }
     .comment-info {
@@ -200,6 +370,9 @@ $lightblack: #002550;
         font-size: 12px;
         width: 215px;
         max-height: 72px;
+        &.comment-info__expanded-text {
+            max-height: 250px;
+        }
     }
     .comments .container .carousel-inner {
         > .btn-prev,
@@ -207,7 +380,7 @@ $lightblack: #002550;
             width: 50px;
             height: 50px;
             border-radius: 8px;
-            top: 87%;
+            top: 90%;
         }
         > .btn-prev {
             left: 40px;

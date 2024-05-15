@@ -38,22 +38,36 @@ export const formatPhoneNumber = (inputValue) => {
     return maskedPhoneNumber;
 };
 
-export const validateForm = (name, question, phoneNumber, email, setErrors) => {
+export const validateForm = (name, question, phoneNumber, email, setErrors, type) => {
     let formErrors = {};
 
-    if (!name) {
-        formErrors.name = 'Введите ваше имя';
-    }
-    if (!question) {
-        formErrors.description = 'Введите краткое описание';
-    }
-    if (!email) {
-        formErrors.email = 'Введите Email';
-    }
-    if (!phoneNumber) {
-        formErrors.phoneNumber = 'Введите ваш номер';
-    } else if (phoneNumber.length <= 16) {
-        formErrors.phoneNumber = 'Введите телефон полностью';
+    if (type === 'default' || type === 'leaveRequest') {
+        if (!name) {
+            formErrors.name = 'Введите ваше имя';
+        }
+        if (!question) {
+            formErrors.description = 'Введите краткое описание';
+        }
+        if (!email) {
+            formErrors.email = 'Введите Email';
+        }
+        if (!phoneNumber) {
+            formErrors.phoneNumber = 'Введите ваш номер';
+        } else if (phoneNumber.length <= 16) {
+            formErrors.phoneNumber = 'Введите телефон полностью';
+        }
+    } else if (type === 'vacancy') {
+        if (!name) {
+            formErrors.name = 'Введите ваше имя';
+        }
+        if (!email) {
+            formErrors.email = 'Введите Email';
+        }
+        if (!phoneNumber) {
+            formErrors.phoneNumber = 'Введите ваш номер';
+        } else if (phoneNumber.length <= 16) {
+            formErrors.phoneNumber = 'Введите телефон полностью';
+        }
     }
 
     setErrors(formErrors);

@@ -1,0 +1,38 @@
+.customModal {
+  &Inner {
+    position: relative;
+    border-radius: 16px;
+    background: #FFF;
+    max-width: 546px;
+    max-height: 582px;
+    width: 100%;
+    height: 100%;
+    padding: 72px 68px;
+    @media screen and (max-width: 762px) {
+      padding: 16px;
+    }
+  }
+  &Overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+  }
+  &CloseBtn {
+    position: absolute;
+    background: transparent;
+    top: 8px;
+    right: 8px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.closeCustomModal {
+  display: none;
+}

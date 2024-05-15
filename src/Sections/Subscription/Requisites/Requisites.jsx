@@ -1,61 +1,53 @@
-import './Requisites.scss'
-import subscription from '../../../Assets/subscription.svg'
-import modalSvg from '@assets/modalka.svg'
-import { useDispatch } from 'react-redux'
-import { toggleModal } from '@/store/modalSlice'
-import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types';
+import './Requisites.scss';
+import closeIcon from '@assets/close.svg';
+import LogoBlue from '@assets/logoBlue.svg';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { axiosAPI } from '@/App';
 
-const Requisites = () => {
-    const dispatch = useDispatch()
-    const handleCloseModal = () => {
-        dispatch(toggleModal(false))
-    }
-    const { t } = useTranslation()
+const Requisites = ({ isOpen, close, className = '' }) => {
+    const { i18n } = useTranslation();
+    const [data, setData] = useState();
+
+    const fetchSubscription = async () => {
+        try {
+            const response = await axiosAPI.get('/payment/');
+            setData(response.data);
+        } catch (e) {
+            console.error('Error fetching data from payment:', e);
+        }
+    };
+
+    useEffect(() => {
+        fetchSubscription();
+    }, [i18n.language]);
 
     return (
-        <div className="requisites_block">
-            <div className="logotype">
-                <img className="logotype__icon" src={subscription} alt="icon" />
-                <img
-                    src={modalSvg}
-                    onClick={() => handleCloseModal()}
-                    className="modal-blockk__cross"
-                    alt="reset"
-                />
-            </div>
-            <div className="requisites">
-                <label className="requisites__title">TRIATHLON CENTER</label>
-                <p className="requisites__info">
-                    Для оплаты онлайн, пожалуйста, свяжитесь с отделом продаж
-                    для получения дополнительной информации о процессе
-                    онлайн-оплаты.{' '}
-                </p>
-                <div className="phone">
-                    <div className="phone__reference">
-                        <a
-                            className="phone__number-one"
-                            href="https://wa.me/996227000180"
-                            target="_blank">
-                            0(227) 00 01 80
-                        </a>
-                        <a
-                            className="phone__number"
-                            href="https://wa.me/996997000180"
-                            target="_blank">
-                            0(997) 00 01 80
-                        </a>
-                    </div>
+        <div className={`requisModalOverlay ${isOpen ? '' : 'closeRequisModal'}`} onClick={close}>
+            <div className={`requisModalInner ${className}`} onClick={(e) => e.stopPropagation()}>
+                <div className="requisModalHeader">
+                    <img src={LogoBlue} alt="Logo" />
+                    <button className="requisModalCloseBtn" onClick={close}>
+                        <img src={closeIcon} alt="close" />
+                    </button>
                 </div>
-                <p className="payment">
-                    Если вы предпочитаете оплату наличными или картой, вы можете
-                    подойти в Триатлон-Центр для совершения покупки.
-                </p>
-                <div className="location">
-                    <p className="location__reference">{t('address')}</p>
+                <div className="requisModalBody">
+                    <h5>TRIATHLON CENTER</h5>
+                    {data?.map(content => (
+                        <div dangerouslySetInnerHTML={{ __html: content.disc }} key={content.id} />
+                    ))}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Requisites
+
+Requisites.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired,
+    className: PropTypes.string,
+};
+
+export default Requisites;

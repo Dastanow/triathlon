@@ -1,28 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { CustomButton } from '@ui'
 import { Container } from '@components'
-import ModalWindow from '../../Modules/ModalWindow'
 import './Hero.scss'
 import { useTranslation } from 'react-i18next'
-import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm'
-import { toggleModal } from '@/store/modalSlice'
-import { useDispatch, useSelector } from 'react-redux'
 import Form from '@/UI/CustomForm/FaqForm/FaqForm'
+import CustomModal from '@/UI/CustomModal/CustomModal'
 
 export const Hero = () => {
     const [modalActive, setModalActive] = useState(false)
-    const modalState = useSelector((state) => state.modal.isActive)
-
-    const dispatch = useDispatch()
-    const handleOpenModal = () => {
-        dispatch(toggleModal(true))
-        setModalActive(true)
-    }
-    useEffect(() => {
-        if (!modalState) {
-            setModalActive(false)
-        }
-    }, [modalState])
 
     const { t } = useTranslation()
     return (
@@ -36,12 +21,20 @@ export const Hero = () => {
                     </p>
                     <CustomButton
                         type="secondary"
-                        onClick={() => handleOpenModal()}>
+                        onClick={() => setModalActive(true)}>
                         {t('buttonHero')}
                     </CustomButton>
                 </div>
             </Container>
-            <ModalWindow>{modalActive && <Form type="leaveRequest" />}</ModalWindow>
+            <CustomModal
+                close={() => setModalActive(false)}
+                isOpen={modalActive}
+            >
+                <Form
+                    isOpen={modalActive}
+                    type="leaveRequest"
+                />
+            </CustomModal>
         </section>
     )
 }

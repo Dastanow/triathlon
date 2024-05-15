@@ -1,43 +1,31 @@
 import { useEffect, useState } from 'react'
 import { CustomTitle, CustomButton } from '@ui'
-import ModalWindow from '@modules/ModalWindow'
 import Requisites from './Requisites/Requisites'
 import './Subscription.scss'
 import { Container } from '@components'
 import crown from '@assets/crown.svg'
-import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { toggleModal } from '@/store/modalSlice'
 import { axiosAPI } from '@/App'
 
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData, setSubsData] = useState()
-    const modalState = useSelector((state) => state.modal.isActive)
     const { t, i18n } = useTranslation()
 
-    const dispatch = useDispatch()
-    const handleOpenModal = () => {
-        dispatch(toggleModal(true))
-        setModalActive(true)
-    }
-
-    useEffect(() => {
-        if (!modalState) {
-            setModalActive(false)
-        }
-    }, [modalState])
-
-    const funcGet = async () => {
+    const fetchSubscription = async () => {
         try {
-            const { data } = await axiosAPI.get('abonements')
-            setSubsData(data)
-        } catch (err) {
-            console.log(err, 'error in subscription')
+            const response = await axiosAPI.get('/abonements/');
+            setSubsData(response.data);
+        } catch (e) {
+            console.error('Error fetching data from abonements:', e)
+            return { 'abonements': null }
         }
     }
+
+    console.log(subsData);
+
     useEffect(() => {
-        funcGet()
+        fetchSubscription()
     }, [i18n.language])
 
     return (
@@ -69,7 +57,7 @@ export const Subscription = () => {
                                 <div className="subscriptionCardActions">
                                     <h3>{subscription.price}</h3>
                                     <CustomButton
-                                        onClick={() => handleOpenModal()}
+                                        onClick={() => setModalActive(true)}
                                         type={
                                             subscription.special
                                                 ? 'secondary'
@@ -97,11 +85,7 @@ export const Subscription = () => {
                         ))}
                 </ul>
             </Container>
-            {modalActive && (
-                <ModalWindow>
-                    <Requisites />
-                </ModalWindow>
-            )}
+            <Requisites isOpen={modalActive} close={() => setModalActive(false)} />
         </section>
     )
 }

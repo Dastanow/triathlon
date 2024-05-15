@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomInput from '@/Sections/FAQ/CustomInput';
 import './FaqForm.scss';
 import { CustomButton } from '@/UI';
@@ -7,9 +7,10 @@ import { axiosAPI } from '@/App';
 import PropTypes from 'prop-types';
 import success from '@assets/check.svg';
 import remove from '@assets/trash.svg';
+import successIcon from '@assets/successForm.svg';
 import { formatPhoneNumber, validateForm } from '@/utils/validate';
 
-const Form = ({ type }) => {
+const Form = ({ type, isOpen }) => {
     const { t } = useTranslation();
     const [name, setName] = useState('');
     const [question, setQuestion] = useState('');
@@ -18,6 +19,13 @@ const Form = ({ type }) => {
     const [file, setFile] = useState(null);
     const [fileUrl, setFileUrl] = useState(null);
     const [errors, setErrors] = useState({});
+    const [isSuccess, setIsSuccess] = useState(false);
+
+    useEffect(() => {
+        if (isOpen === false) {
+            setIsSuccess(false)
+        }
+    }, [isOpen])
 
     const handleInputChange = (e, setter, type) => {
         const inputValue = e.target.value;
@@ -54,17 +62,20 @@ const Form = ({ type }) => {
 
     const validateAndSubmitForm = async (e) => {
         e.preventDefault();
-
-        const isValidForm =
-            type === 'default' || type === 'leaveRequest'
-                ? validateForm(name, question, phoneNumber, email, setErrors)
-                : validateForm(name, phoneNumber, email, setErrors);
-        console.log({isValidForm})
+    
+        let isValidForm = false;
+        
+        if (type === 'default' || type === 'leaveRequest') {
+            isValidForm = validateForm(name, question, phoneNumber, email, setErrors);
+        } else if (type === 'vacancy') {
+            isValidForm = validateForm(name, phoneNumber, email, setErrors);
+        }
+        
         if (!isValidForm) {
             console.log(`Form validation failed for ${type}.`);
             return;
         }
-    
+        
         try {
             const formData = new FormData();
             formData.append('name', name);
@@ -75,16 +86,20 @@ const Form = ({ type }) => {
             }
             console.log('Sending request...');
             const response = await axiosAPI.post(
-                type === 'default' ? '/applicationwebhook/' : '/application/',
+                type === 'default' || type === 'leaveRequest' ? '/applicationwebhook/' : '/application/',
                 formData
             );
             resetForm();
+            setIsSuccess(true)
             console.log('Form submitted successfully:', response.data);
         } catch (error) {
             console.error('Error during form submission:', error);
             console.log('Form submission failed.');
+            setIsSuccess(false)
         }
     };
+    
+    
 
     const resetForm = () => {
         setName('');
@@ -95,6 +110,17 @@ const Form = ({ type }) => {
         setFileUrl(null);
         setErrors({});
     };
+
+    if (isSuccess && type === 'leaveRequest') {
+        return (
+            <div className="formIsSuccess">
+                <img src={successIcon} alt="success" />
+                <p>
+                    {t('sent')}
+                </p>
+            </div>
+        )
+    }
 
     return (
         <form onSubmit={validateAndSubmitForm} className="faqFormWrapper">
@@ -191,6 +217,7 @@ const Form = ({ type }) => {
 
 Form.propTypes = {
     type: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool
 };
 
 export default Form;

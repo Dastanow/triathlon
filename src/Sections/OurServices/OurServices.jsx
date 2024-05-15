@@ -56,6 +56,7 @@ export const OurServices = () => {
                         })}
                 </div>
                 <CustomModal
+                    title={t('buttonHero')}
                     close={() => setModalActive(false)}
                     isOpen={modalActive}
                 >

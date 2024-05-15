@@ -74,10 +74,12 @@
     padding-bottom: 200px; 
     margin-bottom: 20px;
     outline: none;
+    resize: none;
+    overflow: hidden;
     @media screen and (max-width: 1440px) {
         width: 434px;
         height: 160px;
-        border-radius: 5px;
+        border-radius: 6px;
         padding: 8px;
         padding-bottom: 130px; 
     }

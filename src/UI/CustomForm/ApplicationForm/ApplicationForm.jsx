@@ -6,6 +6,10 @@ import { CheckBoxes, TextField } from '@components'
 import { CustomInput } from '@ui'
 import ReactInputMask from 'react-input-mask'
 import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { toggleModal } from '@/store/modalSlice'
+import modalSvg from '@assets/modalka.svg'
+
 
 export const ApplicationForm = () => {
     const [data, setData] = useState({
@@ -16,6 +20,11 @@ export const ApplicationForm = () => {
     })
     const [errors, setErrors] = useState({})
     const { t } = useTranslation()
+    const dispatch = useDispatch()
+    const handleCloseModal = () => {
+        dispatch(toggleModal(false))
+    }
+
 
     const isValid = Object.keys(errors).length === 0
     const handleSubmit = async (event) => {
@@ -37,6 +46,12 @@ export const ApplicationForm = () => {
 
     return (
         <div className="form-app">
+            <img
+                src={modalSvg}
+                onClick={() => handleCloseModal()}
+                className="modal-cross"
+                alt="reset"
+            />
             <label className="form-app__title">{t('buttonHero')}</label>
             <form className="" onSubmit={handleSubmit}>
                 <div className="form-app__content">

@@ -1,24 +1,25 @@
+import i18next from 'i18next'
 export const validationConfig = {
     name: {
         isRequired: {
-            message: 'Введите ваше  имя'
+            message: i18next.t('enterName')
         },
         min: {
-            message: 'Имя должно содержать не менее 2 букв',
+            message: i18next.t('quantityLetters'),
             param: 2,
         },
     },
     phoneNumber: {
         isRequired: {
-            message: 'Введите телефон полностью',
+            message:  i18next.t('enterPhone')
         }
     },
     email: {
         isRequired: {
-            message: 'Поле Email обязательна для заполнения'
+            message: i18next.t('enterEmail')
         }, 
         isEmail: {
-            message: 'Email введен некорректно'
+            message: i18next.t('wrongEmail')
         }
     },
     get: {

@@ -6,15 +6,15 @@ import useInitStateCarousel from '@/hooks/useInitStateCarousel'
 import { useTranslation } from 'react-i18next'
 
 const Feedback = () => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const [comments, setComments] = useState([])
     const [, , , slidesPerView] = useInitStateCarousel()
 
     useEffect(() => {
         commentService.get().then((data) => setComments(data))
-    }, [])
+    }, [i18n.language])
 
-    if (!comments) return 'Loading...'
+    if (comments.length === 0) return 'Loading...'
 
     return (
         <section className="comments">

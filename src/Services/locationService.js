@@ -1,12 +1,12 @@
-import httpService from './httpService'
+import { axiosAPI } from '@/App'
 
 const locationapi = 'contacts/'
 
 const locationapiSer = {
     get: async () => {
-        const {data} = await  httpService.get(locationapi)
+        const { data } = await axiosAPI.get(locationapi)
         return data
-},
-};
+    },
+}
 
-export default locationapiSer;
+export default locationapiSer

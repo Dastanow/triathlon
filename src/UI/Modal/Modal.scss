@@ -19,6 +19,7 @@
 }
 
 .custom-modal__content {
+    margin: 0px 20px;
     background-color: transparent;
     position: relative;
     transform: scale(0.5);
@@ -35,7 +36,28 @@
     top: 15px;
     right: 15px;
 }
-//------media-query-------------
+//------media-query----------------
+@media (max-width: 1320px) {
+    .custom-modal__content-close {
+        width: 44px;
+        height: 44px;
+    }
+}
+//---------------------------------
+@media (max-width: 767px) {
+    .custom-modal__content-close {
+        width: 40px;
+        height: 40px;
+    }
+}
+//---------------------------------
+@media (max-width: 600px) {
+    .custom-modal__content-close {
+        width: 30px;
+        height: 30px;
+    }
+}
+//---------------------------------
 @media (max-width: 425px) {
     .custom-modal__content-close {
         width: 20px;

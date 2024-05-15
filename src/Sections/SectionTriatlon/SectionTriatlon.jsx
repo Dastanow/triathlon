@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 const SectionTriatlon = () => {
     const [rows, setRows] = useState()
-    const { i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     const [showMobile, setShowMobile] = useState(
         window.matchMedia('(max-width: 768px)').matches,
@@ -45,12 +45,18 @@ const SectionTriatlon = () => {
                     <table>
                         <thead>
                             <tr className="tableHead">
-                                <th className="tableTop">Группа</th>
-                                <th className="tableTop">Примечание</th>
                                 <th className="tableTop">
-                                    Кол-во часов в нед.
+                                    {t('sectionTriathlon.group')}
                                 </th>
-                                <th className="tableTop">Стоимость</th>
+                                <th className="tableTop">
+                                    {t('sectionTriathlon.note')}
+                                </th>
+                                <th className="tableTop">
+                                    {t('sectionTriathlon.time')}
+                                </th>
+                                <th className="tableTop">
+                                    {t('sectionTriathlon.price')}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

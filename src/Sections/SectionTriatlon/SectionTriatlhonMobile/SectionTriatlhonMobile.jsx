@@ -3,9 +3,11 @@ import '../SectionTriatlon.scss'
 import PropTypes from 'prop-types'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { FaArrowRight } from 'react-icons/fa6'
+import { useTranslation } from 'react-i18next'
 
 export const SectionTriatlhonMobile = ({ rows }) => {
     const [currentSlide, setCurrentSlide] = useState(1)
+    const { t } = useTranslation()
 
     const nextSlide = () => {
         if (currentSlide >= rows.length - 1) {
@@ -32,19 +34,21 @@ export const SectionTriatlhonMobile = ({ rows }) => {
                         <table key={item.id} className="mobileTable">
                             <tbody>
                                 <tr className="tableBody">
-                                    <th className="tableTop">Группа</th>
+                                    <th className="tableTop">
+                                        {t('sectionTriathlon.group')}
+                                    </th>
                                     <td className="tableTop">{item.title}</td>
                                 </tr>
                                 <tr className="tableBody">
-                                    <th>Примечание</th>
+                                    <th>{t('sectionTriathlon.note')}</th>
                                     <td>{item.note}</td>
                                 </tr>
                                 <tr className="tableBody">
-                                    <th>Кол-во часов в нед.</th>
+                                    <th>{t('sectionTriathlon.time')}</th>
                                     <td>{item.hours_week}</td>
                                 </tr>
                                 <tr className="tableBody">
-                                    <th>Стоимость</th>
+                                    <th>{t('sectionTriathlon.price')}</th>
                                     <td>{item.price}</td>
                                 </tr>
                             </tbody>

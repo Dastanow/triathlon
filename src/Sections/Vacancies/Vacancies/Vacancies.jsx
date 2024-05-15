@@ -27,7 +27,7 @@ export const Vacancies = ({ data }) => {
     return (
         <section className="vacancies" id="vacancies">
             <Container classNames="vacanciesContainer">
-                <CustomTitle title={'Вакансии'} />
+                <CustomTitle title={'vacancies'} />
                 <div className="vacanciesList">
                     {data?.map((vacancy, index) => (
                         <div className="vacanciesWrapper" key={index}>

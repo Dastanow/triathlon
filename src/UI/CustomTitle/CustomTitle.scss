@@ -12,16 +12,16 @@
         line-height: 120%; /* 72px */
         letter-spacing: -0.6px;
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
         font-size: 56px;
         line-height: 120%; /* 69.6px */
     }
     @media screen and (max-width: 600px) {
-        font-size: 38px;
+        font-size: 44px;
         line-height: 120%; /* 51.6px */
     }
     @media screen and (max-width: 425px) {
-        font-size: 28px;
+        font-size: 34px;
         line-height: 120%; /* 33.6px */
     }
 }

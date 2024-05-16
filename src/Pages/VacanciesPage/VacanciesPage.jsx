@@ -6,9 +6,6 @@ import { useTranslation } from 'react-i18next';
 export const VacanciesPage = () => {
     const [data, setData] = useState([]);
     const { i18n } = useTranslation();
-
-    console.log(data);
-
     const getData = async () => {
         try {
             const { data } = await axiosAPI.get('vacancy');
@@ -17,6 +14,8 @@ export const VacanciesPage = () => {
             console.error(e);
         }
     };
+
+    console.log(data)
 
     useEffect(() => {
         getData();

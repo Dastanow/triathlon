@@ -12,8 +12,6 @@ export const Vacancies = ({ data }) => {
     const [modalActive, setModalActive] = useState(false);
     const { t } = useTranslation();
 
-    console.log(data);
-
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -43,6 +41,7 @@ export const Vacancies = ({ data }) => {
                                     <h5 className="vacanciesTitle">
                                         {vacancy.title}
                                     </h5>
+                                    <div dangerouslySetInnerHTML={{ __html: vacancy?.desc }} />
                                     <span className="vacanciesArrow">
                                         <IoIosArrowDown
                                             className={

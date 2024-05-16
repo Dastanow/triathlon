@@ -54,17 +54,15 @@ export const VacancyForm = () => {
         properties.forEach((property) => {
             formData.append(property, data[property])
         })
-        console.log(formData)
         files.forEach((file) => {
             formData.append('file', file)
         })
 
         try {
-            const response = await axios.post(
+            await axios.post(
                 'http://209.38.228.54:83/api/v1/application/',
                 formData,
             )
-            console.log(response.data)
         } catch (error) {
             console.error(error)
         }
@@ -75,7 +73,6 @@ export const VacancyForm = () => {
         try {
             const { data } = await axiosAPI.get('file')
             setConfidentialData(data)
-            console.log(data);
         } catch (error) {
             console.error('Incorrect:', error)
         }
@@ -115,7 +112,6 @@ export const VacancyForm = () => {
         setFiles([])
         setShowFiles(false)
     }
-    console.log(data)
 
     return (
         <div className="form-vacancy">

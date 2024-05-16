@@ -20,8 +20,6 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const [fileUrl, setFileUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
-    console.log(errors)
-
     useEffect(() => {
         if (isOpen === false) {
             setIsSuccess(false);
@@ -31,15 +29,24 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const handleInputChange = (e, setter, type) => {
         const inputValue = e.target.value;
         let processedValue = inputValue;
-    
+
         if (type === 'phone') {
             processedValue = formatPhoneNumber(inputValue);
+            setter(processedValue);
+            setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }));
+            return;
         } else if (type === 'file') {
             const selectedFile = e.target.files[0];
-            if (selectedFile && (selectedFile.type === 'application/pdf' || selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-                setFile(selectedFile);
-                setFileUrl(URL.createObjectURL(selectedFile));
-                setter(selectedFile);
+            if (selectedFile) {
+                if (selectedFile.type === 'application/pdf' || selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    setFile(selectedFile);
+                    setFileUrl(URL.createObjectURL(selectedFile));
+                    setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+                } else {
+                    setFile(null);
+                    setFileUrl(null);
+                    setErrors((prevErrors) => ({ ...prevErrors, summary: 'Загруженный файл не является корректным файлом.' }));
+                }
             } else {
                 setFile(null);
                 setFileUrl(null);
@@ -47,6 +54,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
             return;
         }
         setter(processedValue);
+        setErrors((prevErrors) => ({ ...prevErrors, [type]: '' }));
     };
 
     const handleDragOver = (e) => {
@@ -56,33 +64,37 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const handleDrop = (e) => {
         e.preventDefault();
         const droppedFile = e.dataTransfer.files[0];
-        setFile(droppedFile);
-        setFileUrl(URL.createObjectURL(droppedFile));
+        if (droppedFile && (droppedFile.type === 'application/pdf' || droppedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            setFile(droppedFile);
+            setFileUrl(URL.createObjectURL(droppedFile));
+            setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+        } else {
+            setFile(null);
+            setFileUrl(null);
+            setErrors((prevErrors) => ({ ...prevErrors, summary: t('invalidFileFormat') }));
+        }
     };
 
     const handleRemoveFile = () => {
         setFile(null);
         setFileUrl(null);
+        setErrors((prevErrors) => ({ ...prevErrors, summary: t('fileRequired') }));
     };
 
     const validateAndSubmitForm = async (e) => {
         e.preventDefault();
-    
+
         const isValidForm = validateForm(name, question, phoneNumber, email, file, setErrors, type);
 
         if (!isValidForm) {
             return;
         }
-    
-        if (!file || file.type !== 'application/pdf') {
-            return;
-        }
-    
+
         try {
             const formData = new FormData();
             formData.append('name', name);
             formData.append('number', phoneNumber.replace(/\s+/g, '').trim().toString());
-    
+
             if (type === 'default' || type === 'leaveRequest') {
                 formData.append('description', question);
             }
@@ -90,12 +102,11 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 formData.append('email', email);
             }
             formData.append('summary', file);
-    
-            console.log('Sending request...');
+
             const endpoint = type === 'default' || type === 'leaveRequest' ? '/applicationwebhook/' : '/application/';
             const response = await axiosAPI.post(endpoint, formData);
-    
-            if (response.status === 200) {
+
+            if (response.status === 200 || response.status === 201) {
                 resetForm();
                 setIsSuccess(true);
             } else if (response.status === 404) {
@@ -122,9 +133,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         return (
             <div className="formIsSuccess">
                 <img src={successIcon} alt="success" />
-                <p>
-                    {t('sent')}
-                </p>
+                <p>{t('sent')}</p>
             </div>
         );
     }
@@ -187,7 +196,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                                     <input id="filefield" type="file" onChange={(e) => handleInputChange(e, setFile, 'file')} />
                                     <h5>{t('attachFile')}</h5>
                                     <p className="faqFormDescription">
-                                        {t('dragAndDrop')} <b> {t('upload')}</b>
+                                        {t('dragAndDrop')} <b>{t('upload')}</b>
                                     </p>
                                     <p className="faqFormDescriptionContinue">
                                         {t('fileSize')}
@@ -196,11 +205,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                                 </>
                             )}
                         </label>
-                        {errors.summary && (
-                            <>
-                                <span>{errors.summary}</span>
-                            </>
-                        )}
+                        {errors.summary && <span>{errors.summary}</span>}
                     </div>
                 )}
             </div>

@@ -35,7 +35,18 @@
         }
     }
     &ToggleField {
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
         cursor: pointer;
+        p {
+            color: #000;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28.8px;
+        }
     }
     &Title {
         font-size: 24px;

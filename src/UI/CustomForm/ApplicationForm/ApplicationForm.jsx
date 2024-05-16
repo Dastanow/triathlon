@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { validate } from '../../../utils/validate'
 import { validationConfig } from '../../../utils/validationConfig'
 import { CheckBoxes, TextField } from '@components'
-import { CustomInput } from '@ui'
 import ReactInputMask from 'react-input-mask'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -64,7 +63,8 @@ export const ApplicationForm = () => {
                     />
                     <ReactInputMask
                         mask="+\9\96(999)999-999"
-                        onChange={handleChange}>
+                        onChange={handleChange}
+                        error={errors.name}>
                         {(inputProps) => (
                             <input
                                 name="phoneNumber"
@@ -76,7 +76,7 @@ export const ApplicationForm = () => {
                             />
                         )}
                     </ReactInputMask>
-                    <CustomInput
+                    <textarea
                         type="text-area"
                         placeholder={t('writeQuestion')}
                         className="textArea"

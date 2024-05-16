@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { toggleModal } from '@/store/modalSlice'
 import modalSvg from '@assets/modalka.svg'
-
+import { axiosAPI } from '@/App'
 
 export const VacancyForm = () => {
     const [data, setData] = useState({
@@ -69,6 +69,20 @@ export const VacancyForm = () => {
             console.error(error)
         }
     }
+
+    const [confidentialData, setConfidentialData] = useState([])
+    const vacancyData = async () => {
+        try {
+            const { data } = await axiosAPI.get('file')
+            setConfidentialData(data)
+            console.log(data);
+        } catch (error) {
+            console.error('Incorrect:', error)
+        }
+    }
+    useEffect(() => {
+        vacancyData()
+    }, [])
 
     const handleChangeFiles = (event) => {
         event.preventDefault()
@@ -129,7 +143,7 @@ export const VacancyForm = () => {
                         error={errors.email}
                     />
                     <ReactInputMask
-                        mask="+999(999)999-999"
+                        mask="+\9\96(999)999-999"
                         onChange={handleChange}>
                         {(inputProps) => (
                             <input
@@ -214,12 +228,13 @@ export const VacancyForm = () => {
                         onChange={handleChange}
                     />
                     <div className="politic__text">
-                        <p>
-                            {t('agree')}{' '}
-                            <a className="politic__reference" href="">
-                                {t('politic')}
-                            </a>
-                        </p>
+                        <span className="politic__span">{t('agree')} </span>
+                        <a
+                            className="politic__reference"
+                            target="_blank"
+                            href={confidentialData[1]?.file}>
+                            {t('politic')}
+                        </a>
                     </div>
                 </div>
             </form>

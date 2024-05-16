@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { validate } from '../../../utils/validate'
 import { validationConfig } from '../../../utils/validationConfig'
 import { TextField } from '@components'
-import { CustomInput } from '@ui'
 import ReactInputMask from 'react-input-mask'
 import { useTranslation } from 'react-i18next'
 
@@ -60,7 +59,7 @@ export const FaqForm = () => {
                             />
                         )}  
                     </ReactInputMask>
-                    <CustomInput
+                    <textarea
                         type="text-area"
                         placeholder={t('writeQuestion')}
                         className="textArea"

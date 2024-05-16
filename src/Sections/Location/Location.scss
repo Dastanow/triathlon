@@ -93,12 +93,50 @@
     }
   }
 }
+.locationItem {
+  font-size: 16px;
+}
 .locationItemap {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 16px;
   img {
     filter: invert(100%);
     -webkit-filter: invert(100%);
   }
+}
+@media screen and (max-width: 1440px) {
+  .location {
+    .locationContainer {
+      .locationWrapper {
+        .locationContent {
+          .locationTitle {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
+  }
+
+@media screen and (max-width: 762px) {
+.location {
+  .locationContainer {
+    .locationWrapper {
+      border-radius: 0;
+      .locationContent {
+        .locationTitle {
+          font-size: 22px;
+        }
+        .locationItem {
+          font-size: 14px;
+        }
+        .locationItemap {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
 }

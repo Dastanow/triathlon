@@ -7,7 +7,6 @@ import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import locationapiSer from '@/Services/locationService';
-import { t } from 'i18next';
 
 const Location = () => {
     const [locationapi, setLocationapi] = useState([]);

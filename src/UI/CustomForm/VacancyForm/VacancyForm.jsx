@@ -13,7 +13,6 @@ import { toggleModal } from '@/store/modalSlice'
 import modalSvg from '@assets/modalka.svg'
 import { axiosAPI } from '@/App'
 
-
 export const VacancyForm = () => {
     const [data, setData] = useState({
         name: '',
@@ -71,11 +70,12 @@ export const VacancyForm = () => {
         }
     }
 
-    const [ confidentialData, setConfidentialData] = useState([])
+    const [confidentialData, setConfidentialData] = useState([])
     const vacancyData = async () => {
         try {
             const { data } = await axiosAPI.get('file')
             setConfidentialData(data)
+            console.log(data);
         } catch (error) {
             console.error('Incorrect:', error)
         }
@@ -228,14 +228,13 @@ export const VacancyForm = () => {
                         onChange={handleChange}
                     />
                     <div className="politic__text">
-                        <span className="politic__span">
-                            {t('agree')}{' '}
-                        </span>
-                        <a className="politic__reference"
-                         target="_blank"
-                         href={confidentialData[0].file}>
-                                {t('politic')}
-                            </a>
+                        <span className="politic__span">{t('agree')} </span>
+                        <a
+                            className="politic__reference"
+                            target="_blank"
+                            href={confidentialData[1]?.file}>
+                            {t('politic')}
+                        </a>
                     </div>
                 </div>
             </form>

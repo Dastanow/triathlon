@@ -1,5 +1,13 @@
 $lightblack: #002550;
-
+#comments {
+    padding-top: 112px;
+    @media screen and (max-width: 1280px) {
+      padding-top: 80px;
+    }
+    @media screen and (max-width: 762px) {
+      padding-top: 30px;
+    }
+  }
 .comment-card {
     width: 480px;
     min-height: 422px;

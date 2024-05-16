@@ -1,3 +1,12 @@
+#vacancies {
+    padding-top: 112px;
+    @media screen and (max-width: 1280px) {
+      padding-top: 80px;
+    }
+    @media screen and (max-width: 762px) {
+      padding-top: 30px;
+    }
+  }
 .vacancies {
     margin: 180px 0 150px 0;
     &Container {

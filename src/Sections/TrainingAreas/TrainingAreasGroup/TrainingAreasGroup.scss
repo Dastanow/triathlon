@@ -1,3 +1,13 @@
+#train-areas {
+    padding-top: 112px;
+    @media screen and (max-width: 1280px) {
+      padding-top: 80px;
+    }
+    @media screen and (max-width: 762px) {
+      padding-top: 30px;
+    }
+  }
+
 .train-areas__title {
     margin-bottom: 80px;
     pointer-events: none;

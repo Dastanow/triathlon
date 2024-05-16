@@ -81,7 +81,7 @@ $white: #fff;
     }
 }
 //-----mobile-version----------------
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .coach-modal-card {
         max-width: 680px;
         height: 634px;
@@ -114,6 +114,11 @@ $white: #fff;
         overflow: auto;
         .block-info__bottom-description {
             line-height: 150%;
+            p {
+                span {
+                    color: #fff !important;
+                }
+            }
         }
     }
 }

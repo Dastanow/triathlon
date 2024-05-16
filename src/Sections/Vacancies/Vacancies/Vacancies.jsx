@@ -6,7 +6,6 @@ import { CustomButton, CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';
 import CustomModal from '@/UI/CustomModal/CustomModal';
-import Form from '@/UI/CustomForm/FaqForm/FaqForm';
 
 export const Vacancies = ({ data }) => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -68,9 +67,9 @@ export const Vacancies = ({ data }) => {
             <CustomModal
                 title={t('vacancy')}
                 close={() => setModalActive(false)}
-                isOpen={modalActive}>
-                <Form isOpen={modalActive} type="vacancy" />
-            </CustomModal>
+                isOpen={modalActive}
+                type="vacancy"
+            />
         </section>
     );
 };

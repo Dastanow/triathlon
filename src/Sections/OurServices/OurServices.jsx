@@ -5,7 +5,6 @@ import { Container } from '@components'
 import { useTranslation } from 'react-i18next'
 import { axiosAPI } from '@/App'
 import CustomModal from '@/UI/CustomModal/CustomModal'
-import Form from '@/UI/CustomForm/FaqForm/FaqForm'
 
 export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -59,12 +58,8 @@ export const OurServices = () => {
                     title={t('buttonHero')}
                     close={() => setModalActive(false)}
                     isOpen={modalActive}
-                >
-                    <Form
-                        isOpen={modalActive}
-                        type="leaveRequest"
-                    />
-                </CustomModal>
+                    type="leaveRequest"
+                />
             </Container>
         </section>
     )

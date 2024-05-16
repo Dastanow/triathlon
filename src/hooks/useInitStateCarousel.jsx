@@ -29,7 +29,7 @@ const useInitStateCarousel = () => {
                 coach: 1.565,
                 comment: 1,
             }))
-        } else if (inner < 768) {
+        } else if (inner < 769) {
             setSpace((prevState) => ({
                 ...prevState,
                 coach: 24,

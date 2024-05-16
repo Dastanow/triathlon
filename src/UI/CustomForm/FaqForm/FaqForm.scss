@@ -20,6 +20,14 @@
   gap: 8px;
 }
 
+.customFileForm {
+  .checkboxWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
 .inputWrapper {
   width: 100%;
   display: flex;

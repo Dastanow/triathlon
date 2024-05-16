@@ -1,160 +1,190 @@
 footer {
-  margin-top: 112px;
-  @media screen and (max-width: 1440px) {
-    margin-top: 90px;
-  }
-  @media screen and (max-width: 768px) {
-    margin-top: 30px;
-  }
-  background: var(--Primary, #002550);
-  a {
-    color: #FFFFFF;
-  }
+    margin-top: 112px;
+    @media screen and (max-width: 1440px) {
+        margin-top: 90px;
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 30px;
+    }
+    background: var(--Primary, #002550);
+    a {
+        color: #ffffff;
+    }
 }
 .footer {
-  &Container {
-    max-width: 1625px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 21px;
-    padding: 26px 16px;
-    @media screen and (max-width: 1440px) {
-      padding: 20px 16px;
-      gap: 16px;
-    }
-    @media screen and (max-width: 768px) {
-      padding: 22px 16px;
-    }
-  }
-  &Logo {
-    @media screen and (max-width: 1440px) { 
-      width: 182px;
-      height: 56px;
-    }
-  }
-  &Inform {
-    display: flex;
-    align-items: flex-start;
-    gap: 88px;
-    @media screen and (max-width: 1440px) {
-      gap: 66px;
-    }
-    @media screen and (max-width: 1200px) {
-      gap: 44px;
-    }
-    @media screen and (max-width: 1000px) {
-      gap: 20px;
-    }
-    @media screen and (max-width: 768px) {
-      gap: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  &InformContent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 21px;
-    @media screen and (max-width: 768px) {
-      align-items: center;
-    }
-  }
-  &List {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    @media screen and (max-width: 1440px) {
-      gap: 16px;
-    }
-    @media screen and (max-width: 768px) {
-      flex-direction: row;
-    }
-    li {
-      display: flex;
-      align-items: start;
-      gap: 7px;
-    }
-  }
-  &Label {
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 19.417px;
-    font-weight: 400;
-    line-height: 150%;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    @media screen and (max-width: 1440px) {
-      font-size: 16px;
-    }
-    @media screen and (max-width: 960px) {
-      font-size: 14px;
-    }
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-  &Content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    @media screen and (max-width: 768px) {
-      align-items: center;
-    }
-    li {
-      p {
-        color: #FFF;
-        font-family: Montserrat;
-        font-size: 19.417px;
-        font-weight: 400;
-        line-height: 150%;
+    &Container {
+        max-width: 1625px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+        padding: 26px 16px;
         @media screen and (max-width: 1440px) {
-          font-size: 16px;
-        }
-        @media screen and (max-width: 960px) {
-          font-size: 14px;
+            padding: 20px 16px;
+            gap: 16px;
         }
         @media screen and (max-width: 768px) {
-          text-align: center;
+            padding: 22px 16px;
         }
-      }
-      a {
-        color: #FFF;
+    }
+    &Logo {
+        @media screen and (max-width: 1440px) {
+            width: 182px;
+            height: 56px;
+        }
+    }
+    &Inform {
+        display: flex;
+        align-items: flex-start;
+        gap: 88px;
+        @media screen and (max-width: 1440px) {
+            gap: 66px;
+        }
+        @media screen and (max-width: 1200px) {
+            gap: 44px;
+        }
+        @media screen and (max-width: 1000px) {
+            gap: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &InformContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 21px;
+        @media screen and (max-width: 768px) {
+            align-items: center;
+        }
+    }
+    &List {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @media screen and (max-width: 1440px) {
+            gap: 16px;
+        }
+        @media screen and (max-width: 768px) {
+            flex-direction: row;
+        }
+        li {
+            display: flex;
+            align-items: start;
+            gap: 7px;
+        }
+    }
+    &Label {
+        color: #fff;
         font-family: Montserrat;
         font-size: 19.417px;
         font-weight: 400;
         line-height: 150%;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
         @media screen and (max-width: 1440px) {
-          font-size: 16px;
+            font-size: 16px;
         }
         @media screen and (max-width: 960px) {
-          font-size: 14px;
+            font-size: 14px;
         }
-        margin-bottom: 11px;
-      }
-      @media screen and (max-width: 768px) {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    &Content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media screen and (max-width: 768px) {
+            align-items: center;
+        }
+        li {
+            p {
+                color: #fff;
+                font-family: Montserrat;
+                font-size: 19.417px;
+                font-weight: 400;
+                line-height: 150%;
+                @media screen and (max-width: 1440px) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: 960px) {
+                    font-size: 14px;
+                }
+                @media screen and (max-width: 768px) {
+                    text-align: center;
+                }
+            }
+            a {
+                color: #fff;
+                font-family: Montserrat;
+                font-size: 19.417px;
+                font-weight: 400;
+                line-height: 150%;
+                @media screen and (max-width: 1440px) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: 960px) {
+                    font-size: 14px;
+                }
+                margin-bottom: 11px;
+            }
+            @media screen and (max-width: 768px) {
+                align-items: center;
+            }
+        }
+    }
+    &Bottom {
+        width: 100%;
+        display: flex;
         align-items: center;
-      }
+        justify-content: center;
+        @media screen and (max-width: 768px) {
+            padding-top: 4px;
+            border-top: 1px solid rgba(1, 61, 131, 0.7);
+        }
+        a {
+            color: #fff;
+            font-family: Montserrat;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 150%; /* 48px */
+        }
     }
-  }
-  &Bottom {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media screen and (max-width: 768px) {
-      padding-top: 4px;
-      border-top: 1px solid rgba(1, 61, 131, 0.70);
+
+    .contacts_mobile {
+        position: relative;
     }
-    a {
-      color: #FFF;
-      font-family: Montserrat;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 150%; /* 48px */
+    .contactsShow {
+      transform: scale(0);
+        position: absolute;
+        background-color: #013d83;
+        width: max-content;
+        display: flex;
+        gap: 5px;
+        left: -65px;
+        top: 0px; 
+        padding: 10px 10px;
+        border-radius: 10px;
+        flex-direction: column;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        a {
+            display: block;
+            text-wrap: nowrap;
+            color: #fff;
+        }
     }
-  }
+    .contactsShow.active{
+      transform: scale(1);
+      top: 30px;
+      opacity: 1;
+      transition: all 0.3s ease-in-out;
+    }
 }

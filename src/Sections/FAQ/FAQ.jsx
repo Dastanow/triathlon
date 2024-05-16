@@ -45,7 +45,11 @@ const Faq = () => {
                                 className="faqQuestions"
                                 key={index}>
                                 <div className="faqBox">
-                                    <h4 className="faqTitles">{item.title}</h4>
+                                    <div
+                                        className="faqTitles"
+                                        dangerouslySetInnerHTML={{
+                                            __html: item.title,
+                                        }}></div>
                                     <div className="faqArrow">
                                         <img
                                             src={chevron}
@@ -62,9 +66,8 @@ const Faq = () => {
                                 </div>
 
                                 {openIndex === index && (
-                                    <p className="answer opened">
-                                        {item.answer}
-                                    </p>
+                                    <div className="answer opened" dangerouslySetInnerHTML={{__html: item.answer}}>
+                                    </div>
                                 )}
                             </div>
                         ))}

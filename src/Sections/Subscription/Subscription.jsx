@@ -22,8 +22,6 @@ export const Subscription = () => {
         }
     }
 
-    console.log(subsData);
-
     useEffect(() => {
         fetchSubscription()
     }, [i18n.language])
@@ -36,12 +34,12 @@ export const Subscription = () => {
                 </div>
                 <ul className="subscriptionList">
                     {subsData &&
-                        subsData.map((subscription) => (
+                        subsData.map((subscription, i) => (
                             <li
                                 className={`subscriptionCard ${
                                     subscription.special ? 'prime' : 'default'
                                 }`}
-                                key={subscription.id}>
+                                key={i}>
                                 <div className="subscriptionCardHeader">
                                     <div className="subscriptionCardTitle">
                                         <h5>{subscription.title}</h5>

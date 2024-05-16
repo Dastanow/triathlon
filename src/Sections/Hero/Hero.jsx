@@ -3,7 +3,6 @@ import { CustomButton } from '@ui'
 import { Container } from '@components'
 import './Hero.scss'
 import { useTranslation } from 'react-i18next'
-import Form from '@/UI/CustomForm/FaqForm/FaqForm'
 import CustomModal from '@/UI/CustomModal/CustomModal'
 
 export const Hero = () => {
@@ -27,15 +26,11 @@ export const Hero = () => {
                 </div>
             </Container>
             <CustomModal
+                type="leaveRequest"
                 title={t('buttonHero')}
                 close={() => setModalActive(false)}
                 isOpen={modalActive}
-            >
-                <Form
-                    isOpen={modalActive}
-                    type="leaveRequest"
-                />
-            </CustomModal>
+            />
         </section>
     )
 }

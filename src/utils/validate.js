@@ -38,7 +38,7 @@ export const formatPhoneNumber = (inputValue) => {
     return maskedPhoneNumber;
 };
 
-export const validateForm = (name, question, phoneNumber, email, setErrors, type) => {
+export const validateForm = (name, question, phoneNumber, email, file, setErrors, type) => {
     let formErrors = {};
 
     if (type === 'default' || type === 'leaveRequest') {
@@ -56,6 +56,11 @@ export const validateForm = (name, question, phoneNumber, email, setErrors, type
         } else if (phoneNumber.length <= 16) {
             formErrors.phoneNumber = 'Введите телефон полностью';
         }
+        if (!file) {
+            formErrors.summary = 'Выберите файл';
+        } else if (!(file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            formErrors.summary = 'Выберите файл в форматах PDF или DOCX';
+        }
     } else if (type === 'vacancy') {
         if (!name) {
             formErrors.name = 'Введите ваше имя';
@@ -68,8 +73,15 @@ export const validateForm = (name, question, phoneNumber, email, setErrors, type
         } else if (phoneNumber.length <= 16) {
             formErrors.phoneNumber = 'Введите телефон полностью';
         }
+        if (!file) {
+            formErrors.summary = 'Выберите файл';
+        } else if (!(file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            formErrors.summary = 'Выберите файл в форматах PDF или DOCX';
+        }
     }
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
 };
+
+

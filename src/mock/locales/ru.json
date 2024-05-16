@@ -64,6 +64,9 @@
     "vacacies": "Тренеры",
     "vacanciesеthree": "Отдел продаж",
     "locationtitle": "Наши контакты",
+    "faqForm": {
+        "title": ""
+    },
     "sectionTriathlon": {
         "group": "Группа",
         "note": "Примечание",

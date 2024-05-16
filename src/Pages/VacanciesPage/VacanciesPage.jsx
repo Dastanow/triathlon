@@ -1,35 +1,31 @@
-import  { useEffect, useState } from 'react';
-import { EmptyBlock ,Vacancies } from '@sections';
+import { useEffect, useState } from 'react';
+import { EmptyBlock, Vacancies } from '@sections';
 import { axiosAPI } from '@/App';
 import { useTranslation } from 'react-i18next';
 
-
 export const VacanciesPage = () => {
-    const [hasVacancies, setHasVacancies] = useState(false);
-    const { i18n } = useTranslation()
-    const [data, setData] = useState([])
-
+    const [data, setData] = useState([]);
+    const { i18n } = useTranslation();
     const getData = async () => {
-        const { data } = await axiosAPI.get('vacancy')
-        setData(data)
-    }
-    
-    useEffect(() => {
-        getData()
-    }, [i18n.language])
+        try {
+            const { data } = await axiosAPI.get('vacancy');
+            setData(data);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    console.log(data)
 
     useEffect(() => {
-        const checkForVacancies = () => {
-            if (Array.isArray(data) && data.length > 0) {
-                setHasVacancies(true);
-            }
-        };
-        checkForVacancies();
-    }, [data]);
+        getData();
+    }, [i18n.language]);
 
     return (
         <>
-            {hasVacancies ? <Vacancies data={data} /> : <EmptyBlock/>}
+            {data.length !== 0 ? <Vacancies data={data} /> : <EmptyBlock />}
         </>
     );
 };
+
+export default VacanciesPage;

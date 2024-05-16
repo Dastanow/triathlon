@@ -1,79 +1,244 @@
-import './FaqForm.scss'
-import { useEffect, useState } from 'react'
-import { validate } from '../../../utils/validate'
-import { validationConfig } from '../../../utils/validationConfig'
-import { TextField } from '@components'
-import ReactInputMask from 'react-input-mask'
-import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react';
+import CustomInput from '@/Sections/FAQ/CustomInput';
+import './FaqForm.scss';
+import { CustomButton } from '@/UI';
+import { useTranslation } from 'react-i18next';
+import { axiosAPI } from '@/App';
+import PropTypes from 'prop-types';
+import success from '@assets/check.svg';
+import remove from '@assets/trash.svg';
+import successIcon from '@assets/successForm.svg';
+import { formatPhoneNumber, validateForm } from '@/utils/validate';
 
-export const FaqForm = () => {
-    const [data, setData] = useState({
-        name: '',
-        phoneNumber: '',
-    })
-    const [errors, setErrors] = useState({})
+const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const { t } = useTranslation();
-    
-    const isValid = Object.keys(errors).length === 0
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        if (!isValid) return
-    }
-
-    const handleChange = (target) => {
-        setData((prevState) => ({
-            ...prevState,
-            [target.name]: target.value,
-        }))
-    }
+    const [name, setName] = useState('');
+    const [question, setQuestion] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [file, setFile] = useState(null);
+    const [fileUrl, setFileUrl] = useState(null);
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        const errors = validate(data, validationConfig)
-        setErrors(errors)
-    }, [data])
+        if (isOpen === false) {
+            setIsSuccess(false);
+        }
+    }, [isOpen, setIsSuccess]);
+
+    const handleInputChange = (e, setter, type) => {
+        const inputValue = e.target.value;
+        let processedValue = inputValue;
+
+        if (type === 'phone') {
+            processedValue = formatPhoneNumber(inputValue);
+            setter(processedValue);
+            setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }));
+            return;
+        } else if (type === 'file') {
+            const selectedFile = e.target.files[0];
+            if (selectedFile) {
+                if (selectedFile.type === 'application/pdf' || selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    setFile(selectedFile);
+                    setFileUrl(URL.createObjectURL(selectedFile));
+                    setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+                } else {
+                    setFile(null);
+                    setFileUrl(null);
+                    setErrors((prevErrors) => ({ ...prevErrors, summary: 'Загруженный файл не является корректным файлом.' }));
+                }
+            } else {
+                setFile(null);
+                setFileUrl(null);
+            }
+            return;
+        }
+        setter(processedValue);
+        setErrors((prevErrors) => ({ ...prevErrors, [type]: '' }));
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const droppedFile = e.dataTransfer.files[0];
+        if (droppedFile && (droppedFile.type === 'application/pdf' || droppedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            setFile(droppedFile);
+            setFileUrl(URL.createObjectURL(droppedFile));
+            setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+        } else {
+            setFile(null);
+            setFileUrl(null);
+            setErrors((prevErrors) => ({ ...prevErrors, summary: t('invalidFileFormat') }));
+        }
+    };
+
+    const handleRemoveFile = () => {
+        setFile(null);
+        setFileUrl(null);
+        setErrors((prevErrors) => ({ ...prevErrors, summary: t('fileRequired') }));
+    };
+
+    const validateAndSubmitForm = async (e) => {
+        e.preventDefault();
+
+        const isValidForm = validateForm(name, question, phoneNumber, email, file, setErrors, type);
+
+        if (!isValidForm) {
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('number', phoneNumber.replace(/\s+/g, '').trim().toString());
+
+            if (type === 'default' || type === 'leaveRequest') {
+                formData.append('description', question);
+            }
+            if (type === 'vacancy') {
+                formData.append('email', email);
+            }
+            formData.append('summary', file);
+
+            const endpoint = type === 'default' || type === 'leaveRequest' ? '/applicationwebhook/' : '/application/';
+            const response = await axiosAPI.post(endpoint, formData);
+
+            if (response.status === 200 || response.status === 201) {
+                resetForm();
+                setIsSuccess(true);
+            } else if (response.status === 404) {
+                alert('Page not found. Please try again later.');
+                setIsSuccess(false);
+            }
+        } catch (error) {
+            console.error('Error during form submission:', error);
+            setIsSuccess(false);
+        }
+    };
+
+    const resetForm = () => {
+        setName('');
+        setPhoneNumber('');
+        setEmail('');
+        setQuestion('');
+        setFile(null);
+        setFileUrl(null);
+        setErrors({});
+    };
+
+    if (isSuccess && (type === 'leaveRequest' || type === 'vacancy')) {
+        return (
+            <div className="formIsSuccess">
+                <img src={successIcon} alt="success" />
+                <p>{t('sent')}</p>
+            </div>
+        );
+    }
 
     return (
-        <div className="form-faq">
-            <div>
-                <label className="form-faq__title">{t('remains')}</label>
-                <p className="form-faq__text">{t('answer')}</p>
-            </div>
-            <form className="" onSubmit={handleSubmit}>
-                <div className="form-faq__content">
-                    <TextField
-                        name="name"
-                        value={data.name}
-                        onChange={handleChange}
-                        placeholder={t('yourName')}
-                        error={errors.name}
-                    /> 
-                    <ReactInputMask mask="+\9\96(999)999-999" onChange={handleChange}>
-                        {(inputProps) => (
-                            <input
-                                name="phoneNumber"
-                                value={inputProps.value}
-                                onChange={inputProps.onChange}
-                                placeholder="+996(___)___-___"
-                                className="validate__input"
-                                error={errors && errors.phoneNumber}
-                            />
-                        )}  
-                    </ReactInputMask>
-                    <textarea
-                        type="text-area"
-                        placeholder={t('writeQuestion')}
-                        className="textArea"
+        <form onSubmit={validateAndSubmitForm} className="faqFormWrapper">
+            <div className="inputWrapper">
+                <CustomInput
+                    value={name || ''}
+                    type="default"
+                    placeholder={t('yourName')}
+                    onChange={(e) => handleInputChange(e, setName, 'name')}
+                    error={errors.name}
+                />
+                <CustomInput
+                    value={phoneNumber || ''}
+                    type="phone"
+                    placeholder="+996(___) ___-___"
+                    onChange={(e) => handleInputChange(e, setPhoneNumber, 'phone')}
+                    error={errors.phoneNumber}
+                />
+                {type === 'vacancy' && (
+                    <CustomInput
+                        value={email || ''}
+                        type="email"
+                        placeholder="Email*"
+                        onChange={(e) => handleInputChange(e, setEmail, 'email')}
+                        error={errors.email}
                     />
-                    <button
-                        className="form-faq__button"
-                        type="submit"
-                        onClick={handleSubmit} >
-                        {t('send')}
-                    </button>
-                </div>
-            </form>
-        </div>
-    )
-}
+                )}
+                {type !== 'vacancy' && (
+                    <CustomInput
+                        value={question || ''}
+                        type="textarea"
+                        placeholder={t('writeQuestion')}
+                        onChange={(e) => setQuestion(e.target.value)}
+                        error={errors.description}
+                    />
+                )}
+                {type === 'vacancy' && (
+                    <div className={`customFileForm ${errors.summary ? 'errorInput' : ''}`}>
+                        <label
+                            className={`faqFormFilefield ${fileUrl ? 'successFilefield' : ''}`}
+                            htmlFor={`${fileUrl ? '' : 'filefield'}`}
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
+                        >
+                            {fileUrl ? (
+                                <div className="faqFormFilefieldWrapper">
+                                    <img src={success} alt="Success" />
+                                    <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                                        {file?.name}
+                                    </a>
+                                    <button type="button" onClick={handleRemoveFile}>
+                                        <img src={remove} alt="Remove" />
+                                    </button>
+                                </div>
+                            ) : (
+                                <>
+                                    <input id="filefield" type="file" onChange={(e) => handleInputChange(e, setFile, 'file')} />
+                                    <h5>{t('attachFile')}</h5>
+                                    <p className="faqFormDescription">
+                                        {t('dragAndDrop')} <b>{t('upload')}</b>
+                                    </p>
+                                    <p className="faqFormDescriptionContinue">
+                                        {t('fileSize')}
+                                        {t('format')}
+                                    </p>
+                                </>
+                            )}
+                        </label>
+                        {errors.summary && <span>{errors.summary}</span>}
+                    </div>
+                )}
+            </div>
+            <div className="faqFormBottom">
+                <CustomButton type="primary" types="submit">
+                    {t('send')}
+                </CustomButton>
+                {type === 'leaveRequest' && (
+                    <div className="checkboxWrapper">
+                        <CustomInput
+                            id="checkboxGetConsultation"
+                            type="checkbox"
+                            label={t('consultation')}
+                            onChange={() => {}}
+                        />
+                        <CustomInput
+                            id="checkboxKnowPrice"
+                            type="checkbox"
+                            label={t('price')}
+                            onChange={() => {}}
+                        />
+                    </div>
+                )}
+            </div>
+        </form>
+    );
+};
 
-export default FaqForm
+Form.propTypes = {
+    type: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool,
+    isSuccess: PropTypes.bool,
+    setIsSuccess: PropTypes.func,
+};
+
+export default Form;

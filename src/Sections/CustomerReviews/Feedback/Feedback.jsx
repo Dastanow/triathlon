@@ -17,7 +17,7 @@ const Feedback = () => {
     if (comments.length === 0) return 'Loading...'
 
     return (
-        <section className="comments">
+        <section className="comments" id="comments">
             <div className="container">
                 <div className="comments__title">
                     <CustomTitle title={t('feedback')} />

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import './FAQ.scss'
-import chevron from '../../Assets/solar_chevron-up.svg'
-import { CustomTitle } from '@ui'
-import { Container } from '@components'
-import { useTranslation } from 'react-i18next'
-import FaqForm from '@/UI/CustomForm/FaqForm/FaqForm'
-import { axiosAPI } from '@/App'
+import { useEffect, useState } from 'react';
+import './FAQ.scss';
+import chevron from '../../Assets/solar_chevron-up.svg';
+import { CustomTitle } from '@ui';
+import { Container } from '@components';
+import { useTranslation } from 'react-i18next';
+import Form from '@/UI/CustomForm/FaqForm/FaqForm';
+import { axiosAPI } from '@/App';
 
 const Faq = () => {
     const { t, i18n } = useTranslation()
@@ -73,7 +73,7 @@ const Faq = () => {
                         ))}
                     </div>
                     <div className="faqForm">
-                        <FaqForm />
+                        <Form type="default" />
                     </div>
                 </div>
             </Container>

@@ -1,29 +1,13 @@
 import './OurServices.scss'
-import ModalWindow from '../../Modules/ModalWindow'
 import { useState, useEffect } from 'react'
 import { CustomTitle } from '@ui'
 import { Container } from '@components'
-import ApplicationForm from '@/UI/CustomForm/ApplicationForm/ApplicationForm'
-import { toggleModal } from '@/store/modalSlice'
-import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { axiosAPI } from '@/App'
+import CustomModal from '@/UI/CustomModal/CustomModal'
 
 export const OurServices = () => {
     const [modalActive, setModalActive] = useState(false)
-    const modalState = useSelector((state) => state.modal.isActive)
-
-    const dispatch = useDispatch()
-    const handleOpenModal = () => {
-        dispatch(toggleModal(true))
-        setModalActive(true)
-    }
-
-    useEffect(() => {
-        if (!modalState) {
-            setModalActive(false)
-        }
-    }, [modalState])
 
     const [servicesData, setServicesData] = useState([])
     const { t, i18n } = useTranslation()
@@ -57,7 +41,7 @@ export const OurServices = () => {
                                         </h5>
                                         <button
                                             className="ourServicesCardButton"
-                                            onClick={() => handleOpenModal()}>
+                                            onClick={() => setModalActive(true)}>
                                             {t('findOutMore')}
                                         </button>
                                     </div>
@@ -70,11 +54,12 @@ export const OurServices = () => {
                             )
                         })}
                 </div>
-                {modalActive && (
-                    <ModalWindow>
-                        <ApplicationForm />
-                    </ModalWindow>
-                )}
+                <CustomModal
+                    title={t('buttonHero')}
+                    close={() => setModalActive(false)}
+                    isOpen={modalActive}
+                    type="leaveRequest"
+                />
             </Container>
         </section>
     )

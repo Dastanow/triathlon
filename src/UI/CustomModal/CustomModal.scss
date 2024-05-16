@@ -1,0 +1,63 @@
+.customModal {
+  &Inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 16px;
+    background: #FFF;
+    max-width: 546px;
+    width: 100%;
+    height: fit-content;
+    padding: 72px 68px;
+    @media screen and (max-width: 1440px) {
+      padding: 66px;
+    }
+    @media screen and (max-width: 762px) {
+      padding: 16px;
+    }
+    h3 {
+      color: #002550;
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+    }
+    @media screen and (max-width: 1440px) {
+      padding: 28px;
+    }
+    @media screen and (max-width: 762px) {
+      padding: 21px;
+    }
+  }
+  &Overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+  }
+  &CloseBtn {
+    position: absolute;
+    background: transparent;
+    top: 8px;
+    right: 8px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.closeCustomModal {
+  display: none;
+}
+
+.isSuccess {
+  width: 546px;
+  height: 546px;
+}

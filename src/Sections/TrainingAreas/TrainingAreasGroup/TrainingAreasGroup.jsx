@@ -16,7 +16,7 @@ const TrainingAreasGroup = () => {
     if (trainingAreas.length === 0) return 'Loader...'
 
     return (
-        <section className="train-areas">
+        <section className="train-areas" id="train-areas">
             <div className="container">
                 <div className="train-areas__title">
                     <CustomTitle title={t('trainingAreas')} />

@@ -1,54 +1,53 @@
-import './Requisites.scss'
-import subscription from '../../../Assets/subscription.svg'
-import modalSvg from '@assets/modalka.svg'
-import { useDispatch } from 'react-redux'
-import { toggleModal } from '@/store/modalSlice'
-import { useTranslation } from 'react-i18next'
-import { useEffect, useState } from 'react'
-import { axiosAPI } from '@/App'
+import PropTypes from 'prop-types';
+import './Requisites.scss';
+import closeIcon from '@assets/close.svg';
+import LogoBlue from '@assets/logoBlue.svg';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { axiosAPI } from '@/App';
 
-const Requisites = () => {
-    const dispatch = useDispatch()
-    const handleCloseModal = () => {
-        dispatch(toggleModal(false))
-    }
-    const { i18n } = useTranslation()
-    const [contactData, setContactData] = useState([])
-    const fetchData = async () => {
+const Requisites = ({ isOpen, close, className = '' }) => {
+    const { i18n } = useTranslation();
+    const [data, setData] = useState();
+
+    const fetchSubscription = async () => {
         try {
-            const { data } = await axiosAPI.get('payment')
-            setContactData(data)
-        } catch (error) {
-            console.error('Error data:', error)
+            const response = await axiosAPI.get('/payment/');
+            setData(response.data);
+        } catch (e) {
+            console.error('Error fetching data from payment:', e);
         }
-    }
+    };
+
     useEffect(() => {
-        fetchData()
-    }, [i18n.language])
+        fetchSubscription();
+    }, [i18n.language]);
 
     return (
-        <div className="requisites_block">
-            <div className="logotype">
-                <img className="logotype__icon" src={subscription} alt="icon" />
-                <img
-                    src={modalSvg}
-                    onClick={() => handleCloseModal()}
-                    className="modal-payment__cross"
-                    alt="reset"
-                />
-            </div>
-            <div className="requisites">
-                <label className="requisites__title">TRIATHLON CENTER</label>
-                {contactData.map((info, id) => (
-                    <div key={id}>
-                        <p
-                            className="payment"
-                            dangerouslySetInnerHTML={{ __html: info.disc }}></p>
-                    </div>
-                ))}
+        <div className={`requisModalOverlay ${isOpen ? '' : 'closeRequisModal'}`} onClick={close}>
+            <div className={`requisModalInner ${className}`} onClick={(e) => e.stopPropagation()}>
+                <div className="requisModalHeader">
+                    <img src={LogoBlue} alt="Logo" />
+                    <button className="requisModalCloseBtn" onClick={close}>
+                        <img src={closeIcon} alt="close" />
+                    </button>
+                </div>
+                <div className="requisModalBody">
+                    <h5>TRIATHLON CENTER</h5>
+                    {data?.map(content => (
+                        <div dangerouslySetInnerHTML={{ __html: content.disc }} key={content.id} />
+                    ))}
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Requisites
+
+Requisites.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired,
+    className: PropTypes.string,
+};
+
+export default Requisites;

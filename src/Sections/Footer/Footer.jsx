@@ -27,7 +27,7 @@ export const Footer = () => {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (!ref.current.contains(event.target)) {
+            if (ref.current && !ref.current.contains(event.target)) {
                 setContactsOpen(false)
             }
         }
@@ -35,7 +35,7 @@ export const Footer = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    }, [])    
 
     const fetchData = async (endpoint) => {
         try {
@@ -71,7 +71,6 @@ export const Footer = () => {
         window.addEventListener('resize', () => {
             setMobile(window.matchMedia('(max-width: 768px)').matches)
         })
-        console.log(mobile)
     }, [])
 
     useEffect(() => {

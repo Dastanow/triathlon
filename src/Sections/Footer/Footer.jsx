@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@components'
@@ -15,11 +15,33 @@ import './Footer.scss'
 export const Footer = () => {
     const { t, i18n } = useTranslation()
     const [allData, setAllData] = useState([])
+    const [contactsOpen, setContactsOpen] = useState(false)
+    const [phoneNumbers, setPhoneNumbers] = useState([])
+    const [mobile, setMobile] = useState(
+        window.matchMedia('(max-width: 768px)').matches,
+    )
+    const ref = useRef(null)
+    const handleContactsClick = () => {
+        setContactsOpen((prev) => !prev)
+    }
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (!ref.current.contains(event.target)) {
+                setContactsOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
 
     const fetchData = async (endpoint) => {
         try {
-            const response = await axiosAPI.get(`/${endpoint}`)
-            console.log(`Data fetched from ${endpoint}:`, response.data)
+            const { data } = await axiosAPI.get('contacts')
+            const response = await axiosAPI.get(`${endpoint}`)
+            setPhoneNumbers(data)
             return { [endpoint]: response.data }
         } catch (error) {
             console.error(`Error fetching data from ${endpoint}:`, error)
@@ -27,23 +49,32 @@ export const Footer = () => {
         }
     }
 
-    useEffect(() => {
-        const fetchAllData = async (endpoints) => {
-            try {
-                const requests = endpoints.map((endpoint) =>
-                    fetchData(endpoint),
-                )
-                const responses = await Promise.all(requests)
-                const responseData = Object.assign({}, ...responses)
-                setAllData(responseData)
-
-                console.log('All data fetched:', responseData)
-            } catch (error) {
-                console.error('Error fetching data:', error)
-            }
+    const fetchAllData = async (endpoints) => {
+        try {
+            const requests = endpoints.map((endpoint) => fetchData(endpoint))
+            const responses = await Promise.all(requests)
+            const responseData = Object.assign({}, ...responses)
+            setAllData(responseData)
+        } catch (error) {
+            console.error('Error fetching data:', error)
         }
+    }
+    const endpoints = ['schedule', 'file', 'vacancy']
 
-        const endpoints = ['schedule', 'file', 'vacancy']
+    useEffect(() => {
+        if (!mobile) {
+            setContactsOpen(false)
+        }
+    }, [mobile])
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setMobile(window.matchMedia('(max-width: 768px)').matches)
+        })
+        console.log(mobile)
+    }, [])
+
+    useEffect(() => {
         fetchAllData(endpoints)
     }, [i18n.language])
 
@@ -99,15 +130,46 @@ export const Footer = () => {
                                     @triathloncenter.kg
                                 </a>
                             </li>
-                            <li className="footerContact">
-                                <a href="tel:+996997000180" target="_blank">
+                            {!mobile ? (
+                                <li className="footerContact">
                                     <img src={Phone} alt="Contact" />
-                                </a>
-                                <a className="footerLabel">
-                                    <p>+996 997 000 180</p>
-                                    <p>+996 227 000 180</p>
-                                </a>
-                            </li>
+                                    <div className="footerLabel">
+                                        <a
+                                            href={`tel: ${phoneNumbers[0]?.first_number}`}>
+                                            {phoneNumbers[0]?.first_number}
+                                        </a>
+                                        <a
+                                            href={`tel: ${phoneNumbers[0]?.second_number}`}>
+                                            {phoneNumbers[0]?.second_number}
+                                        </a>
+                                    </div>
+                                </li>
+                            ) : (
+                                <div
+                                    onClick={handleContactsClick}
+                                    className="contacts_mobile">
+                                    <img src={Phone} alt="Contact" />
+                                    <div
+                                        className={
+                                            contactsOpen
+                                                ? 'contactsShow active'
+                                                : 'contactsShow'
+                                        }>
+                                        <a
+                                            onClick={handleContactsClick}
+                                            ref={ref}
+                                            href={`tel: ${phoneNumbers[0]?.first_number}`}>
+                                            {phoneNumbers[0]?.first_number}
+                                        </a>
+                                        <a
+                                            onClick={handleContactsClick}
+                                            ref={ref}
+                                            href={`tel: ${phoneNumbers[0]?.second_number}`}>
+                                            {phoneNumbers[0]?.second_number}
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
                         </ul>
                     </div>
                     <ul className="footerContent">
@@ -172,7 +234,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className="footerBottom">
-                    <a href="" target="_blank">
+                    <a href="https://geeks.kg/geeks-pro" target="_blank">
                         Made by GEEKS PRO
                     </a>
                 </div>

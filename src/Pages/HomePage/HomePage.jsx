@@ -1,10 +1,10 @@
-import Advantages from '../../Sections/Advantages/Advantages'
-import Coaches from '../../Sections/Coaches'
-import Feedback from '../../Sections/CustomerReviews'
-import FAQ from '../../Sections/FAQ/FAQ'
-import Location from '../../Sections/Location/Location'
-import SectionTriatlon from '../../Sections/SectionTriatlon/SectionTriatlon'
-import TrainingAreas from '../../Sections/TrainingAreas'
+import Advantages from '@sections/Advantages/Advantages'
+import Coaches from '@sections/Coaches'
+import Feedback from '@sections/CustomerReviews'
+import FAQ from '@sections/FAQ/FAQ'
+import Location from '@sections/Location/Location'
+import SectionTriatlon from '@sections/SectionTriatlon/SectionTriatlon'
+import TrainingAreas from '@sections/TrainingAreas'
 import { Hero, AboutUs, Subscription, OurServices } from '@sections'
 
 export const HomePage = () => {

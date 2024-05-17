@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './FAQ.scss';
-import chevron from '../../Assets/solar_chevron-up.svg';
+import chevron from '@assets/solar_chevron-up.svg';
 import { CustomTitle } from '@ui';
 import { Container } from '@components';
 import { useTranslation } from 'react-i18next';

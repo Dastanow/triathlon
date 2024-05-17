@@ -1,5 +1,5 @@
 import './TextField.scss'
-import errorIcon from '../../Assets/dangerous.svg'
+import errorIcon from '@assets/dangerous.svg'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 

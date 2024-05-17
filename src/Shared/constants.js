@@ -1,8 +1,8 @@
-import arrowLeft from '../Assets/arrow-left.png';
-import arrowPrev from '../Assets/arrow-prev.png';
-import arrowNext from '../Assets/arrow-next.png';
-import arrowRight from '../Assets/arrow-right.png';
-import close from '../Assets/close-button.png';
+import arrowLeft from '@assets/arrow-left.png';
+import arrowPrev from '@assets/arrow-prev.png';
+import arrowNext from '@assets/arrow-next.png';
+import arrowRight from '@assets/arrow-right.png';
+import close from '@assets/close-button.png';
 export const carouselInitState = {
     btnPrevClass: 'btn-prev',
     btnNextClass: 'btn-next',

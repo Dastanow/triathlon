@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './Modal.scss';
-import { modalInitState } from '../../Shared/constants';
+import { modalInitState } from '@shared/constants';
 
 export const Modal = ({ active, setActive, children }) => {
     const { image0, alt0 } = modalInitState;

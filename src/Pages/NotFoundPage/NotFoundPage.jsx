@@ -1,5 +1,5 @@
 import './NotFoundPage.scss'
-import error from '../../Assets/Group 2.png'
+import error from '@assets/Group 2.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 

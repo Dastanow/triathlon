@@ -42,9 +42,9 @@
         align-items: center;
         background: #013D83;
         border-radius: 16px;
-        max-width: 400px;
+        max-width: 330px;
         width: 100%;
-        min-height: 200px;
+        min-height: 185px;
         transition: .3s ease-out;
         &:hover {
             background: #00489a;
@@ -90,9 +90,9 @@
             }
         }
         &Img {
-            margin: 8px;
-            height: 102px;
-            width: 102px;
+            margin-right: 5px;
+            height: 75px;
+            width: 75px;
             @media screen and (max-width: 1440px) {
                 width: 72px;
                 height: 72px;
@@ -113,7 +113,7 @@
         }
         &Button {
             width: 180px;
-            height: 60px;
+            height: 70px;
             background: #002550;
             color: #ffffff;
             padding: 16px 24px; /* Adjusted padding */

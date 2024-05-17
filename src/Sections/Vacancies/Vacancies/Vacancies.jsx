@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Vacancies.scss';
-import { IoIosArrowDown } from 'react-icons/io';
-import { CustomButton, CustomTitle } from '@ui';
-import { Container } from '@components';
-import { useTranslation } from 'react-i18next';
-import CustomModal from '@/UI/CustomModal/CustomModal';
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import './Vacancies.scss'
+import { IoIosArrowDown } from 'react-icons/io'
+import { CustomButton, CustomTitle } from '@ui'
+import { Container } from '@components'
+import { useTranslation } from 'react-i18next'
+import CustomModal from '@/UI/CustomModal/CustomModal'
 
 export const Vacancies = ({ data }) => {
-    const [openIndex, setOpenIndex] = useState(null);
-    const [modalActive, setModalActive] = useState(false);
-    const { t } = useTranslation();
+    const [openIndex, setOpenIndex] = useState(null)
+    const [modalActive, setModalActive] = useState(false)
+    const { t } = useTranslation()
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+        setOpenIndex(openIndex === index ? null : index)
+    }
 
     const handleModalOpen = (index) => {
-        setModalActive(true);
-        setOpenIndex(index);
-    };
+        setModalActive(true)
+        setOpenIndex(index)
+    }
 
     return (
         <section className="vacancies" id="vacancies">
@@ -40,7 +40,11 @@ export const Vacancies = ({ data }) => {
                                     <h5 className="vacanciesTitle">
                                         {vacancy.title}
                                     </h5>
-                                    <div dangerouslySetInnerHTML={{ __html: vacancy?.desc }} />
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: vacancy?.desc,
+                                        }}
+                                    />
                                     <span className="vacanciesArrow">
                                         <IoIosArrowDown
                                             className={
@@ -55,7 +59,7 @@ export const Vacancies = ({ data }) => {
                                     className="vacanciesButton"
                                     type="primary"
                                     onClick={() => handleModalOpen(index)}>
-                                    Отправить резюме
+                                    {t('sendCv')}
                                 </CustomButton>
                             </div>
                         </div>
@@ -69,11 +73,11 @@ export const Vacancies = ({ data }) => {
                 type="vacancy"
             />
         </section>
-    );
-};
+    )
+}
 
 Vacancies.propTypes = {
     data: PropTypes.array.isRequired,
-};
+}
 
-export default Vacancies;
+export default Vacancies

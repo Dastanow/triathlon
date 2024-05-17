@@ -198,7 +198,7 @@ export const Footer = () => {
                     <ul className="footerContent">
                         <li>
                             <p>
-                                <b>{t('documents')}</b>
+                                <b>{t('document')}</b>
                             </p>
                         </li>
                         {allData.file?.map((item) => (

@@ -14,7 +14,7 @@ export const Subscription = () => {
 
     const fetchSubscription = async () => {
         try {
-            const response = await axiosAPI.get('/abonements/');
+            const response = await axiosAPI.get('abonements');
             setSubsData(response.data);
         } catch (e) {
             console.error('Error fetching data from abonements:', e)

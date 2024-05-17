@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CustomInput from '@/Sections/FAQ/CustomInput';
-import './FaqForm.scss';
+import './CustomForm.scss';
 import { CustomButton } from '@/UI';
 import { useTranslation } from 'react-i18next';
 import { axiosAPI } from '@/App';
@@ -10,7 +10,7 @@ import remove from '@assets/trash.svg';
 import successIcon from '@assets/successForm.svg';
 import { formatPhoneNumber, validateForm } from '@/utils/validate';
 
-const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
+const CustomForm = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const { t } = useTranslation();
     const [name, setName] = useState('');
     const [question, setQuestion] = useState('');
@@ -234,11 +234,11 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     );
 };
 
-Form.propTypes = {
+CustomForm.propTypes = {
     type: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
     isSuccess: PropTypes.bool,
     setIsSuccess: PropTypes.func,
 };
 
-export default Form;
+export default CustomForm;

@@ -1,5 +1,6 @@
 .faq {
     &Container {
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         gap: 56px;
@@ -63,6 +64,9 @@
         width: 49%;
         @media screen and (max-width: 768px) {
             width: 100%;
+        }
+        .customTextareaForm{
+            height: 190px;
         }
     }
 }

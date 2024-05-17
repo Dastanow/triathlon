@@ -1,4 +1,11 @@
-#ourServices {
+#ourServices{
+    position: absolute;
+    top: -70px;
+    left: 0;
+}
+
+#ourServices_block {
+    position: relative;
     padding-top: 112px;
     @media screen and (max-width: 1280px) {
       padding-top: 80px;

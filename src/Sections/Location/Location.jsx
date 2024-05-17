@@ -19,7 +19,8 @@ const Location = () => {
     }, []);
     const {t} = useTranslation()
     return (
-        <section className="location" id="location">
+        <section className="location" id="location_block">
+            <div id="location"></div>
             <Container classNames="locationContainer">
                 <CustomTitle title={t('Location')} />
                 <div className="locationWrapper">

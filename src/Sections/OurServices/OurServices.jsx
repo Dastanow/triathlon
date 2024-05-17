@@ -26,7 +26,8 @@ export const OurServices = () => {
     }, [i18n.language])
 
     return (
-        <section className="ourServices" id="ourServices">
+        <section className="ourServices" id="ourServices_block">
+            <div id="ourServices"></div>
             <Container classNames="ourServicesContainer">
                 <CustomTitle title={t('path6')} />
                 <div className="ourServicesCards">

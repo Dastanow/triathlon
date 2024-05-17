@@ -34,7 +34,8 @@ const SectionTriatlon = () => {
     }, [i18n.language])
 
     return (
-        <section id="section" className="tableMobile">
+        <section id="section_block" className="tableMobile">
+            <div id="section"></div>
             <Container classNames="tableMobileContainer">
                 <div>
                     <CustomTitle title={'section_triathlon'} />

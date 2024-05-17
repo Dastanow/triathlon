@@ -41,7 +41,8 @@ const CoachesBlock = () => {
     if (!isCoaches || !isButtons) return 'Loader...'
 
     return (
-        <section className="coaches" id="coaches">
+        <section className="coaches"  id="coaches_block">
+            <div  id="coaches"></div>
             <div className="container">
                 <div className="coaches__title">
                     <CustomTitle title={t('coaches')} />

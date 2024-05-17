@@ -14,11 +14,11 @@ export const Subscription = () => {
 
     const fetchSubscription = async () => {
         try {
-            const response = await axiosAPI.get('abonements');
-            setSubsData(response.data);
+            const response = await axiosAPI.get('abonements')
+            setSubsData(response.data)
         } catch (e) {
             console.error('Error fetching data from abonements:', e)
-            return { 'abonements': null }
+            return { abonements: null }
         }
     }
 
@@ -28,8 +28,9 @@ export const Subscription = () => {
 
     return (
         <section className="subscription">
+            <div id="subscription"></div>
             <Container classNames="subscriptionContainer">
-                <div id="subscription">
+                <div id="subscription_block">
                     <CustomTitle title={t('aboniment')} />
                 </div>
                 <ul className="subscriptionList">
@@ -83,7 +84,10 @@ export const Subscription = () => {
                         ))}
                 </ul>
             </Container>
-            <Requisites isOpen={modalActive} close={() => setModalActive(false)} />
+            <Requisites
+                isOpen={modalActive}
+                close={() => setModalActive(false)}
+            />
         </section>
     )
 }

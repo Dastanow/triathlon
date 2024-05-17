@@ -1,4 +1,11 @@
-#section {
+#section{
+    position: absolute;
+    top: -70px;
+    left: 0;
+}
+
+#section_block {
+    position: relative;
     padding-top: 100px;
     @media screen and (max-width: 1280px) {
       padding-top: 80px;

@@ -74,14 +74,8 @@ export const Header = () => {
 
     const handleNavLinkClick = (sectionId) => {
         const section = document.querySelector(sectionId)
-        const elementPosition = section.getBoundingClientRect().top
-        const headeroffset = 60
-        const offsetPosition = elementPosition + window.scrollY - headeroffset
         if (section) {
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            })
+            section.scrollIntoView({ behavior: 'smooth' })
         }
         setCount(false)
     }

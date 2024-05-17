@@ -1,213 +1,222 @@
 #subscription {
-  padding-top: 112px;
-  @media screen and (max-width: 1280px) {
-    padding-top: 80px;
-  }
-  @media screen and (max-width: 768px) {
-    padding-top: 30px;
-  }
+    position: absolute;
+    top: -70px;
+    left: 0;
+}
+
+#subscription_block {
+    padding-top: 112px;
+    @media screen and (max-width: 1280px) {
+        padding-top: 80px;
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 30px;
+    }
 }
 .subscription {
-  &Container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 56px;
-    @media screen and (max-width: 1280px) {
-      gap: 36px;
-    }
-    @media screen and (max-width: 768px) {
-      gap: 20px;
-    }
-  }
-  &List {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      padding: 24px;
-      overflow-x: auto;
-      width: 100%;
-      @media screen and (max-width: 768px) {
-        gap: 40px;
-      }
-      @media screen and (max-width: 425px) {
-        gap: 20px;
-        padding: 30px 28px;
-      }
-      &::-webkit-scrollbar {
-        display: none;
-        overflow: auto;
-        -ms-overflow-style: none; /* IE 11 */
-        scrollbar-width: none; /* Firefox 64 */
-      }
-  }
-  &Card {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 32px;
-    border-radius: 24px;
-    min-width: 29%;
-    @media screen and (max-width: 1720px) {
-      min-width: 32%;
-    }
-    @media screen and (max-width: 1280px) {
-      border-radius: 16px;
-      gap: 22px;
-      width: 100%;
-      padding: 20px;
-      min-width: 35%;
-    }
-    @media screen and (max-width: 768px) {
-      min-width: 60%;
-      width: 100%;
-      padding: 32px 24px;
-      gap: 16px;
-      border-radius: 13px;
-    }
-    @media screen and (max-width: 590px) {
-      min-width: 80%;
-      gap: 10px;
-    }  
-    @media screen and (max-width: 425px) {
-      min-width: 92%;
-      padding: 15px;
-    }
-    &Header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      h5 {
-        color: #FFF;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 140%;
+  position: relative;
+    &Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 56px;
         @media screen and (max-width: 1280px) {
-          font-size: 16px;
+            gap: 36px;
         }
         @media screen and (max-width: 768px) {
-          font-size: 11px;
+            gap: 20px;
         }
-      }
-      p {
-        color: #FFF;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
-        @media screen and (max-width: 1280px) {
-          font-size: 14px;
-        }
-        @media screen and (max-width: 768px) {
-          font-size: 12px;
-        }
-        
-      }
     }
-    &Hit {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      h5 {
-        color: #FAA831;
-        text-shadow: -2px -2px 4px rgba(247, 181, 18, 0.35), 2px 2px 4px rgba(247, 181, 18, 0.35);
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 140%; /* 28px */
-        @media screen and (max-width: 1280px) {
-          font-size: 14px;
-        }
-        @media screen and (max-width: 768px) {
-          font-size: 12px;
-        }
-      }
-    }
-    &Actions {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      h3 {
-        color: #FFF;
-        font-size: 40px;
-        font-weight: 700;
-        line-height: 120%; /* 48px */
-        @media screen and (max-width: 1280px) {
-          font-size: 28px;
-        }
-        @media screen and (max-width: 768px) {
-          font-size: 21px;
-        }  
-      }
-      @media screen and (max-width: 1200px) {
-        gap: 20px;
-      }
-      @media screen and (max-width: 768px) {
-        gap: 20px;
-      }
-      hr {
-        background: #FFF;
-        height: 1px;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-    button {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 500;
-      @media screen and (max-width: 425px) {
-        padding: 10px 0;
-        border-radius: 10px;
-      }
-    }
-    &Items {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-      li {
+    &List {
         display: flex;
         align-items: center;
-        gap: 16px;
-        @media screen and (max-width: 425px) {
-          font-size: 12px;
+        gap: 36px;
+        padding: 24px;
+        overflow-x: auto;
+        width: 100%;
+        @media screen and (max-width: 768px) {
+            gap: 40px;
         }
-      }
-      @media screen and (max-width: 1280px) {
-        gap: 11px;
-      }
-      @media screen and (max-width: 768px) {
-        gap: 8px;
-      }
+        @media screen and (max-width: 425px) {
+            gap: 20px;
+            padding: 30px 28px;
+        }
+        &::-webkit-scrollbar {
+            display: none;
+            overflow: auto;
+            -ms-overflow-style: none; /* IE 11 */
+            scrollbar-width: none; /* Firefox 64 */
+        }
     }
-  }
-  .prime {
-    border: 1px solid #FFF;
-    background: #013D83;
-    box-shadow: 0px 0px 24.998px 0px #013D83, 0px 0px 14.285px 0px #013D83, 0px 0px 8.333px 0px #013D83, 0px 0px 4.166px 0px #013D83, 0px 0px 1.19px 0px #013D83, 0px 0px 0.595px 0px #013D83;  
-  }
-  .default {
-    border: 1px solid #000000;
-    .subscriptionCardTitle {
-      h5 {
-        color: #000000;
-      }
-      p {
-        color: #000000;
-      }
+    &Card {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 32px;
+        border-radius: 24px;
+        min-width: 29%;
+        @media screen and (max-width: 1720px) {
+            min-width: 32%;
+        }
+        @media screen and (max-width: 1280px) {
+            border-radius: 16px;
+            gap: 22px;
+            width: 100%;
+            padding: 20px;
+            min-width: 35%;
+        }
+        @media screen and (max-width: 768px) {
+            min-width: 60%;
+            width: 100%;
+            padding: 32px 24px;
+            gap: 16px;
+            border-radius: 13px;
+        }
+        @media screen and (max-width: 590px) {
+            min-width: 80%;
+            gap: 10px;
+        }
+        @media screen and (max-width: 425px) {
+            min-width: 92%;
+            padding: 15px;
+        }
+        &Header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            h5 {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 140%;
+                @media screen and (max-width: 1280px) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 11px;
+                }
+            }
+            p {
+                color: #fff;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%; /* 24px */
+                @media screen and (max-width: 1280px) {
+                    font-size: 14px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 12px;
+                }
+            }
+        }
+        &Hit {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            h5 {
+                color: #faa831;
+                text-shadow: -2px -2px 4px rgba(247, 181, 18, 0.35),
+                    2px 2px 4px rgba(247, 181, 18, 0.35);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 140%; /* 28px */
+                @media screen and (max-width: 1280px) {
+                    font-size: 14px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 12px;
+                }
+            }
+        }
+        &Actions {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            h3 {
+                color: #fff;
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 120%; /* 48px */
+                @media screen and (max-width: 1280px) {
+                    font-size: 28px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 21px;
+                }
+            }
+            @media screen and (max-width: 1200px) {
+                gap: 20px;
+            }
+            @media screen and (max-width: 768px) {
+                gap: 20px;
+            }
+            hr {
+                background: #fff;
+                height: 1px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        button {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+            @media screen and (max-width: 425px) {
+                padding: 10px 0;
+                border-radius: 10px;
+            }
+        }
+        &Items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            li {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                @media screen and (max-width: 425px) {
+                    font-size: 12px;
+                }
+            }
+            @media screen and (max-width: 1280px) {
+                gap: 11px;
+            }
+            @media screen and (max-width: 768px) {
+                gap: 8px;
+            }
+        }
     }
-    .subscriptionCardActions {
-      h3 {
-        color: #000000;
-      }
-      hr {
-        background: #000000;
-      }
+    .prime {
+        border: 1px solid #fff;
+        background: #013d83;
+        box-shadow: 0px 0px 24.998px 0px #013d83, 0px 0px 14.285px 0px #013d83,
+            0px 0px 8.333px 0px #013d83, 0px 0px 4.166px 0px #013d83,
+            0px 0px 1.19px 0px #013d83, 0px 0px 0.595px 0px #013d83;
     }
-    .subscriptionCardItems {
-      li {
-        color: #000000;
-      }
+    .default {
+        border: 1px solid #000000;
+        .subscriptionCardTitle {
+            h5 {
+                color: #000000;
+            }
+            p {
+                color: #000000;
+            }
+        }
+        .subscriptionCardActions {
+            h3 {
+                color: #000000;
+            }
+            hr {
+                background: #000000;
+            }
+        }
+        .subscriptionCardItems {
+            li {
+                color: #000000;
+            }
+        }
     }
-  }
 }

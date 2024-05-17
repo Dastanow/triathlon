@@ -1,4 +1,11 @@
-#location {
+#location{
+  position: absolute;
+  top: -70px;
+  left: 0;
+}
+
+#location_block {
+  position: relative;
   padding-top: 100px;
   margin-bottom: 100px;
     @media screen and (max-width: 1280px) {

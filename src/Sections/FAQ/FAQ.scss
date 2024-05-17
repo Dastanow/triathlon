@@ -11,6 +11,9 @@
             gap: 20px;
         }
     }
+    &Titles{
+        font-weight: 700;
+    }
     &Questions {
         width: 100%;
         cursor: pointer;
@@ -31,9 +34,9 @@
         padding: 5px;
         align-items: center;
         justify-content: space-between;
-        .faqArrow{
+        .faqArrow {
             display: flex;
-            align-items: center;    
+            align-items: center;
         }
         .faqTitles {
             span {
@@ -44,6 +47,7 @@
     &Wrapper {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
         gap: 2%;
         @media screen and (max-width: 768px) {
             display: flex;
@@ -54,19 +58,56 @@
     &Selects {
         display: flex;
         flex-direction: column;
-        width: 49%;
+        width: 55%;
         gap: 24px;
         @media screen and (max-width: 768px) {
             width: 100%;
         }
     }
     &Form {
-        width: 49%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 40%;
         @media screen and (max-width: 768px) {
             width: 100%;
         }
-        .customTextareaForm{
+        .customTextareaForm {
             height: 190px;
+        }
+    }
+    .form-faq {
+        &__title {
+            font-family: Montserrat;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 52.8px;
+            color: #000000;
+            @media screen and (max-width: 1440px) {
+                font-size: 32px;
+            }
+            @media screen and (max-width: 425px) {
+                font-size: 25px;
+            }
+        }
+        &__text {
+            font-family: Montserrat;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 33px;
+            color: #000000;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            cursor: default;
+            @media screen and (max-width: 1440px) {
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            @media screen and (max-width: 425px) {
+                margin-top: 0;
+            }
         }
     }
 }

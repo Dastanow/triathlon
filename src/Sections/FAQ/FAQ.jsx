@@ -76,6 +76,10 @@ const Faq = () => {
                         ))}
                     </div>
                     <div className="faqForm">
+                        <label className="form-faq__title">
+                            {t('remains')}
+                        </label>
+                        <p className="form-faq__text">{t('answer')}</p>
                         <Form type="default" />
                     </div>
                 </div>

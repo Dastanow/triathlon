@@ -11,7 +11,6 @@ export const Vacancies = ({ data }) => {
     const [openIndex, setOpenIndex] = useState(null);
     const [modalActive, setModalActive] = useState(false);
     const { t } = useTranslation();
-
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };

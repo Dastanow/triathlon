@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './CustomModal.scss';
 import closeIcon from '@assets/close.svg';
 import { useEffect, useState } from 'react';
-import CustomForm from '../CustomForm/CustomForm';
+import Form from '../Form/Form';
 const CustomModal = ({ isOpen, close, className, title, type }) => {
     const [isSuccess, setIsSuccess] = useState(false);
     function disableScroll() {
@@ -27,7 +27,7 @@ const CustomModal = ({ isOpen, close, className, title, type }) => {
                     <img src={closeIcon} alt="close" />
                 </button>
                 {!isSuccess && <h3>{title}</h3>}
-                <CustomForm type={type} setIsSuccess={setIsSuccess} isSuccess={isSuccess} />
+                <Form type={type} setIsSuccess={setIsSuccess} isSuccess={isSuccess} />
             </div>
         </div>
     );

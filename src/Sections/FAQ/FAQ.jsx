@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import './FAQ.scss';
-import chevron from '@assets/solar_chevron-up.svg';
-import { CustomTitle } from '@ui';
-import { Container } from '@components';
-import { useTranslation } from 'react-i18next';
-import CustomForm from '@/UI/CustomForm/CustomForm';
-import { axiosAPI } from '@/App';
+import { useEffect, useState } from 'react'
+import './FAQ.scss'
+import chevron from '@assets/solar_chevron-up.svg'
+import { CustomTitle } from '@ui'
+import { Container } from '@components'
+import { useTranslation } from 'react-i18next'
+import Form from '@/UI/Form/Form'
+import { axiosAPI } from '@/App'
 
 const Faq = () => {
     const { t, i18n } = useTranslation()
@@ -66,14 +66,17 @@ const Faq = () => {
                                 </div>
 
                                 {openIndex === index && (
-                                    <div className="answer opened" dangerouslySetInnerHTML={{__html: item.answer}}>
-                                    </div>
+                                    <div
+                                        className="answer opened"
+                                        dangerouslySetInnerHTML={{
+                                            __html: item.answer,
+                                        }}></div>
                                 )}
                             </div>
                         ))}
                     </div>
                     <div className="faqForm">
-                        <CustomForm type="default" />
+                        <Form type="default" />
                     </div>
                 </div>
             </Container>

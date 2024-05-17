@@ -1,17 +1,19 @@
 .requisModal {
     &Inner {
-      position: relative;
-      border-radius: 16px;
-      background: #FFF;
-      max-width: 628px;
-      max-height: 582px;
-      width: 100%;
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      @media screen and (max-width: 762px) {
-        padding: 12px;
+        position: relative;
+        border-radius: 16px;
+        background: #fff;
+        max-width: 628px;
+        width: 100%;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        @media screen and (max-width: 768px) {
+            padding: 12px;
+        }
+        @media screen and (max-width: 425px) {
+          padding: 20px 15px;
       }
     }
     &Header {
@@ -22,7 +24,7 @@
             background: transparent;
             height: 50px;
             width: 50px;
-            @media screen and (max-width: 762px) {
+            @media screen and (max-width: 768px) {
                 height: 36px;
                 width: 36px;
             }
@@ -37,21 +39,20 @@
         flex-direction: column;
         align-items: center;
         gap: 16px;
-        @media screen and (max-width: 762px) {
-            padding: 24px;
-          }
         h5 {
-            color: #013D83;
+            text-align: center;
+            color: #013d83;
             font-family: Montserrat;
             font-size: 28px;
             font-style: normal;
             font-weight: 700;
             line-height: 120%; /* 33.6px */
-            @media screen and (max-width: 762px) {
+            @media screen and (max-width: 768px) {
                 padding: 24px;
             }
         }
         p {
+            text-wrap: balance;
             display: flex;
             flex-direction: column;
             color: #171717;
@@ -62,23 +63,30 @@
             font-weight: 500;
             line-height: normal;
         }
-        &First {
-            margin-top: 24px;
+        @media screen and (max-width: 425px) {
+          gap: 5px;
+          h5{
+            font-size: 22px;
+            padding: 15px;
+          }
+          p{
+            font-size: 16px;
+          }
         }
     }
     &Overlay {
-      background-color: rgba(0, 0, 0, 0.5);
-      inset: 0;
-      position: fixed;
-      overflow: hidden;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 16px;
+        background-color: rgba(0, 0, 0, 0.5);
+        inset: 0;
+        position: fixed;
+        overflow: hidden;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
     }
-  }
-  
-  .closeRequisModal {
+}
+
+.closeRequisModal {
     display: none;
-  }
+}

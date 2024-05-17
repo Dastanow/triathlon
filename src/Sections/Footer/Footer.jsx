@@ -35,7 +35,7 @@ export const Footer = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])    
+    }, [])
 
     const fetchData = async (endpoint) => {
         try {
@@ -145,8 +145,13 @@ export const Footer = () => {
                                 </li>
                             ) : (
                                 <div
-                                    onClick={handleContactsClick}
-                                    className="contacts_mobile">
+                                    ref={ref}
+                                    className="contacts_mobile"
+                                    onClick={
+                                        contactsOpen
+                                            ? () => setContactsOpen(false)
+                                            : () => setContactsOpen(true)
+                                    }>
                                     <img src={Phone} alt="Contact" />
                                     <div
                                         className={
@@ -156,13 +161,11 @@ export const Footer = () => {
                                         }>
                                         <a
                                             onClick={handleContactsClick}
-                                            ref={ref}
                                             href={`tel: ${phoneNumbers[0]?.first_number}`}>
                                             {phoneNumbers[0]?.first_number}
                                         </a>
                                         <a
                                             onClick={handleContactsClick}
-                                            ref={ref}
                                             href={`tel: ${phoneNumbers[0]?.second_number}`}>
                                             {phoneNumbers[0]?.second_number}
                                         </a>

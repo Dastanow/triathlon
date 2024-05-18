@@ -36,9 +36,11 @@ export const AboutUs = () => {
                                     dangerouslySetInnerHTML={{
                                         __html: item.desc,
                                     }}></div>
-                                <CustomButton type="primary">
-                                    {t('buttonKR')}
-                                </CustomButton>
+                                <a href="https://triathlon.kg" target="_blank">
+                                    <CustomButton type="primary">
+                                        {t('buttonKR')}
+                                    </CustomButton>
+                                </a>
                             </div>
                         </div>
                     )

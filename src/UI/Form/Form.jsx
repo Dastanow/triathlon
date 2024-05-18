@@ -93,7 +93,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         try {
             const formData = new FormData();
             formData.append('name', name);
-            formData.append('number', phoneNumber.replace(/\s+/g, '').trim().toString());
+            formData.append(type === 'vacancy' ? 'number' : 'phone', phoneNumber.replace(/\s+/g, '').trim());
 
             if (type === 'default' || type === 'leaveRequest') {
                 formData.append('description', question);
@@ -102,6 +102,14 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 formData.append('email', email);
             }
             formData.append('summary', file);
+
+            console.log('Form Data:', {
+                name,
+                number: phoneNumber.replace(/\s+/g, '').trim(),
+                description: type !== 'vacancy' ? question : undefined,
+                email: type === 'vacancy' ? email : undefined,
+                file
+            });
 
             const endpoint = type === 'default' || type === 'leaveRequest' ? '/applicationwebhook/' : '/application/';
             const response = await axiosAPI.post(endpoint, formData);

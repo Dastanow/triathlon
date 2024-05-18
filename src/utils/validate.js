@@ -60,12 +60,12 @@ export const validateForm = (name, question, phoneNumber, email, file, setErrors
         if (!email) {
             formErrors.email = 'Введите Email';
         }
-    }
 
-    if (!file) {
-        formErrors.summary = 'Выберите файл';
-    } else if (!(file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-        formErrors.summary = 'Выберите файл в форматах PDF или DOCX';
+        if (!file) {
+            formErrors.summary = 'Выберите файл';
+        } else if (!(file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+            formErrors.summary = 'Выберите файл в форматах PDF или DOCX';
+        }
     }
 
     setErrors(formErrors);

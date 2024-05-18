@@ -30,8 +30,8 @@ export const SectionTriatlhonMobile = ({ rows }) => {
             {rows &&
                 rows
                     .filter((_, id) => id == currentSlide)
-                    .map((item) => (
-                        <table key={item.id} className="mobileTable">
+                    .map((item, id) => (
+                        <table key={id} className="mobileTable">
                             <tbody>
                                 <tr className="tableBody">
                                     <th className="tableTop">
@@ -67,5 +67,5 @@ export const SectionTriatlhonMobile = ({ rows }) => {
 }
 
 SectionTriatlhonMobile.propTypes = {
-    rows: PropTypes.array.isRequired,
+    rows: PropTypes.array,
 }

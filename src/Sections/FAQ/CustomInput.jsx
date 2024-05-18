@@ -46,7 +46,7 @@ const CustomInput = ({ type, onChange, value, placeholder, error, label, id }) =
 CustomInput.propTypes = {
     type: PropTypes.oneOf(['default', 'email', 'phone', 'textarea', 'checkbox']).isRequired,
     onChange: PropTypes.func.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     placeholder: PropTypes.string,
     error: PropTypes.string,
     label: PropTypes.string,

@@ -1,15 +1,15 @@
-import { useState, useEffect, useRef } from 'react'
-import './Header.scss'
-import logotype from '@assets/logo1.png'
-import account from '@assets/account.svg'
-import chevron from '@assets/solar_chevron-up.svg'
-import ru from '@assets/language_rus.png'
-import ky from '@assets/language_kyr.png'
-import burger from '@assets/burger.png'
-import close from '@assets/close_burg.png'
-import { Link } from 'react-router-dom'
-import { Container } from '@components/Container/Container'
-import { useTranslation } from 'react-i18next'
+import { useState, useEffect, useRef } from 'react';
+import './Header.scss';
+import logotype from '@assets/logo1.png';
+import account from '@assets/account.svg';
+import chevron from '@assets/solar_chevron-up.svg';
+import ru from '@assets/language_rus.png';
+import ky from '@assets/language_kyr.png';
+import burger from '@assets/burger.png';
+import close from '@assets/close_burg.png';
+import { Link, useLocation } from 'react-router-dom';
+import { Container } from '@components/Container/Container';
+import { useTranslation } from 'react-i18next';
 
 export const navigatePath = [
     { text: 'path1', id: '#main' },
@@ -19,35 +19,36 @@ export const navigatePath = [
     { text: 'path5', id: '/schedule' },
     { text: 'path6', id: '#ourServices' },
     { text: 'path7', id: '#location' },
-]
+];
 
 export const Header = () => {
-    const [count, setCount] = useState(false)
+    const [count, setCount] = useState(false);
     const [isMobile, setIsMobile] = useState(
-        window.matchMedia('(max-width: 768px)').matches,
-    )
-    const { t, i18n } = useTranslation()
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
-    const [showOtherImage, setShowOtherImage] = useState(false)
-    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false)
-    const headerRef = useRef(null)
+        window.matchMedia('(max-width: 768px)').matches
+    );
+    const { t, i18n } = useTranslation();
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+    const [showOtherImage, setShowOtherImage] = useState(false);
+    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
+    const headerRef = useRef(null);
+    const location = useLocation();
 
     useEffect(() => {
-        localStorage.setItem('selectedLanguage', selectedLanguage)
-        i18n.changeLanguage(selectedLanguage)
-    }, [selectedLanguage, i18n])
+        localStorage.setItem('selectedLanguage', selectedLanguage);
+        i18n.changeLanguage(selectedLanguage);
+    }, [selectedLanguage, i18n]);
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            setIsMobile(window.matchMedia('(max-width: 768px)').matches)
-        })
-    }, [])
+            setIsMobile(window.matchMedia('(max-width: 968px)').matches);
+        });
+    }, []);
 
     useEffect(() => {
         if (!isMobile) {
-            setCount(false)
+            setCount(false);
         }
-    }, [isMobile])
+    }, [isMobile]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -56,34 +57,34 @@ export const Header = () => {
                 !headerRef.current.contains(event.target) &&
                 event.target.className !== 'headerlangImg'
             ) {
-                setIsLanguageOptionsOpen(false)
-                setShowOtherImage(false)
+                setIsLanguageOptionsOpen(false);
+                setShowOtherImage(false);
             }
-        }
+        };
 
-        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
-        }
-    }, [])
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const handleSvgClick = () => {
-        setShowOtherImage((prevState) => !prevState)
-        setIsLanguageOptionsOpen((prevState) => !prevState)
-    }
+        setShowOtherImage((prevState) => !prevState);
+        setIsLanguageOptionsOpen((prevState) => !prevState);
+    };
+
+    const isHome = location.pathname;
+    console.log(isHome)
 
     const handleNavLinkClick = (sectionId) => {
-        const section = document.querySelector(sectionId)
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' })
-        }
-        setCount(false)
-    }
+        window.location.href = location.pathname === '/' ? `${sectionId}` : '/';
+        setCount(false);
+    };
 
     const switchLanguage = () => {
-        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
-        setSelectedLanguage(newLanguage)
-    }
+        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru';
+        setSelectedLanguage(newLanguage);
+    };
 
     return (
         <header className="header" ref={headerRef}>
@@ -105,17 +106,17 @@ export const Header = () => {
                                 : 'headerNav'
                         }>
                         {navigatePath.map((path, index) => {
-                            if (path.id == '/schedule') {
+                            if (path.id === '/schedule') {
                                 return (
                                     <li key={index}>
                                         <Link
                                             target="_blank"
-                                            to={path.id}
+                                            to={location.pathname === '/vacancies' ? `${path.id}` : path.id}
                                             className="headerNavLink">
                                             {t(path.text)}
                                         </Link>
                                     </li>
-                                )
+                                );
                             } else {
                                 return (
                                     <li key={index}>
@@ -130,7 +131,7 @@ export const Header = () => {
                                             <hr className="mobileSeparator" />
                                         )}
                                     </li>
-                                )
+                                );
                             }
                         })}
                         {count && (
@@ -202,16 +203,25 @@ export const Header = () => {
                             <img src={burger} alt="burger" />
                         )}
                     </div>
-                    <Link
-                        to="/personal-account"
-                        target="_blank"
-                        className="headerAccount">
-                        <img src={account} alt="account" />
-                    </Link>
+                    {location.pathname === '/vacancy' && (
+                        <Link
+                            to={`${location.pathname}#${navigatePath[2].id}`}
+                            className="headerAccount">
+                            <img src={account} alt="account" />
+                        </Link>
+                    )}
+                    {location.pathname !== '/vacancy' && (
+                        <Link
+                            to="/personal-account"
+                            target="_blank"
+                            className="headerAccount">
+                            <img src={account} alt="account" />
+                        </Link>
+                    )}
                 </div>
             </Container>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

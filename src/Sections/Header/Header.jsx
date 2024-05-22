@@ -32,6 +32,20 @@ export const Header = () => {
     const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
     const headerRef = useRef(null);
     const location = useLocation();
+    const [is404Error, setIs404Error] = useState(false);
+
+    useEffect(() => {
+        const validPaths = [ '/vacancies', ' '];
+        const isValidPath = validPaths.includes(window.location.pathname) || validPaths.some((path) =>
+            window.location.pathname.startsWith(path + '/')
+        );
+    
+        if (!isValidPath) {
+            setIs404Error(true);
+        } else {
+            setIs404Error(false);
+        }
+    }, [window.location.pathname]);
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage);
@@ -96,6 +110,7 @@ export const Header = () => {
                         alt="logotype Triathlon Center"
                     />
                 </Link>
+                {!is404Error && (
                 <nav>
                     <ul
                         className={
@@ -141,6 +156,7 @@ export const Header = () => {
                         )}
                     </ul>
                 </nav>
+                )}
                 <div className="headerWrapper">
                     {!count && (
                         <div
@@ -194,6 +210,7 @@ export const Header = () => {
                             )}
                         </div>
                     )}
+                    {!is404Error && (
                     <div
                         onClick={() => setCount(!count)}
                         className="headerBurger">
@@ -203,6 +220,7 @@ export const Header = () => {
                             <img src={burger} alt="burger" />
                         )}
                     </div>
+                    )}
                     {location.pathname === '/vacancy' && (
                         <Link
                             to={`${location.pathname}#${navigatePath[2].id}`}

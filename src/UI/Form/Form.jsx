@@ -145,7 +145,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
             </div>
         );
     }
-
+    
     return (
         <form onSubmit={validateAndSubmitForm} className="faqFormWrapper">
             <div className="inputWrapper">

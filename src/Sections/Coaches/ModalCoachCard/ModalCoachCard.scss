@@ -48,6 +48,12 @@ $white: #fff;
         font-size: 24px;
         font-weight: 500;
         line-height: normal;
+        p {
+            span {  
+                color: white !important;
+                background: transparent !important;
+            }
+        }
     }
 }
 //-----media-query-------------------

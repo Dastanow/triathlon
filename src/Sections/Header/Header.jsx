@@ -19,10 +19,10 @@ export const navigatePath = [
     { text: 'path5', id: '/schedule' },
     { text: 'path6', id: '#ourServices' },
     { text: 'path7', id: '#location' },
-]
+];
 
 export const Header = () => {
-    const [count, setCount] = useState(false)
+    const [count, setCount] = useState(false);
     const [isMobile, setIsMobile] = useState(
         window.matchMedia('(max-width: 768px)').matches,
     )
@@ -34,21 +34,21 @@ export const Header = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        localStorage.setItem('selectedLanguage', selectedLanguage)
-        i18n.changeLanguage(selectedLanguage)
-    }, [selectedLanguage, i18n])
+        localStorage.setItem('selectedLanguage', selectedLanguage);
+        i18n.changeLanguage(selectedLanguage);
+    }, [selectedLanguage, i18n]);
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            setIsMobile(window.matchMedia('(max-width: 768px)').matches)
-        })
-    }, [])
+            setIsMobile(window.matchMedia('(max-width: 968px)').matches);
+        });
+    }, []);
 
     useEffect(() => {
         if (!isMobile) {
-            setCount(false)
+            setCount(false);
         }
-    }, [isMobile])
+    }, [isMobile]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -57,21 +57,24 @@ export const Header = () => {
                 !headerRef.current.contains(event.target) &&
                 event.target.className !== 'headerlangImg'
             ) {
-                setIsLanguageOptionsOpen(false)
-                setShowOtherImage(false)
+                setIsLanguageOptionsOpen(false);
+                setShowOtherImage(false);
             }
-        }
+        };
 
-        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
-        }
-    }, [])
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const handleSvgClick = () => {
-        setShowOtherImage((prevState) => !prevState)
-        setIsLanguageOptionsOpen((prevState) => !prevState)
-    }
+        setShowOtherImage((prevState) => !prevState);
+        setIsLanguageOptionsOpen((prevState) => !prevState);
+    };
+
+    const isHome = location.pathname;
+    console.log(isHome)
 
     const handleNavLinkClick = (path) => {
         if (path.id.startsWith('#')) {
@@ -97,9 +100,9 @@ export const Header = () => {
     }
 
     const switchLanguage = () => {
-        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru'
-        setSelectedLanguage(newLanguage)
-    }
+        const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru';
+        setSelectedLanguage(newLanguage);
+    };
 
     return (
         <header className="header" ref={headerRef}>
@@ -210,16 +213,25 @@ export const Header = () => {
                             <img src={burger} alt="burger" />
                         )}
                     </div>
-                    <Link
-                        to="/personal-account"
-                        target="_blank"
-                        className="headerAccount">
-                        <img src={account} alt="account" />
-                    </Link>
+                    {location.pathname === '/vacancy' && (
+                        <Link
+                            to={`${location.pathname}#${navigatePath[2].id}`}
+                            className="headerAccount">
+                            <img src={account} alt="account" />
+                        </Link>
+                    )}
+                    {location.pathname !== '/vacancy' && (
+                        <Link
+                            to="/personal-account"
+                            target="_blank"
+                            className="headerAccount">
+                            <img src={account} alt="account" />
+                        </Link>
+                    )}
                 </div>
             </Container>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

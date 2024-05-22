@@ -1,62 +1,61 @@
-import { useEffect, useState } from 'react';
-import { CustomButton } from '@ui';
-import { Container } from '@components';
-import './Hero.scss';
-import { useTranslation } from 'react-i18next';
-import CustomModal from '@/UI/CustomModal/CustomModal';
-import { axiosAPI } from '@/App';
+import { useEffect, useState } from 'react'
+import { CustomButton } from '@ui'
+import { Container } from '@components'
+import './Hero.scss'
+import { useTranslation } from 'react-i18next'
+import CustomModal from '@/UI/CustomModal/CustomModal'
+import { axiosAPI } from '@/App'
 
 export const Hero = () => {
-    const [modalActive, setModalActive] = useState(false);
-    const [heroApi, setHeroApi] = useState();
+    const [modalActive, setModalActive] = useState(false)
+    const [heroData, setHeroData] = useState([])
+    const { i18n } = useTranslation()
+
+    const fetchData = async () => {
+        try {
+            const { data } = await axiosAPI.get('/homepage/')
+            setHeroData(data)
+        } catch (error) {
+            console.error('Error fetching data:', error)
+        }
+    }
+
+    console.log(heroData)
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data } = await axiosAPI.get('homepage/');
-                setHeroApi(data);
-            } catch (error) {
-                console.log('error');
-            }
-        };
-        fetchData();
-    }, []);
+        fetchData()
+    }, [i18n.language])
 
-    const { t } = useTranslation();
+    const { t } = useTranslation()
+
     return (
-        <section className="hero" id="hero">
-            {heroApi?.map((item) => {
-                return (
-                    <video className="heroVideo" autoPlay loop muted>
-                     <source src={item.photo} type="video/mp4" />
-                    </video>
-                )
-            }) 
-            }
-            <Container classNames="heroContainer">
-                {heroApi?.map((item) => {
-                    return (
-                        <div className="heroContent">
-                        <h1 className="heroContentTitle">{item.title}</h1>
-                        <p className="heroContentDescription">
-                            {item.subtitle}
-                        </p>
-                        <CustomButton
-                            type="secondary"
-                            onClick={() => setModalActive(true)}>
-                            {t('buttonHero')}
-                        </CustomButton>
+        <>
+            {heroData.map((item, index) => (
+                <section key={index} className="hero" id="hero">
+                    <div className="heroVideo">
+                        <video src={item.photo} autoPlay muted loop></video>
                     </div>
-                    )
-                })     
-                }
-            </Container>
-            <CustomModal
-                type="leaveRequest"
-                title={t('buttonHero')}
-                close={() => setModalActive(false)}
-                isOpen={modalActive}
-            />
-        </section>
-    );
-};
+                    <Container classNames="heroContainer">
+                        <div className="heroContent">
+                            <h1 className="heroContentTitle">{item.title}</h1>
+                            <p className="heroContentDescription">
+                                {item.subtitle}
+                            </p>
+                            <CustomButton
+                                type="secondary"
+                                onClick={() => setModalActive(true)}>
+                                {t('buttonHero')}
+                            </CustomButton>
+                        </div>
+                    </Container>
+                    <CustomModal
+                        type="leaveRequest"
+                        title={t('buttonHero')}
+                        close={() => setModalActive(false)}
+                        isOpen={modalActive}
+                    />
+                </section>
+            ))}
+        </>
+    )
+}

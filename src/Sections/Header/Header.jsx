@@ -1,15 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
-import './Header.scss';
-import logotype from '@assets/logo1.png';
-import account from '@assets/account.svg';
-import chevron from '@assets/solar_chevron-up.svg';
-import ru from '@assets/language_rus.png';
-import ky from '@assets/language_kyr.png';
-import burger from '@assets/burger.png';
-import close from '@assets/close_burg.png';
-import { Link, useLocation } from 'react-router-dom';
-import { Container } from '@components/Container/Container';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect, useRef } from 'react'
+import './Header.scss'
+import logotype from '@assets/logo1.png'
+import account from '@assets/account.svg'
+import chevron from '@assets/solar_chevron-up.svg'
+import ru from '@assets/language_rus.png'
+import ky from '@assets/language_kyr.png'
+import burger from '@assets/burger.png'
+import close from '@assets/close_burg.png'
+import { Link, useNavigate } from 'react-router-dom'
+import { Container } from '@components/Container/Container'
+import { useTranslation } from 'react-i18next'
 
 export const navigatePath = [
     { text: 'path1', id: '#main' },
@@ -24,14 +24,14 @@ export const navigatePath = [
 export const Header = () => {
     const [count, setCount] = useState(false);
     const [isMobile, setIsMobile] = useState(
-        window.matchMedia('(max-width: 768px)').matches
-    );
-    const { t, i18n } = useTranslation();
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
-    const [showOtherImage, setShowOtherImage] = useState(false);
-    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false);
-    const headerRef = useRef(null);
-    const location = useLocation();
+        window.matchMedia('(max-width: 768px)').matches,
+    )
+    const { t, i18n } = useTranslation()
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+    const [showOtherImage, setShowOtherImage] = useState(false)
+    const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false)
+    const headerRef = useRef(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage);
@@ -76,10 +76,28 @@ export const Header = () => {
     const isHome = location.pathname;
     console.log(isHome)
 
-    const handleNavLinkClick = (sectionId) => {
-        window.location.href = location.pathname === '/' ? `${sectionId}` : '/';
-        setCount(false);
-    };
+    const handleNavLinkClick = (path) => {
+        if (path.id.startsWith('#')) {
+            const section = document.querySelector(path.id)
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' })
+            }
+        } else {
+            navigate(path.id)
+        }
+        setCount(false)
+    }
+
+    const handleNavLinkOnFirstPage = (path) => {
+        if (window.location.pathname !== '/') {
+            navigate('/')
+            setTimeout(() => {
+                handleNavLinkClick(path)
+            }, 1000) 
+        } else {
+            handleNavLinkClick(path)
+        }
+    }
 
     const switchLanguage = () => {
         const newLanguage = selectedLanguage === 'ru' ? 'ky' : 'ru';
@@ -105,35 +123,27 @@ export const Header = () => {
                                     : 'headerNav'
                                 : 'headerNav'
                         }>
-                        {navigatePath.map((path, index) => {
-                            if (path.id === '/schedule') {
-                                return (
-                                    <li key={index}>
-                                        <Link
-                                            target="_blank"
-                                            to={location.pathname === '/vacancies' ? `${path.id}` : path.id}
-                                            className="headerNavLink">
-                                            {t(path.text)}
-                                        </Link>
-                                    </li>
-                                );
-                            } else {
-                                return (
-                                    <li key={index}>
-                                        <p
-                                            className="headerNavLink"
-                                            onClick={() =>
-                                                handleNavLinkClick(path.id)
-                                            }>
-                                            {t(path.text)}
-                                        </p>
-                                        {index === navigatePath.length - 1 && (
-                                            <hr className="mobileSeparator" />
-                                        )}
-                                    </li>
-                                );
-                            }
-                        })}
+                        {navigatePath.map((path, index) => (
+                            <li key={index}>
+                                {path.id.startsWith('/') ? (
+                                    <Link
+                                        target={path.id === '/schedule' ? '_blank' : '_self'}
+                                        to={path.id}
+                                        className="headerNavLink">
+                                        {t(path.text)}
+                                    </Link>
+                                ) : (
+                                    <p
+                                        className="headerNavLink"
+                                        onClick={() => handleNavLinkOnFirstPage(path)}>
+                                        {t(path.text)}
+                                    </p>
+                                )}
+                                {index === navigatePath.length - 1 && (
+                                    <hr className="mobileSeparator" />
+                                )}
+                            </li>
+                        ))}
                         {count && (
                             <div className="headerAccountBurger">
                                 <img src={account} alt="account" />

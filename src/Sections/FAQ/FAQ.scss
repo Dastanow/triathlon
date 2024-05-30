@@ -24,7 +24,9 @@
         border-radius: 16px;
         background: #013d83;
         .answer {
+            padding: 5px 10px 10px 5px;
             span {
+                font-weight: 500;
                 color: #fff !important;
             }
         }
@@ -37,6 +39,9 @@
         .faqArrow {
             display: flex;
             align-items: center;
+            img{
+                width: 40px;
+            }
         }
         .faqTitles {
             span {
@@ -81,8 +86,7 @@
             font-family: Montserrat;
             font-size: 44px;
             font-weight: 700;
-            line-height: 52.8px;
-            color: #000000;
+            color: #000;
             @media screen and (max-width: 1440px) {
                 font-size: 32px;
             }

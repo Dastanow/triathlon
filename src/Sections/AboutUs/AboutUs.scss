@@ -1,109 +1,112 @@
 #aboutUs {
-  margin-top: 112px;
+    margin-top: 112px;
     @media screen and (max-width: 1280px) {
-      margin-top: 80px;
+        margin-top: 80px;
     }
     @media screen and (max-width: 768px) {
-      margin-top: 30px;
+        margin-top: 30px;
     }
 }
 .aboutUs {
-  &Container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 56px;
-      @media screen and (max-width: 1280px) {
-        gap: 36px;
-      }
-      @media screen and (max-width: 768px) {
-        gap: 20px;
-      }
-  }
-  &Image {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    img {
-      width: 100%;
+    &Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 56px;
+        @media screen and (max-width: 1280px) {
+            gap: 36px;
+        }
+        @media screen and (max-width: 768px) {
+            gap: 20px;
+        }
     }
-  }
-  &Content {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 28px;
-  }
-  &Wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 46px;
-    @media screen and (max-width: 1280px) {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
+    &Image {
+        width: 58%;
+        align-self: stretch;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: 10%;
+            border-radius: 24px;
+        }
+        @media screen and (max-width: 1280px) {
+            width: 100%;
+        }
     }
-    @media screen and (max-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    &Content {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media screen and (max-width: 1280px) {
+            width: 100%;
+        }
     }
-  }
-  &Title {
-    color: #000;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 120%;
-    @media screen and (max-width: 1280px) {
-      font-size: 28px;
+    &Wrapper {
+        height: max-content;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 2%;
     }
-    @media screen and (max-width: 768px) {
-      font-size: 22px;
+    &Title {
+        color: #000;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 120%;
+        margin-bottom: 16px;
+        @media screen and (max-width: 1280px) {
+            font-size: 28px;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 22px;
+        }
     }
-  }
-  &Description {
-    color: #000;
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 120%; 
-    @media screen and (max-width: 1280px) {
-      font-size: 22px;
+    &Description {
+        color: #000;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 120%;
+        margin-bottom: 25px;
+        @media screen and (max-width: 1280px) {
+            font-size: 22px;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 16px;
+        }
     }
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
 }
 @media screen and (max-width: 1440px) {
-  .aboutUs {
-    &Title {
-      color: #000;
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 120%; 
+    .aboutUs {
+        &Title {
+            color: #000;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 120%;
+        }
+        &Description {
+            color: #000;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 120%;
+        }
     }
-    &Description {
-      color: #000;
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 120%; 
-    }
-  }
 }
 @media screen and (max-width: 768px) {
-  .aboutUs {
-    &Content {
-      gap: 10px;
+    .aboutUs {
+        &Content {
+            gap: 10px;
+        }
+        &Title {
+            font-size: 0;
+        }
+        &Description {
+            color: #000;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+        }
     }
-    &Title {
-      font-size: 0;
-    }
-    &Description {
-      color: #000;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 120%; 
-    }
-  }
 }

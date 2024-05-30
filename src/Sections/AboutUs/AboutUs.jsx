@@ -23,28 +23,26 @@ export const AboutUs = () => {
         <section id="aboutUs" className="aboutUs">
             <Container classNames="aboutUsContainer">
                 <CustomTitle title={t('aboutUs')} />
-                {aboutUsapi?.map((item, id) => {
-                    return (
-                        <div className="aboutUsWrapper" key={id}>
-                            <div className="aboutUsImage">
-                                <img src={item.image} alt="about us image" />
-                            </div>
-                            <div className="aboutUsContent">
-                                <h3 className="aboutUsTitle">{item.title}</h3>
-                                <div
-                                    className="aboutUsDescription"
-                                    dangerouslySetInnerHTML={{
-                                        __html: item.desc,
-                                    }}></div>
-                                <a href="https://triathlon.kg" target="_blank">
-                                    <CustomButton type="primary">
-                                        {t('buttonKR')}
-                                    </CustomButton>
-                                </a>
-                            </div>
+                {aboutUsapi?.map((item, id) => (
+                    <div className="aboutUsWrapper" key={id}>
+                        <div className="aboutUsImage">
+                            <img src={item.image} alt="about us image" />
                         </div>
-                    )
-                })}
+                        <div className="aboutUsContent">
+                            <h3 className="aboutUsTitle">{item.title}</h3>
+                            <div
+                                className="aboutUsDescription"
+                                dangerouslySetInnerHTML={{
+                                    __html: item.desc,  
+                                }}></div>
+                            <a href="https://triathlon.kg" target="_blank">
+                                <CustomButton type="primary">
+                                    {t('buttonKR')}
+                                </CustomButton>
+                            </a>
+                        </div>
+                    </div>
+                ))}
             </Container>
         </section>
     )

@@ -1,141 +1,174 @@
-import { useEffect, useState } from 'react';
-import CustomInput from '@/Sections/FAQ/CustomInput';
-import './Form.scss';
-import { CustomButton } from '@/UI';
-import { useTranslation } from 'react-i18next';
-import { axiosAPI } from '@/App';
-import PropTypes from 'prop-types';
-import success from '@assets/check.svg';
-import remove from '@assets/trash.svg';
-import successIcon from '@assets/successForm.svg';
-import { formatPhoneNumber, validateForm } from '@/utils/validate';
+import { useEffect, useState } from 'react'
+import CustomInput from '@/Sections/FAQ/CustomInput'
+import './Form.scss'
+import { CustomButton } from '@/UI'
+import { useTranslation } from 'react-i18next'
+import { axiosAPI } from '@/App'
+import PropTypes from 'prop-types'
+import success from '@assets/check.svg'
+import remove from '@assets/trash.svg'
+import successIcon from '@assets/successForm.svg'
+import { formatPhoneNumber, validateForm } from '@/utils/validate'
 
 const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
-    const { t } = useTranslation();
-    const [name, setName] = useState('');
-    const [question, setQuestion] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [file, setFile] = useState(null);
-    const [fileUrl, setFileUrl] = useState(null);
-    const [errors, setErrors] = useState({});
+    const { t } = useTranslation()
+    const [name, setName] = useState('')
+    const [question, setQuestion] = useState('')
+    const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [file, setFile] = useState(null)
+    const [fileUrl, setFileUrl] = useState(null)
+    const [errors, setErrors] = useState({})
 
     useEffect(() => {
         if (isOpen === false) {
-            setIsSuccess(false);
+            setIsSuccess(false)
         }
-    }, [isOpen, setIsSuccess]);
+    }, [isOpen, setIsSuccess])
 
     const handleInputChange = (e, setter, type) => {
-        const inputValue = e.target.value;
-        let processedValue = inputValue;
+        const inputValue = e.target.value
+        let processedValue = inputValue
 
         if (type === 'phone') {
-            processedValue = formatPhoneNumber(inputValue);
-            setter(processedValue);
-            setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }));
-            return;
+            processedValue = formatPhoneNumber(inputValue)
+            setter(processedValue)
+            setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }))
+            return
         } else if (type === 'file') {
-            const selectedFile = e.target.files[0];
+            const selectedFile = e.target.files[0]
             if (selectedFile) {
-                if (selectedFile.type === 'application/pdf' || selectedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                    setFile(selectedFile);
-                    setFileUrl(URL.createObjectURL(selectedFile));
-                    setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+                if (
+                    selectedFile.type === 'application/pdf' ||
+                    selectedFile.type ===
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                ) {
+                    setFile(selectedFile)
+                    setFileUrl(URL.createObjectURL(selectedFile))
+                    setErrors((prevErrors) => ({ ...prevErrors, summary: '' }))
                 } else {
-                    setFile(null);
-                    setFileUrl(null);
-                    setErrors((prevErrors) => ({ ...prevErrors, summary: 'Загруженный файл не является корректным файлом.' }));
+                    setFile(null)
+                    setFileUrl(null)
+                    setErrors((prevErrors) => ({
+                        ...prevErrors,
+                        summary:
+                            'Загруженный файл не является корректным файлом.',
+                    }))
                 }
             } else {
-                setFile(null);
-                setFileUrl(null);
+                setFile(null)
+                setFileUrl(null)
             }
-            return;
+            return
         }
-        setter(processedValue);
-        setErrors((prevErrors) => ({ ...prevErrors, [type]: '' }));
-    };
+        setter(processedValue)
+        setErrors((prevErrors) => ({ ...prevErrors, [type]: '' }))
+    }
 
     const handleDragOver = (e) => {
-        e.preventDefault();
-    };
+        e.preventDefault()
+    }
 
     const handleDrop = (e) => {
-        e.preventDefault();
-        const droppedFile = e.dataTransfer.files[0];
-        if (droppedFile && (droppedFile.type === 'application/pdf' || droppedFile.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-            setFile(droppedFile);
-            setFileUrl(URL.createObjectURL(droppedFile));
-            setErrors((prevErrors) => ({ ...prevErrors, summary: '' }));
+        e.preventDefault()
+        const droppedFile = e.dataTransfer.files[0]
+        if (
+            droppedFile &&
+            (droppedFile.type === 'application/pdf' ||
+                droppedFile.type ===
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        ) {
+            setFile(droppedFile)
+            setFileUrl(URL.createObjectURL(droppedFile))
+            setErrors((prevErrors) => ({ ...prevErrors, summary: '' }))
         } else {
-            setFile(null);
-            setFileUrl(null);
-            setErrors((prevErrors) => ({ ...prevErrors, summary: t('invalidFileFormat') }));
+            setFile(null)
+            setFileUrl(null)
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                summary: t('invalidFileFormat'),
+            }))
         }
-    };
+    }
 
     const handleRemoveFile = () => {
-        setFile(null);
-        setFileUrl(null);
-        setErrors((prevErrors) => ({ ...prevErrors, summary: t('fileRequired') }));
-    };
+        setFile(null)
+        setFileUrl(null)
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            summary: t('fileRequired'),
+        }))
+    }
 
     const validateAndSubmitForm = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const isValidForm = validateForm(name, question, phoneNumber, email, file, setErrors, type);
+        const isValidForm = validateForm(
+            name,
+            question,
+            phoneNumber,
+            email,
+            file,
+            setErrors,
+            type,
+        )
 
         if (!isValidForm) {
-            return;
+            return
         }
 
         try {
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append(type === 'vacancy' ? 'number' : 'phone', phoneNumber.replace(/\s+/g, '').trim());
+            const formData = new FormData()
+            formData.append('name', name)
+            formData.append(
+                type === 'vacancy' ? 'number' : 'phone',
+                phoneNumber.replace(/\s+/g, '').trim(),
+            )
 
             if (type === 'default' || type === 'leaveRequest') {
-                formData.append('description', question);
+                formData.append('description', question)
             }
             if (type === 'vacancy') {
-                formData.append('email', email);
+                formData.append('email', email)
             }
-            formData.append('summary', file);
+            formData.append('summary', file)
 
             console.log('Form Data:', {
                 name,
                 number: phoneNumber.replace(/\s+/g, '').trim(),
                 description: type !== 'vacancy' ? question : undefined,
                 email: type === 'vacancy' ? email : undefined,
-                file
-            });
+                file,
+            })
 
-            const endpoint = type === 'default' || type === 'leaveRequest' ? '/applicationwebhook/' : '/application/';
-            const response = await axiosAPI.post(endpoint, formData);
+            const endpoint =
+                type === 'default' || type === 'leaveRequest'
+                    ? '/applicationwebhook/'
+                    : '/application/'
+            const response = await axiosAPI.post(endpoint, formData)
 
             if (response.status === 200 || response.status === 201) {
-                resetForm();
-                setIsSuccess(true);
+                resetForm()
+                setIsSuccess(true)
             } else if (response.status === 404) {
-                alert('Page not found. Please try again later.');
-                setIsSuccess(false);
+                alert('Page not found. Please try again later.')
+                setIsSuccess(false)
             }
         } catch (error) {
-            console.error('Error during form submission:', error);
-            setIsSuccess(false);
+            console.error('Error during form submission:', error)
+            setIsSuccess(false)
         }
-    };
+    }
 
     const resetForm = () => {
-        setName('');
-        setPhoneNumber('');
-        setEmail('');
-        setQuestion('');
-        setFile(null);
-        setFileUrl(null);
-        setErrors({});
-    };
+        setName('')
+        setPhoneNumber('')
+        setEmail('')
+        setQuestion('')
+        setFile(null)
+        setFileUrl(null)
+        setErrors({})
+    }
 
     if (isSuccess && (type === 'leaveRequest' || type === 'vacancy')) {
         return (
@@ -143,9 +176,9 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 <img src={successIcon} alt="success" />
                 <p>{t('sent')}</p>
             </div>
-        );
+        )
     }
-    
+
     return (
         <form onSubmit={validateAndSubmitForm} className="faqFormWrapper">
             <div className="inputWrapper">
@@ -160,7 +193,9 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                     value={phoneNumber || ''}
                     type="phone"
                     placeholder="+996(___) ___-___"
-                    onChange={(e) => handleInputChange(e, setPhoneNumber, 'phone')}
+                    onChange={(e) =>
+                        handleInputChange(e, setPhoneNumber, 'phone')
+                    }
                     error={errors.phoneNumber}
                 />
                 {type === 'vacancy' && (
@@ -168,7 +203,9 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                         value={email || ''}
                         type="email"
                         placeholder="Email*"
-                        onChange={(e) => handleInputChange(e, setEmail, 'email')}
+                        onChange={(e) =>
+                            handleInputChange(e, setEmail, 'email')
+                        }
                         error={errors.email}
                     />
                 )}
@@ -182,26 +219,46 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                     />
                 )}
                 {type === 'vacancy' && (
-                    <div className={`customFileForm ${errors.summary ? 'errorInput' : ''}`}>
+                    <div
+                        className={`customFileForm ${
+                            errors.summary ? 'errorInput' : ''
+                        }`}>
                         <label
-                            className={`faqFormFilefield ${fileUrl ? 'successFilefield' : ''}`}
+                            className={`faqFormFilefield ${
+                                fileUrl ? 'successFilefield' : ''
+                            }`}
                             htmlFor={`${fileUrl ? '' : 'filefield'}`}
                             onDragOver={handleDragOver}
-                            onDrop={handleDrop}
-                        >
+                            onDrop={handleDrop}>
                             {fileUrl ? (
                                 <div className="faqFormFilefieldWrapper">
                                     <img src={success} alt="Success" />
-                                    <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                                    <a
+                                        href={fileUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer">
                                         {file?.name}
                                     </a>
-                                    <button type="button" onClick={handleRemoveFile}>
+                                    <button
+                                        type="button"
+                                        onClick={handleRemoveFile}>
                                         <img src={remove} alt="Remove" />
                                     </button>
                                 </div>
                             ) : (
                                 <>
-                                    <input id="filefield" type="file" onChange={(e) => handleInputChange(e, setFile, 'file')} />
+                                    <input
+                                        id="filefield"
+                                        type="file"
+                                        onChange={(e) =>
+                                            handleInputChange(
+                                                e,
+                                                setFile,
+                                                'file',
+                                            )
+                                        }
+                                        accept=".pdf, .doc, .docx"
+                                    />
                                     <h5>{t('attachFile')}</h5>
                                     <p className="faqFormDescription">
                                         {t('dragAndDrop')} <b>{t('upload')}</b>
@@ -239,14 +296,14 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 )}
             </div>
         </form>
-    );
-};
+    )
+}
 
 Form.propTypes = {
     type: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
     isSuccess: PropTypes.bool,
     setIsSuccess: PropTypes.func,
-};
+}
 
-export default Form;
+export default Form

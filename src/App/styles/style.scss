@@ -21,9 +21,11 @@ h4,
 h5,
 h6 {
     font-weight: inherit;
+    font-family: 'Montserrat' !important;
     font-size: inherit;
 }
 button {
+    font-family: 'Montserrat' !important;
     cursor: pointer;
 }
 
@@ -34,7 +36,7 @@ $grey: #606062;
 $black: #000;
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat' !important;
     font-optical-sizing: auto;
     font-size: 16px;
     font-weight: 300;

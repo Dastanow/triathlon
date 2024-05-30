@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CustomButton } from '@ui'
 import { Container } from '@components'
 import './Hero.scss'
+import background from '@assets/1background.png'
 import { useTranslation } from 'react-i18next'
 import CustomModal from '@/UI/CustomModal/CustomModal'
 import { axiosAPI } from '@/App'
@@ -9,18 +10,19 @@ import { axiosAPI } from '@/App'
 export const Hero = () => {
     const [modalActive, setModalActive] = useState(false)
     const [heroData, setHeroData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const { i18n } = useTranslation()
 
     const fetchData = async () => {
         try {
-            const { data } = await axiosAPI.get('/homepage/')
-            setHeroData(data)
+            await axiosAPI
+                .get('/homepage/')
+                .then((res) => setHeroData(res.data))
+                .then(() => setIsLoading(false))
         } catch (error) {
             console.error('Error fetching data:', error)
         }
     }
-
-    console.log(heroData)
 
     useEffect(() => {
         fetchData()
@@ -29,15 +31,23 @@ export const Hero = () => {
     const { t } = useTranslation()
 
     return (
-        <>
+        <section className="hero" id="hero">
+            <div className="heroVideo">
+                {isLoading ? (
+                    <img src={background} alt="background" />
+                ) : (
+                    <video src={heroData[0].photo} autoPlay muted loop></video>
+                )}
+            </div>
             {heroData.map((item, index) => (
-                <section key={index} className="hero" id="hero">
-                    <div className="heroVideo">
-                        <video src={item.photo} autoPlay muted loop></video>
-                    </div>
+                <span key={index}>
                     <Container classNames="heroContainer">
                         <div className="heroContent">
-                            <h1 className="heroContentTitle">{item.title}</h1>
+                            <h1
+                                className="heroContentTitle"
+                                data-text={item.title}>
+                                {item.title}
+                            </h1>
                             <p className="heroContentDescription">
                                 {item.subtitle}
                             </p>
@@ -54,8 +64,8 @@ export const Hero = () => {
                         close={() => setModalActive(false)}
                         isOpen={modalActive}
                     />
-                </section>
+                </span>
             ))}
-        </>
+        </section>
     )
 }

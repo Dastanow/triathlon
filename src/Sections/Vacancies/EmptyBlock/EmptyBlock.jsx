@@ -7,12 +7,12 @@ export const EmptyBlock = () => {
 
     return (
         <div className="EmptyBlock" id="EmptyBlock">
-            <p className="EmptyBlock__text">
-                {t('noVacancies')}
-            </p>
-            <Link to="/" className="EmptyBlock__link">
-                {t('toMain')}
-            </Link>
+            <div className="container">
+                <p className="EmptyBlock__text">{t('noVacancies')}</p>
+                <Link to="/" className="EmptyBlock__link">
+                    {t('toMain')}
+                </Link>
+            </div>
         </div>
     )
 }

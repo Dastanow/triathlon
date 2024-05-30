@@ -36,7 +36,7 @@ export const Header = () => {
     const [is404Error, setIs404Error] = useState(false)
 
     useEffect(() => {
-        const validPaths = ['/vacancies', ' ']
+        const validPaths = ['/vacancies', '/']
         const isValidPath =
             validPaths.includes(window.location.pathname) ||
             validPaths.some((path) =>

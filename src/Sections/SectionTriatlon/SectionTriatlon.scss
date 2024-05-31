@@ -27,11 +27,6 @@
             gap: 20px;
         }
     }
-    &MobileContainer {
-        .customTitle {
-            margin-bottom: 60px;
-        }
-    }
     &Head {
         color: #000000;
         th {
@@ -91,7 +86,7 @@ table tr:last-child td:last-child {
 }
 
 .mobileTable {
-    margin-top: 40px;
+    margin-top:20px;
     tr:last-child th {
         border-bottom-left-radius: 6px;
     }

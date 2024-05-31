@@ -99,6 +99,7 @@ footer {
         width: 45%;
         @media screen and (max-width: 768px) {
             width: unset;
+            order: 4;
         }
     }
     &Vacancies{
@@ -108,6 +109,7 @@ footer {
         order: 1;
     }
     &Schedule {
+        width: 40%;
         order: 4;
         @media screen and (max-width: 768px) {
             width: 70%;

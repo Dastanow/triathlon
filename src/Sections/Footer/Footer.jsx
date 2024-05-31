@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { Container } from '@components'
 import { axiosAPI } from '@/App'
 import { navigatePath } from '../Header/Header'
-
-import LogoSVG from '@assets/TriathlonCenterLogo.png'
+import logotypeRu from '@assets/Triathlon center logo_ru.svg'
+import logotypeKy from '@assets/Triathlon center logo_kg.svg'
 import Map from '@assets/map.svg'
 import Email from '@assets/email.svg'
 import Instagram from '@assets/instagram.svg'
@@ -83,11 +83,19 @@ export const Footer = () => {
                 <div className="footerInform">
                     <div className="footerInformContent">
                         <Link to="/">
-                            <img
-                                src={LogoSVG}
-                                className="footerLogo"
-                                alt="Logo"
-                            />
+                            {i18n.language == 'ru' ? (
+                                <img
+                                    src={logotypeRu}
+                                    className="footerLogo"
+                                    alt="logotype Triathlon Center"
+                                />
+                            ) : (
+                                <img
+                                    src={logotypeKy}
+                                    className="footerLogo"
+                                    alt="logotype Triathlon Center"
+                                />
+                            )}
                         </Link>
                         <ul className="footerList">
                             <li className="footerContact">

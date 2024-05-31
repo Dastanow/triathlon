@@ -27,8 +27,15 @@
         min-height: 60px;
         padding: 10px 20px;
         border-radius: 16px;
+        border: 1px solid #e6e6e6;
         background: #fff;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+        }
+        &.vacanciesWrapper-opened {
+            box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+        }
     }
     &Item {
         max-width: 935px;

@@ -182,40 +182,27 @@ export const Footer = () => {
                             )}
                         </ul>
                     </div>
-                    <ul className="footerContent">
-                        {navigatePath.map((path, index) => (
-                            <li key={index}>
-                                {index === 0 ? (
-                                    <Link to="/">
-                                        <b>{t(path.text)}</b>
-                                    </Link>
-                                ) : (
-                                    <>
-                                        {path.id === '/schedule' ? (
-                                            <Link target="_blank" to={path.id}>
-                                                {t(path.text)}
-                                            </Link>
-                                        ) : (
-                                            <a href={path.id}>{t(path.text)}</a>
-                                        )}
-                                    </>
-                                )}
+                    <ul className="footerContent footerSchedule">
+                        <li>
+                            <p>
+                                <b>{t('location')}</b>
+                            </p>
+                        </li>
+                        {allData.schedule?.map((item, id) => (
+                            <li key={id}>
+                                <p>{item.holiday_work_time}</p>
+                                <p>{item.work_time}</p>
                             </li>
                         ))}
                     </ul>
                     <ul className="footerContent">
                         <li>
-                            <p>
-                                <b>{t('document')}</b>
-                            </p>
-                        </li>
-                        {allData.file?.map((item) => (
-                            <li key={item.file}>
-                                <a href={item.file} target="_blank" download>
-                                    {item.name}
+                            {mobile && (
+                                <a href="https://triathlon.kg/news" className="news">
+                                    {t('news')}
                                 </a>
-                            </li>
-                        ))}
+                            )}
+                        </li>
                     </ul>
                     <ul className="footerContent">
                         <li>
@@ -232,13 +219,14 @@ export const Footer = () => {
                     <ul className="footerContent">
                         <li>
                             <p>
-                                <b>{t('location')}</b>
+                                <b>{t('document')}</b>
                             </p>
                         </li>
-                        {allData.schedule?.map((item, id) => (
-                            <li key={id}>
-                                <p>{item.holiday_work_time}</p>
-                                <p>{item.work_time}</p>
+                        {allData.file?.map((item) => (
+                            <li key={item.file}>
+                                <a href={item.file} target="_blank" download>
+                                    {item.name}
+                                </a>
                             </li>
                         ))}
                     </ul>

@@ -182,6 +182,33 @@ export const Footer = () => {
                             )}
                         </ul>
                     </div>
+                    {!mobile && (
+                        <ul className="footerContent footerNav">
+                            {navigatePath.map((path, index) => (
+                                <li key={index}>
+                                    {index === 0 ? (
+                                        <Link to="/">
+                                            <b>{t(path.text)}</b>
+                                        </Link>
+                                    ) : (
+                                        <>
+                                            {path.id === '/schedule' ? (
+                                                <Link
+                                                    target="_blank"
+                                                    to={path.id}>
+                                                    {t(path.text)}
+                                                </Link>
+                                            ) : (
+                                                <a href={path.id}>
+                                                    {t(path.text)}
+                                                </a>
+                                            )}
+                                        </>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                     <ul className="footerContent footerSchedule">
                         <li>
                             <p>
@@ -195,16 +222,18 @@ export const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent">
+                    <ul className="footerContent footerNews">
                         <li>
                             {mobile && (
-                                <a href="https://triathlon.kg/news" className="news">
+                                <a
+                                    href="https://triathlon.kg/news"
+                                    className="news">
                                     {t('news')}
                                 </a>
                             )}
                         </li>
                     </ul>
-                    <ul className="footerContent">
+                    <ul className="footerContent footerVacancies">
                         <li>
                             <Link to="/vacancies">
                                 <b>{t('vacancies')}</b>
@@ -216,7 +245,7 @@ export const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent">
+                    <ul className="footerContent footerDocuments">
                         <li>
                             <p>
                                 <b>{t('document')}</b>

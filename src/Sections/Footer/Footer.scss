@@ -33,7 +33,8 @@ footer {
     &Inform {
         display: flex;
         align-items: flex-start;
-        gap: 88px;
+        justify-content: space-between;
+        gap: 80px;
         @media screen and (max-width: 1440px) {
             gap: 66px;
         }
@@ -93,9 +94,29 @@ footer {
             display: none;
         }
     }
+    &Documents{
+        order: 2;
+        width: 45%;
+        @media screen and (max-width: 768px) {
+            width: unset;
+        }
+    }
+    &Vacancies{
+        order: 3;
+    }
+    &Nav{
+        order: 1;
+    }
     &Schedule {
-        width: 70%;
-        text-wrap: balance;
+        order: 4;
+        @media screen and (max-width: 768px) {
+            width: 70%;
+            order: 1;
+            text-wrap: balance;
+        }
+    }
+    &News{
+        order: 3;
     }
     &Content {
         display: flex;
@@ -144,7 +165,7 @@ footer {
                 }
                 margin-bottom: 11px;
             }
-            b{
+            b {
                 @media screen and (max-width: 490px) {
                     font-size: 14px;
                 }

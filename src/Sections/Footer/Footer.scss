@@ -106,7 +106,11 @@ footer {
         order: 3;
     }
     &Nav{
+        width: 20%;
         order: 1;
+        @media screen and (max-width: 768px) {
+            width: unset;
+        }
     }
     &Schedule {
         width: 40%;

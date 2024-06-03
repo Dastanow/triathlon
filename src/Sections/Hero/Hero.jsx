@@ -36,7 +36,7 @@ export const Hero = () => {
                 {isLoading ? (
                     <img src={background} alt="background" />
                 ) : (
-                    <video src={heroData[0].photo} autoPlay muted loop></video>
+                    <video src={heroData[0].photo} autoPlay muted loop playsInline></video>
                 )}
             </div>
             {heroData.map((item, index) => (

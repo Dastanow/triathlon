@@ -18,7 +18,7 @@ export const navigatePath = [
     { text: 'path3', id: '#subscription' },
     { text: 'path4', id: '#section' },
     { text: 'path5', id: '/schedule' },
-    { text: 'path6', id: '#ourServices' },
+    { text: 'path6header', id: '#ourServices' },
     { text: 'path7', id: '#location' },
 ]
 

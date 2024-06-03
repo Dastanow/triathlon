@@ -54,7 +54,7 @@ export const ScrollTopButton = () => {
             onClick={scrollToTop}
             className={
                 isEndOfHeroBlock && showScroll
-                    ? 'show' + ' ' + 'floatButton'
+                    ? 'showScroll' + ' ' + 'floatButton'
                     : 'scroll-to-top-icon'
             }
             ref={scrollToTopRef}>

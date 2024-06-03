@@ -43,16 +43,16 @@ export const Header = () => {
     const [phoneNumbers, setPhoneNumbers] = useState([])
     const [is404Error, setIs404Error] = useState(false)
 
-    const fetchData = async (endpoint) => {
+    const fetchData = async () => {
         try {
             const { data } = await axiosAPI.get('contacts')
             setPhoneNumbers(data)
         } catch (error) {
-            console.error(`Error fetching data from ${endpoint}:`, error)
+            console.error('Error fetching data from contacts:', error)
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData()
     }, [])
 

@@ -30,10 +30,10 @@ const Location = () => {
                             {locationapi?.map((item, i) => {
                                 return (
                                     <div key={i}>
-                                        <li className="locationItem"><img src={email} alt="img" />{item.email}</li>
+                                        <li className="locationItem"><img src={email}  alt="img" />{item.email}</li>
                                         <li className="locationItem"><img src={phone} alt="img" />{item.second_number}</li>
                                         <li className="locationItem"><img src={phone} alt="img" />{item.first_number}</li>
-                                        <li className="locationItem"><img src={map} alt="img" />{item.address}</li>
+                                        <li className="locationItemap"><img src={map} alt="img"  />{item.address}</li>
                                     </div>
                                 )
                             })}

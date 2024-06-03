@@ -26,7 +26,14 @@ export const Vacancies = ({ data }) => {
                 <CustomTitle title={'vacancies'} />
                 <div className="vacanciesList">
                     {data?.map((vacancy, index) => (
-                        <div className="vacanciesWrapper" key={index}>
+                        <div
+                            className={
+                                'vacanciesWrapper' +
+                                (openIndex === index
+                                    ? ' vacanciesWrapper-opened'
+                                    : '')
+                            }
+                            key={index}>
                             <div
                                 className={
                                     'vacanciesItem' +

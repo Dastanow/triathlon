@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './Header.scss'
-import logotype from '@assets/logo1.png'
+import logotypeRu from '@assets/Triathlon center logo_ru.svg'
+import logotypeKy from '@assets/Triathlon center logo_kg.svg'
 import account from '@assets/account.svg'
 import chevron from '@assets/solar_chevron-up.svg'
 import ru from '@assets/language_rus.png'
@@ -125,11 +126,19 @@ export const Header = () => {
         <header className="header" ref={headerRef}>
             <Container classNames="headerContainer">
                 <Link to="/">
-                    <img
-                        src={logotype}
-                        className="headerLogotype"
-                        alt="logotype Triathlon Center"
-                    />
+                    {i18n.language == 'ru' ? (
+                        <img
+                            src={logotypeRu}
+                            className="headerLogotype"
+                            alt="logotype Triathlon Center"
+                        />
+                    ) : (
+                        <img
+                            src={logotypeKy}
+                            className="headerLogotype"
+                            alt="logotype Triathlon Center"
+                        />
+                    )}
                 </Link>
                 {!is404Error && (
                     <nav>

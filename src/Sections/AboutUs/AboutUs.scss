@@ -43,6 +43,14 @@
         @media screen and (max-width: 1280px) {
             width: 100%;
         }
+        @media screen and (max-width: 490px) {
+            button {
+                border-radius: 12px;
+                padding: 13px 35px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
     }
     &Wrapper {
         height: max-content;
@@ -76,6 +84,10 @@
         @media screen and (max-width: 768px) {
             font-size: 16px;
         }
+        @media screen and (max-width: 490px) {
+            margin-bottom: 5px;
+        }
+        
     }
 }
 @media screen and (max-width: 1440px) {

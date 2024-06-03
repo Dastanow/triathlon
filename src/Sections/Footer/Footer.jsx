@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { Container } from '@components'
 import { axiosAPI } from '@/App'
 import { navigatePath } from '../Header/Header'
-
-import LogoSVG from '@assets/TriathlonCenterLogo.png'
+import logotypeRu from '@assets/Triathlon center logo_ru.svg'
+import logotypeKy from '@assets/Triathlon center logo_kg.svg'
 import Map from '@assets/map.svg'
 import Email from '@assets/email.svg'
 import Instagram from '@assets/instagram.svg'
@@ -83,11 +83,19 @@ export const Footer = () => {
                 <div className="footerInform">
                     <div className="footerInformContent">
                         <Link to="/">
-                            <img
-                                src={LogoSVG}
-                                className="footerLogo"
-                                alt="Logo"
-                            />
+                            {i18n.language == 'ru' ? (
+                                <img
+                                    src={logotypeRu}
+                                    className="footerLogo"
+                                    alt="logotype Triathlon Center"
+                                />
+                            ) : (
+                                <img
+                                    src={logotypeKy}
+                                    className="footerLogo"
+                                    alt="logotype Triathlon Center"
+                                />
+                            )}
                         </Link>
                         <ul className="footerList">
                             <li className="footerContact">
@@ -174,42 +182,58 @@ export const Footer = () => {
                             )}
                         </ul>
                     </div>
-                    <ul className="footerContent">
-                        {navigatePath.map((path, index) => (
-                            <li key={index}>
-                                {index === 0 ? (
-                                    <Link to="/">
-                                        <b>{t(path.text)}</b>
-                                    </Link>
-                                ) : (
-                                    <>
-                                        {path.id === '/schedule' ? (
-                                            <Link target="_blank" to={path.id}>
-                                                {t(path.text)}
-                                            </Link>
-                                        ) : (
-                                            <a href={path.id}>{t(path.text)}</a>
-                                        )}
-                                    </>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                    <ul className="footerContent">
+                    {!mobile && (
+                        <ul className="footerContent footerNav">
+                            {navigatePath.map((path, index) => (
+                                <li key={index}>
+                                    {index === 0 ? (
+                                        <Link to="/">
+                                            <b>{t(path.text)}</b>
+                                        </Link>
+                                    ) : (
+                                        <>
+                                            {path.id === '/schedule' ? (
+                                                <Link
+                                                    target="_blank"
+                                                    to={path.id}>
+                                                    {t(path.text)}
+                                                </Link>
+                                            ) : (
+                                                <a href={path.id}>
+                                                    {t(path.text)}
+                                                </a>
+                                            )}
+                                        </>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                    <ul className="footerContent footerSchedule">
                         <li>
                             <p>
-                                <b>{t('document')}</b>
+                                <b>{t('location')}</b>
                             </p>
                         </li>
-                        {allData.file?.map((item) => (
-                            <li key={item.file}>
-                                <a href={item.file} target="_blank" download>
-                                    {item.name}
-                                </a>
+                        {allData.schedule?.map((item, id) => (
+                            <li key={id}>
+                                <p>{item.holiday_work_time}</p>
+                                <p>{item.work_time}</p>
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent">
+                    <ul className="footerContent footerNews">
+                        <li>
+                            {mobile && (
+                                <a
+                                    href="https://triathlon.kg/news"
+                                    className="news">
+                                    {t('news')}
+                                </a>
+                            )}
+                        </li>
+                    </ul>
+                    <ul className="footerContent footerVacancies">
                         <li>
                             <Link to="/vacancies">
                                 <b>{t('vacancies')}</b>
@@ -221,16 +245,17 @@ export const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent">
+                    <ul className="footerContent footerDocuments">
                         <li>
                             <p>
-                                <b>{t('location')}</b>
+                                <b>{t('document')}</b>
                             </p>
                         </li>
-                        {allData.schedule?.map((item, id) => (
-                            <li key={id}>
-                                <p>{item.holiday_work_time}</p>
-                                <p>{item.work_time}</p>
+                        {allData.file?.map((item) => (
+                            <li key={item.file}>
+                                <a href={item.file} target="_blank" download>
+                                    {item.name}
+                                </a>
                             </li>
                         ))}
                     </ul>

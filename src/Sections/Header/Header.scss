@@ -29,11 +29,13 @@
         position: relative;
         width: 170px;
         z-index: 2;
+        margin-left: -10px;
+        margin-right: 10px;
         @media screen and (max-width: 1440px) {
-            width: 120px;
+            width: 150px;
         }
         @media screen and (max-width: 968px) {
-            width: 100px;
+            width: 140px;
         }
     }
     &Nav {

@@ -1,4 +1,4 @@
-#section{
+#section {
     position: absolute;
     top: -70px;
     left: 0;
@@ -8,12 +8,18 @@
     position: relative;
     padding-top: 100px;
     @media screen and (max-width: 1280px) {
-      padding-top: 80px;
+        padding-top: 80px;
     }
     @media screen and (max-width: 768px) {
-      padding-top: 30px;
+        padding-top: 30px;
     }
-  }
+    h2 {
+        margin-bottom: 50px;
+        @media screen and (max-width: 490px) {
+            margin-bottom: 20px;
+        }
+    }
+}
 .table {
     &Container {
         display: flex;
@@ -27,14 +33,10 @@
             gap: 20px;
         }
     }
-    &MobileContainer {
-        .customTitle {
-            margin-bottom: 60px;
-        }
-    }
     &Head {
         color: #000000;
         th {
+            font-size: 32px;
             padding: 14px;
             text-align: center;
             vertical-align: middle;
@@ -43,10 +45,12 @@
     &Body {
         color: #000000;
         td {
+            height: 81px;
             padding: 14px;
             text-align: center;
             vertical-align: middle;
-            font-weight: 400;
+            font-weight: 500;
+            font-size: 24px;
         }
     }
 }
@@ -91,7 +95,7 @@ table tr:last-child td:last-child {
 }
 
 .mobileTable {
-    margin-top: 40px;
+    margin-top: 20px;
     tr:last-child th {
         border-bottom-left-radius: 6px;
     }

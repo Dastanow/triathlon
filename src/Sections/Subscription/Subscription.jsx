@@ -11,6 +11,7 @@ export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData, setSubsData] = useState()
     const { t, i18n } = useTranslation()
+    console.log(subsData)
 
     const fetchSubscription = async () => {
         try {
@@ -68,15 +69,21 @@ export const Subscription = () => {
                                 </div>
                                 <ul className="subscriptionCardItems">
                                     <li>
-                                        <p>{subscription.mark_freeze}</p>
+                                        <p className="check">
+                                            {subscription.mark_freeze}
+                                        </p>
                                         {subscription.freeze}
                                     </li>
                                     <li>
-                                        <p>{subscription.mark_trainer}</p>
+                                        <p className="check">
+                                            {subscription.mark_trainer}
+                                        </p>
                                         {subscription.trainer}
                                     </li>
                                     <li>
-                                        <p>{subscription.mark_guest}</p>
+                                        <p className="check">
+                                            {subscription.mark_guest}
+                                        </p>
                                         {subscription.guest}
                                     </li>
                                 </ul>

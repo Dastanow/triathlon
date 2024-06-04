@@ -264,7 +264,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                                         {t('dragAndDrop')} <b>{t('upload')}</b>
                                     </p>
                                     <p className="faqFormDescriptionContinue">
-                                        {t('fileSize')}
+                                        {t('fileSize')} <br />
                                         {t('format')}
                                     </p>
                                 </>

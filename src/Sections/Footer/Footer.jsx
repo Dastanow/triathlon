@@ -207,6 +207,13 @@ export const Footer = () => {
                                     )}
                                 </li>
                             ))}
+                            <li>
+                                <a
+                                    href="https://triathlon.kg/news"
+                                    target="_blank">
+                                    Новости
+                                </a>
+                            </li>
                         </ul>
                     )}
                     <ul className="footerContent footerSchedule">
@@ -222,17 +229,17 @@ export const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent footerNews">
-                        <li>
-                            {mobile && (
+                    {mobile && (
+                        <ul className="footerContent footerNews">
+                            <li>
                                 <a
                                     href="https://triathlon.kg/news"
                                     className="news">
                                     {t('news')}
                                 </a>
-                            )}
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    )}
                     <ul className="footerContent footerVacancies">
                         <li>
                             <Link to="/vacancies">

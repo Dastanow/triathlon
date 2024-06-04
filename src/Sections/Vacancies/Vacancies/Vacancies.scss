@@ -9,6 +9,11 @@
 }
 .vacancies {
     margin: 180px 0 150px 0;
+    .faqFormBottom{
+        .btn{
+            margin-bottom: 0;
+        }
+    }
     &Container {
         max-width: 1035px;
         display: flex;

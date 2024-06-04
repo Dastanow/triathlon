@@ -34,7 +34,7 @@ footer {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        gap: 80px;
+        gap: 60px;
         @media screen and (max-width: 1440px) {
             gap: 66px;
         }
@@ -63,6 +63,10 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 30px;
+        li:nth-child(3) {
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+        }
         @media screen and (max-width: 1440px) {
             gap: 16px;
         }
@@ -73,6 +77,39 @@ footer {
             display: flex;
             align-items: start;
             gap: 7px;
+        }
+    }
+
+    &Documents {
+        order: 2;
+        width: 30%;
+        @media screen and (max-width: 768px) {
+            width: unset;
+            order: 4;
+        }
+    }
+    &Vacancies {
+        order: 3;
+    }
+    &Nav {
+        width: 15%;
+        order: 1;
+        @media screen and (max-width: 768px) {
+            width: unset;
+        }
+    }
+    &Schedule {
+        order: 4;
+        @media screen and (max-width: 768px) {
+            width: 70%;
+            order: 1;
+            text-wrap: balance;
+        }
+    }
+    &News {
+        order: 3;
+        a {
+            font-size: 14px !important;
         }
     }
     &Label {
@@ -94,44 +131,21 @@ footer {
             display: none;
         }
     }
-    &Documents{
-        order: 2;
-        width: 45%;
-        @media screen and (max-width: 768px) {
-            width: unset;
-            order: 4;
-        }
-    }
-    &Vacancies{
-        order: 3;
-    }
-    &Nav{
-        width: 20%;
-        order: 1;
-        @media screen and (max-width: 768px) {
-            width: unset;
-        }
-    }
-    &Schedule {
-        width: 40%;
-        order: 4;
-        @media screen and (max-width: 768px) {
-            width: 70%;
-            order: 1;
-            text-wrap: balance;
-        }
-    }
-    &News{
-        order: 3;
-    }
     &Content {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
         @media screen and (max-width: 768px) {
             align-items: center;
+            gap: 10px;
         }
         li {
+            &:first-child {
+                margin-bottom: 10px;
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 0;
+                }
+            }
             .news {
                 font-weight: 700;
             }

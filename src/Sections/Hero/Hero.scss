@@ -32,6 +32,11 @@
     @media screen and (max-width: 768px) {
         gap: 18px;
     }
+    .faqFormBottom{
+        .btn{
+            margin-bottom: 0;
+        }
+    }
     &Content {
         display: flex;
         flex-direction: column;

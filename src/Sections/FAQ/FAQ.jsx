@@ -67,7 +67,7 @@ const Faq = () => {
 
                                 {openIndex === index && (
                                     <div
-                                        className="answer opened"
+                                        className="answer opened additionalStyling"
                                         dangerouslySetInnerHTML={{
                                             __html: item.answer,
                                         }}></div>

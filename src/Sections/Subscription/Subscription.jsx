@@ -6,6 +6,7 @@ import { Container } from '@components'
 import crown from '@assets/crown.svg'
 import { useTranslation } from 'react-i18next'
 import { axiosAPI } from '@/App'
+import { IoMdCheckmark, IoMdClose } from 'react-icons/io'
 
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -70,19 +71,31 @@ export const Subscription = () => {
                                 <ul className="subscriptionCardItems">
                                     <li>
                                         <p className="check">
-                                            {subscription.mark_freeze}
+                                            {subscription.mark_freeze ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
                                         </p>
                                         {subscription.freeze}
                                     </li>
                                     <li>
                                         <p className="check">
-                                            {subscription.mark_trainer}
+                                            {subscription.mark_trainer ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
                                         </p>
                                         {subscription.trainer}
                                     </li>
                                     <li>
                                         <p className="check">
-                                            {subscription.mark_guest}
+                                            {subscription.mark_guest ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
                                         </p>
                                         {subscription.guest}
                                     </li>

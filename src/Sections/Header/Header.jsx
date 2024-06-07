@@ -125,7 +125,7 @@ export const Header = () => {
     }
 
     const handleNavLinkOnFirstPage = (path) => {
-        if (window.location.pathname !== '/') {
+        if (location.pathname !== '/') {
             navigate('/')
             setTimeout(() => {
                 handleNavLinkClick(path)

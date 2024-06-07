@@ -29,6 +29,9 @@ $dark: #013d83;
     font-size: 24px;
     font-weight: 400;
     line-height: normal;
+    span{
+        color: #fff !important;
+    }
 }
 //------media-query--------------
 @media (max-width: 1800px) {

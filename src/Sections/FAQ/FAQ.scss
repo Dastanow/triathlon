@@ -12,10 +12,17 @@
         }
     }
     &Titles{
-        font-weight: 700;
+        font-weight: 600;
         font-size: 24px;
         @media screen and (max-width: 1440px) {
-            font-size: 18px;
+            font-size: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+            line-height: normal;
+        }
+        @media screen and (max-width: 590px) {
+            font-size: 12px;
         }
         
     }
@@ -46,6 +53,9 @@
         padding: 5px;
         align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: 590px) {
+            padding: 0;
+        }
         .faqArrow {
             display: flex;
             align-items: center;

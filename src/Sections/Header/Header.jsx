@@ -59,17 +59,15 @@ export const Header = () => {
     useEffect(() => {
         const validPaths = ['/vacancies', '/']
         const isValidPath =
-            validPaths.includes(window.location.pathname) ||
-            validPaths.some((path) =>
-                window.location.pathname.startsWith(path + '/'),
-            )
+            validPaths.includes(location.pathname) ||
+            validPaths.some((path) => location.pathname.startsWith(path + '/'))
 
         if (!isValidPath) {
             setIs404Error(true)
         } else {
             setIs404Error(false)
         }
-    }, [window.location.pathname])
+    }, [location.pathname])
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
@@ -113,8 +111,6 @@ export const Header = () => {
     const handleContactsClick = () => {
         setContactsOpen((prev) => !prev)
     }
-    const isHome = location.pathname
-    console.log(isHome)
 
     const handleNavLinkClick = (path) => {
         if (path.id.startsWith('#')) {

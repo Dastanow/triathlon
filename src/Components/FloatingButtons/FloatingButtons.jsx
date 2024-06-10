@@ -1,6 +1,6 @@
-import { ScrollTopButton } from './ui/ScrollTopButton';
-import { WhatsAppButton } from './ui/WhatsAppButton';
-import './FloatingButtons.scss';
+import { ScrollTopButton } from './ui/ScrollTopButton'
+import { WhatsAppButton } from './ui/WhatsAppButton'
+import './FloatingButtons.scss'
 
 export const FloatingButtons = () => {
     return (
@@ -8,5 +8,5 @@ export const FloatingButtons = () => {
             <ScrollTopButton />
             <WhatsAppButton />
         </nav>
-    );
-};
+    )
+}

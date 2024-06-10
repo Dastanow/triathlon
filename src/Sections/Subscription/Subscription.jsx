@@ -70,33 +70,33 @@ export const Subscription = () => {
                                 </div>
                                 <ul className="subscriptionCardItems">
                                     <li>
-                                        <p className="check">
+                                        <div className="check">
                                             {subscription.mark_freeze ? (
                                                 <IoMdCheckmark />
                                             ) : (
                                                 <IoMdClose />
                                             )}
-                                        </p>
+                                        </div>
                                         {subscription.freeze}
                                     </li>
                                     <li>
-                                        <p className="check">
+                                        <div className="check">
                                             {subscription.mark_trainer ? (
                                                 <IoMdCheckmark />
                                             ) : (
                                                 <IoMdClose />
                                             )}
-                                        </p>
+                                        </div>
                                         {subscription.trainer}
                                     </li>
                                     <li>
-                                        <p className="check">
+                                        <div className="check">
                                             {subscription.mark_guest ? (
                                                 <IoMdCheckmark />
                                             ) : (
                                                 <IoMdClose />
                                             )}
-                                        </p>
+                                        </div>
                                         {subscription.guest}
                                     </li>
                                 </ul>

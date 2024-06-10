@@ -141,6 +141,9 @@ footer {
         }
         li {
             &:first-child {
+                b{
+                    cursor: text;
+                }
                 margin-bottom: 10px;
                 @media screen and (max-width: 768px) {
                     margin-bottom: 0;
@@ -151,6 +154,8 @@ footer {
             }
             p {
                 color: #fff;
+                cursor: pointer;
+                width: fit-content;
                 font-family: Montserrat;
                 font-size: 19px;
                 font-weight: 500;

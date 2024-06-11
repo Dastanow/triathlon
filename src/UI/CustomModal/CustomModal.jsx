@@ -27,7 +27,7 @@ const CustomModal = ({ isOpen, close, className, title, type }) => {
                     <img src={closeIcon} alt="close" />
                 </button>
                 {!isSuccess && <h3>{title}</h3>}
-                <Form type={type} setIsSuccess={setIsSuccess} isSuccess={isSuccess} />
+                <Form isOpen={isOpen} type={type} setIsSuccess={setIsSuccess} isSuccess={isSuccess} />
             </div>
         </div>
     );

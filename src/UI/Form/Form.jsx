@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import success from '@assets/check.svg'
 import remove from '@assets/trash.svg'
 import successIcon from '@assets/successForm.svg'
-import { formatPhoneNumber, validateForm } from '@/utils/validate'
+import { validateForm } from '@/utils/validate'
 
 const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const { t } = useTranslation()
@@ -21,8 +21,9 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
-        if (isOpen === false) {
+        if (isOpen == false) {
             setIsSuccess(false)
+            resetForm()
         }
     }, [isOpen, setIsSuccess])
 
@@ -31,7 +32,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         let processedValue = inputValue
 
         if (type === 'phone') {
-            processedValue = formatPhoneNumber(inputValue)
+            processedValue = inputValue
             setter(processedValue)
             setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }))
             return
@@ -41,7 +42,8 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 if (
                     selectedFile.type === 'application/pdf' ||
                     selectedFile.type ===
-                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                    selectedFile.type === 'application/msword'
                 ) {
                     setFile(selectedFile)
                     setFileUrl(URL.createObjectURL(selectedFile))
@@ -51,8 +53,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                     setFileUrl(null)
                     setErrors((prevErrors) => ({
                         ...prevErrors,
-                        summary:
-                            'Загруженный файл не является корректным файлом.',
+                        summary: t('selectProperFile'),
                     }))
                 }
             } else {
@@ -96,7 +97,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         setFileUrl(null)
         setErrors((prevErrors) => ({
             ...prevErrors,
-            summary: t('fileRequired'),
+            summary: t('selectFile'),
         }))
     }
 
@@ -152,10 +153,12 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 setIsSuccess(true)
             } else if (response.status === 404) {
                 alert('Page not found. Please try again later.')
+                resetForm()
                 setIsSuccess(false)
             }
         } catch (error) {
             console.error('Error during form submission:', error)
+            resetForm()
             setIsSuccess(false)
         }
     }

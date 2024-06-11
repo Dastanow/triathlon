@@ -39,9 +39,10 @@ const CustomInput = ({
             ) : type === 'phone' ? (
                 <input
                     className="customInputForm"
-                    type="text"
+                    type="phone"
                     onChange={onChange}
                     placeholder={placeholder}
+                    value={value}
                     ref={inputRef}
                 />
             ) : (

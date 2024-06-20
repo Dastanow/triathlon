@@ -20,6 +20,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const [fileUrl, setFileUrl] = useState(null)
     const [errors, setErrors] = useState({})
 
+    console.log(type);
     useEffect(() => {
         if (isOpen == false) {
             setIsSuccess(false)
@@ -143,9 +144,8 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
             })
 
             const endpoint =
-                type === 'default' || type === 'leaveRequest'
-                    ? '/applicationwebhook/'
-                    : '/application/'
+                type == 'vacancy' ? '/application/' : '/applicationquestion/'
+
             const response = await axiosAPI.post(endpoint, formData)
 
             if (response.status === 200 || response.status === 201) {

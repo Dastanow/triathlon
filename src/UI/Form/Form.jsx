@@ -20,6 +20,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const [fileUrl, setFileUrl] = useState(null)
     const [errors, setErrors] = useState({})
 
+    console.log(type);
     useEffect(() => {
         if (isOpen == false) {
             setIsSuccess(false)
@@ -142,7 +143,8 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 file,
             })
 
-            const endpoint = '/application/'
+            const endpoint =
+                type == 'vacancy' ? '/application/' : '/applicationquestion/'
 
             const response = await axiosAPI.post(endpoint, formData)
 

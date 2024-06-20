@@ -12,7 +12,6 @@ export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData, setSubsData] = useState()
     const { t, i18n } = useTranslation()
-    console.log(subsData)
 
     const fetchSubscription = async () => {
         try {

@@ -7,7 +7,6 @@ const axiosAPI = axios.create({
 axiosAPI.interceptors.request.use(
     async (config) => {
         const userLanguage = localStorage.getItem('selectedLanguage')
-        console.log(userLanguage)
         if (userLanguage) {
             config.headers['Accept-Language'] = userLanguage
         }

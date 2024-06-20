@@ -134,14 +134,6 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
             }
             formData.append('summary', file)
 
-            console.log('Form Data:', {
-                name,
-                number: phoneNumber.replace(/\s+/g, '').trim(),
-                description: type !== 'vacancy' ? question : undefined,
-                email: type === 'vacancy' ? email : undefined,
-                file,
-            })
-
             const endpoint =
                 type === 'default' || type === 'leaveRequest'
                     ? '/applicationwebhook/'

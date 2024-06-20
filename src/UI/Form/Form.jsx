@@ -142,10 +142,8 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 file,
             })
 
-            const endpoint =
-                type === 'default' || type === 'leaveRequest'
-                    ? '/applicationwebhook/'
-                    : '/application/'
+            const endpoint = '/application/'
+
             const response = await axiosAPI.post(endpoint, formData)
 
             if (response.status === 200 || response.status === 201) {

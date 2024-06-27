@@ -8,6 +8,7 @@ import logotypeRu from '@assets/Triathlon center logo_ru.svg'
 import logotypeKy from '@assets/Triathlon center logo_kg.svg'
 import Map from '@assets/map.svg'
 import Email from '@assets/email.svg'
+import GeeksLogo from '@assets/geekspro.svg'
 import Instagram from '@assets/instagram.svg'
 import Phone from '@assets/phone.svg'
 import './Footer.scss'
@@ -296,6 +297,7 @@ export const Footer = () => {
                 <div className="footerBottom">
                     <a href="https://geeks.kg/geeks-pro" target="_blank">
                         Made by GEEKS PRO
+                        <img src={GeeksLogo} alt="Geeks Pro" />
                     </a>
                 </div>
             </Container>

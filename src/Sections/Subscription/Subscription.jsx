@@ -6,12 +6,12 @@ import { Container } from '@components'
 import crown from '@assets/crown.svg'
 import { useTranslation } from 'react-i18next'
 import { axiosAPI } from '@/App'
+import { IoMdCheckmark, IoMdClose } from 'react-icons/io'
 
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData, setSubsData] = useState()
     const { t, i18n } = useTranslation()
-    console.log(subsData)
 
     const fetchSubscription = async () => {
         try {
@@ -69,21 +69,33 @@ export const Subscription = () => {
                                 </div>
                                 <ul className="subscriptionCardItems">
                                     <li>
-                                        <p className="check">
-                                            {subscription.mark_freeze}
-                                        </p>
+                                        <div className="check">
+                                            {subscription.mark_freeze ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
+                                        </div>
                                         {subscription.freeze}
                                     </li>
                                     <li>
-                                        <p className="check">
-                                            {subscription.mark_trainer}
-                                        </p>
+                                        <div className="check">
+                                            {subscription.mark_trainer ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
+                                        </div>
                                         {subscription.trainer}
                                     </li>
                                     <li>
-                                        <p className="check">
-                                            {subscription.mark_guest}
-                                        </p>
+                                        <div className="check">
+                                            {subscription.mark_guest ? (
+                                                <IoMdCheckmark />
+                                            ) : (
+                                                <IoMdClose />
+                                            )}
+                                        </div>
                                         {subscription.guest}
                                     </li>
                                 </ul>

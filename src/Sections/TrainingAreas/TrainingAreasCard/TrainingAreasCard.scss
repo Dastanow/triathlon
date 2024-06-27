@@ -29,6 +29,9 @@ $dark: #013d83;
     font-size: 24px;
     font-weight: 400;
     line-height: normal;
+    span{
+        color: #fff !important;
+    }
 }
 //------media-query--------------
 @media (max-width: 1800px) {
@@ -147,7 +150,6 @@ $dark: #013d83;
     .train-areas__card {
         flex-direction: column;
         width: 100%;
-        border-radius: 16px;
     }
     .train-areas__carousel-wrapper {
         width: 100%;
@@ -157,6 +159,7 @@ $dark: #013d83;
         width: 100%;
         height: 630px;
         padding: 30px;
+        border-radius: 0 0 32px 32px;
     }
     .train-areas__info-title {
         font-size: 46px;
@@ -188,7 +191,6 @@ $dark: #013d83;
     .train-areas__card {
         flex-direction: column;
         width: 100%;
-        border-radius: 14px;
     }
     .train-areas__carousel-wrapper {
         width: 100%;
@@ -198,6 +200,7 @@ $dark: #013d83;
         width: 100%;
         height: 490px;
         padding: 25px;
+        border-radius: 0 0 24px 24px;
     }
     .train-areas__info-title {
         font-size: 34px;
@@ -229,7 +232,6 @@ $dark: #013d83;
     .train-areas__card {
         flex-direction: column;
         width: 100%;
-        border-radius: 12px;
     }
     .train-areas__carousel-wrapper {
         width: 100%;
@@ -239,6 +241,7 @@ $dark: #013d83;
         width: 100%;
         height: 310px;
         padding: 20px;
+        border-radius: 0 0 16px 16px;
     }
     .train-areas__info-title {
         font-size: 22px;

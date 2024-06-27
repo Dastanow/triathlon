@@ -20,8 +20,18 @@
             gap: 20px;
         }
     }
+    button{
+        width: unset;
+        height: unset;
+        margin: unset;
+        padding: 17px 60px;
+        @media screen and (max-width: 1280px) {
+            font-size: 16px;
+            padding: 15px 60px;
+        }
+    }
     &Image {
-        width: 58%;
+        width: 57%;
         align-self: stretch;
         img {
             height: 100%;
@@ -30,19 +40,12 @@
             object-position: 10%;
             border-radius: 24px;
         }
-        @media screen and (max-width: 1280px) {
-            width: 100%;
-        }
     }
     &Content {
-        height: 100%;
         width: 40%;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        @media screen and (max-width: 1280px) {
-            width: 100%;
-        }
+        justify-content: space-between;
         @media screen and (max-width: 490px) {
             button {
                 border-radius: 12px;
@@ -56,7 +59,7 @@
         height: max-content;
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 2%;
     }
     &Title {
@@ -79,10 +82,7 @@
         line-height: 120%;
         margin-bottom: 25px;
         @media screen and (max-width: 1280px) {
-            font-size: 22px;
-        }
-        @media screen and (max-width: 768px) {
-            font-size: 16px;
+            font-size: 18px !important;
         }
         @media screen and (max-width: 490px) {
             margin-bottom: 5px;
@@ -110,6 +110,10 @@
     .aboutUs {
         &Content {
             gap: 10px;
+            width: 100%;
+        }
+        &Image{
+            width: 100%;
         }
         &Title {
             font-size: 0;

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@components'
 import { axiosAPI } from '@/App'
@@ -17,6 +17,8 @@ export const Footer = () => {
     const [allData, setAllData] = useState([])
     const [contactsOpen, setContactsOpen] = useState(false)
     const [phoneNumbers, setPhoneNumbers] = useState([])
+    const navigate = useNavigate()
+    const location = useLocation()
     const [mobile, setMobile] = useState(
         window.matchMedia('(max-width: 768px)').matches,
     )
@@ -76,6 +78,29 @@ export const Footer = () => {
     useEffect(() => {
         fetchAllData(endpoints)
     }, [i18n.language])
+
+    const handleNavLinkClick = (path) => {
+        if (path.id.startsWith('#')) {
+            const section = document.querySelector(path.id)
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' })
+            }
+        } else {
+            navigate(path.id)
+        }
+    }
+
+    const handleNavLinkOnFirstPage = (path) => {
+        if (location.pathname !== '/') {
+            navigate('/')
+            setTimeout(() => {
+                handleNavLinkClick(path)
+            }, 1000)
+        } else {
+            handleNavLinkClick(path)
+        }
+    }
+
 
     return (
         <footer className="footer">
@@ -199,14 +224,22 @@ export const Footer = () => {
                                                     {t(path.text)}
                                                 </Link>
                                             ) : (
-                                                <a href={path.id}>
+                                                <p onClick={()=>
+                                                handleNavLinkOnFirstPage(path)}>
                                                     {t(path.text)}
-                                                </a>
+                                                </p>
                                             )}
                                         </>
                                     )}
                                 </li>
                             ))}
+                            <li>
+                                <a
+                                    href="https://triathlon.kg/news"
+                                    target="_blank">
+                                    Новости
+                                </a>
+                            </li>
                         </ul>
                     )}
                     <ul className="footerContent footerSchedule">
@@ -222,17 +255,17 @@ export const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footerContent footerNews">
-                        <li>
-                            {mobile && (
+                    {mobile && (
+                        <ul className="footerContent footerNews">
+                            <li>
                                 <a
                                     href="https://triathlon.kg/news"
                                     className="news">
                                     {t('news')}
                                 </a>
-                            )}
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    )}
                     <ul className="footerContent footerVacancies">
                         <li>
                             <Link to="/vacancies">

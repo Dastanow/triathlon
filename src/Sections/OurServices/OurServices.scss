@@ -1,4 +1,4 @@
-#ourServices{
+#ourServices {
     position: absolute;
     top: -70px;
     left: 0;
@@ -8,10 +8,10 @@
     position: relative;
     padding-top: 112px;
     @media screen and (max-width: 1280px) {
-      padding-top: 80px;
+        padding-top: 80px;
     }
     @media screen and (max-width: 768px) {
-      padding-top: 30px;
+        padding-top: 30px;
     }
 }
 
@@ -47,12 +47,12 @@
     &Card {
         display: flex;
         align-items: center;
-        background: #013D83;
+        background: #013d83;
         border-radius: 16px;
         max-width: 360px;
         width: 100%;
         min-height: 185px;
-        transition: .3s ease-out;
+        transition: 0.3s ease-out;
         &:hover {
             background: #00489a;
         }
@@ -84,10 +84,10 @@
             width: 100%;
         }
         &Label {
-            color: #FFF;
+            color: #fff;
             font-size: 25px;
             font-weight: 600;
-            width:100%;
+            width: 100%;
             margin: 12px;
             @media screen and (max-width: 1440px) {
                 font-size: 19px;
@@ -168,6 +168,11 @@
             &:hover {
                 background: #001227;
             }
+        }
+    }
+    .faqFormBottom {
+        .btn {
+            margin-bottom: 0;
         }
     }
 }

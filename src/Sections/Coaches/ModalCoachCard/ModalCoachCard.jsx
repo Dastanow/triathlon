@@ -6,7 +6,6 @@ const ModalCoachCard = ({ coach }) => {
 
     const { photo, name, position, description } = coach
 
-    console.log(description)
 
     return (
         <div className="coach-modal-card">

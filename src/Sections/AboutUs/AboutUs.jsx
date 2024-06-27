@@ -29,12 +29,14 @@ export const AboutUs = () => {
                             <img src={item.image} alt="about us image" />
                         </div>
                         <div className="aboutUsContent">
-                            <h3 className="aboutUsTitle">{item.title}</h3>
-                            <div
-                                className="aboutUsDescription"
-                                dangerouslySetInnerHTML={{
-                                    __html: item.desc,  
-                                }}></div>
+                            <div className="AboutUsContentText">
+                                <h3 className="aboutUsTitle">{item.title}</h3>
+                                <div
+                                    className="aboutUsDescription"
+                                    dangerouslySetInnerHTML={{
+                                        __html: item.desc,
+                                    }}></div>
+                            </div>
                             <a href="https://triathlon.kg" target="_blank">
                                 <CustomButton type="primary">
                                     {t('buttonKR')}

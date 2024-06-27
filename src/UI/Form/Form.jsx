@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import success from '@assets/check.svg'
 import remove from '@assets/trash.svg'
 import successIcon from '@assets/successForm.svg'
-import { formatPhoneNumber, validateForm } from '@/utils/validate'
+import { validateForm } from '@/utils/validate'
 
 const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const { t } = useTranslation()
@@ -20,9 +20,11 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
     const [fileUrl, setFileUrl] = useState(null)
     const [errors, setErrors] = useState({})
 
+    console.log(type);
     useEffect(() => {
-        if (isOpen === false) {
+        if (isOpen == false) {
             setIsSuccess(false)
+            resetForm()
         }
     }, [isOpen, setIsSuccess])
 
@@ -31,7 +33,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         let processedValue = inputValue
 
         if (type === 'phone') {
-            processedValue = formatPhoneNumber(inputValue)
+            processedValue = inputValue
             setter(processedValue)
             setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: '' }))
             return
@@ -41,7 +43,8 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 if (
                     selectedFile.type === 'application/pdf' ||
                     selectedFile.type ===
-                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                    selectedFile.type === 'application/msword'
                 ) {
                     setFile(selectedFile)
                     setFileUrl(URL.createObjectURL(selectedFile))
@@ -51,8 +54,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                     setFileUrl(null)
                     setErrors((prevErrors) => ({
                         ...prevErrors,
-                        summary:
-                            'Загруженный файл не является корректным файлом.',
+                        summary: t('selectProperFile'),
                     }))
                 }
             } else {
@@ -96,7 +98,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
         setFileUrl(null)
         setErrors((prevErrors) => ({
             ...prevErrors,
-            summary: t('fileRequired'),
+            summary: t('selectFile'),
         }))
     }
 
@@ -133,18 +135,9 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
             }
             formData.append('summary', file)
 
-            console.log('Form Data:', {
-                name,
-                number: phoneNumber.replace(/\s+/g, '').trim(),
-                description: type !== 'vacancy' ? question : undefined,
-                email: type === 'vacancy' ? email : undefined,
-                file,
-            })
-
             const endpoint =
-                type === 'default' || type === 'leaveRequest'
-                    ? '/applicationwebhook/'
-                    : '/application/'
+                type == 'vacancy' ? '/application/' : '/applicationquestion/'
+
             const response = await axiosAPI.post(endpoint, formData)
 
             if (response.status === 200 || response.status === 201) {
@@ -152,10 +145,12 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                 setIsSuccess(true)
             } else if (response.status === 404) {
                 alert('Page not found. Please try again later.')
+                resetForm()
                 setIsSuccess(false)
             }
         } catch (error) {
             console.error('Error during form submission:', error)
+            resetForm()
             setIsSuccess(false)
         }
     }
@@ -264,7 +259,7 @@ const Form = ({ type, isOpen, setIsSuccess, isSuccess }) => {
                                         {t('dragAndDrop')} <b>{t('upload')}</b>
                                     </p>
                                     <p className="faqFormDescriptionContinue">
-                                        {t('fileSize')}
+                                        {t('fileSize')} <br />
                                         {t('format')}
                                     </p>
                                 </>

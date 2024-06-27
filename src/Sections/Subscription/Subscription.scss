@@ -175,6 +175,11 @@
             flex-direction: column;
             gap: 16px;
             align-items: flex-start;
+            svg{
+                vertical-align: middle;
+                width: 20px;
+                height: 20px;
+            }
             li {
                 display: flex;
                 align-items: center;
@@ -191,18 +196,14 @@
             }
         }
     }
-    .check{
-        color: #000;
-    }
+    
     .prime {
         border: 1px solid #fff;
         background: #013d83;
         box-shadow: 0px 0px 24.998px 0px #013d83, 0px 0px 14.285px 0px #013d83,
             0px 0px 8.333px 0px #013d83, 0px 0px 4.166px 0px #013d83,
             0px 0px 1.19px 0px #013d83, 0px 0px 0.595px 0px #013d83;
-        .check{
-            color: #fff;
-        }
+
     }
     .default {
         border: 1px solid #000000;
@@ -220,6 +221,9 @@
             }
             hr {
                 background: #000000;
+            }
+            .btn{
+                margin-bottom: 0;
             }
         }
         .subscriptionCardItems {

@@ -15,8 +15,6 @@ export const VacanciesPage = () => {
         }
     };
 
-    console.log(data)
-
     useEffect(() => {
         getData();
     }, [i18n.language]);

@@ -1,76 +1,62 @@
-import validateRules from './validateRules';
+import i18n from '@/i18n'
+import validateRules from './validateRules'
 
 export const validate = (data, config) => {
-    const errors = {};
-    
+    const errors = {}
+
     for (const fieldName in data) {
-        const validationRules = config[fieldName];
+        const validationRules = config[fieldName]
         for (const rule in validationRules) {
-            const { message, param } = validationRules[rule];
-            const validator = validateRules[rule];
+            const { message, param } = validationRules[rule]
+            const validator = validateRules[rule]
             const hasError = validator && !validator(data[fieldName], param)
 
-            if(hasError && !errors[fieldName]) {
-                errors[fieldName] = message;
-                break;
+            if (hasError && !errors[fieldName]) {
+                errors[fieldName] = message
+                break
             }
         }
     }
 
-    return errors;
+    return errors
 }
 
-export const formatPhoneNumber = (inputValue) => {
-    const formattedPhoneNumber = inputValue.replace(/\D/g, '');
-    let maskedPhoneNumber = '+';
-    if (formattedPhoneNumber.length > 0) {
-        maskedPhoneNumber += 996;
-    }
-    if (formattedPhoneNumber.length > 3) {
-        maskedPhoneNumber += `(${formattedPhoneNumber.substring(3, 6)})`;
-    }
-    if (formattedPhoneNumber.length > 6) {
-        maskedPhoneNumber += ` ${formattedPhoneNumber.substring(6, 9)}`;
-    }
-    if (formattedPhoneNumber.length > 9) {
-        maskedPhoneNumber += `-${formattedPhoneNumber.substring(9, 12)}`;
-    }
-    return maskedPhoneNumber;
-};
-
-export const validateForm = (name, question, phoneNumber, email, file, setErrors, type) => {
-    let formErrors = {};
+export const validateForm = (
+    name,
+    question,
+    phoneNumber,
+    email,
+    file,
+    setErrors,
+    type,
+) => {
+    let formErrors = {}
 
     if (!name) {
-        formErrors.name = 'Введите ваше имя';
+        formErrors.name = i18n.t('enterName')
     }
     if (!phoneNumber) {
-        formErrors.phoneNumber = 'Введите ваш номер';
+        formErrors.phoneNumber = i18n.t('enterPhone')
     } else if (phoneNumber.length <= 16) {
-        formErrors.phoneNumber = 'Введите телефон полностью';
+        formErrors.phoneNumber = i18n.t('enterPhoneFully')
     }
 
     if (type === 'default' || type === 'leaveRequest') {
         if (!question) {
-            formErrors.description = 'Введите краткое описание';
+            formErrors.description = i18n.t('enterShortDescrib')
         }
     }
 
     if (type === 'vacancy') {
         if (!email) {
-            formErrors.email = 'Введите Email';
+            formErrors.email = i18n.t('enterEmail')
         }
 
         if (!file) {
-            formErrors.summary = 'Выберите файл';
-        } else if (!(file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-            formErrors.summary = 'Выберите файл в форматах PDF или DOCX';
-        }
+            formErrors.summary = i18n.t('selectFile')
+        } 
     }
 
-    setErrors(formErrors);
-    return Object.keys(formErrors).length === 0;
-};
-
-
-
+    setErrors(formErrors)
+    return Object.keys(formErrors).length === 0
+}

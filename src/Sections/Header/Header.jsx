@@ -5,12 +5,16 @@ import logotypeKy from '@assets/Triathlon center logo_kg.svg'
 import account from '@assets/account.svg'
 import chevron from '@assets/solar_chevron-up.svg'
 import ru from '@assets/language_rus.png'
+import Map from '@assets/map.svg'
+import Email from '@assets/email.svg'
+import Instagram from '@assets/instagram.svg'
+import Phone from '@assets/phone.svg'
 import ky from '@assets/language_kyr.png'
-import burger from '@assets/burger.png'
-import close from '@assets/close_burg.png'
+import close from '@assets/close.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from '@components/Container/Container'
 import { useTranslation } from 'react-i18next'
+import { axiosAPI } from '@/App'
 
 export const navigatePath = [
     { text: 'path1', id: '#main' },
@@ -29,27 +33,41 @@ export const Header = () => {
     )
     const { t, i18n } = useTranslation()
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+    const [contactsOpen, setContactsOpen] = useState(false)
     const [showOtherImage, setShowOtherImage] = useState(false)
     const [isLanguageOptionsOpen, setIsLanguageOptionsOpen] = useState(false)
     const headerRef = useRef(null)
     const navigate = useNavigate()
     const location = useLocation()
+    const ref = useRef(null)
+    const [phoneNumbers, setPhoneNumbers] = useState([])
     const [is404Error, setIs404Error] = useState(false)
+
+    const fetchData = async () => {
+        try {
+            const { data } = await axiosAPI.get('contacts')
+            setPhoneNumbers(data)
+        } catch (error) {
+            console.error('Error fetching data from contacts:', error)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     useEffect(() => {
         const validPaths = ['/vacancies', '/']
         const isValidPath =
-            validPaths.includes(window.location.pathname) ||
-            validPaths.some((path) =>
-                window.location.pathname.startsWith(path + '/'),
-            )
+            validPaths.includes(location.pathname) ||
+            validPaths.some((path) => location.pathname.startsWith(path + '/'))
 
         if (!isValidPath) {
             setIs404Error(true)
         } else {
             setIs404Error(false)
         }
-    }, [window.location.pathname])
+    }, [location.pathname])
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', selectedLanguage)
@@ -90,9 +108,9 @@ export const Header = () => {
         setShowOtherImage((prevState) => !prevState)
         setIsLanguageOptionsOpen((prevState) => !prevState)
     }
-
-    const isHome = location.pathname
-    console.log(isHome)
+    const handleContactsClick = () => {
+        setContactsOpen((prev) => !prev)
+    }
 
     const handleNavLinkClick = (path) => {
         if (path.id.startsWith('#')) {
@@ -107,7 +125,7 @@ export const Header = () => {
     }
 
     const handleNavLinkOnFirstPage = (path) => {
-        if (window.location.pathname !== '/') {
+        if (location.pathname !== '/') {
             navigate('/')
             setTimeout(() => {
                 handleNavLinkClick(path)
@@ -151,35 +169,98 @@ export const Header = () => {
                                     : 'headerNav'
                             }>
                             {navigatePath.map((path, index) => (
-                                <li key={index}>
-                                    {path.id.startsWith('/') ? (
-                                        <Link
-                                            target={
-                                                path.id === '/schedule'
-                                                    ? '_blank'
-                                                    : '_self'
-                                            }
-                                            to={path.id}
-                                            className="headerNavLink">
-                                            {t(path.text)}
-                                        </Link>
-                                    ) : (
-                                        <p
-                                            className="headerNavLink"
-                                            onClick={() =>
-                                                handleNavLinkOnFirstPage(path)
-                                            }>
-                                            {t(path.text)}
-                                        </p>
-                                    )}
+                                <div key={index} style={{ width: '100%' }}>
+                                    <li>
+                                        {path.id.startsWith('/') ? (
+                                            <Link
+                                                target={
+                                                    path.id === '/schedule'
+                                                        ? '_blank'
+                                                        : '_self'
+                                                }
+                                                to={path.id}
+                                                className="headerNavLink">
+                                                {t(path.text)}
+                                            </Link>
+                                        ) : (
+                                            <p
+                                                className="headerNavLink"
+                                                onClick={() =>
+                                                    handleNavLinkOnFirstPage(
+                                                        path,
+                                                    )
+                                                }>
+                                                {t(path.text)}
+                                            </p>
+                                        )}
+                                    </li>
                                     {index === navigatePath.length - 1 && (
                                         <hr className="mobileSeparator" />
                                     )}
-                                </li>
+                                </div>
                             ))}
                             {count && (
                                 <div className="headerAccountBurger">
                                     <img src={account} alt="account" />
+                                    <div className="socials">
+                                        <a
+                                            href="https://www.google.com/maps/place/10+%D0%A4%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2%D0%B0,+Bishkek/@42.8600908,74.6056157,20.67z/data=!4m5!3m4!1s0x389eb632b000a38b:0xae646f5966b1033e!8m2!3d42.8601249!4d74.6056813?entry=ttu"
+                                            target="_blank">
+                                            <img src={Map} alt="map" />
+                                        </a>
+                                        <a
+                                            href="mailto:triathloncenter.kg@gmail.com"
+                                            target="_blank">
+                                            <img src={Email} alt="email" />
+                                        </a>
+                                        <a
+                                            href="https://www.instagram.com/triathloncenter.kg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                            target="_blank">
+                                            <img
+                                                src={Instagram}
+                                                alt="instagram"
+                                            />
+                                        </a>
+                                        <div
+                                            ref={ref}
+                                            className="contacts_mobile"
+                                            onClick={
+                                                contactsOpen
+                                                    ? () =>
+                                                          setContactsOpen(false)
+                                                    : () =>
+                                                          setContactsOpen(true)
+                                            }>
+                                            <img src={Phone} alt="Contact" />
+                                            <div
+                                                className={
+                                                    contactsOpen
+                                                        ? 'contactsShow active'
+                                                        : 'contactsShow'
+                                                }>
+                                                <a
+                                                    onClick={
+                                                        handleContactsClick
+                                                    }
+                                                    href={`tel: ${phoneNumbers[0]?.first_number}`}>
+                                                    {
+                                                        phoneNumbers[0]
+                                                            ?.first_number
+                                                    }
+                                                </a>
+                                                <a
+                                                    onClick={
+                                                        handleContactsClick
+                                                    }
+                                                    href={`tel: ${phoneNumbers[0]?.second_number}`}>
+                                                    {
+                                                        phoneNumbers[0]
+                                                            ?.second_number
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
                         </ul>
@@ -243,9 +324,13 @@ export const Header = () => {
                             onClick={() => setCount(!count)}
                             className="headerBurger">
                             {count ? (
-                                <img src={close} alt="close" />
+                                <img src={close} alt="close-button" />
                             ) : (
-                                <img src={burger} alt="burger" />
+                                <>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </>
                             )}
                         </div>
                     )}

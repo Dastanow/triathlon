@@ -58,7 +58,7 @@ export const ScrollTopButton = () => {
                     : 'scroll-to-top-icon'
             }
             ref={scrollToTopRef}>
-            <FaChevronUp className="chevron" />
+            <FaChevronUp className="chevron"  />
         </button>
     )
 }

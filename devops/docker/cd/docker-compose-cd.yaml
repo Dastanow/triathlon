@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: triathlon_frontend
+    build:
+      context: ../../../
+      dockerfile: devops/dockerfiles/docker_cd
+    volumes:
+      - ../../../dist:/opt/services/triathlon-frontend/dist
+    command: "sh /opt/services/triathlon-frontend/devops/entrypoints/cd_point.sh"

@@ -14,6 +14,7 @@ const CommentsCarousel = (props) => {
                 modules={[Pagination]}
                 spaceBetween={spaceBetween}
                 slidesPerView={slidesPerView}
+                grabCursor={true}
                 pagination={{ clickable: true }}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper

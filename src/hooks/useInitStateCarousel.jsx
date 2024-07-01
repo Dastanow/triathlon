@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 
 const useInitStateCarousel = () => {
     const [space, setSpace] = useState({ coach: 0, comment: 0 })
-    const [data, setData] = useState({ coach: 4, comment: 3 })
+    const [data, setData] = useState({
+        coach: 4,
+        comment: 3,
+        subscription: 3.26,
+    })
 
     const handleResize = () => {
         const inner = window.innerWidth
-        
+
         if (inner <= 425) {
             setSpace((prevState) => ({
                 ...prevState,
@@ -17,6 +21,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 1.565,
                 comment: 1,
+                subscription: 1.1,
             }))
         } else if (inner <= 600) {
             setSpace((prevState) => ({
@@ -28,6 +33,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 1.565,
                 comment: 1,
+                subscription: 1.2,
             }))
         } else if (inner < 769) {
             setSpace((prevState) => ({
@@ -39,6 +45,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 1.565,
                 comment: 1,
+                subscription: 1.65,
             }))
         } else if (inner > 1079 && inner < 1200) {
             setSpace((prevState) => ({
@@ -50,6 +57,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 4,
                 comment: 3,
+                subscription: 2.8,
             }))
         } else if (inner < 1320) {
             setSpace((prevState) => ({
@@ -61,6 +69,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 4,
                 comment: 3,
+                subscription: 2.9,
             }))
         } else if (inner < 1440) {
             setSpace((prevState) => ({
@@ -72,6 +81,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 4,
                 comment: 3,
+                subscription: 3,
             }))
         } else if (inner < 1560) {
             setSpace((prevState) => ({
@@ -97,6 +107,10 @@ const useInitStateCarousel = () => {
                 coach: 36,
                 comment: 36,
             }))
+            setData((prevState) => ({
+                ...prevState,
+                subscription: 3.45
+            }))
         }
     }
 
@@ -110,7 +124,13 @@ const useInitStateCarousel = () => {
         }
     }, [])
 
-    return [space.coach, data.coach, space.comment, data.comment]
+    return [
+        space.coach,
+        data.coach,
+        space.comment,
+        data.comment,
+        data.subscription,
+    ]
 }
 
 export default useInitStateCarousel

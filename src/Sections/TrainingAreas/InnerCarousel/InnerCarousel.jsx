@@ -9,6 +9,7 @@ const InnerCarousel = ({ slides }) => {
             modules={[Autoplay]}
             spaceBetween={10}
             slidesPerView={1}
+            grabCursor={true}
             loop={true}
             autoplay={{
                 delay: 3000,

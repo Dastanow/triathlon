@@ -12,6 +12,7 @@ const TrainingAreasCarousel = (props) => {
                 modules={[Pagination]}
                 spaceBetween={15}
                 slidesPerView={1}
+                grabCursor={true}
                 pagination={{ clickable: true }}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper

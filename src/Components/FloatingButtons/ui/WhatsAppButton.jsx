@@ -4,7 +4,7 @@ export const WhatsAppButton = () => {
         <a
             className="floatButton"
             aria-label="Chat on WhatsdApp"
-            href={'#'}
+            href="https://api.whatsapp.com/send/?phone=996227000180&type=phone_number"
             target="_blank"
         >
             <svg

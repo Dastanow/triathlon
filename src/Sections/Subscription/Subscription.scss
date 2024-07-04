@@ -42,15 +42,7 @@
             @media screen and (max-width: 425px) {
                 padding: 30px 28px;
             }
-            .swiper-wrapper {
-                gap: 36px;
-                @media screen and (max-width: 768px) {
-                    gap: 40px;
-                }
-                @media screen and (max-width: 425px) {
-                    gap: 20px;
-                }
-            }
+           
         }
 
         &::-webkit-scrollbar {

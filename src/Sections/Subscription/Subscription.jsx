@@ -16,7 +16,7 @@ import './Subscription.scss'
 export const Subscription = () => {
     const [modalActive, setModalActive] = useState(false)
     const [subsData, setSubsData] = useState()
-    const [, , , , slidesPerView] = useInitStateCarousel()
+    const [, , , , SpaceBetween, slidesPerView] = useInitStateCarousel()
     const { t, i18n } = useTranslation()
 
     const fetchSubscription = async () => {
@@ -45,6 +45,7 @@ export const Subscription = () => {
                         slidesPerView={slidesPerView}
                         freeMode={true}
                         grabCursor={true}
+                        spaceBetween={SpaceBetween}
                         modules={[FreeMode]}>
                         {subsData &&
                             subsData?.map((subscription, i) => (

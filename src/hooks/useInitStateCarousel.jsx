@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const useInitStateCarousel = () => {
-    const [space, setSpace] = useState({ coach: 0, comment: 0 })
+    const [space, setSpace] = useState({ coach: 0, comment: 0, subscription: 3.26, })
     const [data, setData] = useState({
         coach: 4,
         comment: 3,
@@ -16,6 +16,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 12,
                 comment: 12,
+                subscription: 20,
             }))
             setData((prevState) => ({
                 ...prevState,
@@ -40,6 +41,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 24,
                 comment: 24,
+                subscription: 40,
             }))
             setData((prevState) => ({
                 ...prevState,
@@ -106,6 +108,7 @@ const useInitStateCarousel = () => {
                 ...prevState,
                 coach: 36,
                 comment: 36,
+                subscription: 36,
             }))
             setData((prevState) => ({
                 ...prevState,
@@ -129,6 +132,7 @@ const useInitStateCarousel = () => {
         data.coach,
         space.comment,
         data.comment,
+        space.subscription,
         data.subscription,
     ]
 }

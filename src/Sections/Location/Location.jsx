@@ -1,23 +1,22 @@
-import './Location.scss';
-import email from '@assets/emailSVG.svg';
-import phone from '@assets/phoneSVG.svg';
-import map from '@assets/mapSVG.svg';
-import { CustomTitle } from '@ui';
-import { Container } from '@components';
-import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
-import locationapiSer from '@/Services/locationService';
+import './Location.scss'
+import email from '@assets/emailSVG.svg'
+import phone from '@assets/phoneSVG.svg'
+import map from '@assets/mapSVG.svg'
+import { CustomTitle } from '@ui'
+import { Container } from '@components'
+import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
+import locationapiSer from '@/Services/locationService'
 
 const Location = () => {
-    const [locationapi, setLocationapi] = useState([]);
+    const [locationapi, setLocationapi] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            locationapiSer.get()
-                .then((data) => setLocationapi(data))
-        };
+            locationapiSer.get().then((data) => setLocationapi(data))
+        }
         fetchData()
-    }, []);
-    const {t} = useTranslation()
+    }, [])
+    const { t } = useTranslation()
     return (
         <section className="location" id="location_block">
             <div id="location"></div>
@@ -30,10 +29,34 @@ const Location = () => {
                             {locationapi?.map((item, i) => {
                                 return (
                                     <div key={i}>
-                                        <li className="locationItem"><img src={email}  alt="img" />{item.email}</li>
-                                        <li className="locationItem"><img src={phone} alt="img" />{item.second_number}</li>
-                                        <li className="locationItem"><img src={phone} alt="img" />{item.first_number}</li>
-                                        <li className="locationItemMap"><img src={map} alt="img"  />{item.address}</li>
+                                        <li className="locationItem">
+                                            <img src={email} alt="img" />
+                                            <a href={`mailto:${item.email}`}>
+                                                {item.email}
+                                            </a>
+                                        </li>
+                                        <li className="locationItem">
+                                            <img src={phone} alt="img" />
+                                            <a
+                                                href={`tel:${item.second_number}`}>
+                                                {item.second_number}
+                                            </a>
+                                        </li>
+                                        <li className="locationItem">
+                                            <img src={phone} alt="img" />
+                                            <a
+                                                href={`tel:${item.first_number}`}>
+                                                {item.first_number}
+                                            </a>
+                                        </li>
+                                        <li className="locationItemMap">
+                                            <img src={map} alt="img" />
+                                            <a
+                                                href={'https://maps.app.goo.gl/3htpkr3kmm9iKEmy6'}
+                                                target="_blank">
+                                                {item.address}
+                                            </a>
+                                        </li>
                                     </div>
                                 )
                             })}
@@ -46,7 +69,7 @@ const Location = () => {
                 </div>
             </Container>
         </section>
-    );
-};
+    )
+}
 
-export default Location;
+export default Location

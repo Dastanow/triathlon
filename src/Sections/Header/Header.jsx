@@ -201,7 +201,12 @@ export const Header = () => {
                             ))}
                             {count && (
                                 <div className="headerAccountBurger">
-                                    <img src={account} alt="account" />
+                                    <Link
+                                        to="/personal-account"
+                                        target="_blank">
+                                        <img src={account} alt="account" />
+                                    </Link>
+
                                     <div className="socials">
                                         <a
                                             href="https://www.google.com/maps/place/10+%D0%A4%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2%D0%B0,+Bishkek/@42.8600908,74.6056157,20.67z/data=!4m5!3m4!1s0x389eb632b000a38b:0xae646f5966b1033e!8m2!3d42.8601249!4d74.6056813?entry=ttu"
@@ -334,21 +339,12 @@ export const Header = () => {
                             )}
                         </div>
                     )}
-                    {location.pathname === '/vacancy' && (
-                        <Link
-                            to={`${location.pathname}#${navigatePath[2].id}`}
-                            className="headerAccount">
-                            <img src={account} alt="account" />
-                        </Link>
-                    )}
-                    {location.pathname !== '/vacancy' && (
-                        <Link
-                            to="/personal-account"
-                            target="_blank"
-                            className="headerAccount">
-                            <img src={account} alt="account" />
-                        </Link>
-                    )}
+                    <Link
+                        to="/personal-account"
+                        target="_blank"
+                        className="headerAccount">
+                        <img src={account} alt="account" />
+                    </Link>
                 </div>
             </Container>
         </header>
